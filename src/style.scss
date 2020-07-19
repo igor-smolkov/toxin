@@ -1,4 +1,12 @@
 @import 'reset.css';
+@import 'fonts/Montserrat-Regular/fonts.css';
+@import 'fonts/Montserrat-Bold/fonts.css';
+@import 'fonts/Quicksand-Bold/Quicksand.css';
+
+$font-main: 'Conv_Montserrat-Regular', sans-serif;
+$font-main-bold: 'Conv_Montserrat-Bold', sans-serif;
+$font-title: 'Quicksand', sans-serif;
+$font-spare: 'Open Sans', sans-serif;
 
 .page {
     max-width: 1920px;

@@ -16,6 +16,7 @@ const baseTemplate = 'index.pug'
 const outputHTML = 'index.html'
 
 const imagesDir = 'images'
+const fontsDir = 'fonts'
 
 const pagesDir = 'pages'
 const pages = [
@@ -129,14 +130,18 @@ module.exports = {
             },
             {
                 test: /\.(png|jpg|svg|gif)$/,
+                exclude: /fonts/,
                 loader: 'file-loader',
                 options: {
                   name: `${imagesDir}/${filename('[ext]')}`,
                 }
             },
             {
-                test: /\.(ttf|woff|woff2|eot)$/,
-                use: ['file-loader']
+                test: /\.(ttf|woff|otf|eot|svg|woff2)$/,
+                loader: 'file-loader',
+                options: {
+                  name: `${fontsDir}/${filename('[ext]')}`,
+                }
             },
             {
                 test: /\.js$/,
