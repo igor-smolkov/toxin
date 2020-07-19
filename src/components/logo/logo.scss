@@ -1,0 +1,10 @@
+.logo {
+    width: 51.5px;
+    height: 51.5px;
+    border: 3px solid rgba(31, 32, 65, 0.25);
+    border-radius: 50%;
+    background-image: url('components/logo/elm1.png'), url('components/logo/elm2.png');
+    background-repeat: no-repeat;
+    background-size: 15.5px, 12.5px 8.5px;
+    background-position: 9px 16.5px, 24px 16.5px;
+}

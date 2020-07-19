@@ -1,3 +1,7 @@
-.class-2 {
-    color: rgb(0, 255, 200);
+@import '../../../components/logo/logo.scss';
+
+.logo {
+    position: absolute;
+    left: 33px;
+    top: 33px;
 }

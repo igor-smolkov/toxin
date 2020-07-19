@@ -15,6 +15,8 @@ const entryPoint = 'script.js'
 const baseTemplate = 'index.pug'
 const outputHTML = 'index.html'
 
+const imagesDir = 'images'
+
 const pagesDir = 'pages'
 const pages = [
     { 'ui-kit' : ['colors-and-type', 'form-elements', 'cards', 'headers-and-footers'] }, 
@@ -74,7 +76,7 @@ const plugins = () => {
     pages.forEach(type => {
         const key = Object.keys(type)[0]
         type[key].forEach(page => list.push(
-            toHTMLPage(`${pagesDir}/${key}/${page}/${page}.pug`, `${pagesDir}/${key}/${page}.html`)
+            toHTMLPage(`${pagesDir}/${key}/${page}/${page}.pug`, `${key}/${page}.html`)
         ))
     })
 
@@ -127,7 +129,10 @@ module.exports = {
             },
             {
                 test: /\.(png|jpg|svg|gif)$/,
-                use: ['file-loader']
+                loader: 'file-loader',
+                options: {
+                  name: `${imagesDir}/${filename('[ext]')}`,
+                }
             },
             {
                 test: /\.(ttf|woff|woff2|eot)$/,

@@ -5,8 +5,8 @@ block variables
   - var descr = 'Верстка макета TOXIN по второму заданию FSD'
 
 block content
-    .class-1= 'Список страниц:'
-    hr
-    a(href='pages/ui-kit/colors-and-type.html')= 'UI Kit - colors&type'
-    hr
-    a(href='pages/website/landing-page-1.html')= 'Landing - page 1'
+    ul.pages
+      li.pages_type= 'UI-KIT'
+        ul.pages_list
+          li.pages_name
+            a.pages_link(href='ui-kit/colors-and-type.html')= 'Colors & Type'
