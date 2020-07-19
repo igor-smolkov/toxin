@@ -1,0 +1,41 @@
+.type-section {
+    display: flex;
+    margin-bottom: 50px;
+    font-size: 14px;
+    line-height: 24px;
+    .title {
+        min-width: 37px;
+        text-align: right;
+        color: rgba(31, 32, 65, 0.25);
+    }
+    .example {
+        max-width: 336px;
+        margin-left: 30px;
+        color: rgba(31, 32, 65, 0.75);
+    }
+    &_h1 {
+        font-size: 24px;
+        line-height: 30px;
+        .example {
+            font-weight: bold;
+            color: #1F2041;
+        }
+    }
+    &_h2 {
+        font-size: 19px;
+        line-height: 24px;
+        .example {
+            font-weight: bold;
+            color: #1F2041;
+        }
+    }
+    &_h3 {
+        font-size: 12px;
+        line-height: 15px;
+        .example {
+            text-transform: uppercase;
+            font-weight: bold;
+            color: #1F2041;
+        }
+    }
+}

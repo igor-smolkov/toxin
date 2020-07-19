@@ -1,7 +1,15 @@
 extends ../../../layout
 
+include ../../../components/type-section/type-section.pug
+
 block variables
   - var title = 'TOXIN - UI kit'
 
 block content
     include ../../../components/logo/logo.pug
+    .colors
+    .types
+      +type-section('H1','This one is the sub-section or widget title')
+      +type-section('H2','Next one is the item title inside widgets')
+      +type-section('H3','This is a label or CTA text')
+      +type-section('Body','This is the body text which is used for most of the design, like paragraphs, lists, etc.')
