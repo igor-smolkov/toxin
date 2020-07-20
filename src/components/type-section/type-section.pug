@@ -1,18 +1,18 @@
+mixin type-section-content(title, text)
+  .type-section__title= title
+  .type-section__example= text
+
 mixin type-section(title, text)
   case title
     when 'H1'
       .type-section.type-section_h1
-        .title= title
-        .example= text
+        +type-section-content(title, text)
     when 'H2'
       .type-section.type-section_h2
-        .title= title
-        .example= text
+        +type-section-content(title, text)
     when 'H3'
       .type-section.type-section_h3
-        .title= title
-        .example= text
+        +type-section-content(title, text)
     default
       .type-section.type-section_body
-        .title= title
-        .example= text
+        +type-section-content(title, text)
