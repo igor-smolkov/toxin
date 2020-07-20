@@ -1,0 +1,71 @@
+@import '../../../components/logo/logo.scss';
+
+.form-elements {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    .logo {
+        position: absolute;
+        left: 30px;
+        top: 30px;
+    }
+    
+    .fields {
+        width: 320px;
+        height: 633px;
+        border: 1px solid black;
+    }
+    .checks {
+        width: 260px;
+        height: 537px;
+        border: 1px solid black;
+    }
+    .buttons {
+        width: 320px;
+        height: 503px;
+        border: 1px solid black;
+    }
+    
+    .dropdowns_section_1 {
+        width: 266px;
+        height: 266px;
+        border: 1px solid black;
+    }
+    .dropdowns_section_2 {
+        width: 320px;
+        height: 222px;
+        border: 1px solid black;
+    }
+    .dropdowns_section_3 {
+        width: 320px;
+        height: 222px;
+        border: 1px solid black;
+    }
+    
+    .check-lists_section_1 {
+        width: 266px;
+        height: 268px;
+        border: 1px solid black;
+    }
+    .check-lists_section_2 {
+        width: 266px;
+        height: 145px;
+        border: 1px solid black;
+    }
+    .check-lists_section_3 {
+        width: 291px;
+        height: 147px;
+        border: 1px solid black;
+    }
+    
+    .extras {
+        width: 280px;
+        height: 158px;
+        border: 1px solid black;
+    }
+    .comments {
+        width: 711px;
+        height: 133px;
+        border: 1px solid black;
+    }
+}

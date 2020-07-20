@@ -2,54 +2,55 @@
 @import '../../../components/type-section/type-section.scss';
 @import '../../../components/color-section/color-section.scss';
 
-.page {
+.colors-and-type {
     display: flex;
     justify-content: space-around;
-}
-
-.logo {
-    position: absolute;
-    left: 33px;
-    top: 33px;
-}
-
-.colors {
-    min-width: 269.26px;
-    height: 610px;
-    margin-top: 145px;
-    margin-right: 25px;
-    margin-left: 149.74px;
-}
-
-.types {
-    min-width: 403px;
-    height: 321px;
-    margin-top: 145px;
-    margin-right: 191px;
-    margin-left: 25px;
-    display: flex;
-    flex-direction: column;
+    .logo {
+        position: absolute;
+        left: 30px;
+        top: 30px;
+    }
+    
+    .colors {
+        min-width: 269.26px;
+        height: 610px;
+        margin-top: 145px;
+        margin-right: 25px;
+        margin-left: 149.74px;
+    }
+    
+    .types {
+        min-width: 403px;
+        height: 321px;
+        margin-top: 145px;
+        margin-right: 191px;
+        margin-left: 25px;
+        display: flex;
+        flex-direction: column;
+    }
 }
 
 @media only screen and (max-width : 850px) {
-    .page {
+    .colors-and-type {
         flex-direction: column;
         justify-content: start;
-    }
-    .colors {
-        align-self: center;
-        margin: 145px 100px;
-        margin-bottom: 0;
-    }
-    .types {
-        align-self: center;
-        margin: 100px;
-        margin-bottom: 0;
+        .colors {
+            align-self: center;
+            margin: 145px 100px;
+            margin-bottom: 0;
+        }
+        .types {
+            align-self: center;
+            margin: 100px;
+            margin-bottom: 0;
+        }
     }
 }
 
 @media only screen and (max-width : 420px) {
-    .types {
-        min-width: 95%;
+    .colors-and-type {
+        .types {
+            min-width: 95%;
+        }
     }
 }
