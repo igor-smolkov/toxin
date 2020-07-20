@@ -2,6 +2,7 @@ extends ../../../layout
 
 include ../../../components/logo/logo.pug
 include ../../../components/type-section/type-section.pug
+include ../../../components/color-section/color-section.pug
 
 block variables
   - var title = 'TOXIN - UI kit'
@@ -9,6 +10,13 @@ block variables
 block content
     +logo
     .colors
+      +color-section('Dark Shade 100%', '#1F2041')
+      +color-section('Dark Shade 75%', '#1F2041')
+      +color-section('Dark Shade 50%', '#1F2041')
+      +color-section('Dark Shade 25%', '#1F2041')
+      +color-section('Dark Shade 5%', '#1F2041')
+      +color-section('Purple', '#BC9CFF')
+      +color-section('Green', '#6FCF97')
     .types
       +type-section('H1','This one is the sub-section or widget title')
       +type-section('H2','Next one is the item title inside widgets')

@@ -1,5 +1,6 @@
 @import '../../../components/logo/logo.scss';
 @import '../../../components/type-section/type-section.scss';
+@import '../../../components/color-section/color-section.scss';
 
 .page {
     display: flex;
@@ -18,7 +19,6 @@
     margin-top: 145px;
     margin-right: 25px;
     margin-left: 149.74px;
-    border: 1px solid red;
 }
 
 .types {

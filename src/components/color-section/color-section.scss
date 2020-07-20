@@ -1,0 +1,38 @@
+.color-section {
+    display: flex;
+    margin-bottom: 20px;
+    &__rect {
+        width: 70px;
+        height: 70px;
+        background-color: $color;
+        border-radius: 6px;
+        &_color_75per {
+            background-color: $color_75per;
+        }
+        &_color_50per {
+            background-color: $color_50per;
+        }
+        &_color_25per {
+            background-color: $color_25per;
+        }
+        &_color_5per {
+            background-color: $color_5per;
+        }
+        &_color_purple {
+            background-color: $color_purple;
+        }
+        &_color_green {
+            background-color: $color_green;
+        }
+    }
+    &__name {
+        margin-top: 7px;
+        margin-left: 40px;
+        font-family: $font-title;
+        font-size: 19px;
+        line-height: 29px;
+    }
+    &__title {
+        font-family: $font-title-bold;
+    }
+}
