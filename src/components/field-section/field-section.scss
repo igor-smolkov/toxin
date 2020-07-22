@@ -3,7 +3,9 @@
 
 .field-section {
     position: relative;
+    min-width: 150px;
     margin-bottom: 20.5px;
+    // border: 1px solid blue;
     &__title {
         display: flex;
         justify-content: space-between;
@@ -15,9 +17,14 @@
         color: $color-50per;
     }
     &__name {
-        align-self: flex-end;
+        min-width: 150px;
         font-family: $font-main-bold;
         color: $color;
+    }
+    &__details {
+        &_none {
+            display: none;
+        }
     }
     &:last-child {
         margin-bottom: 0;

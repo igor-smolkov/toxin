@@ -1,5 +1,11 @@
 include ../field/field.pug
 
-mixin dropdown(value)
+mixin dropdown(value, type)
   .dropdown
-    +field('default', value)
+    if type
+      if type == 'filter'
+        +field('default', 'text', value, '', '', true)
+      else
+        +field('default', type, value)
+    else
+      +field('default', 'text', value)
