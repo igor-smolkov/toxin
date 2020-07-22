@@ -5,4 +5,7 @@ mixin field-section(name, state)
     .field-section__title
       .field-section__name= name
       .field-section__state= state
-    +field('Email')
+    if (name == 'Text Field') && (state == 'Default')
+      +field('default', 'Email')
+    else if (name == 'Text Field') && (state == 'Hover / Focus')
+      +field('hover', 'This is pretty awesome')

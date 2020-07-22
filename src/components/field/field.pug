@@ -1,2 +1,8 @@
-mixin field(placeholder)
-  input.field(type='text' placeholder=placeholder)
+mixin field(mode, placeholder)
+  case mode
+    when 'default'
+        input.field(type='text' placeholder=placeholder)
+    when 'hover'
+        input.field.field_hover(type='text' placeholder=placeholder)
+    when 'focus'
+        input.field.field_focus(type='text' placeholder=placeholder)
