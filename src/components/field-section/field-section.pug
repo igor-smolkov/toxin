@@ -21,3 +21,5 @@ mixin field-section(name, details, value, placeholder)
       +dropdown(value ? value : '', 'date')
     else if name == 'filter date dropdown'
       +dropdown(value, 'filter')
+    else if name == 'subscription text field'
+      +dropdown(value, 'field')

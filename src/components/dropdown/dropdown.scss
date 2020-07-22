@@ -8,4 +8,9 @@
         right: 0;
         background: no-repeat center url('components/dropdown/expand_more.png');
     }
+    &_forward {
+        &::before {
+            background: no-repeat center url('components/dropdown/arrow_forward.png');
+        }
+    }
 }
