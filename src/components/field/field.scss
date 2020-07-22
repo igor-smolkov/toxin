@@ -3,26 +3,21 @@
     height: 44px;
     border: 1px solid $color-25per;
     border-radius: 4px;
-    padding: 13px 14.5px;
+    padding: 9px 14px 11px 14px;
     font-family: $font-main;
-    font-size: 13.5px;
-    letter-spacing: 0.1px;
+    font-size: 14px;
     line-height: 18px;
     color: $color-75per;
     &::placeholder {
-        letter-spacing: 0.3px;
         color: $color-25per;
     }
     &_hover,
     &:hover,
     &_focus,
     &:focus {
-        padding: 9px 14px 11px 14px;
         border-color: $color-50per;
         line-height: 24px;
-        vertical-align: top;
         &::placeholder {
-            letter-spacing: 0.1px;
             color: $color-75per;
         }
     }

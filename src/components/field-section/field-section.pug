@@ -1,4 +1,5 @@
 include ../field/field.pug
+include ../dropdown/dropdown.pug
 
 mixin field-section(name, state)
   .field-section
@@ -6,6 +7,8 @@ mixin field-section(name, state)
       .field-section__name= name
       .field-section__state= state
     if (name == 'Text Field') && (state == 'Default')
-      +field('default', 'Email')
+      +field('default', '', 'Email')
     else if (name == 'Text Field') && (state == 'Hover / Focus')
-      +field('hover', 'This is pretty awesome')
+      +field('hover', '', 'This is pretty awesome')
+    else if (name == 'Dropdown') && (state == 'Default')
+      +dropdown('Сколько гостей')
