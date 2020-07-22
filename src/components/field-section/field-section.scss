@@ -1,0 +1,26 @@
+@import '../field/field.scss';
+
+.field-section {
+    &__title {
+        display: flex;
+        justify-content: space-between;
+        font-family: $font-main;
+        font-size: 12px;
+        line-height: 15px;
+        text-transform: uppercase;
+        color: $color-50per;
+    }
+    &__name {
+        margin-bottom: 5px;
+        align-self: flex-end;
+        font-family: $font-main-bold;
+        color: $color;
+        //border: 1px solid blue;
+    }
+    &__state {
+        
+        align-self: flex-start;
+        margin-bottom: 8px;
+        //border: 1px solid blue;
+    }
+}

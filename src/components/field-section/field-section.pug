@@ -1,0 +1,8 @@
+include ../field/field.pug
+
+mixin field-section(name, state)
+  .field-section
+    .field-section__title
+      .field-section__name= name
+      .field-section__state= state
+    +field('Email')

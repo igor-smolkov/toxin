@@ -1,4 +1,5 @@
 @import '../../../components/logo/logo.scss';
+@import '../../../components/field-section/field-section.scss';
 
 .form-elements {
     display: flex;
@@ -15,13 +16,13 @@
         margin-bottom: 0;
         display: flex;
         flex-direction: row;
-        justify-content: space-around;
+        justify-content: center;
         flex-wrap: wrap;
         border: 1px solid red;
         .fields {
             width: 320px;
             height: 633px;
-            border: 1px solid black;
+            //border: 1px solid black;
         }
         .checks {
             margin-left: 126px;
@@ -42,7 +43,7 @@
         margin-bottom: 0;
         display: flex;
         flex-direction: row;
-        justify-content: space-around;
+        justify-content: center;
         flex-wrap: wrap;
         border: 1px solid red;
         .dropdowns_section_1 {
@@ -69,7 +70,7 @@
         margin-bottom: 0;
         display: flex;
         flex-direction: row;
-        justify-content: space-around;
+        justify-content: center;
         flex-wrap: wrap;
         border: 1px solid red;
         .check-lists_section_1 {
@@ -85,7 +86,8 @@
         }
         .check-lists_section_3 {
             margin-left: 126px;
-            width: 291px;
+            margin-right: 28px;
+            width: 292px;
             height: 147px;
             border: 1px solid black;
         }
@@ -95,7 +97,7 @@
         margin: 100px 140px;
         display: flex;
         flex-direction: row;
-        justify-content: space-around;
+        justify-content: center;
         flex-wrap: wrap;
         border: 1px solid red;
         .extras {
