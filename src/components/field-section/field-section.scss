@@ -19,4 +19,7 @@
         font-family: $font-main-bold;
         color: $color;
     }
+    &:last-child {
+        margin-bottom: 0;
+    }
 }

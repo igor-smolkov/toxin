@@ -1,14 +1,16 @@
 include ../field/field.pug
 include ../dropdown/dropdown.pug
 
-mixin field-section(name, state)
+mixin field-section(name, details)
   .field-section
     .field-section__title
       .field-section__name= name
-      .field-section__state= state
-    if (name == 'Text Field') && (state == 'Default')
+      .field-section__details= details  
+    if (name == 'Text Field') && (details == 'Default')
       +field('default', '', 'Email')
-    else if (name == 'Text Field') && (state == 'Hover / Focus')
+    else if (name == 'Text Field') && (details == 'Hover / Focus')
       +field('hover', '', 'This is pretty awesome')
-    else if (name == 'Dropdown') && (state == 'Default')
+    else if (name == 'Dropdown') && (details == 'Default')
       +dropdown('Сколько гостей')
+    else if (name == 'masked text field') && (details == 'Default')
+      +field('masked', '', 'ДД.ММ.ГГГГ')

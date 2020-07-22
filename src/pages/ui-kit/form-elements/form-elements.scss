@@ -22,7 +22,15 @@
         .fields {
             width: 320px;
             height: 633px;
-            //border: 1px solid black;
+            // border: 1px solid black;
+            &_section {
+                min-height: 65px;
+                margin-bottom: 40px;
+                // border: 1px solid purple;
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
         }
         .checks {
             margin-left: 126px;
