@@ -1,14 +1,49 @@
-@import '../radio-group/radio-group.scss';
-
 .toggle-group {
     margin: 1.5px 0 4px 0;
+    &__input {
+        position: absolute;
+        z-index: -1;
+        opacity: 0;
+        &:checked+label {
+            color: $color-75per;
+        }
+        &:checked+label::before {
+            border-color: $color-purple;
+        }  
+        &:checked+label::after {
+            content: '';
+            position: absolute;
+            display: block;
+            width: 12px;
+            height: 12px;
+            left: -26px;
+            top: 4px;
+            background: linear-gradient(180deg, $color-purple 0%, #8BA4F9 100%);
+            border-radius: 10px;
+        }  
+    }
     &__label {
+        position: relative;
+        display: inline-block;
         margin-left: 50px;
         margin-bottom: 5px;
+        font-family: $font_main;
+        font-size: 14px;
+        line-height: 18px;
+        color: $color-50per;
         color: $color-75per;
+        & ~ * {
+            margin-left: 50px;
+        }
         &::before {
-            left: -50px;
+            content: '';
+            position: absolute;
+            display: block;
             width: 40px;
+            height: 20px;
+            left: -50px;
+            border: 1px solid $color-25per;
+            border-radius: 10px;
         }
         &::after {
             content: '';

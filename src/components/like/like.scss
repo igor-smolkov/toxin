@@ -1,20 +1,28 @@
-@import '../toggle-group/toggle-group.scss';
-
 .like {
     display: inline-block;
+    position: relative;
     width: 40px;
     margin: 6px 0;
     & ~ * {
         margin-left: 10px;
     }
-    &__input:checked+label {
-        color: $color-purple;
-        &::before {
-            background-image: url('components/like/favorite.png');
-            background-position: 4px 5px;
+    &__input {
+        position: absolute;
+        z-index: -1;
+        opacity: 0;        
+        &:checked+label {
+            color: $color-purple;
+            &::before {
+                background-image: url('components/like/favorite.png');
+                background-position: 4px 5px;
+                border-color: $color-purple;
+            }
         }
     }
     &__label {
+        padding-top: 2px;
+        font-family: $font_main;
+
         display: block;
         width: 20px;
         margin-left: 15px;
@@ -24,6 +32,13 @@
         line-height: 12px;
         color: $color-25per;
         &::before {
+            content: '';
+            position: absolute;
+            display: block;
+            height: 20px;
+            left: 0;
+            border: 1px solid $color-25per;
+
             width: 40px;
             border-radius: 10px;
             top: 0px;
