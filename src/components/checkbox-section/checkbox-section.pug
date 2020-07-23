@@ -1,7 +1,0 @@
-include ../checkbox-group/checkbox-group.pug
-
-mixin checkbox-section(section)
-  .checkbox-section
-    .checkbox-section__title= section.title
-    each checkbox, index in section.checks
-      +checkbox-group(`${section.id}_${index}`, checkbox)

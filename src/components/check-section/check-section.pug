@@ -1,0 +1,13 @@
+include ../checkbox-group/checkbox-group.pug
+include ../radio-group/radio-group.pug
+
+mixin check-section(section)
+  .check-section
+    .check-section__title= section.title
+    if section.type == 'checkbox'
+      each checkbox, index in section.checks
+        +checkbox-group(`${section.id}_${index}`, checkbox)
+    else
+      .radio-group
+        each radio, index in section.checks
+          +radio-group(section.id, `${section.id}_${index}`, radio)

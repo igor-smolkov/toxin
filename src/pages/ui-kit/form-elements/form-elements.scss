@@ -1,6 +1,6 @@
 @import '../../../components/logo/logo.scss';
 @import '../../../components/field-section/field-section.scss';
-@import '../../../components/checkbox-section/checkbox-section.scss';
+@import '../../../components/check-section/check-section.scss';
 
 .form-elements {
     display: flex;
@@ -47,6 +47,9 @@
             margin-left: 126px;
             width: 260px;
             height: 537px;
+            & > * {
+                margin-bottom: 41px;
+            }
             //border: 1px solid black;
         }
         .buttons {
