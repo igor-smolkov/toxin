@@ -2,6 +2,7 @@ extends ../../../layout
 
 include ../../../components/logo/logo.pug
 include ../../../components/field-section/field-section.pug
+include ../../../components/checkbox-section/checkbox-section.pug
 
 block variables
   - var title = 'TOXIN - UI kit'
@@ -24,6 +25,15 @@ block content
         .fields_section
           +field-section('subscription text field')
       .checks
+        +checkbox-section({
+          id: 'checks1',
+          title: 'Checkbox Buttons',
+          checks: [
+            {label: 'Можно курить', checked: false},
+            {label: 'Можно с питомцами', checked: true},
+            {label: 'Можно пригласить гостей (до 10 человек)', checked: true}
+          ]
+        })
       .buttons
     .dropdowns
       .dropdowns_section_1

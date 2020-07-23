@@ -1,0 +1,14 @@
+@import '../checkbox-group/checkbox-group.scss';
+
+.checkbox-section {
+    max-width: 222px;
+    min-height: 129px;
+    &__title {
+        margin-bottom: 16px;
+        font-family: $font-main-bold;
+        font-size: 12px;
+        line-height: 15px;
+        text-transform: uppercase;
+        color: $color;
+    }
+}

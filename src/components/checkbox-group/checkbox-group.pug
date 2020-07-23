@@ -1,0 +1,7 @@
+mixin checkbox-group(id, checkbox)
+  .checkbox-group
+    if checkbox.checked
+      input.checkbox-group__input(type='checkbox' id=id checked)
+    else
+      input.checkbox-group__input(type='checkbox' id=id)
+    label.checkbox-group__label(for=id)=checkbox.label
