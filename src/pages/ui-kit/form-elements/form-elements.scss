@@ -47,8 +47,11 @@
             margin-left: 126px;
             width: 260px;
             height: 537px;
+            & :first-child {
+                max-width: 222px;
+            }
             & > * {
-                margin-bottom: 41px;
+                margin-bottom: 37px;
             }
             //border: 1px solid black;
         }

@@ -1,11 +1,15 @@
 @import '../checkbox-group/checkbox-group.scss';
 @import '../radio-group/radio-group.scss';
+@import '../toggle-group/toggle-group.scss';
 
 .check-section {
-    max-width: 222px;
-    min-height: 129px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-width: 222px;
+    min-height: 55px;
     &__title {
-        margin-bottom: 16px;
+        margin-bottom: 10px;
         font-family: $font-main-bold;
         font-size: 12px;
         line-height: 15px;

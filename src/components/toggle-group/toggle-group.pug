@@ -1,0 +1,7 @@
+mixin toggle-group(id, toggle)
+  .toggle-group.radio-group
+    if toggle.checked
+      input.toggle-group__input.radio-group__input(type='checkbox' id=id checked)
+    else
+      input.toggle-group__input.radio-group__input(type='checkbox' id=id)
+    label.toggle-group__label.radio-group__label(for=id)=toggle.label
