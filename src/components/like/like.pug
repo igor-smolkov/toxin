@@ -1,0 +1,7 @@
+mixin like(id, like)
+  .like.checkbox-group
+    if like.checked
+      input.like__input.checkbox-group__input(type='checkbox' id=id checked)
+    else
+      input.like__input.checkbox-group__input(type='checkbox' id=id)
+    label.like__label.checkbox-group__label(for=id)=like.label

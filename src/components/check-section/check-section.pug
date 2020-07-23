@@ -1,6 +1,7 @@
 include ../checkbox-group/checkbox-group.pug
 include ../radio-group/radio-group.pug
 include ../toggle-group/toggle-group.pug
+include ../like/like.pug
 
 mixin check-section(section)
   .check-section
@@ -12,6 +13,11 @@ mixin check-section(section)
       .radio-group
         each radio, index in section.checks
           +radio-group(section.id, `${section.id}_${index}`, radio)
-    else
+    else if section.type == 'toggle'
       each toggle, index in section.checks
+        .toggle-group.radio-group
         +toggle-group(`${section.id}_${index}`, toggle)
+    else
+      .check-section_row
+        each like, index in section.checks
+          +like(`${section.id}_${index}`, like)

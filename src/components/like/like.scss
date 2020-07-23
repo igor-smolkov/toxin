@@ -1,0 +1,34 @@
+@import '../toggle-group/toggle-group.scss';
+
+.like {
+    display: inline-block;
+    width: 40px;
+    margin: 6px 0;
+    & ~ * {
+        margin-left: 10px;
+    }
+    &__input:checked+label {
+        color: $color-purple;
+        &::before {
+            background-image: url('components/like/favorite.png');
+            background-position: 4px 5px;
+        }
+    }
+    &__label {
+        display: block;
+        width: 20px;
+        margin-left: 15px;
+        margin-top: 2px;
+        text-align: center;
+        font-size: 10px;
+        line-height: 12px;
+        color: $color-25per;
+        &::before {
+            width: 40px;
+            border-radius: 10px;
+            top: 0px;
+            background: no-repeat center url('components/like/favorite_border.png');
+            background-position: 4px 5px;
+        }
+    }
+}
