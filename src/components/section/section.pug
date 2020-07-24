@@ -1,20 +1,25 @@
 include ../slider/slider.pug
+include ../button/button.pug
 
-mixin section(obj, title)
+mixin section(section)
   section.section
-    if title
-      if title.details
+    if section.title
+      if section.title.details
         .section__title
-          h3.section__title_name= title.name
-          p.section__title_details= title.details
+          h3.section__title_name= section.title.name
+          p.section__title_details= section.title.details
       else
-        h3.section__title.section__title_name= title.name
-    if obj
-      case obj.type
+        h3.section__title.section__title_name= section.title.name
+    if section.content
+      case section.content.type
         when 'slider'
-          +slider(obj.min, obj.max)
+          +slider(section.content.min, section.content.max)
         when 'buttons'
-          .block
+          each btn, index in section.content.buttons
+            .section__block
+              +button(btn)
+              if btn.demo
+                +button(btn, btn.demo)
         when 'pagination'
           .block
         default

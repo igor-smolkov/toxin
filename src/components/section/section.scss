@@ -19,4 +19,24 @@
             text-align: right;
         }
     }
+    &__block {
+        display: flex;
+        width: 218px;
+        margin-bottom: 30px;
+        margin-top: 15px;
+        & > :first-child {
+            margin-left: 0px;
+        }
+        & > * {
+            margin-left: 20px;
+        }
+        
+        
+        &:nth-last-child(2) {
+            width: 142px;
+        }
+        &:last-child {
+            width: 100%;
+        }
+    }
 }

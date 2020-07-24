@@ -1,0 +1,78 @@
+.button {
+    position: relative;
+
+    min-width: 61px;
+    max-width: 320px;
+    width: 100%;
+    height: 44px;
+    background: linear-gradient(180deg, $color-purple 0%, #8BA4F9 100%);
+    border-radius: 22px;
+
+    &__text {
+        padding-bottom: 1px;
+        font-family: $font-main-bold;
+        font-size: 12px;
+        line-height: 15px;
+        text-align: center;
+        text-transform: uppercase;
+        color: white;
+    }
+
+    &:hover,
+    &_hover {
+        opacity: 0.5;
+    }
+
+    &_border {
+
+        .button__text {
+            color: $color-purple;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            position: absolute;
+            background-color: white;
+            width: calc(#{100%} - #{4px});
+            height: 40px;
+            border-radius: 22px;
+
+            top: 2px;
+            left: 2px;
+        }
+    }
+
+    &_link {
+        height: 15px;
+        background: none;
+
+        .button__text {
+            color: $color-purple;
+        }
+
+        &:hover,
+        &.button_hover {
+            opacity: 1;
+            .button__text {
+                color: $color-50per;
+            }
+        }
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        display: block;
+        width: 44px;
+        height: 44px;
+        top: 0;
+        right: 0;
+        background: no-repeat center url('components/button/arrow_forward.png');
+    }
+
+    &_arrow_none {
+        &::before {
+            display: none;
+        }
+    }
+}

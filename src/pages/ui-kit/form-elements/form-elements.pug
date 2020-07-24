@@ -72,12 +72,32 @@ block content
         })
       .buttons
         +section({
-          type: 'slider',
-          min: 31.75,
-          max: 63.5
-        }, { name: 'Range Slider', details: '5 000₽ - 10 000₽' })
-        +section({type: 'buttons'}, {name: 'buttons'})
-        +section({type: 'pagination'}, {name: 'pagination'})
+          title: { 
+            name: 'Range Slider', 
+            details: '5 000₽ - 10 000₽' 
+          },
+          content: {
+            type: 'slider',
+            min: 31.75,
+            max: 63.5
+          }
+        })
+        +section({
+          title: { name: 'buttons' },
+          content: {
+            type: 'buttons',
+            buttons: [
+              {text: 'CLICK ME', style: 'blue', notArrow: true, demo: true},
+              {text: 'CLICK ME', style: 'border', notArrow: true, demo: true},
+              {text: 'CLICK ME', style: 'link', notArrow: true, demo: true},
+              {text: 'перейти к оплате'}
+            ]
+          }
+        })
+        +section({
+          title: { name: 'pagination' },
+          content: { type: 'pagination' }
+        })
     .dropdowns
       .dropdowns_section_1
       .dropdowns_section_2
