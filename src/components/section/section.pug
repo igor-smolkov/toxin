@@ -1,5 +1,6 @@
 include ../slider/slider.pug
 include ../button/button.pug
+include ../pagination/pagination.pug
 
 mixin section(section)
   section.section
@@ -21,7 +22,7 @@ mixin section(section)
               if btn.demo
                 +button(btn, btn.demo)
         when 'pagination'
-          .block
+          +pagination(section.content)
         default
           .block
       

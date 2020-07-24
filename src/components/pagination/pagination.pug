@@ -1,0 +1,15 @@
+mixin pagination(pagination)
+  .pagination
+    .pagination__items 
+      button.pagination__item.pagination__item_current
+        p.pagination__value= '1'
+      button.pagination__item
+        p.pagination__value= '2'
+      button.pagination__item
+        p.pagination__value= '3'
+      button.pagination__item
+        p.pagination__value= '...'
+      button.pagination__item
+        p.pagination__value= pagination.last
+      button.pagination__item.pagination__item_next
+    p.pagination__description= pagination.description
