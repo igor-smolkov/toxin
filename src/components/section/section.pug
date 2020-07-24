@@ -1,0 +1,23 @@
+include ../slider/slider.pug
+
+mixin section(obj, title)
+  section.section
+    if title
+      if title.details
+        .section__title
+          h3.section__title_name= title.name
+          p.section__title_details= title.details
+      else
+        h3.section__title.section__title_name= title.name
+    if obj
+      case obj.type
+        when 'slider'
+          +slider(obj.min, obj.max)
+        when 'buttons'
+          .block
+        when 'pagination'
+          .block
+        default
+          .block
+      
+    

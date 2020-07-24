@@ -1,0 +1,22 @@
+.section {
+    max-width: 100%;
+    min-width: 90px;
+    min-height: 47px;
+    // border: 1px solid blue;
+    &__title {
+        display: flex;
+        font-family: $font-main-bold;
+        font-size: 12px;
+        line-height: 15px;
+        text-transform: uppercase;
+        color: $color;
+        &_name {
+            flex-grow: 1;
+        }
+        &_details {
+            font-family: $font-main;
+            color: $color-50per;
+            text-align: right;
+        }
+    }
+}

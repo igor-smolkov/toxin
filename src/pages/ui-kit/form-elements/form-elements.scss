@@ -1,6 +1,9 @@
 @import '../../../components/logo/logo.scss';
 @import '../../../components/field-section/field-section.scss';
 @import '../../../components/check-section/check-section.scss';
+@import '../../../components/section/section.scss';
+
+@import '../../../components/slider/slider.scss';
 
 .form-elements {
     display: flex;
@@ -59,7 +62,13 @@
             margin-left: 132px;
             width: 320px;
             height: 503px;
-            //border: 1px solid black;
+            & > :first-child {
+                max-width: 266px;
+            }
+            & > * {
+                margin-bottom: 40px;
+            }
+            // border: 1px solid black;
         }
     }
     
