@@ -148,10 +148,10 @@ block content
           content: {
             type: 'buttons',
             buttons: [
-              {text: 'CLICK ME', style: 'blue', notArrow: true, demo: true},
-              {text: 'CLICK ME', style: 'border', notArrow: true, demo: true},
-              {text: 'CLICK ME', style: 'link', notArrow: true, demo: true},
-              {text: 'перейти к оплате'}
+              {text: 'CLICK ME', style: 'blue', demo: true},
+              {text: 'CLICK ME', style: 'border', demo: true},
+              {text: 'CLICK ME', style: 'link', demo: true},
+              {text: 'перейти к оплате', arrow: true}
             ]
           }
         })
@@ -193,7 +193,36 @@ block content
           }
         })
       .dropdowns_section_2
+        +section({
+          title: { name: 'dropdown' },
+          content: { 
+            type: 'dropdown',
+            value: 'Сколько гостей',
+            list: [
+              { name: 'взрослые' },
+              { name: 'дети' },
+              { name: 'младенцы' }
+            ],
+            apply: true,
+            expanded: true
+          }
+        })
       .dropdowns_section_3
+        +section({
+          title: { name: 'dropdown' },
+          content: { 
+            type: 'dropdown',
+            value: '3 гостя',
+            list: [
+              { name: 'взрослые', count: 2 },
+              { name: 'дети', count: 1 },
+              { name: 'младенцы' }
+            ],
+            apply: true,
+            clear: true,
+            expanded: true
+          }
+        })
     .check-lists
       .check-lists_section_1
       .check-lists_section_2

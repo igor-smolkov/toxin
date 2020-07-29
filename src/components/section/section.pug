@@ -22,7 +22,11 @@ mixin section(section)
             .section__block
               +button(btn)
               if btn.demo
-                +button(btn, btn.demo)
+                +button({
+                  text: btn.text,
+                  style: btn.style,
+                  hover: true
+                })
         when 'pagination'
           +pagination(section.content)
         when 'dropdown'

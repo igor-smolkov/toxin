@@ -1,45 +1,45 @@
-mixin button(button, demo)
+mixin button(button)
   case button.style
     when 'link'
-      if button.notArrow
-        if demo
+      if !button.arrow
+        if button.hover
           button.button.button_link.button_arrow_none.button_hover
             p.button__text= button.text
         else
           button.button.button_link.button_arrow_none
             p.button__text= button.text
       else
-        if demo
+        if button.hover
           button.button.button_link.button_hover
             p.button__text= button.text
         else
           button.button.button_link
             p.button__text= button.text
     when 'border'
-      if button.notArrow
-        if demo
+      if !button.arrow
+        if button.hover
           button.button.button_border.button_arrow_none.button_hover
             p.button__text= button.text
         else
           button.button.button_border.button_arrow_none
             p.button__text= button.text
       else
-        if demo
+        if button.hover
           button.button.button_border.button_hover
             p.button__text= button.text
         else
           button.button.button_border
             p.button__text= button.text
     default
-      if button.notArrow
-        if demo
+      if !button.arrow
+        if button.hover
           button.button.button_arrow_none.button_hover
             p.button__text= button.text
         else
           button.button.button_arrow_none
             p.button__text= button.text
       else
-        if demo
+        if button.hover
           button.button.button_hover
             p.button__text
         else

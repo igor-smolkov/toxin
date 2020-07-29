@@ -1,4 +1,5 @@
 include ../field/field.pug
+include ../button/button.pug
 
 mixin dropdown(dropdown)
   if dropdown.expanded
@@ -24,6 +25,14 @@ mixin dropdown(dropdown)
                   button.dropdown__item_btn.dropdown__item_btn_disabled(disabled=true)= '-'
                   p.dropdown__item_number= '0'
                   button.dropdown__item_btn= '+'
+        if dropdown.apply
+          if dropdown.clear
+            .dropdown__control.dropdown__control_clear
+              +button({ text: 'очистить', style: 'link', hover: true })
+              +button({ text: 'применить', style: 'link' })
+          else
+            .dropdown__control
+              +button({ text: 'применить', style: 'link' })
   else
     if dropdown.demo
       .dropdown.dropdown_hover
