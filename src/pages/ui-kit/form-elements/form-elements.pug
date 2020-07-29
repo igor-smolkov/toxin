@@ -172,7 +172,24 @@ block content
           },
           content: { 
             type: 'dropdown',
-            value: '2 спальни, 2 кровати...'
+            value: '2 спальни, 2 кровати...',
+            demo: true
+          }
+        })
+        +section({
+          title: { 
+            name: 'dropdown',
+            details: 'expanded'
+          },
+          content: { 
+            type: 'dropdown',
+            value: '2 спальни, 2 кровати...',
+            list: [
+              { name: 'спальни', count: 2 },
+              { name: 'кровати', count: 2 },
+              { name: 'ванные комнаты' }
+            ],
+            expanded: true
           }
         })
       .dropdowns_section_2

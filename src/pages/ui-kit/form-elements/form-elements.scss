@@ -82,11 +82,18 @@
         flex-direction: row;
         justify-content: center;
         flex-wrap: wrap;
-        border: 1px solid red;
+        // border: 1px solid red;
         .dropdowns_section_1 {
             width: 266px;
             height: 266px;
-            border: 1px solid black;
+
+            & > * {
+                margin-top: 20px;
+                &:first-child {
+                    margin-top: 0;
+                }
+            }
+            // border: 1px solid black;
         }
         .dropdowns_section_2 {
             margin-left: 181px;

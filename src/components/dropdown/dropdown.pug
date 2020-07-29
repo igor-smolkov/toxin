@@ -1,11 +1,45 @@
 include ../field/field.pug
 
 mixin dropdown(dropdown)
-  .dropdown
-    case dropdown.mode
-      when 'date'
-        +field({ value: dropdown.value, type: 'date' })
-      when 'filter'
-        +field({ value: dropdown.value, disabled: true })
-      default
-        +field({ value: dropdown.value })
+  if dropdown.expanded
+    .dropdown.dropdown_expanded
+      case dropdown.mode
+        when 'date'
+          +field({ value: dropdown.value, type: 'date' })
+        when 'filter'
+          +field({ value: dropdown.value, disabled: true })
+        default
+          +field({ value: dropdown.value })
+      .dropdown__menu
+        ul.dropdown__list
+          each item, index in dropdown.list
+            li.dropdown__item
+              p.dropdown__item_name= item.name
+              .dropdown__item_counter
+                if item.count
+                  button.dropdown__item_btn= '-'
+                  p.dropdown__item_number= item.count
+                  button.dropdown__item_btn= '+'
+                else
+                  button.dropdown__item_btn.dropdown__item_btn_disabled(disabled=true)= '-'
+                  p.dropdown__item_number= '0'
+                  button.dropdown__item_btn= '+'
+  else
+    if dropdown.demo
+      .dropdown.dropdown_hover
+        case dropdown.mode
+          when 'date'
+            +field({ value: dropdown.value, type: 'date' })
+          when 'filter'
+            +field({ value: dropdown.value, disabled: true })
+          default
+            +field({ value: dropdown.value })
+    else
+      .dropdown
+        case dropdown.mode
+          when 'date'
+            +field({ value: dropdown.value, type: 'date' })
+          when 'filter'
+            +field({ value: dropdown.value, disabled: true })
+          default
+            +field({ value: dropdown.value })

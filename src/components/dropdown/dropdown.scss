@@ -12,4 +12,71 @@
 
         background: no-repeat center url('components/dropdown/dropdown__expand_more.png');
     }
+    &_hover::before,
+    &:hover::before {
+        background: no-repeat center url('components/dropdown/dropdown__expand_more_active.png');
+    }
+
+    &_expanded {
+        & > :first-child {  
+            border-color: $color-50per;
+            border-bottom: 0;
+            height: 43px;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+    }
+
+    &__menu {
+        width: 266px;
+        height: 118px;
+
+        border: 1px solid $color-50per;
+        border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 4px;
+    }
+    &__item {
+        display: flex;
+        justify-content: space-between;
+
+        margin: 6px 6px 7px 7px;
+
+        font-family: $font-main-bold;
+        font-size: 12px;
+        line-height: 15px;
+        text-transform: uppercase;
+        color: $color;
+
+        &_name {
+            padding: 6px 7px;
+        }
+        &_counter {
+            display: flex;
+            justify-content: space-between;
+
+            width: 92px;
+            height: 30px;
+        }
+        &_btn {
+            width: 30px;
+            height: 30px;
+
+            border: 1px solid $color-25per;
+            border-radius: 22px;
+
+            background-color: white;
+
+            font-family: $font-main;
+            font-size: 18px;
+            line-height: 22px;
+            color: $color-50per;
+
+            &_disabled {
+                opacity: 0.5;
+            }
+        }
+        &_number {
+            padding: 6px 7px;
+        }
+    }
 }
