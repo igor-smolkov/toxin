@@ -5,6 +5,9 @@
     // border: 1px solid blue;
     &__title {
         display: flex;
+
+        padding-bottom: 5px;
+
         font-family: $font-main-bold;
         font-size: 12px;
         line-height: 15px;

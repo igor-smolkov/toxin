@@ -1,7 +1,6 @@
 extends ../../../layout
 
 include ../../../components/logo/logo.pug
-include ../../../components/field-section/field-section.pug
 include ../../../components/check-section/check-section.pug
 include ../../../components/section/section.pug
 
@@ -13,18 +12,80 @@ block content
     +logo
     .inputs
       .fields
-        .fields_section
-          +field-section('Text Field', 'Default')
-          +field-section('Text Field', 'Hover / Focus')
-          +field-section('Dropdown', 'Default')
-          +field-section('masked text field', 'Default')
-        .fields_section.fields_section_date
-          +field-section('date Dropdown')
-          +field-section('date Dropdown', '', '2019-08-19')
-        .fields_section
-          +field-section('filter date dropdown', '', '19 авг - 23 авг')
-        .fields_section
-          +field-section('subscription text field')
+        +section({
+          title: { 
+            name: 'Text Field',
+            details: 'Default'
+          },
+          content: { 
+            type: 'field',
+            placeholder: 'Email'
+          }
+        })
+        +section({
+          title: { 
+            name: 'Text Field',
+            details: 'Hover / Focus'
+          },
+          content: { 
+            type: 'field',
+            placeholder: 'This is pretty awesome',
+            demo: true
+          }
+        })
+        +section({
+          title: { 
+            name: 'Dropdown',
+            details: 'Default'
+          },
+          content: { 
+            type: 'dropdown',
+            value: 'Сколько гостей'
+          }
+        })
+        +section({
+          title: { 
+            name: 'masked text field',
+            details: 'Default'
+          },
+          content: { 
+            type: 'field',
+            placeholder: 'ДД.ММ.ГГГГ',
+            masked: true
+          }
+        })
+        .fields__date-dropdown
+          +section({
+            title: { name: 'date Dropdown' },
+            content: { 
+              type: 'dropdown',
+              mode: 'date'
+            }
+          })
+          +section({
+            title: { name: 'date Dropdown' },
+            content: { 
+              type: 'dropdown',
+              value: '2019-08-19',
+              mode: 'date'
+            }
+          })
+        +section({
+          title: { name: 'filter date dropdown' },
+          content: { 
+            type: 'dropdown',
+            value: '19 авг - 23 авг',
+            mode: 'filter'
+          }
+        })
+        +section({
+          title: { name: 'subscription text field' },
+          content: { 
+            type: 'field',
+            placeholder: 'Email',
+            subscription: true
+          }
+        })
       .checks
         +check-section({
           id: 'checkbox1',
@@ -104,6 +165,16 @@ block content
         })
     .dropdowns
       .dropdowns_section_1
+        +section({
+          title: { 
+            name: 'dropdown',
+            details: 'Default'
+          },
+          content: { 
+            type: 'dropdown',
+            value: '2 спальни, 2 кровати...'
+          }
+        })
       .dropdowns_section_2
       .dropdowns_section_3
     .check-lists

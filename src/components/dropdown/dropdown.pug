@@ -1,15 +1,11 @@
 include ../field/field.pug
 
-mixin dropdown(value, type)
-  if type == 'field'
-    .dropdown.dropdown_forward
-      +field('default', 'text', value, 'Email')
-  else
-    .dropdown
-      if type
-        if type == 'filter'
-          +field('default', 'text', value, '', '', true)
-        else
-          +field('default', type, value)
-      else
-        +field('default', 'text', value)
+mixin dropdown(dropdown)
+  .dropdown
+    case dropdown.mode
+      when 'date'
+        +field({ value: dropdown.value, type: 'date' })
+      when 'filter'
+        +field({ value: dropdown.value, disabled: true })
+      default
+        +field({ value: dropdown.value })

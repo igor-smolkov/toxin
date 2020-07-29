@@ -1,11 +1,12 @@
 @import '../../../components/logo/logo.scss';
-@import '../../../components/field-section/field-section.scss';
 @import '../../../components/check-section/check-section.scss';
 @import '../../../components/section/section.scss';
 
 @import '../../../components/slider/slider.scss';
 @import '../../../components/button/button.scss';
 @import '../../../components/pagination/pagination.scss';
+@import '../../../components/field/field.scss';
+@import '../../../components/dropdown/dropdown.scss';
 
 .form-elements {
     display: flex;
@@ -24,29 +25,29 @@
         flex-direction: row;
         justify-content: center;
         flex-wrap: wrap;
-        border: 1px solid red;
+        // border: 1px solid red;
         .fields {
             width: 320px;
             height: 633px;
-            // border: 1px solid black;
-            &_section {
-                min-height: 65px;
-                margin-bottom: 40px;
-                // border: 1px solid purple;
-                &_date {
-                    display: flex;
-                    & > :first-child {
-                        margin-right: 20px;
-                        margin-bottom: 0;
-                    }
-                    & ~ * {
-                        width: 266px;
-                    }
-                }
-                &:last-child {
-                    margin-bottom: 0;
+
+            & > * {
+                margin-top: 20px;
+                &:first-child {
+                    margin-top: 0;
                 }
             }
+            & > :nth-child(5) {
+                display: flex;
+                justify-content: space-between;
+
+                margin-top: 40px;
+                & ~ * {
+                    margin-top: 40px;
+                    width: 266px;
+                }
+            }
+            
+            // border: 1px solid black;
         }
         .checks {
             margin-left: 126px;

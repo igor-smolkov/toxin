@@ -1,6 +1,8 @@
 include ../slider/slider.pug
 include ../button/button.pug
 include ../pagination/pagination.pug
+include ../dropdown/dropdown.pug
+include ../field/field.pug
 
 mixin section(section)
   section.section
@@ -23,6 +25,10 @@ mixin section(section)
                 +button(btn, btn.demo)
         when 'pagination'
           +pagination(section.content)
+        when 'dropdown'
+          +dropdown(section.content)
+        when 'field'
+          +field(section.content)
         default
           .block
       

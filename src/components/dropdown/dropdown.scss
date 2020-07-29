@@ -1,16 +1,15 @@
 .dropdown {
+    position: relative;
     &::before {
         content: '';
         position: absolute;
         display: block;
+
         width: 44px;
         height: 44px;
+
         right: 0;
-        background: no-repeat center url('components/dropdown/expand_more.png');
-    }
-    &_forward {
-        &::before {
-            background: no-repeat center url('components/dropdown/arrow_forward.png');
-        }
+
+        background: no-repeat center url('components/dropdown/dropdown__expand_more.png');
     }
 }
