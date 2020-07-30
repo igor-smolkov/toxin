@@ -10,6 +10,7 @@ include ../toggle-group/toggle-group.pug
 include ../like/like.pug
 include ../rate-group/rate-group.pug
 include ../bullet-list/bullet-list.pug
+include ../extra-list/extra-list.pug
 
 mixin section(section)
   section.section
@@ -64,6 +65,8 @@ mixin section(section)
               })
         when 'bullet-list'
           +bullet-list(section.content.list)
+        when 'extra-list'
+          +extra-list(section.content.list)
         default
           .block
       

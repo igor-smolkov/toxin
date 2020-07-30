@@ -13,6 +13,7 @@
 @import '../../../components/like/like.scss';
 @import '../../../components/rate-group/rate-group.scss';
 @import '../../../components/bullet-list/bullet-list.scss';
+@import '../../../components/extra-list/extra-list.scss';
 
 .form-elements {
     display: flex;
@@ -162,11 +163,11 @@
         flex-direction: row;
         justify-content: center;
         flex-wrap: wrap;
-        border: 1px solid red;
+        // border: 1px solid red;
         .extras {
             width: 280px;
             height: 158px;
-            border: 1px solid black;
+            // border: 1px solid black;
         }
         .comments {
             margin-left: 167px;
