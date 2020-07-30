@@ -14,6 +14,17 @@
         background: no-repeat center url('components/expandable-checkbox-list/expandable-checkbox-list__expand_more.png');
     }
     &_expanded::before {
+        top: -44px;
         background: no-repeat center url('components/expandable-checkbox-list/expandable-checkbox-list__expand_more_up.png');
+    }
+
+    &:hover,
+    &_hover {
+        &::before {
+            background: no-repeat center url('components/expandable-checkbox-list/expandable-checkbox-list__expand_more_active.png');
+        }
+        &.expandable-checkbox-list_expanded::before {
+            background: no-repeat center url('components/expandable-checkbox-list/expandable-checkbox-list__expand_more_up.png');
+        }
     }
 }

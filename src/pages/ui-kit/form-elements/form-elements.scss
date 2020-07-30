@@ -144,7 +144,15 @@
             margin-left: 181px;
             width: 266px;
             height: 145px;
-            border: 1px solid black;
+
+            // & :first-child :nth-child(2) {
+            //     width: 100px;
+            // }
+            // & :first-child :nth-child(3) {
+            //     width: 150px;
+            // }
+
+            // border: 1px solid black;
         }
         .check-lists_section_3 {
             margin-left: 126px;

@@ -244,10 +244,36 @@ block content
           title: { name: 'expandable checkbox list' },
           content: { 
             type: 'expandable-checkbox-list',
-            expanded: true
+            id: 'checkbox-list',
+            expanded: true,
+            checks: [
+              {label: 'Завтрак'},
+              {label: 'Письменный стол', checked: true},
+              {label: 'Стул для кормления', checked: true},
+              {label: 'Кроватка', checked: true},
+              {label: 'Телевизор'},
+              {label: 'Шампунь'}
+            ]
           }
         })
       .check-lists_section_2
+        +section({
+          title: { name: 'Rich Checkbox Buttons' },
+          content: { 
+            type: 'checkbox',
+            id: 'checkboxrich',
+            checks: [
+              {
+                label: 'Широкий коридор',
+                details: 'Ширина коридоров в номере\nне менее 91 см.'
+              },
+              {
+                label: 'Помощник для инвалидов',
+                details: `На 1 этаже вас встретит специалист\nи проводит до номера.`
+              }
+            ]
+          }
+        })
       .check-lists_section_3
     .others
       .extras
