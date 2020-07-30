@@ -69,6 +69,9 @@ const plugins = () => {
     const list = [
         toHTMLPage(baseTemplate, outputHTML),
         new CleanWebpackPlugin(),
+        new CopyWebpackPlugin({
+            patterns: [ { from: path.resolve(__dirname, `src/${imagesDir}/`), to: imagesDir } ]
+        }),
         new MiniCssExtractPlugin({
             filename: filename('css') //имя выходного css файла
         })

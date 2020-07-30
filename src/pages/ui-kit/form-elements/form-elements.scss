@@ -14,6 +14,7 @@
 @import '../../../components/rate-group/rate-group.scss';
 @import '../../../components/bullet-list/bullet-list.scss';
 @import '../../../components/extra-list/extra-list.scss';
+@import '../../../components/comment/comment.scss';
 
 .form-elements {
     display: flex;
@@ -171,9 +172,11 @@
         }
         .comments {
             margin-left: 167px;
+            margin-bottom: 5px;
             width: 711px;
             height: 133px;
-            border: 1px solid black;
+            align-self: center;
+            // border: 1px solid black;
         }
     }    
 }

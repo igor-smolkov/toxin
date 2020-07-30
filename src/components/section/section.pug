@@ -11,6 +11,7 @@ include ../like/like.pug
 include ../rate-group/rate-group.pug
 include ../bullet-list/bullet-list.pug
 include ../extra-list/extra-list.pug
+include ../comment/comment.pug
 
 mixin section(section)
   section.section
@@ -67,6 +68,8 @@ mixin section(section)
           +bullet-list(section.content.list)
         when 'extra-list'
           +extra-list(section.content.list)
+        when 'comment'
+          +comment(section.content)
         default
           .block
       
