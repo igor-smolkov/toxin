@@ -12,6 +12,7 @@
 @import '../../../components/toggle-group/toggle-group.scss';
 @import '../../../components/like/like.scss';
 @import '../../../components/rate-group/rate-group.scss';
+@import '../../../components/bullet-list/bullet-list.scss';
 
 .form-elements {
     display: flex;
@@ -144,14 +145,6 @@
             margin-left: 181px;
             width: 266px;
             height: 145px;
-
-            // & :first-child :nth-child(2) {
-            //     width: 100px;
-            // }
-            // & :first-child :nth-child(3) {
-            //     width: 150px;
-            // }
-
             // border: 1px solid black;
         }
         .check-lists_section_3 {
@@ -159,7 +152,7 @@
             margin-right: 28px;
             width: 292px;
             height: 147px;
-            border: 1px solid black;
+            // border: 1px solid black;
         }
     }
     
