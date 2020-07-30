@@ -1,0 +1,19 @@
+.expandable-checkbox-list {
+    position: relative;
+    &::before {
+        content: '';
+        position: absolute;
+        display: block;
+
+        width: 44px;
+        height: 44px;
+
+        right: 0;
+        top: -34px;
+
+        background: no-repeat center url('components/expandable-checkbox-list/expandable-checkbox-list__expand_more.png');
+    }
+    &_expanded::before {
+        background: no-repeat center url('components/expandable-checkbox-list/expandable-checkbox-list__expand_more_up.png');
+    }
+}

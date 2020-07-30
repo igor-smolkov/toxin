@@ -1,6 +1,8 @@
-mixin radio-group(name, id, radio)
-  if radio.checked
-    input.radio-group__input(type='radio' name=name id=id checked)
-  else
-    input.radio-group__input(type='radio' name=name id=id)
-  label.radio-group__label(for=id)=radio.label
+mixin radio-group(radioGroup)
+  .radio-group
+    each radio, index in radioGroup.checks
+      if radio.checked
+        input.radio-group__input(type='radio' name=radioGroup.id id=`${radioGroup.id}_${index}` checked)
+      else
+        input.radio-group__input(type='radio' name=radioGroup.id id=`${radioGroup.id}_${index}`)
+      label.radio-group__label(for=`${radioGroup.id}_${index}`)=radio.label

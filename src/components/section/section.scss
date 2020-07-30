@@ -1,7 +1,7 @@
 .section {
     max-width: 100%;
     min-width: 90px;
-    min-height: 47px;
+    min-height: 15px;
     // border: 1px solid blue;
     &__title {
         display: flex;
@@ -22,7 +22,7 @@
             text-align: right;
         }
     }
-    &__block {
+    &__block_btn {
         display: flex;
         width: 218px;
         margin-bottom: 30px;

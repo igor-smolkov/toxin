@@ -1,7 +1,6 @@
 extends ../../../layout
 
 include ../../../components/logo/logo.pug
-include ../../../components/check-section/check-section.pug
 include ../../../components/section/section.pug
 
 block variables
@@ -87,49 +86,59 @@ block content
           }
         })
       .checks
-        +check-section({
-          id: 'checkbox1',
-          type: 'checkbox',
-          title: 'Checkbox Buttons',
-          checks: [
-            {label: 'Можно курить'},
-            {label: 'Можно с питомцами', checked: true},
-            {label: 'Можно пригласить гостей (до 10 человек)', checked: true}
-          ]
+        +section({
+          title: { name: 'Checkbox Buttons' },
+          content: { 
+            type: 'checkbox',
+            id: 'checkbox1',
+            checks: [
+              {label: 'Можно курить'},
+              {label: 'Можно с питомцами', checked: true},
+              {label: 'Можно пригласить гостей (до 10 человек)', checked: true}
+            ]
+          }
         })
-        +check-section({
-          id: 'radio1',
-          type: 'radio',
-          title: 'Radio Buttons',
-          checks: [
-            {label: 'Мужчина', checked: true},
-            {label: 'Женщина'}
-          ]
+        +section({
+          title: { name: 'Radio Buttons' },
+          content: { 
+            type: 'radio',
+            id: 'radio1',
+            checks: [
+              {label: 'Мужчина', checked: true},
+              {label: 'Женщина'}
+            ]
+          }
         })
-        +check-section({
-          id: 'toggle1',
-          type: 'toggle',
-          title: 'Toggle',
-          checks: [
-            {label: 'Получать спецпредложения', checked: true},
-            {label: 'Получать спецпредложения'}
-          ]
+        +section({
+          title: { name: 'Toggle' },
+          content: { 
+            type: 'toggle',
+            id: 'toggle1',
+            checks: [
+              {label: 'Получать спецпредложения', checked: true},
+              {label: 'Получать спецпредложения'}
+            ]
+          }
         })
-        +check-section({
-          id: 'like1',
-          type: 'like',
-          title: 'like button',
-          checks: [
-            {label: '2'},
-            {label: '12', checked: true}
-          ]
+        +section({
+          title: { name: 'like button' },
+          content: { 
+            type: 'like',
+            id: 'like1',
+            checks: [
+              {label: '2'},
+              {label: '12', checked: true}
+            ]
+          }
         })
-        +check-section({
-          id: 'rate1',
-          type: 'rate',
-          title: 'rate button',
-          checks: [{checked: false},{checked: false},{checked: false},{checked: true},{checked: false}],
-          demo: [{checked: false},{checked: false},{checked: false},{checked: false},{checked: true}]
+        +section({
+          title: { name: 'rate button' },
+          content: { 
+            type: 'rate',
+            id: 'rate1',
+            checks: [{checked: false},{checked: false},{checked: false},{checked: true},{checked: false}],
+            demo: [{checked: false},{checked: false},{checked: false},{checked: false},{checked: true}]
+          }
         })
       .buttons
         +section({
@@ -225,6 +234,19 @@ block content
         })
     .check-lists
       .check-lists_section_1
+        +section({
+          title: { name: 'expandable checkbox list' },
+          content: { 
+            type: 'expandable-checkbox-list'
+          }
+        })
+        +section({
+          title: { name: 'expandable checkbox list' },
+          content: { 
+            type: 'expandable-checkbox-list',
+            expanded: true
+          }
+        })
       .check-lists_section_2
       .check-lists_section_3
     .others
