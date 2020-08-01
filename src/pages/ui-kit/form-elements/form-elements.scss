@@ -41,7 +41,6 @@
         width: 100%;
 
         margin-top: 143px;
-        // border: 1px solid red;
         .fields {
             flex-grow: 1;
             .section {
@@ -76,10 +75,7 @@
                     width: 266px;
                     margin-top: 40px;
                 }
-                // border: 1px solid lime;
             }
-            
-            // border: 1px solid black;
         }
         .checks {
             flex-grow: 1;
@@ -101,9 +97,7 @@
                 &:last-child {
                     margin-top: 48px;
                 }
-                // border: 1px solid lime;
             }
-            // border: 1px solid black;
         }
         .buttons {          
             flex-grow: 1;  
@@ -123,7 +117,6 @@
                 padding-right: 54px;
                 margin-top: 0;
             }
-            // border: 1px solid black;
         }
     }
     
@@ -138,7 +131,6 @@
         width: 100%;
 
         margin-top: 105px;
-        // border: 1px solid red;
         .dropdowns_section_1 {
             flex-grow: 1;
             
@@ -153,7 +145,6 @@
                     margin-top: 0;
                 }
             }
-            // border: 1px solid black;
         }
         .dropdowns_section_2 {
             flex-grow: 1;
@@ -167,7 +158,6 @@
                 min-width: 266px;
                 width: 100%;
             }
-            // border: 1px solid black;
         }
         .dropdowns_section_3 {
             flex-grow: 1;
@@ -179,7 +169,6 @@
                 min-width: 266px;
                 width: 100%;
             }
-            // border: 1px solid black;
         }
     }
     
@@ -194,7 +183,6 @@
         width: 100%;
         
         margin-top: 54px;
-        // border: 1px solid red;
         .check-lists_section_1 {
             flex-grow: 1;
             margin-right: 42px;
@@ -208,8 +196,6 @@
                     margin-top: 0;
                 }
             }
-
-            // border: 1px solid black;
         }
         .check-lists_section_2 {
             flex-grow: 1;
@@ -223,7 +209,6 @@
                 min-width: 266px;
                 width: 100%;
             }
-            // border: 1px solid black;
         }
         .check-lists_section_3 {
             flex-grow: 1;
@@ -235,7 +220,6 @@
                 min-width: 266px;
                 width: 100%;
             }
-            // border: 1px solid black;
         }
     }
     
@@ -251,7 +235,6 @@
 
         margin-top: 95px;
         margin-bottom: 131px;
-        // border: 1px solid red;
         .extras {
             flex-grow: 1;
             .section {
@@ -259,7 +242,6 @@
                 min-width: 266px;
                 width: 100%;
             }
-            // border: 1px solid black;
         }
         .comments {
             align-self: center;
@@ -275,7 +257,149 @@
                 min-width: 266px;
                 width: 100%;
             }
-            // border: 1px solid black;
         }
     }    
+}
+
+@media only screen and (max-width : 950px) {
+    .form-elements {
+        .inputs {
+            flex-wrap: wrap;
+            min-width: 600px;
+            margin-top: 110px;
+            .checks {
+                margin-right: 0;
+                .section {
+                    align-self: flex-start;
+                }
+            }
+            .buttons {
+                margin-top: 40px;
+                padding-right: 60px;
+                .section {
+                    align-self: flex-start;
+                }
+            }
+        }
+        .dropdowns {
+            flex-wrap: wrap;
+            min-width: 600px;
+            margin-top: 50px;
+            .dropdowns_section_2 {
+                margin-right: 0;
+                .section {
+                    align-self: flex-start;
+                }
+            }
+            .dropdowns_section_3 {
+                margin-top: 40px;
+                padding-right: 60px;
+                .section {
+                    align-self: flex-start;
+                }
+            }
+        }
+        .check-lists {
+            flex-wrap: wrap;
+            min-width: 600px;
+            margin-top: 50px;
+            .check-lists_section_2 {
+                margin-right: 0;
+                .section {
+                    align-self: flex-start;
+                }
+            }
+            .check-lists_section_3 {
+                margin-top: 40px;
+                padding-right: 60px;
+                .section {
+                    align-self: flex-start;
+                }
+            }
+        }
+        .others {
+            flex-wrap: wrap;
+            min-width: 600px;
+            margin-top: 50px;
+            margin-bottom: 70px;
+            .comments {
+                margin-left: 0;
+                margin-top: 40px;
+                .section {
+                    align-self: flex-start;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width : 650px) {
+    .form-elements {
+        .inputs {
+            flex-wrap: nowrap;
+            flex-direction: column;
+            min-width: 320px;
+            margin-top: 100px;
+            .fields {
+                align-self: center;
+            }
+            .checks {
+                align-self: center;
+                margin-top: 40px;
+                padding-left: 0;
+            }
+            .buttons {
+                align-self: center;
+                padding-right: 0;
+            }
+        }
+        .dropdowns {
+            flex-wrap: nowrap;
+            flex-direction: column;
+            min-width: 320px;
+            .dropdowns_section_1 {
+                align-self: center;
+                margin-right: 0;
+            }
+            .dropdowns_section_2 {
+                align-self: center;
+                margin-top: 40px;
+            }
+            .dropdowns_section_3 {
+                align-self: center;
+                padding-right: 0;
+            }
+        }
+        .check-lists {
+            flex-wrap: nowrap;
+            flex-direction: column;
+            min-width: 320px;
+            .check-lists_section_1 {
+                align-self: center;
+                margin-right: 0;
+            }
+            .check-lists_section_2 {
+                align-self: center;
+                margin-top: 40px;
+            }
+            .check-lists_section_3 {
+                align-self: center;
+                padding-right: 0;
+            }
+        }
+        .others {
+            flex-wrap: nowrap;
+            flex-direction: column;
+            min-width: 320px;
+            margin-bottom: 30px;
+            .extras {
+                align-self: center;
+            }
+            .comments {
+                align-self: center;
+                margin-left: 30px;
+                margin-right: 30px;
+            }
+        }
+    }
 }
