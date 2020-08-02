@@ -1,0 +1,92 @@
+include ../section/section.pug
+
+include ../button/button.pug
+include ../field/field.pug
+include ../radio-group/radio-group.pug
+include ../toggle-group/toggle-group.pug
+
+mixin card(type)
+  article.card
+    if type
+      case type
+        when 'wishes'
+          h1.card__title= 'Найдём номера под ваши пожелания'
+          .card__block_row
+            +section({
+                title: { name: 'прибытие' },
+                content: { 
+                type: 'dropdown',
+                mode: 'date'
+                }
+            })
+            +section({
+                title: { name: 'выезд' },
+                content: { 
+                type: 'dropdown',
+                mode: 'date'
+                }
+            })
+          +section({
+            title: { name: 'Гости' },
+            content: { 
+                type: 'dropdown',
+                value: 'Сколько гостей'
+            }
+          })
+          +button({text: 'подобрать номер', arrow: true })
+        when 'check-in'
+          h1.card__title= 'Регистрация аккаунта'
+          +field({ 
+            type: 'field',
+            placeholder: 'Имя'
+          })
+          +field({ 
+            type: 'field',
+            placeholder: 'Фамилия'
+          })
+          +radio-group({ 
+            type: 'radio',
+            id: 'sex',
+            checks: [
+              {label: 'Мужчина', checked: true},
+              {label: 'Женщина'}
+            ]
+          })
+          +section({
+            title: { name: 'дата рождения' },
+            content: { 
+                type: 'field',
+                placeholder: 'ДД.ММ.ГГГГ',
+                masked: true
+            }
+          })
+          +section({
+            title: { name: 'данные для входа в сервис' },
+            content: { 
+                type: 'fields',
+                fields: [
+                    {placeholder: 'Email'},
+                    {placeholder: 'Пароль'}
+                ]
+            }
+          })
+          +toggle-group({label: 'Получать спецпредложения'}, 'offers')
+          +button({text: 'перейти к оплате', arrow: true })
+          .card__block_row
+            p.check-acc= 'Уже есть аккаунт на Toxin'
+            +button({text: 'войти', style: 'border' })
+        when 'log-in'
+          h1.card__title= 'Войти'
+          +section({
+            content: { 
+                type: 'fields',
+                fields: [
+                    {placeholder: 'Email'},
+                    {placeholder: 'Пароль'}
+                ]
+            }
+          })
+          +button({text: 'войти', arrow: true })
+          .card__block_row
+            p.check-acc= 'Нет аккаунта на Toxin?'
+            +button({text: 'создать', style: 'border' })

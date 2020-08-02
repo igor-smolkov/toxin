@@ -1,7 +1,7 @@
 extends ../../../layout
 
 include ../../../components/logo/logo.pug
-include ../../../components/section/section.pug
+include ../../../components/card/card.pug
 
 block variables
   - var title = 'TOXIN - UI kit'
@@ -10,10 +10,10 @@ block variables
 block content
   +logo
   .cards
-    .card
-    .card
-    .card
-    .card
-    .card
-    .card
-    .card
+    +card('wishes')
+    +card('check-in')
+    +card
+    +card('log-in')
+    +card
+    +card
+    +card

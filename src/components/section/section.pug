@@ -42,6 +42,9 @@ mixin section(section)
           +dropdown(section.content)
         when 'field'
           +field(section.content)
+        when 'fields'
+          each field in section.content.fields
+            +field(field)
         when 'expandable-checkbox-list'
           +expandable-checkbox-list(section.content)
         when 'checkbox'

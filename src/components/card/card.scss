@@ -1,0 +1,82 @@
+.card {
+    width: 380px;
+    height: 374px;
+
+    padding: 29px;
+    padding-top: 39px;
+
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+
+    background-color: white;
+
+    &__title {
+        max-width: 300px;
+
+        font-size: 24px;
+        line-height: 30px;
+        font-family: $font-title;
+        font-weight: bold;
+        transform: scale(1.085, 1) translate(12px);
+        color: $color;
+    }
+
+    &__block_row {
+        display: flex;
+        justify-content: space-between;
+        .section:last-child {
+            margin-left: 20px;
+            margin-top: 0;
+        }
+        .button {
+            width: 99px;
+        }
+    }
+
+    .section {
+        margin-top: 20px;
+        &:first-child {
+            margin-top: 0;
+        }
+        .field {
+            margin-top: 10px;
+        }
+        &__title+.field {
+            margin-top: 0;
+        }
+    }
+
+    .field {
+        margin-top: 10px;
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+
+    .radio-group {
+        margin-bottom: 26px;
+    }
+    
+    .button:last-child {
+        margin-top: 30px;
+    }
+    .button:nth-last-child(2) {
+        margin-top: 20px;
+    }
+    .toggle-group+.button {
+        margin-top: 11px;
+    }
+
+    & > :nth-child(2) {
+        margin-top: 20px;
+    }
+
+    .check-acc {
+        margin: 42px 1px;
+        font-family: $font-main;
+        font-size: 14px;
+        line-height: 18px;
+        color: #000000;
+    }
+}

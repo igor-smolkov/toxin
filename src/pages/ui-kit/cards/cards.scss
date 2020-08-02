@@ -1,4 +1,5 @@
 @import '../../../components/logo/logo.scss';
+@import '../../../components/card/card.scss';
 
 .page_cards {
     display: flex;
@@ -22,10 +23,9 @@
     max-width: 1160px;
     width: 100%;
     height: 1060px;
-    background-color: rgb(255, 255, 255);
+    // background-color: rgb(202, 214, 205);
 
     .card {
-        width: 380px;
         margin: 40px 0 0 40px;
         &:nth-child(1) {
             height: 374px;
@@ -54,6 +54,5 @@
             width: 270px;
             height: 257px;
         }
-        background-color: rgb(202, 202, 214);
     }
 }
