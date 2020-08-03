@@ -1,3 +1,8 @@
+.font_correct {
+    font-weight: bold;
+    transform: scale(1.085, 1) translate(12px);
+}
+
 .card {
     width: 380px;
     height: 374px;
@@ -11,14 +16,56 @@
 
     background-color: white;
 
+    &__preview {
+        background-color: yellow;
+    }
+
+    &__header {
+        display: flex;
+        padding-top: 8px;
+        padding-bottom: 4px;
+        &_room-type {
+            flex-grow: 1;
+            align-self: flex-end;
+
+            margin-left: 5px;
+
+            font-family: $font-main-bold;
+            font-size: 12px;
+            line-height: 15px;
+            text-transform: uppercase;
+            color: $color-purple;
+        }
+        &_details {
+            align-self: flex-end;
+
+            font-family: $font-main;
+            font-size: 12px;
+            line-height: 15px;
+            color: $color-50per;
+
+            &_price {
+                font-size: 14px;
+                font-family: $font-main-bold;
+            }
+        }
+        .card__title{
+            line-height: 15px;
+            &::first-letter{
+                font-size: 14px;
+                line-height: 15px;
+                font-weight: bold;
+                padding-right: 6px;
+            } 
+        }
+    }
+
     &__title {
         max-width: 300px;
 
         font-size: 24px;
         line-height: 30px;
-        font-family: $font-title;
-        font-weight: bold;
-        transform: scale(1.085, 1) translate(12px);
+        font-family: $font-title-bold;
         color: $color;
     }
 
@@ -31,6 +78,68 @@
         }
         .button {
             width: 99px;
+        }
+    }
+
+    &__list {
+        margin-top: 20px;
+        padding-left: 1.5px;
+
+        font-family: $font-main;
+        font-size: 14px;
+        line-height: 18px;
+        color: $color-75per;
+        &__item{
+            display: flex;
+            justify-content: space-between;
+
+            margin-top: 16px;
+            &:first-child {
+                margin-top: 0;
+            }
+
+            &_name {
+                max-width: 214px;
+            }
+
+            &_info {
+                flex-grow: 1;
+                position: relative;
+                &::before {
+                    content: 'i';
+                    position: absolute;
+                    display: flex;
+                    align-items: center;
+                    width: 20px;
+                    height: 20px;
+                    top: 0px;
+                    left: 5px;
+                    padding-left: 7px;
+                    border: 1px solid $color-25per;
+                    border-radius: 10px;
+                    font-family: $font-main-bold;
+                    font-size: 12px;
+                    color: $color-25per;
+                    background-color: white;
+                }
+            }
+        }
+
+        & > :last-child {
+            margin-top: 30px;
+            font-family: $font-spare;
+            font-weight: bold;
+            font-size: 19px;
+            line-height: 24px;
+            color: $color;
+            .card__list__item_info::before {
+                content: '';
+                height: 0.5px;
+                width: 93%;
+                top: 18px;
+                border: none;
+                border-bottom: 1px dashed $color-25per;
+            }
         }
     }
 
@@ -66,6 +175,9 @@
     }
     .toggle-group+.button {
         margin-top: 11px;
+    }
+    .card__list+.button {
+        margin-top: 20px;
     }
 
     & > :nth-child(2) {

@@ -10,7 +10,7 @@ mixin card(type)
     if type
       case type
         when 'wishes'
-          h1.card__title= 'Найдём номера под ваши пожелания'
+          h1.card__title.font_correct= 'Найдём номера под ваши пожелания'
           .card__block_row
             +section({
                 title: { name: 'прибытие' },
@@ -35,7 +35,7 @@ mixin card(type)
           })
           +button({text: 'подобрать номер', arrow: true })
         when 'check-in'
-          h1.card__title= 'Регистрация аккаунта'
+          h1.card__title.font_correct= 'Регистрация аккаунта'
           +field({ 
             type: 'field',
             placeholder: 'Имя'
@@ -76,7 +76,7 @@ mixin card(type)
             p.check-acc= 'Уже есть аккаунт на Toxin'
             +button({text: 'войти', style: 'border' })
         when 'log-in'
-          h1.card__title= 'Войти'
+          h1.card__title.font_correct= 'Войти'
           +section({
             content: { 
                 type: 'fields',
@@ -90,3 +90,56 @@ mixin card(type)
           .card__block_row
             p.check-acc= 'Нет аккаунта на Toxin?'
             +button({text: 'создать', style: 'border' })
+        when 'room'
+          .card__header
+            h1.card__title= '№888'
+            p.card__header_room-type= 'люкс'
+            p.card__header_details
+              span.card__header_details_price= '9 990₽'
+              span= ' в сутки'
+          .card__block_row
+            +section({
+                title: { name: 'прибытие' },
+                content: { 
+                type: 'dropdown',
+                mode: 'date'
+                }
+            })
+            +section({
+                title: { name: 'выезд' },
+                content: { 
+                type: 'dropdown',
+                mode: 'date'
+                }
+            })
+          +section({
+            title: { name: 'Гости' },
+            content: { 
+                type: 'dropdown',
+                value: 'Сколько гостей'
+            }
+          })
+          ul.card__list
+            li.card__list__item
+              p.card__list__item_name= '9 990₽ х 4 суток'
+              p.card__list__item_price= '39 960₽'
+            li.card__list__item
+              p.card__list__item_name= 'Сбор за услуги: скидка 2 179₽'
+              .card__list__item_info
+              p.card__list__item_price= '0₽'
+            li.card__list__item
+              p.card__list__item_name= 'Сбор за дополнительные услуги'
+              .card__list__item_info
+              p.card__list__item_price= '300₽'
+            li.card__list__item
+              p.card__list__item_name= 'Итого'
+              .card__list__item_info
+              p.card__list__item_price= '38 081₽'
+          +button({text: 'забронировать', arrow: true })
+        when 'room-rate'
+          .card__header
+            h1.card__title= '№888'
+            p.card__header_room-type= 'люкс'
+            p.card__header_details
+              span.card__header_details_price= '9 990₽'
+              span= ' в сутки'
