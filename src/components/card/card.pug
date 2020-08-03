@@ -4,12 +4,13 @@ include ../button/button.pug
 include ../field/field.pug
 include ../radio-group/radio-group.pug
 include ../toggle-group/toggle-group.pug
+include ../rate-group/rate-group.pug
 
 mixin card(type)
-  article.card
-    if type
-      case type
-        when 'wishes'
+  if type
+    case type
+      when 'wishes'
+        article.card
           h1.card__title.font_correct= 'Найдём номера под ваши пожелания'
           .card__block_row
             +section({
@@ -34,7 +35,8 @@ mixin card(type)
             }
           })
           +button({text: 'подобрать номер', arrow: true })
-        when 'check-in'
+      when 'check-in'
+        article.card
           h1.card__title.font_correct= 'Регистрация аккаунта'
           +field({ 
             type: 'field',
@@ -75,7 +77,8 @@ mixin card(type)
           .card__block_row
             p.check-acc= 'Уже есть аккаунт на Toxin'
             +button({text: 'войти', style: 'border' })
-        when 'log-in'
+      when 'log-in'
+        article.card
           h1.card__title.font_correct= 'Войти'
           +section({
             content: { 
@@ -90,12 +93,13 @@ mixin card(type)
           .card__block_row
             p.check-acc= 'Нет аккаунта на Toxin?'
             +button({text: 'создать', style: 'border' })
-        when 'room'
+      when 'room'
+        article.card
           .card__header
             h1.card__title= '№888'
             p.card__header_room-type= 'люкс'
-            p.card__header_details
-              span.card__header_details_price= '9 990₽'
+            p.card__details
+              span.card__details_price= '9 990₽'
               span= ' в сутки'
           .card__block_row
             +section({
@@ -136,10 +140,19 @@ mixin card(type)
               .card__list__item_info
               p.card__list__item_price= '38 081₽'
           +button({text: 'забронировать', arrow: true })
-        when 'room-rate'
+      when 'room-rate'
+        article.card.card_mini
+          img.card__preview(src='../images/room.png', alt='№840')
           .card__header
-            h1.card__title= '№888'
-            p.card__header_room-type= 'люкс'
-            p.card__header_details
-              span.card__header_details_price= '9 990₽'
+            h1.card__title= '№840'
+            p.card__details
+              span.card__details_price= '9 990₽'
               span= ' в сутки'
+          .card__block_row
+            +rate-group({
+              id: 'rate_840',
+              checks: [{checked: false},{checked: false},{checked: false},{checked: true},{checked: false}]
+            })
+            p.card__details
+              span.card__details_price= '65'
+              span= ' Отзывов'
