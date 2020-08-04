@@ -1,0 +1,66 @@
+.preview {
+    overflow: hidden;
+    // &__prev {
+    //     position: absolute;
+    //     top: 0;
+    //     left: 0;
+    //     width: 44px;
+    //     height: 100%;
+    //     background: none;
+    //     background: no-repeat center url('components/preview/preview__prev.png'), linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 99.99%, rgba(255, 255, 255, 0) 100%);
+    //     opacity: 0;
+    //     // border: 1px solid lime;
+    //     &:hover,
+    //     &_hover {
+    //         opacity: 1;
+    //     }
+    // }
+    &__change {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 44px;
+        height: 100%;
+        background: none;
+        background: no-repeat center url('components/preview/preview__prev.png'), linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 99.99%, rgba(255, 255, 255, 0) 100%);
+        opacity: 0;
+        // border: 1px solid lime;
+        &:hover,
+        &_hover {
+            opacity: 1;
+        }
+        &_next {
+            left: auto;
+            right: 0;
+            transform: matrix(-1, 0, 0, 1, 0, 0);
+        }
+    }
+    &__rooms {
+        position: absolute;
+        top: 124px;
+        right: 10px;
+        width: 45px;
+        height: 10px;
+        // border: 1px solid blue;
+        &_item {
+            width: 7px;
+            height: 7px;
+            border-radius: 3.5px;
+            border: 1px solid white;
+            background: none;
+            margin-left: 4px;
+            &:first-child {
+                margin-left: 0;
+            }
+            &_checked {
+                background-color: white;
+            }
+        }
+    }
+    &__pic {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
+}

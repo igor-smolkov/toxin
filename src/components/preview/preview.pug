@@ -1,0 +1,14 @@
+mixin preview(pushClass, room, demo)
+  .preview(class=pushClass)
+    img.preview__pic(src=room.src, alt=room.alt)
+    if demo
+      button.preview__change.preview__change_hover
+      button.preview__change.preview__change_next.preview__change_hover
+    else
+      button.preview__change
+      button.preview__change.preview__change_next
+    .preview__rooms
+      button.preview__rooms_item.preview__rooms_item_checked
+      button.preview__rooms_item
+      button.preview__rooms_item
+      button.preview__rooms_item

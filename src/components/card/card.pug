@@ -6,9 +6,38 @@ include ../radio-group/radio-group.pug
 include ../toggle-group/toggle-group.pug
 include ../rate-group/rate-group.pug
 
-mixin card(type)
-  if type
-    case type
+include ../preview/preview.pug
+
+mixin card(card)
+  if card.type
+    case card.type
+      when 'room-rate'
+        article.card.card_mini
+          +preview('card__preview', card.pic)
+          .card__header
+            h1.card__title= `№${card.number}`
+            p.card__details
+              span.card__details_price= card.price
+              span= ' в сутки'
+          .card__block_row
+            case card.rate
+              when 1
+                +rate-group({ id: `rate_${card.number}`, checks: [{checked: true},{checked: false},{checked: false},{checked: false},{checked: false}] })
+              when 2
+                +rate-group({ id: `rate_${card.number}`, checks: [{checked: false},{checked: true},{checked: false},{checked: false},{checked: false}] })
+              when 3
+                +rate-group({ id: `rate_${card.number}`, checks: [{checked: false},{checked: false},{checked: true},{checked: false},{checked: false}] })
+              when 4
+                +rate-group({ id: `rate_${card.number}`, checks: [{checked: false},{checked: false},{checked: false},{checked: true},{checked: false}] })
+              when 5
+                +rate-group({ id: `rate_${card.number}`, checks: [{checked: false},{checked: false},{checked: false},{checked: false},{checked: true}] })
+              default
+                +rate-group({ id: `rate_${card.number}`, checks: [{checked: false},{checked: false},{checked: false},{checked: false},{checked: false}] })
+            p.card__details
+              span.card__details_price= card.review
+              span= ' Отзывов'
+  else
+    case card
       when 'wishes'
         article.card
           h1.card__title.font_correct= 'Найдём номера под ваши пожелания'
@@ -142,17 +171,18 @@ mixin card(type)
           +button({text: 'забронировать', arrow: true })
       when 'room-rate'
         article.card.card_mini
-          img.card__preview(src='../images/room.png', alt='№840')
+          +preview('card__preview', { src: '../images/room_888.png', alt: '№888' }, true)
           .card__header
-            h1.card__title= '№840'
+            h1.card__title= '№888'
+            p.card__header_room-type= 'люкс'
             p.card__details
               span.card__details_price= '9 990₽'
               span= ' в сутки'
           .card__block_row
             +rate-group({
-              id: 'rate_840',
-              checks: [{checked: false},{checked: false},{checked: false},{checked: true},{checked: false}]
+              id: 'rate_888',
+              checks: [{checked: false},{checked: false},{checked: false},{checked: false},{checked: true}]
             })
             p.card__details
-              span.card__details_price= '65'
+              span.card__details_price= '145'
               span= ' Отзывов'
