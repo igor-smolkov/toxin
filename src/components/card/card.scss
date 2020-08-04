@@ -1,5 +1,7 @@
 @import '../preview/preview.scss';
 
+@import '../calendar/calendar.scss';
+
 .font_correct {
     font-weight: bold;
     transform: scale(1.085, 1) translate(12px);
@@ -43,6 +45,10 @@
                 font-weight: bold;
                 padding-right: 6px;
             } 
+        }
+        .card__details {
+            padding-top: 4px;
+            padding-right: 4px;
         }
     }
     &__details {
@@ -214,6 +220,17 @@
         box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
         .rate-group {
             margin: 1px 0;
+        }
+        .button:nth-child(n) {
+            margin: 0;
+        }
+        &_calendar {
+            padding: 19px;
+            border: 1px solid $color-25per;
+        }
+        .card__header .card__details {
+            padding-top: 0;
+            padding-right: 0;
         }
     }
 

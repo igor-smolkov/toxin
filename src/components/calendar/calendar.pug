@@ -1,0 +1,12 @@
+include ../button/button.pug
+
+mixin calendar
+  .calendar
+    .calendar__month
+      button.calendar__month_prev
+      h2.calendar__month_title= 'Август 2019'
+      button.calendar__month_next
+    .calendar__days
+    .calendar__control
+      +button({ text: 'очистить', style: 'link', hover: true })
+      +button({ text: 'применить', style: 'link' })

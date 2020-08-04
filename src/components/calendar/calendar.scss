@@ -1,0 +1,43 @@
+.calendar {
+    &__month {
+        display: flex;
+        justify-content: space-between;
+        height: 24px;
+        // border: 1px solid blue;
+        &_prev {
+            width: 24px;
+            height: 24px;
+            background: no-repeat center url('components/calendar/calendar__month_prev.png');
+        }
+        &_next {
+            width: 24px;
+            height: 24px;
+            background: no-repeat center url('components/calendar/calendar__month_next.png');
+        }
+        &_title {
+            font-family: $font-title-bold;
+            font-weight: bold;
+            font-size: 19px;
+            line-height: 24px;
+            color: $color;
+        }
+    }
+    &__days {
+        margin-top: 30px;
+        height: 240px;
+        // border: 1px solid blue;
+    }
+    &__control {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+        height: 15px;
+        // border: 1px solid blue;
+        .button {
+            max-width: 84px;
+            & .button__text {
+                text-align: left;
+            }
+        }
+    }
+}

@@ -8,6 +8,8 @@ include ../rate-group/rate-group.pug
 
 include ../preview/preview.pug
 
+include ../calendar/calendar.pug
+
 mixin card(card)
   if card.type
     case card.type
@@ -15,7 +17,7 @@ mixin card(card)
         article.card.card_mini
           +preview('card__preview', card.pic)
           .card__header
-            h1.card__title= `№${card.number}`
+            h2.card__title= `№${card.number}`
             p.card__details
               span.card__details_price= card.price
               span= ' в сутки'
@@ -135,21 +137,23 @@ mixin card(card)
                 title: { name: 'прибытие' },
                 content: { 
                 type: 'dropdown',
-                mode: 'date'
+                mode: 'date',
+                value: '2019-08-19'
                 }
             })
             +section({
                 title: { name: 'выезд' },
                 content: { 
                 type: 'dropdown',
-                mode: 'date'
+                mode: 'date',
+                value: '2019-08-23'
                 }
             })
           +section({
             title: { name: 'Гости' },
             content: { 
                 type: 'dropdown',
-                value: 'Сколько гостей'
+                value: '3 гостя'
             }
           })
           ul.card__list
@@ -173,7 +177,7 @@ mixin card(card)
         article.card.card_mini
           +preview('card__preview', { src: '../images/room_888.png', alt: '№888' }, true)
           .card__header
-            h1.card__title= '№888'
+            h2.card__title= '№888'
             p.card__header_room-type= 'люкс'
             p.card__details
               span.card__details_price= '9 990₽'
@@ -186,3 +190,6 @@ mixin card(card)
             p.card__details
               span.card__details_price= '145'
               span= ' Отзывов'
+      when 'calendar'
+        article.card.card_mini.card_mini_calendar
+         +calendar
