@@ -1,4 +1,5 @@
 include ../logo/logo.pug
+include ../button/button.pug
 
 mixin menu__item(link, content, dropdown, hovered)
   if dropdown
@@ -21,3 +22,6 @@ mixin header
         +menu__item('#', 'Вакансии')
         +menu__item('#', 'Новости')
         +menu__item('#', 'Соглашения', true)
+        +button({text: 'войти', style: 'border'})
+        +button({text: 'зарегистрироваться'})
+    

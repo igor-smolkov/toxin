@@ -10,17 +10,21 @@ header.header {
 }
 
 nav.menu {
-    & ul {
+    // display: flex;
+    ul {
         height: 100%;
         display: flex;
-        justify-content: space-between;
+        // justify-content: space-between;
         // border: 1px solid red;
+        & > * {
+            margin-left: 20px;
+        }
     }
-    & .menu__item {
-        margin-left: 20px;
+    .menu__item {
+        white-space: nowrap;
         font-family: $font-main;
         align-self: center;
-        & a {
+        a {
             font-weight: normal;
             color: $color-50per;
             &:hover,
@@ -51,6 +55,20 @@ nav.menu {
         }
         &:first-child {
             margin-left: 0;
+        }
+    }
+    .button {
+        margin-top: 3px;
+        width: 196px;
+        height: 34px;
+        &_border {
+            width: 87px;
+            .button__text {
+                height: 30px;
+            }
+        }
+        &::before{
+            height: 34px;
         }
     }
 }
