@@ -1,0 +1,13 @@
+extends ../../../layout
+
+include ../../../components/logo/logo.pug
+include ../../../components/header/header.pug
+
+block variables
+  - var title = 'TOXIN - UI kit'
+  - var page = 'page_headers-and-footers'
+
+block content
+  +logo
+  .headers-and-footers
+    +header

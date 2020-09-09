@@ -1,0 +1,16 @@
+@import '../../../components/logo/logo.scss';
+@import '../../../components/header/header.scss';
+
+.page_headers-and-footers {
+    background: #F4F4F6;
+}
+
+.logo {
+    position: absolute;
+    left: 30px;
+    top: 30px;
+}
+
+.headers-and-footers {
+    margin-top: 140px;
+}

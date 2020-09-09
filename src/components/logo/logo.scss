@@ -3,8 +3,41 @@
     height: 48px;
     border: 3px solid rgba(31, 32, 65, 0.25);
     border-radius: 50%;
-    background-image: url('components/logo/elm1.png'), url('components/logo/elm2.png');
+    background-image: url('components/logo/logo__elm1.png'), url('components/logo/logo__elm2.png');
     background-repeat: no-repeat;
     background-size: 15px, 12px 8px;
     background-position: 8px 15px, 22px 15px;
+    &_full {
+        position: relative;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: linear-gradient(180deg, $color-purple 0%, #8BA4F9 100%);
+        &::before {
+            content: '';
+            display: block;
+            position: absolute;
+            width: 36px;
+            height: 36px;
+            top: 2px;
+            left: 2px;
+            border: 4px solid transparent;
+            border-radius: 50%;
+            background-color: white;
+            background-image: url('components/logo/logo__elm1_color.png'), url('components/logo/logo__elm2_color.png');
+            background-repeat: no-repeat;
+            background-size: 13px, 10px 7px;
+            background-position: 3px 9px, 15px 9px;
+        }
+        &::after {
+            content: '';
+            display: block;
+            width: 54px;
+            height: 13px;
+            position: absolute;
+            top: 13px;
+            left: 52px;
+            background: no-repeat url('components/logo/logo__name_toxin.png');
+        }
+    }
 }
