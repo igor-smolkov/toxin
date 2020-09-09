@@ -61,8 +61,36 @@ footer.footer {
     .footer__copyright {
         max-height: 70px;
         width: 100%;
-        padding: 26px 140px;
+        padding: 23px 140px;
         background-color: #FFFFFF;
         box-shadow: 0px 10px 20px $color-5per;
+
+        display: flex;
+        justify-content: space-between;
+
+        ul {
+            display: flex;
+            & > * {
+                margin-left: 20px;
+                &:first-child {
+                    margin-left: 0;
+                }
+            }
+        }
+    }
+    .footer__social {
+        font-size: 0;
+        display: block;
+        width: 24px;
+        height: 24px;
+        &_twi {
+            background: no-repeat center url('components/footer/footer__twi.png');
+        }
+        &_fb {
+            background: no-repeat center url('components/footer/footer__fb.png');
+        }
+        &_inst {
+            background: no-repeat center url('components/footer/footer__inst.png');
+        }
     }
 }
