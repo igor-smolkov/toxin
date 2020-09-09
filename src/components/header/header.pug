@@ -1,27 +1,33 @@
 include ../logo/logo.pug
 include ../button/button.pug
 
-mixin menu__item(link, content, dropdown, hovered)
-  if dropdown
+mixin menu__item(item)
+  if item.user
+    li.menu__item.menu__item_user
+      a(href=item.link)=item.text
+  else if item.dropdown
     li.menu__item.menu__item_dropdown
-      a(href=link)=content
+      a(href=item.link)=item.text
   else
     li.menu__item
-      if hovered
-        a(href=link).hover=content
+      if item.hovered
+        a(href=item.link).hover=item.text
       else
-        a(href=link)=content
+        a(href=item.link)=item.text
 
-mixin header
+mixin header(user)
   header.header
     +logo('toxin')
     nav.menu
       ul
-        +menu__item('#', 'О нас', false, true)
-        +menu__item('#', 'Услуги', true)
-        +menu__item('#', 'Вакансии')
-        +menu__item('#', 'Новости')
-        +menu__item('#', 'Соглашения', true)
-        +button({text: 'войти', style: 'border'})
-        +button({text: 'зарегистрироваться'})
+        +menu__item({ link: '#', text: 'О нас', hovered: true })
+        +menu__item({ link: '#', text: 'Услуги', dropdown: true })
+        +menu__item({ link: '#', text: 'Вакансии' })
+        +menu__item({ link: '#', text: 'Новости' })
+        +menu__item({ link: '#', text: 'Соглашения', dropdown: true })
+        if user
+          +menu__item({ link: '#', text: 'Юлий Цезарь', user: true })
+        else 
+          +button({text: 'войти', style: 'border'})
+          +button({text: 'зарегистрироваться'})
     

@@ -35,7 +35,7 @@ nav.menu {
         }
         &_dropdown {
             position: relative;
-            margin-right: 24px;
+            margin-right: 25px;
             & a {
                 &.hover::after,
                 &:hover::after {
@@ -45,12 +45,26 @@ nav.menu {
                     content: '';
                     display: block;
                     position: absolute;
-                    width: 24px;
+                    width: 25px;
                     height: 21px;
                     top: -3px;
-                    right: -24px;
+                    right: -25px;
                     background: no-repeat center url('components/header/menu__item_expand_more_50.png');
                 }
+            }
+        }
+        &_user {
+            margin-left: 41px;
+            position: relative;
+            &::before {
+                content: '';
+                display: block;
+                position: absolute;
+                width: 1px;
+                height: 30px;
+                left: -21px;
+                top: -8px;
+                background-color: rgba(31, 32, 65, 0.1);
             }
         }
         &:first-child {
