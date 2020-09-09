@@ -13,8 +13,14 @@
 }
 
 .headers-and-footers {
+    display: flex;
+    flex-direction: column;
     margin-top: 140px;
     & > * {
         margin-top: 40px;
+        align-self: center;
+    }
+    & > :last-child {
+        margin-bottom: 140px;
     }
 }
