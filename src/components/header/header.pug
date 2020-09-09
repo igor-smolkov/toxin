@@ -1,6 +1,23 @@
 include ../logo/logo.pug
 
+mixin menu__item(link, content, dropdown, hovered)
+  if dropdown
+    li.menu__item.menu__item_dropdown
+      a(href=link)=content
+  else
+    li.menu__item
+      if hovered
+        a(href=link).hover=content
+      else
+        a(href=link)=content
+
 mixin header
   header.header
-   +logo('toxin')
-    
+    +logo('toxin')
+    nav.menu
+      ul
+        +menu__item('#', 'О нас', false, true)
+        +menu__item('#', 'Услуги', true)
+        +menu__item('#', 'Вакансии')
+        +menu__item('#', 'Новости')
+        +menu__item('#', 'Соглашения', true)
