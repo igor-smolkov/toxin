@@ -47,6 +47,14 @@ $color-green: #6FCF97;
     }
 }
 
+h3 {
+    font-family: $font-main-bold;
+    font-size: 12px;
+    line-height: 15px;
+    color: $color;
+    text-transform: uppercase;
+}
+
 @import 'pages/ui-kit/colors-and-type/colors-and-type.scss';
 @import 'pages/ui-kit/form-elements/form-elements.scss';
 @import 'pages/ui-kit/cards/cards.scss';
