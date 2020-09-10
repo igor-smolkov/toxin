@@ -10,12 +10,9 @@ header.header {
 }
 
 nav.menu {
-    // display: flex;
     ul {
         height: 100%;
         display: flex;
-        // justify-content: space-between;
-        // border: 1px solid red;
         & > * {
             margin-left: 20px;
         }
@@ -73,16 +70,100 @@ nav.menu {
     }
     .button {
         margin-top: 3px;
-        width: 196px;
+        min-width: 196px;
+        max-width: 196px;
+        width: 100%;
         height: 34px;
         &_border {
-            width: 87px;
+            min-width: 87px;
+            max-width: 87px;
+            width: 100%;
             .button__text {
                 height: 30px;
             }
         }
         &::before{
             height: 34px;
+        }
+    }
+}
+
+@media only screen and (max-width : 1120px) {
+    header.header {
+        padding-top: 5px;
+    }
+    .logo_full {
+        margin-top: 10px;
+    }
+    nav.menu ul {
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        .menu__item:first-child {
+            margin-left: 20px;
+        }
+        .menu__item {
+            margin-top: 15px;
+        }
+        .button {
+            margin-top: 15px;
+        }
+    }
+}
+
+@media only screen and (max-width : 880px) {
+    header.header {
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+}
+
+@media only screen and (max-width : 800px) {
+    header.header {
+        justify-content: flex-start;
+        max-height: 170px;
+    }
+    nav.menu ul {
+        flex-direction: column;
+        .menu__item {
+            align-self: flex-start;
+            margin-top: 15px;
+        }
+        .button {
+            align-self: flex-start;
+            margin-top: 15px;
+        }
+    }
+}
+
+@media only screen and (max-width : 700px) {
+    header.header {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+}
+
+@media only screen and (max-width : 560px) {
+    header.header {
+        max-height: 270px;
+    }
+    nav.menu ul {
+        .button:last-child {
+            margin-top: 10px;
+        }
+    }
+}
+
+@media only screen and (max-width : 400px) {
+    header.header {
+        flex-direction: column;
+        max-height: 310px;
+    }
+    nav.menu ul {
+        & > * {
+            margin-left: 0;
+        }
+        .menu__item:first-child {
+            margin-left: 0;
         }
     }
 }

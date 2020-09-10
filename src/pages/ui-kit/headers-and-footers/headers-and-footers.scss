@@ -24,3 +24,12 @@
         margin-bottom: 140px;
     }
 }
+
+@media only screen and (max-width : 800px) {
+    .headers-and-footers {
+        margin-top: 100px;
+        & > :last-child {
+            margin-bottom: 100px;
+        }
+    }
+}
