@@ -1,3 +1,21 @@
-.class-3 {
-    color: green;
+.landing {
+    &__main {
+        min-height: 830px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 70px 134px 21px 140px;
+        background: no-repeat url('pages/website/landing-page-1/landing__room_3.png');
+        background-size: cover;
+        // background-position: 0px -70px;
+    }
+    &__text {
+        align-self: flex-end;
+        max-width: 297px;
+        font-family: $font-main;
+        font-size: 14px;
+        line-height: 24px;
+        text-align: right;
+        color: $color-75per;
+    }
 }

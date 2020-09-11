@@ -15,18 +15,21 @@ mixin menu__item(item)
       else
         a(href=item.link)=item.text
 
-mixin header(user)
+mixin header(props = {demo: false})
   header.header
     +logo('toxin')
     nav.menu
       ul
-        +menu__item({ link: '#', text: 'О нас', hovered: true })
+        if props.demo
+          +menu__item({ link: '#', text: 'О нас', hovered: true })
+        else
+          +menu__item({ link: '#', text: 'О нас' })
         +menu__item({ link: '#', text: 'Услуги', dropdown: true })
         +menu__item({ link: '#', text: 'Вакансии' })
         +menu__item({ link: '#', text: 'Новости' })
         +menu__item({ link: '#', text: 'Соглашения', dropdown: true })
-        if user
-          +menu__item({ link: '#', text: 'Юлий Цезарь', user: true })
+        if props.user
+          +menu__item({ link: '#', text: props.user, user: true })
         else 
           +button({text: 'войти', style: 'border'})
           +button({text: 'зарегистрироваться'})
