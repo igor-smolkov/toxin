@@ -27,30 +27,30 @@
     .card {
         margin: 40px 0 0 40px;
         &:nth-child(1) {
-            height: 374px;
+            // height: 374px;
             margin-top: 0;
             margin-left: 0;
         }
         &:nth-child(2) {
-            height: 646px;
+            // height: 646px;
             margin-left: 0;
         }
         &:nth-child(3) {
-            height: 511px;
+            // height: 511px;
             margin-top: 0;
         }
         &:nth-child(4) {
-            height: 358px;
+            // height: 358px;
         }
         &:nth-child(5) {
             width: 320px;
-            height: 369px;
+            // height: 369px;
             margin-top: 0;
         }
         &:nth-child(6),
         &:nth-child(7) {
             width: 270px;
-            height: 257px;
+            // height: 257px;
         }
     }
 }
@@ -129,7 +129,7 @@
 
 @media only screen and (max-width : 750px) {
     .cards {
-        height: 3020px;
+        min-height: 3020px;
         margin-left: 140px;
         margin-right: 140px;
         .card:nth-child(6) {
@@ -154,55 +154,11 @@
         height: 3150px;
         margin-left: 10px;
         margin-right: 10px;
-        .card {
-            width: 100%;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-            &__block_row:nth-child(2) {
-                flex-direction: column;
-                & > :last-child {
-                    margin-left: 0;
-                    margin-top: 5px;
-                }
-            }
-            &:nth-child(1) {
-                height: 433px;
-            }
-            &:nth-child(3) {
-                height: 570px;
-            }
-        }
     }
 }
 
 @media only screen and (max-width : 380px) {
     .cards {
-        margin-left: 10px;
         height: 3260px;
-        margin-right: 10px;
-        .card {
-            width: 100%;
-            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
-            align-self: flex-start;
-            &__title {
-                padding-right: 5px;
-            }
-            &__list__item_info {
-                min-width: 30px;
-            }
-            &:nth-child(1) {
-                height: 470px;
-            }
-            &:nth-child(2) {
-                height: 691px;
-            }
-            &:nth-child(3) {
-                height: 610px;
-            }
-            &:nth-child(5) {
-                min-width: 300px;
-                max-width: 320px;
-                width: 100%;
-            }
-        }
     }
 }

@@ -8,8 +8,9 @@
 }
 
 .card {
-    width: 380px;
-    height: 374px;
+    max-width: 380px;
+    // height: 374px;
+    min-height: 257px;
 
     padding: 29px;
     padding-top: 39px;
@@ -84,6 +85,9 @@
         .section:last-child {
             margin-left: 20px;
             margin-top: 0;
+        }
+        &:last-child {
+            margin-top: 30px;
         }
         .button {
             width: 99px;
@@ -181,8 +185,8 @@
         margin-bottom: 26px;
     }
     
-    .button:last-child {
-        margin-top: 30px;
+    .section+.button:last-child {
+        margin-top: 32px;
     }
     .button:nth-last-child(2) {
         margin-top: 20px;
@@ -205,7 +209,7 @@
     }
 
     .check-acc {
-        margin: 42px 1px;
+        margin: 12px 1px;
         font-family: $font-main;
         font-size: 14px;
         line-height: 18px;
@@ -260,6 +264,32 @@
                 top: 38px;
                 background: rgba(31, 32, 65, 0.1);
             }
+        }
+    }
+}
+
+@media only screen and (max-width : 410px) {
+    .card {
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        &__block_row:nth-child(2) {
+            flex-direction: column;
+            & > :last-child {
+                margin-left: 0;
+                margin-top: 5px;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width : 380px) {
+    .card {
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+        align-self: flex-start;
+        &__title {
+            padding-right: 5px;
+        }
+        &__list__item_info {
+            min-width: 30px;
         }
     }
 }
