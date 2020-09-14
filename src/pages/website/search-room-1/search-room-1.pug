@@ -5,7 +5,6 @@ include ../../../components/footer/footer.pug
 include ../../../components/card/card.pug
 
 include ../../../components/section/section.pug
-//- include ../../../components/pagination/pagination.pug
 
 block variables
   - var title = 'TOXIN - Search room'
@@ -14,6 +13,75 @@ block content
     +header
     main.search__main
       aside.search__filter
+        +section({
+          title: { name: 'даты пребывания в отеле' },
+          content: { 
+            type: 'dropdown',
+            value: '19 авг - 23 авг',
+            mode: 'filter'
+          }
+        })
+        +section({
+          title: { name: 'Гости' },
+            content: { 
+              type: 'dropdown',
+              value: '3 гостя, 1 младенец'
+            }
+        })
+        +section({
+          title: { 
+            name: 'диапазон цены', 
+            details: '5 000₽ - 10 000₽' 
+          },
+          content: {
+            type: 'slider',
+            min: 31.75,
+            max: 63.5,
+            details: 'Стоимость за сутки пребывания в номере'
+          }
+        })
+        +section({
+          title: { name: 'Checkbox Buttons' },
+          content: { 
+            type: 'checkbox',
+            id: 'checkbox1',
+            checks: [
+              {label: 'Можно курить'},
+              {label: 'Можно с питомцами', checked: true},
+              {label: 'Можно пригласить гостей\n(до 10 человек)', checked: true}
+            ]
+          }
+        })
+        +section({
+          title: { name: 'доступность' },
+          content: { 
+            type: 'checkbox',
+            id: 'checkboxrich',
+            checks: [
+              {
+                label: 'Широкий коридор',
+                details: 'Ширина коридоров в номере\nне менее 91 см.'
+              },
+              {
+                label: 'Помощник для инвалидов',
+                details: `На 1 этаже вас встретит специалист\nи проводит до номера.`
+              }
+            ]
+          }
+        })
+        +section({
+          title: { name: 'удобства номера' },
+            content: { 
+              type: 'dropdown',
+              value: '2 спальни, 2 кровати...'
+            }
+        })
+        +section({
+          title: { name: 'дополнительные удобства' },
+          content: { 
+            type: 'expandable-checkbox-list'
+          }
+        })
       article.search__rooms
         h1= 'Номера, которые мы для вас подобрали'
         section.cards

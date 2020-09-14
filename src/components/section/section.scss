@@ -44,4 +44,11 @@
             margin-bottom: 0;
         }
     }
+    &__content_details {
+        margin-top: 10px;
+        font-family: $font-main;
+        font-size: 12px;
+        line-height: 14px;
+        color: $color-50per;
+    }
 }

@@ -26,6 +26,8 @@ mixin section(section)
       case section.content.type
         when 'slider'
           +slider(section.content.min, section.content.max)
+          if section.content.details
+            p.section__content_details= section.content.details
         when 'buttons'
           each btn, index in section.content.buttons
             .section__block_btn

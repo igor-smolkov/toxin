@@ -55,12 +55,13 @@ $color-green: #6FCF97;
 
 h1 {
     font-family: $font-title-bold;
-    font-size: 24px;
+    font-size: 25px;
     line-height: 30px;
     color: $color;
     //коорректировка
+    // font-family: $font-spare;
     font-weight: bold;
-    transform: scale(1.085, 1) translate(32px);
+    // transform: scale(1.085, 1) translate(32px);
     // margin-left: 14px;
 }
 h3 {
