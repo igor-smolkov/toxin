@@ -1,0 +1,117 @@
+extends ../../../layout
+
+include ../../../components/header/header.pug
+include ../../../components/footer/footer.pug
+include ../../../components/card/card.pug
+
+include ../../../components/section/section.pug
+//- include ../../../components/pagination/pagination.pug
+
+block variables
+  - var title = 'TOXIN - Search room'
+
+block content
+    +header
+    main.search__main
+      aside.search__filter
+      article.search__rooms
+        h1= 'Номера, которые мы для вас подобрали'
+        section.cards
+          +card('room-rate')
+          +card({
+            type: 'room-rate',
+            pic: { src: '../images/room_840.png', alt: '№840' },
+            number: '840',
+            price: '9 900₽',
+            rate: 4,
+            review: '65'
+          })
+          +card({
+            type: 'room-rate',
+            pic: { src: '../images/room_980.png', alt: '№980' },
+            number: '980',
+            luxury: true,
+            price: '8 500₽',
+            rate: 3,
+            review: '35'
+          })
+          +card({
+            type: 'room-rate',
+            pic: { src: '../images/room_856.png', alt: '№856' },
+            number: '856',
+            price: '7 300₽',
+            rate: 5,
+            review: '19'
+          })
+          +card({
+            type: 'room-rate',
+            pic: { src: '../images/room_740.png', alt: '№740' },
+            number: '740',
+            price: '6 000₽',
+            rate: 4,
+            review: '44'
+          })
+          +card({
+            type: 'room-rate',
+            pic: { src: '../images/room_982.png', alt: '№982' },
+            number: '982',
+            price: '5 800₽',
+            rate: 3,
+            review: '56'
+          })
+          +card({
+            type: 'room-rate',
+            pic: { src: '../images/room_678.png', alt: '№678' },
+            number: '678',
+            price: '5 500₽',
+            rate: 5,
+            review: '45'
+          })
+          +card({
+            type: 'room-rate',
+            pic: { src: '../images/room_450.png', alt: '№450' },
+            number: '450',
+            price: '5 300₽',
+            rate: 4,
+            review: '39'
+          })
+          +card({
+            type: 'room-rate',
+            pic: { src: '../images/room_350.png', alt: '№350' },
+            number: '350',
+            price: '5 000₽',
+            rate: 3,
+            review: '77'
+          })
+          +card({
+            type: 'room-rate',
+            pic: { src: '../images/room_666.png', alt: '№666' },
+            number: '666',
+            price: '5 000₽',
+            rate: 5,
+            review: '25'
+          })
+          +card({
+            type: 'room-rate',
+            pic: { src: '../images/room_444.png', alt: '№444' },
+            number: '444',
+            price: '5 000₽',
+            rate: 3,
+            review: '15'
+          })
+          +card({
+            type: 'room-rate',
+            pic: { src: '../images/room_352.png', alt: '№352' },
+            number: '352',
+            price: '5 000₽',
+            rate: 3,
+            review: '55'
+          })
+        +section({
+          content: { 
+            type: 'pagination',
+            last: 15,
+            description: '1 – 12 из 100+ вариантов аренды'
+          }
+        })
+    +footer

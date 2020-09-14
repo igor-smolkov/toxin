@@ -27,30 +27,17 @@
     .card {
         margin: 40px 0 0 40px;
         &:nth-child(1) {
-            // height: 374px;
             margin-top: 0;
             margin-left: 0;
         }
         &:nth-child(2) {
-            // height: 646px;
             margin-left: 0;
         }
         &:nth-child(3) {
-            // height: 511px;
             margin-top: 0;
-        }
-        &:nth-child(4) {
-            // height: 358px;
         }
         &:nth-child(5) {
-            width: 320px;
-            // height: 369px;
             margin-top: 0;
-        }
-        &:nth-child(6),
-        &:nth-child(7) {
-            width: 270px;
-            // height: 257px;
         }
     }
 }

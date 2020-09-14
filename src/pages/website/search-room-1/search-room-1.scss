@@ -1,0 +1,41 @@
+.search {
+    &__main {
+        min-height: 1357px;
+        display: flex;
+        justify-content: center;
+        border-bottom: 1px solid $color-25per;
+        padding: 30px 140px 70px 140px;
+    }
+    &__filter {
+        max-width: 266px;
+        width: 100%;
+        // background-color: rgb(43, 255, 0);
+    }
+    &__rooms {
+        max-width: 834px;
+        width: 100%;
+        margin-left: 60px;
+        // background-color: blue;
+        .cards {
+            margin: 0;
+            padding: 0;
+            flex-direction: row;
+            height: auto;
+            & > :nth-child(n) {
+                margin:0;
+                margin-top: 21px;
+                margin-left: 12px;
+            }
+            & > :first-child,
+            & > :nth-child(3n+4) {
+                margin-left:0;
+            }
+        }
+        .section {
+            display: flex;
+            justify-content: center;
+            padding-top: 28px;
+            padding-right: 12px;
+        }
+    }
+}

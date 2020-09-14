@@ -18,6 +18,8 @@ mixin card(card)
           +preview('card__preview', card.pic)
           .card__header
             h2.card__title= `№${card.number}`
+            if card.luxury
+              p.card__header_room-type= 'люкс'
             p.card__details
               span.card__details_price= card.price
               span= ' в сутки'
