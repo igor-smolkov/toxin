@@ -21,6 +21,7 @@
         // background-color: rgb(43, 255, 0);
     }
     &__rooms {
+        min-width: 270px;
         max-width: 834px;
         width: 100%;
         margin-left: 60px;
@@ -50,4 +51,59 @@
 }
 
 @media only screen and (max-width : 1440px) {
+    .search {
+        &__main {
+            padding: 30px 40px 70px 40px;
+        }
+    }
+}
+
+@media only screen and (max-width : 1240px) {
+    .search {
+        &__rooms {
+            max-width: 552px;
+            .cards {
+                & > :nth-child(n) {
+                    margin:0;
+                    margin-top: 21px;
+                    margin-left: 12px;
+                }
+                & > :first-child,
+                & > :nth-child(2n+3) {
+                    margin-left:0;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width : 960px) {
+    .search {
+        &__rooms {
+            max-width: 270px;
+            .cards {
+                & > :nth-child(n) {
+                    margin:0;
+                    margin-top: 21px;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width : 680px) {
+    .search {
+        &__main {
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+        &__filter {
+            align-self: center;
+        }
+        &__rooms {
+            align-self: center;
+            margin-top: 40px;
+            margin-left: 0;
+        }
+    }
 }
