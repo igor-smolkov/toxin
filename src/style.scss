@@ -64,6 +64,14 @@ h1 {
     // transform: scale(1.085, 1) translate(32px);
     // margin-left: 14px;
 }
+h2 {
+    font-family: $font-title-bold;
+    font-size: 19px;
+    line-height: 24px;
+    color: $color;
+    //коорректировка
+    font-weight: bold;
+}
 h3 {
     font-family: $font-main-bold;
     font-size: 12px;
@@ -79,3 +87,4 @@ h3 {
 
 @import 'pages/website/landing-page-1/landing-page-1.scss';
 @import 'pages/website/search-room-1/search-room-1.scss';
+@import 'pages/website/room-details/room-details.scss';

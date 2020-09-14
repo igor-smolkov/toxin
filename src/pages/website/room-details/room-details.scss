@@ -1,0 +1,71 @@
+.room {
+    &__main {
+        display: flex;
+        flex-wrap: wrap;
+        border-bottom: 1px solid $color-25per;
+        justify-content: center;
+    }
+    &__photos {
+        min-width: 100%;
+        width: 100%;
+        min-height: 485px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        &__view {
+            &_1 {
+                // max-width: 981px;
+                width: 68%;
+                height: 100%;
+                background: no-repeat center url('pages/website/room-details/view_1.png');
+                background-size: cover;
+            }
+            &_2 {
+                width: 32%;
+                height: 50%;
+                background: no-repeat center url('pages/website/room-details/view_2.png');
+                background-size: cover;
+            }
+            &_3 {
+                width: 32%;
+                height: 50%;
+                background: no-repeat center url('pages/website/room-details/view_3.png');
+                background-size: cover;
+            }
+        }
+    }
+    &__details {
+        max-width: 850px;
+        width: 100%;
+        padding: 70px 0px 70px 140px;
+        display: flex;
+        flex-wrap: wrap;
+        & > * {
+            margin-top: 33px;
+            &:first-child,
+            &:nth-child(2) {
+                margin-top: 0;
+            }
+        }
+        & > * > :not(:first-child) {
+            margin-top: 20px;
+        }
+        &__impress {
+            min-width: 311px;
+            margin-left: 80px;
+        }
+        &__cancel {
+            max-width: 341px;
+            margin-left: 80px;
+            p {
+                font-family: $font-main;
+                font-size: 14px;
+                line-height: 24px;
+                color: $color-75per;
+            }
+        }
+    }
+    &__reservation {
+        padding: 70px 140px 70px 70px;
+    }
+}

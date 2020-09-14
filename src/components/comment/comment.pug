@@ -4,7 +4,7 @@ mixin comment(comment)
   .comment
     .comment_imgs
       img.comment__ava(src=comment.src, alt=comment.username)
-      +like({ label: comment.likes, checked: true }, 'comment_like1')
+      +like({ label: comment.likes, checked: comment.liked }, `${comment.id}_like`)
     .comment_texts
       p.comment__username=comment.username
       p.comment__datetime=comment.datetime

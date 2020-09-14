@@ -46,5 +46,11 @@
             background: no-repeat center url('components/extra-list/location_city.png');
             background-position: 6px 4px;
         }
+        &:nth-child(3)::before {
+            background: no-repeat center url('components/extra-list/whatshot.png');
+        }
+        &:nth-child(3)::after {
+            display: none;
+        }
     }
 }
