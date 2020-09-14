@@ -1,0 +1,11 @@
+.reg {
+    &__main {
+        min-height: 684px;
+        display: flex;
+        justify-content: center;
+        padding: 19px 10px 19px 10px;
+        background: no-repeat url('pages/website/registration/reg__room_4.png');
+        background-size: cover;
+        // background-position: 0px -70px;
+    }
+}
