@@ -5,6 +5,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin')
 const TerserWebpackPlugin = require('terser-webpack-plugin')
+const WebpackProvideGlobalPlugin = require('webpack-provide-global-plugin')
 
 //определение режима сборки
 const isDev = process.env.NODE_ENV === 'development'
@@ -72,6 +73,10 @@ const plugins = () => {
         new CopyWebpackPlugin({
             patterns: [ { from: path.resolve(__dirname, `src/${imagesDir}/`), to: imagesDir } ]
         }),
+        new WebpackProvideGlobalPlugin({
+            $: 'jquery',
+            jQuery: 'jquery'
+          }),
         new MiniCssExtractPlugin({
             filename: filename('css') //имя выходного css файла
         })
@@ -111,7 +116,8 @@ module.exports = {
     },
     resolve: {
         alias: {
-            '@': path.resolve(__dirname, 'src'), //алиас на паку исходников
+            '@': path.resolve(__dirname, 'src'), //алиас на папку исходников
+            '@comp': path.resolve(__dirname, 'src/components'), //алиас на компоненты
         }
     },
     optimization: optimization(),

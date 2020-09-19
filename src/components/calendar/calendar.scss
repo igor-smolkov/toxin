@@ -41,3 +41,73 @@
         }
     }
 }
+
+.ui-datepicker {
+    &-header {
+        display: flex;
+        justify-content: space-between;
+        height: 24px;
+        // border: 1px solid blue;
+    }
+    &-prev {
+        order: 1;
+        width: 24px;
+        height: 24px;
+        background: no-repeat center url('components/calendar/calendar__month_prev.png');
+        font-size: 0;
+    }
+    &-next {
+        order: 3;
+        width: 24px;
+        height: 24px;
+        background: no-repeat center url('components/calendar/calendar__month_next.png');
+        font-size: 0;
+    }
+    &-title {
+        order: 2;
+        font-family: $font-title-bold;
+        font-weight: bold;
+        font-size: 19px;
+        line-height: 24px;
+        color: $color;
+    }
+    &-calendar {
+        margin-top: 30px;
+        th,
+        td {
+            width: 39px;
+            height: 40px;
+            display: inline-flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+
+            font-family: $font-main;
+            font-size: 12px;
+            line-height: 15px;
+        }
+        th {
+            font-family: $font-main-bold;
+            color: $color-purple;
+        }
+        a {
+            color: $color-50per;
+            &:hover {
+                font-family: $font-main-bold;
+                color: white;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                width: 39px;
+                height: 40px;
+                background: linear-gradient(180deg, $color-green 0%, #66D2EA 100%);
+                border-radius: 22px;
+            }
+        }
+    }
+    &-other-month {
+        a {
+            color: $color-25per;
+        }
+    }
+}
