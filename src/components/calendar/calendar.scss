@@ -110,4 +110,30 @@
             color: $color-25per;
         }
     }
+    &-period {
+        background: linear-gradient(180deg,rgba(188,156,255,0.25) 0%, rgba(139,164,249,0.25) 100%);
+        &-start {
+            border-top-left-radius: 22px;
+            border-bottom-left-radius: 22px;
+            &-one {
+                border-radius: 22px;
+            }
+        }
+        &-end {
+            border-top-right-radius: 22px;
+            border-bottom-right-radius: 22px;
+        }
+        &-start a,
+        &-end a {
+            font-family: $font-main-bold;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 39px;
+            height: 40px;
+            background: linear-gradient(180deg, $color-purple 0%, #8BA4F9 100%);
+            border-radius: 22px;
+        }
+    }
 }
