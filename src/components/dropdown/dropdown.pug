@@ -44,11 +44,13 @@ mixin dropdown(dropdown)
           default
             +field({ value: dropdown.value })
     else
-      .dropdown
-        case dropdown.mode
-          when 'date'
-            +field({ value: dropdown.value, type: 'date' })
-          when 'filter'
+      case dropdown.mode
+        when 'date'
+          .dropdown(class=`datepicker_btn` id=`datepicker_btn${dropdown.datepicker}`)
+            +field({ value: dropdown.value, type: 'date', id: `datepicker${dropdown.datepicker}_value${dropdown.valueID}`})
+        when 'filter'
+          .dropdown
             +field({ value: dropdown.value, disabled: true })
-          default
+        default
+          .dropdown
             +field({ value: dropdown.value })

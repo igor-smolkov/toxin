@@ -3,49 +3,92 @@ import datepickerFactory from 'jquery-datepicker';
 import datepickerRUFactory from 'jquery-datepicker/i18n/jquery.ui.datepicker-ru';
 export default function() {
     let calendar = document.querySelector('.calendar');
-    calendar.innerHTML= '<div id="datepicker"></div><input type="hidden" id="datepicker_value1" value="19.08.2019"><input type="hidden" id="datepicker_value2" value="23.08.2019">';
+    // calendar.innerHTML += '<div id="datepicker"></div><input type="hidden" id="datepicker_value1" value="19.08.2019"><input type="hidden" id="datepicker_value2" value="23.08.2019">';
     datepickerFactory($);
     datepickerRUFactory($);
     $(function(){
-        let start = parseDate($("#datepicker_value1").val());
-        let end = parseDate($("#datepicker_value2").val());
-        console.log(start+'|'+end);
-        $("#datepicker").datepicker({
-            beforeShowDay: function(date) {
-                let cur = Date.parse(date);
-                let className = '';
-                if (cur > start && cur < end) {
-                    className = 'ui-datepicker-period';
-                } else if (cur === start) {
-                    if (!end) {
-                        className = 'ui-datepicker-period ui-datepicker-period-start ui-datepicker-period-start-one'
-                    } else {
-                        className = 'ui-datepicker-period ui-datepicker-period-start'
+        function calendar(n=''){
+            let start = parseDate($(`#datepicker${n}_value1`).val());
+            let end = parseDate($(`#datepicker${n}_value2`).val());
+            let startDate = $(`#datepicker${n}_value1`).val();
+            let endDate = $(`#datepicker${n}_value2`).val();
+
+            $(`#datepicker${n}`).datepicker({
+                beforeShowDay: function(date) {
+                    let cur = Date.parse(date);
+                    let className = '';
+                    if (cur > start && cur < end) {
+                        className = 'ui-datepicker-period';
+                    } else if (cur === start) {
+                        if (!end) {
+                            className = 'ui-datepicker-period ui-datepicker-period-start ui-datepicker-period-start-one'
+                        } else {
+                            className = 'ui-datepicker-period ui-datepicker-period-start'
+                        }
+                    } else if (cur === end) {
+                        className = 'ui-datepicker-period ui-datepicker-period-end'
                     }
-                } else if (cur === end) {
-                    className = 'ui-datepicker-period ui-datepicker-period-end'
-                }
-                return [true, className];
-            },
-            onSelect: function(date){
-                let parse = parseDate(date);
-                if (!start) {
-                    start = parse;
-                } else if ((!end)&&(start<parse)) {
-                    end = parse;
+                    return [true, className];
+                },
+                onSelect: function(date){
+                    let parse = parseDate(date);
+                    let dateStr = date;
+                    if (date.indexOf('.') > -1) {
+                        dateStr = [dateStr.split('.')[2], dateStr.split('.')[1], dateStr.split('.')[0]].join('-')
+                    }
+                    if (!start) {
+                        start = parse;
+                        startDate = dateStr;
+                    } else if ((!end)&&(start<parse)) {
+                        end = parse;
+                        endDate = dateStr;
+                    } else {
+                        start = parse;
+                        startDate = dateStr;
+                        end = null;
+                        endDate = null;
+                    }
+                },
+                showOtherMonths: true,
+                selectOtherMonths: true
+            });
+
+            let set = $(`#datepicker${n}_value1`).val()
+            if (set.indexOf('-') > -1) {
+                set = [set.split('-')[2], set.split('-')[1], set.split('-')[0]].join('.')
+            }            
+            $(`#datepicker${n}`).datepicker("setDate", set);
+
+            function parseDate(date) {
+                let parse;
+                if (date.indexOf('.') > -1) {
+                    let arr = [date.split('.')[2], date.split('.')[1], date.split('.')[0]];
+                    parse = Date.parse(new Date(arr.join('-')+'T00:00:00'));
                 } else {
-                    start = parse;
-                    end = null;
+                    parse = Date.parse(new Date(date+'T00:00:00'));
                 }
-            },
-            showOtherMonths: true,
-            selectOtherMonths: true
-        });
-        $("#datepicker").datepicker("setDate", $('#datepicker_value1').val());
-        function parseDate(date) {
-            let arr = [date.split('.')[2], date.split('.')[1], date.split('.')[0]];
-            let parse = Date.parse(new Date(arr.join('-')+'T00:00:00'));
-            return parse
+                return parse
+            };
+
+            $(`#calendar__clear_${n}`).on("click", function(){
+                start = null;
+                end = null;
+                $(`#datepicker${n}`).datepicker("refresh");
+                $(`#datepicker${n}_value1`).val(null);
+                $(`#datepicker${n}_value2`).val(null);
+            });
+            $(`#calendar__apply_${n}`).on("click", function(){
+                $(`#calendar${n}`).addClass("card_none");
+                $(`#datepicker${n}_value1`).val(startDate);
+                $(`#datepicker${n}_value2`).val(endDate);
+            });
         }
+        
+        $(".datepicker_btn").on("click", function(){
+            let id = this.id.substr(14,this.id.length);
+            calendar(id);
+            $(`#calendar${id}`).removeClass("card_none")
+        });
+        calendar('');
     });
 }

@@ -236,14 +236,25 @@
         }
         &_calendar {
             width: 320px;
-            max-height: 369px;
+            min-height: 329px;
+            max-height: 409px;
             padding: 19px;
             border: 1px solid $color-25per;
+            position: absolute;
+            z-index: 100;
+            top: 5px;
         }
         .card__header .card__details {
             padding-top: 0;
             padding-right: 0;
         }
+    }
+    .calendar-slot {
+        position: relative;
+    }
+
+    &_none {
+        display: none;
     }
 
     &__preview {
@@ -275,6 +286,15 @@
                 background: rgba(31, 32, 65, 0.1);
             }
         }
+    }
+}
+
+:not(.card) > .calendar-slot {
+    position: relative;
+    margin-left: 40px;
+    min-height: 369px;
+    & > :first-child {
+        top: 0;
     }
 }
 

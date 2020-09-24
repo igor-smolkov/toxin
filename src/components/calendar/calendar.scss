@@ -1,33 +1,9 @@
 .calendar {
-    &__month {
-        display: flex;
-        justify-content: space-between;
-        height: 24px;
-        // border: 1px solid blue;
-        &_prev {
-            width: 24px;
-            height: 24px;
-            background: no-repeat center url('components/calendar/calendar__month_prev.png');
-        }
-        &_next {
-            width: 24px;
-            height: 24px;
-            background: no-repeat center url('components/calendar/calendar__month_next.png');
-        }
-        &_title {
-            font-family: $font-title-bold;
-            font-weight: bold;
-            font-size: 19px;
-            line-height: 24px;
-            color: $color;
-        }
-    }
-    &__days {
-        margin-top: 30px;
-        height: 240px;
-        // border: 1px solid blue;
-    }
+    display: flex;
+    flex-direction: column;
+    // position: absolute;
     &__control {
+        order: 2;
         display: flex;
         justify-content: space-between;
         margin-top: 20px;
@@ -43,6 +19,7 @@
 }
 
 .ui-datepicker {
+    order: 1;
     &-header {
         display: flex;
         justify-content: space-between;
@@ -72,11 +49,11 @@
         color: $color;
     }
     &-calendar {
-        margin-top: 30px;
+        margin-top: 28px;
         th,
         td {
             width: 39px;
-            height: 40px;
+            height: 38px;
             display: inline-flex;
             flex-direction: column;
             justify-content: center;
@@ -99,7 +76,7 @@
                 flex-direction: column;
                 justify-content: center;
                 width: 39px;
-                height: 40px;
+                height: 38px;
                 background: linear-gradient(180deg, $color-green 0%, #66D2EA 100%);
                 border-radius: 22px;
             }
@@ -131,7 +108,7 @@
             flex-direction: column;
             justify-content: center;
             width: 39px;
-            height: 40px;
+            height: 38px;
             background: linear-gradient(180deg, $color-purple 0%, #8BA4F9 100%);
             border-radius: 22px;
         }

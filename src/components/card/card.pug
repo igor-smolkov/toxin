@@ -49,17 +49,24 @@ mixin card(card)
             +section({
                 title: { name: 'прибытие' },
                 content: { 
-                type: 'dropdown',
-                mode: 'date'
+                  type: 'dropdown',
+                  mode: 'date',
+                  datepicker: '1',
+                  valueID: '1'
                 }
             })
             +section({
                 title: { name: 'выезд' },
                 content: { 
-                type: 'dropdown',
-                mode: 'date'
+                  type: 'dropdown',
+                  mode: 'date',
+                  datepicker: '1',
+                  valueID: '2'
                 }
             })
+          .calendar-slot
+            article.card.card_mini.card_mini_calendar.card_none#calendar1
+              +calendar(1)
           +section({
             title: { name: 'Гости' },
             content: { 
@@ -138,19 +145,26 @@ mixin card(card)
             +section({
                 title: { name: 'прибытие' },
                 content: { 
-                type: 'dropdown',
-                mode: 'date',
-                value: '2019-08-19'
+                  type: 'dropdown',
+                  mode: 'date',
+                  value: '2019-08-19',
+                  datepicker: '2',
+                  valueID: '1'
                 }
             })
             +section({
                 title: { name: 'выезд' },
                 content: { 
-                type: 'dropdown',
-                mode: 'date',
-                value: '2019-08-23'
+                  type: 'dropdown',
+                  mode: 'date',
+                  value: '2019-08-23',
+                  datepicker: '2',
+                  valueID: '2'
                 }
             })
+          .calendar-slot
+            article.card.card_mini.card_mini_calendar.card_none#calendar2
+              +calendar(2)
           +section({
             title: { name: 'Гости' },
             content: { 
@@ -193,5 +207,8 @@ mixin card(card)
               span.card__details_price= '145'
               span= ' Отзывов'
       when 'calendar'
-        article.card.card_mini.card_mini_calendar
-         +calendar
+        +field({ value: '2019-08-19', type: 'hidden', id: `datepicker_value1`})
+        +field({ value: '2019-08-23', type: 'hidden', id: `datepicker_value2`})
+        .calendar-slot
+          article.card.card_mini.card_mini_calendar#calendar
+           +calendar('')
