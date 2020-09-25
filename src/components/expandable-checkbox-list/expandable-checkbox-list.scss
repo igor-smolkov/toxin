@@ -17,6 +17,12 @@
         top: -44px;
         background: no-repeat center url('components/expandable-checkbox-list/expandable-checkbox-list__expand_more_up.png');
     }
+    .expandable-checkbox-list__item {
+        display: none;
+    }
+    &_expanded .expandable-checkbox-list__item {
+        display: block;
+    }
 
     &:hover,
     &_hover {

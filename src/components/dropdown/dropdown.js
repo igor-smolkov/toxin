@@ -1,5 +1,3 @@
-import { apply } from "file-loader";
-
 export default function() {
     const dropdowns = document.querySelectorAll('.dropdown');
     dropdowns.forEach(dropdown => {

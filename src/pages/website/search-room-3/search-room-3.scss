@@ -1,0 +1,110 @@
+.search {
+    &__main {
+        min-height: 1357px;
+        display: flex;
+        justify-content: center;
+        border-bottom: 1px solid $color-25per;
+        padding: 30px 140px 70px 140px;
+    }
+    &__filter {
+        max-width: 266px;
+        width: 100%;
+        & > * {
+            margin-top: 30px;
+            &:first-child {
+                margin-top: 0;
+            }
+            &:nth-child(2) {
+                margin-top: 20px;
+            }
+        }
+        // background-color: rgb(43, 255, 0);
+    }
+    &__rooms {
+        min-width: 270px;
+        max-width: 834px;
+        width: 100%;
+        margin-left: 60px;
+        // background-color: blue;
+        .cards {
+            margin: 0;
+            padding: 0;
+            flex-direction: row;
+            height: auto;
+            & > :nth-child(n) {
+                margin:0;
+                margin-top: 21px;
+                margin-left: 12px;
+            }
+            & > :first-child,
+            & > :nth-child(3n+4) {
+                margin-left:0;
+            }
+        }
+        .section {
+            display: flex;
+            justify-content: center;
+            padding-top: 28px;
+            padding-right: 12px;
+        }
+    }
+}
+
+@media only screen and (max-width : 1460px) {
+    .search {
+        &__main {
+            padding: 30px 40px 70px 40px;
+        }
+    }
+}
+
+@media only screen and (max-width : 1260px) {
+    .search {
+        &__rooms {
+            max-width: 552px;
+            .cards {
+                & > :nth-child(n) {
+                    margin:0;
+                    margin-top: 21px;
+                    margin-left: 12px;
+                }
+                & > :first-child,
+                & > :nth-child(2n+3) {
+                    margin-left:0;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width : 980px) {
+    .search {
+        &__rooms {
+            max-width: 270px;
+            .cards {
+                & > :nth-child(n) {
+                    margin:0;
+                    margin-top: 21px;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width : 680px) {
+    .search {
+        &__main {
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+        &__filter {
+            align-self: center;
+            order: 2;
+            margin-top: 40px;
+        }
+        &__rooms {
+            align-self: center;
+            margin-left: 0;
+        }
+    }
+}
