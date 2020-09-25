@@ -26,8 +26,16 @@
             border-bottom-right-radius: 0;
         }
 
+        position: relative;
         .dropdown__menu {
             display: block;
+            background-color: white;
+            position: absolute;
+            z-index: 50;
+            height: auto;
+            .button:nth-last-child(2) {
+                margin-top: 0;
+            }
         }
     }
 
@@ -103,17 +111,17 @@
     }
 }
 
-.card .dropdown {
-    &_expanded {
-        position: relative;
-        .dropdown__menu {
-            background-color: white;
-            position: absolute;
-            z-index: 50;
-            height: auto;
-            .button:nth-last-child(2) {
-                margin-top: 0;
-            }
-        }
-    } 
-}
+// .card .dropdown {
+//     &_expanded {
+//         position: relative;
+//         .dropdown__menu {
+//             background-color: white;
+//             position: absolute;
+//             z-index: 50;
+//             height: auto;
+//             .button:nth-last-child(2) {
+//                 margin-top: 0;
+//             }
+//         }
+//     } 
+// }

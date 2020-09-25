@@ -14,15 +14,26 @@ export default function() {
             itemCounter.firstChild.addEventListener('click', function(){
                 if (itemCounter.childNodes[1].innerHTML*1-1 > 0) {
                     itemCounter.childNodes[1].innerHTML = itemCounter.childNodes[1].innerHTML*1-1;
-                    field.value = guestGrammar(itemCounters[0].childNodes[1].innerHTML*1+itemCounters[1].childNodes[1].innerHTML*1+itemCounters[2].childNodes[1].innerHTML*1+'');
+                    if (isGuest) {
+                        field.value = guestGrammar(itemCounters[0].childNodes[1].innerHTML*1+itemCounters[1].childNodes[1].innerHTML*1+itemCounters[2].childNodes[1].innerHTML*1+'');
+                    } else {
+                        field.value = guestGrammar(itemCounters[0].childNodes[1].innerHTML, itemCounters[0].previousSibling.innerHTML)+', '+
+                            guestGrammar(itemCounters[1].childNodes[1].innerHTML, itemCounters[1].previousSibling.innerHTML)+'...'
+                    }    
                 } else {
                     itemCounter.childNodes[1].innerHTML = '0';
                     itemCounter.firstChild.className = 'dropdown__item_btn dropdown__item_btn_disabled';
+
                     if(itemCounters[0].childNodes[1].innerHTML*1+itemCounters[1].childNodes[1].innerHTML*1+itemCounters[2].childNodes[1].innerHTML*1 === 0){
                         field.value = '';
-                        field.placeholder = 'Сколько гостей';
+                        field.placeholder = isGuest ? 'Сколько гостей' : '';
                     } else {
-                        field.value = guestGrammar(itemCounters[0].childNodes[1].innerHTML*1+itemCounters[1].childNodes[1].innerHTML*1+itemCounters[2].childNodes[1].innerHTML*1+'');
+                        if (isGuest) {
+                            field.value = guestGrammar(itemCounters[0].childNodes[1].innerHTML*1+itemCounters[1].childNodes[1].innerHTML*1+itemCounters[2].childNodes[1].innerHTML*1+'');
+                        } else {
+                            field.value = guestGrammar(itemCounters[0].childNodes[1].innerHTML, itemCounters[0].previousSibling.innerHTML)+', '+
+                                guestGrammar(itemCounters[1].childNodes[1].innerHTML, itemCounters[1].previousSibling.innerHTML)+'...';
+                        }                        
                     }
                 }
             });
@@ -33,17 +44,40 @@ export default function() {
                 }
                 if (itemCounter.childNodes[1].innerHTML*1+1 < 100) {
                     itemCounter.childNodes[1].innerHTML = itemCounter.childNodes[1].innerHTML*1+1;
-                    field.value = guestGrammar(itemCounters[0].childNodes[1].innerHTML*1+itemCounters[1].childNodes[1].innerHTML*1+itemCounters[2].childNodes[1].innerHTML*1+'');
+                    if (isGuest) {
+                        field.value = guestGrammar(itemCounters[0].childNodes[1].innerHTML*1+itemCounters[1].childNodes[1].innerHTML*1+itemCounters[2].childNodes[1].innerHTML*1+'');
+                    } else {
+                        field.value = guestGrammar(itemCounters[0].childNodes[1].innerHTML, itemCounters[0].previousSibling.innerHTML)+', '+
+                            guestGrammar(itemCounters[1].childNodes[1].innerHTML, itemCounters[1].previousSibling.innerHTML)+'...';
+                    }    
                 }
             });
 
-            function guestGrammar(value) {
+            function guestGrammar(value, other) {
                 if (value[value.length-1].match(/0|[5-9]/g) || (value*1>10 && value*1<20)) {
-                    value += ' гостей';
+                    if (other == 'спальни') {
+                        value += ' спален'
+                    } else if (other == 'кровати') {
+                        value += ' кроватей'
+                    } else {
+                        value += ' гостей';
+                    }
                 } else if (value[value.length-1].match(/1/g)) {
-                    value += ' гость';
+                    if (other == 'спальни') {
+                        value += ' спаленя'
+                    } else if (other == 'кровати') {
+                        value += ' кровать'
+                    } else {
+                        value += ' гость';
+                    }
                 } else {
-                    value += ' гостя';
+                    if (other == 'спальни') {
+                        value += ' спалени'
+                    } else if (other == 'кровати') {
+                        value += ' кровати'
+                    } else {
+                        value += ' гостя';
+                    }
                 }
                 return value;
             }
@@ -53,7 +87,7 @@ export default function() {
         if (clearBtn) {
             clearBtn.addEventListener('click', function(){
                 dropdown.firstChild.value = '';
-                dropdown.firstChild.placeholder = 'Сколько гостей';
+                dropdown.firstChild.placeholder = isGuest ? 'Сколько гостей' : '';
                 itemCounters.forEach(itemCounter => {
                     itemCounter.childNodes[1].innerHTML = '0';
                     itemCounter.firstChild.className = 'dropdown__item_btn dropdown__item_btn_disabled';
@@ -71,6 +105,7 @@ export default function() {
         }
 
         const field = dropdown.querySelector('.field');
+        const isGuest = field.value.match(/гост/g) ? true : false;
         field.addEventListener('input', function(event){
             let value = 0;
             if (event.target.value.match(/\d+/g)) {
