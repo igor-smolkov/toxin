@@ -3,10 +3,10 @@ mixin button(button)
     when 'link'
       if !button.arrow
         if button.hover
-          button.button.button_link.button_arrow_none.button_hover(id=button.id)
+          button.button.button_link.button_arrow_none.button_hover(id=button.id class=button.className)
             p.button__text= button.text
         else
-          button.button.button_link.button_arrow_none(id=button.id)
+          button.button.button_link.button_arrow_none(id=button.id class=button.className)
             p.button__text= button.text
       else
         if button.hover

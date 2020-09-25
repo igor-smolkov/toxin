@@ -28,11 +28,11 @@ mixin dropdown(dropdown)
         if dropdown.apply
           if dropdown.clear
             .dropdown__control.dropdown__control_clear
-              +button({ text: 'очистить', style: 'link', hover: true })
-              +button({ text: 'применить', style: 'link' })
+              +button({ text: 'очистить', style: 'link', hover: true, className: 'dropdown__clear' })
+              +button({ text: 'применить', style: 'link', className: 'dropdown__apply' })
           else
             .dropdown__control
-              +button({ text: 'применить', style: 'link' })
+              +button({ text: 'применить', style: 'link', className: 'dropdown__apply'  })
   else
     if dropdown.demo
       .dropdown.dropdown_hover

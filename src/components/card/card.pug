@@ -40,6 +40,62 @@ mixin card(card)
             p.card__details
               span.card__details_price= card.review
               span= ' Отзывов'
+      when 'wishes'
+        article.card
+          h1.card__title.font_correct= 'Найдём номера под ваши пожелания'
+          .card__block_row
+            +section({
+                title: { name: 'прибытие' },
+                content: { 
+                  type: 'dropdown',
+                  mode: 'date',
+                  value: card.date1,
+                  datepicker: card.datepicker,
+                  valueID: '1'
+                }
+            })
+            +section({
+                title: { name: 'выезд' },
+                content: { 
+                  type: 'dropdown',
+                  mode: 'date',
+                  value: card.date2,
+                  datepicker: card.datepicker,
+                  valueID: '2'
+                }
+            })
+          .calendar-slot
+            if(card.calendar == 'dropped')
+              article.card.card_mini.card_mini_calendar(id=`calendar${card.datepicker}`)
+                +calendar(card.datepicker)
+            else
+              article.card.card_mini.card_mini_calendar.card_none(id=`calendar${card.datepicker}`)
+                +calendar(card.datepicker)
+          if card.guests
+            +section({
+              title: { name: 'Гости' },
+              content: { 
+                type: 'dropdown',
+                value: `${card.guests.adults+card.guests.kids+card.guests.babies} гостя`,
+                list: [
+                  { name: 'взрослые', count: card.guests.adults },
+                  { name: 'дети', count: card.guests.kids },
+                  { name: 'младенцы', count: card.guests.babies }
+                ],
+                apply: true,
+                clear: true,
+                expanded: card.guests.expanded
+              }
+            })
+          else
+            +section({
+              title: { name: 'Гости' },
+              content: { 
+                type: 'dropdown',
+                value: 'Сколько гостей',
+              }
+            })
+          +button({text: 'подобрать номер', arrow: true })
   else
     case card
       when 'wishes'

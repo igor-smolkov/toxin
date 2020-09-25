@@ -2,8 +2,7 @@ import $ from 'jquery'
 import datepickerFactory from 'jquery-datepicker';
 import datepickerRUFactory from 'jquery-datepicker/i18n/jquery.ui.datepicker-ru';
 export default function() {
-    let calendar = document.querySelector('.calendar');
-    // calendar.innerHTML += '<div id="datepicker"></div><input type="hidden" id="datepicker_value1" value="19.08.2019"><input type="hidden" id="datepicker_value2" value="23.08.2019">';
+    const calendarSlot = document.querySelector('.calendar-slot');
     datepickerFactory($);
     datepickerRUFactory($);
     $(function(){
@@ -86,9 +85,9 @@ export default function() {
         
         $(".datepicker_btn").on("click", function(){
             let id = this.id.substr(14,this.id.length);
-            calendar(id);
+            if (calendarSlot) { calendar(id); }
             $(`#calendar${id}`).removeClass("card_none")
         });
-        calendar('');
+        if (calendarSlot) { calendar(''); }
     });
 }

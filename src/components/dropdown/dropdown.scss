@@ -25,9 +25,15 @@
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
         }
+
+        .dropdown__menu {
+            display: block;
+        }
     }
 
     &__menu {
+        display: none;
+        
         width: 100%;
 
         border: 1px solid $color-50per;
@@ -95,4 +101,19 @@
             justify-content: space-between;
         }
     }
+}
+
+.card .dropdown {
+    &_expanded {
+        position: relative;
+        .dropdown__menu {
+            background-color: white;
+            position: absolute;
+            z-index: 50;
+            height: auto;
+            .button:nth-last-child(2) {
+                margin-top: 0;
+            }
+        }
+    } 
 }
