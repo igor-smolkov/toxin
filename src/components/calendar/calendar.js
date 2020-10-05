@@ -2,10 +2,16 @@ import $ from 'jquery'
 import datepickerFactory from 'jquery-datepicker';
 import datepickerRUFactory from 'jquery-datepicker/i18n/jquery.ui.datepicker-ru';
 export default function() {
-    const calendarSlot = document.querySelector('.calendar-slot');
     datepickerFactory($);
     datepickerRUFactory($);
     $(function(){
+        $(".datepicker_btn").on("click", function(){
+            let id = this.id.substr(14,this.id.length);
+            if ($(".calendar-slot")) { calendar(id); }
+            $(`#calendar${id}`).removeClass("card_none")
+        });
+        if ($(".calendar-slot")) { calendar(''); }
+
         function calendar(n=''){
             let start = parseDate($(`#datepicker${n}_value1`).val());
             let end = parseDate($(`#datepicker${n}_value2`).val());
@@ -72,6 +78,8 @@ export default function() {
             $(`#calendar__clear_${n}`).on("click", function(){
                 start = null;
                 end = null;
+                startDate = null;
+                endDate = null;
                 $(`#datepicker${n}`).datepicker("refresh");
                 $(`#datepicker${n}_value1`).val(null);
                 $(`#datepicker${n}_value2`).val(null);
@@ -80,14 +88,8 @@ export default function() {
                 $(`#calendar${n}`).addClass("card_none");
                 $(`#datepicker${n}_value1`).val(startDate);
                 $(`#datepicker${n}_value2`).val(endDate);
+                $(`#datepicker${n}`).datepicker("destroy");
             });
         }
-        
-        $(".datepicker_btn").on("click", function(){
-            let id = this.id.substr(14,this.id.length);
-            if (calendarSlot) { calendar(id); }
-            $(`#calendar${id}`).removeClass("card_none")
-        });
-        if (calendarSlot) { calendar(''); }
     });
 }
