@@ -50,10 +50,17 @@
     }
     &-calendar {
         margin-top: 28px;
+        width: 100%;
+        tr {
+            display: flex;
+            flex-wrap: nowrap;
+            width: 100%;
+        }
         th,
         td {
-            width: 39px;
-            height: 38px;
+            max-width: 40px;
+            width: 100%;
+            height: 39px;
             display: inline-flex;
             flex-direction: column;
             justify-content: center;
@@ -75,8 +82,8 @@
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
-                width: 39px;
-                height: 38px;
+                width: 40px;
+                height: 39px;
                 background: linear-gradient(180deg, $color-green 0%, #66D2EA 100%);
                 border-radius: 22px;
             }
@@ -107,10 +114,28 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            width: 39px;
-            height: 38px;
+            width: 40px;
+            height: 39px;
             background: linear-gradient(180deg, $color-purple 0%, #8BA4F9 100%);
             border-radius: 22px;
+        }
+    }
+}
+
+@media only screen and (max-width : 370px) {
+    .ui-datepicker {
+        table {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            & > * {
+                align-self: center;
+            }
+        }
+        th,
+        td {
+            width: 32px;
+            height: 31px;
         }
     }
 }
