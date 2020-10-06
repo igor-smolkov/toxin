@@ -48,6 +48,7 @@
         }
         &:nth-child(3)::before {
             background: no-repeat center url('components/extra-list/whatshot.png');
+            background-position: 7px 1px;
         }
         &:nth-child(3)::after {
             display: none;

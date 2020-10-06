@@ -1,9 +1,8 @@
 .room {
     &__main {
         display: flex;
-        flex-wrap: wrap;
+        flex-direction: column;
         border-bottom: 1px solid $color-25per;
-        justify-content: center;
     }
     &__photos {
         min-width: 100%;
@@ -38,10 +37,15 @@
             }
         }
     }
+    &__info {
+        align-self: stretch;
+        display: flex;
+        padding: 70px 40px;
+        justify-content: center;
+        padding-bottom: 62px;
+    }
     &__details {
-        max-width: 850px;
-        width: 100%;
-        padding: 70px 0px 70px 140px;
+        max-width: 711px;
         display: flex;
         flex-wrap: wrap;
         & > * {
@@ -56,60 +60,78 @@
         }
         &__impress {
             min-width: 311px;
-            margin-left: 80px;
+            margin-left: 108px;
+        }
+        &__review {
+            margin-top: 16px;
+            & > :last-child {
+                margin-top: 23px;
+            }
+            .title {
+                display: flex;
+                justify-content: space-between;
+                &__details {
+                    align-self: center;
+                    font-family: $font-main;
+                    font-size: 14px;
+                    line-height: 14px;
+                    color: $color-50per;
+                    text-align: right;
+                    padding-top: 3px;
+                }
+            }
+        }
+        &__rules {
+            & > :first-child {
+                margin-left: 20px;
+            }
+            & > :last-child {
+                margin-top: 17px;
+            }
         }
         &__cancel {
             max-width: 341px;
-            margin-left: 80px;
+            margin-left: 110px;
             p {
                 font-family: $font-main;
                 font-size: 14px;
                 line-height: 24px;
                 color: $color-75per;
             }
+            & > :last-child {
+                margin-top: 17px;
+            }
         }
     }
     &__reservation {
-        padding: 70px 140px 70px 70px;
+        margin-left: 70px;
+        max-width: 380px;
+        width: 100%;
     }
 }
 
-@media only screen and (max-width : 1420px) {
+@media only screen and (max-width : 1210px) {
     .room {
-        &__details {
-            padding: 70px 0px 70px 40px;
-        }
-        &__reservation {
-            padding: 70px 40px 70px 70px;
-        }
-    }
-}
-
-@media only screen and (max-width : 1310px) {
-    .room {
-        &__main {
-            flex-direction: column;
-            flex-wrap: nowrap;
-            & > * {
-                align-self: center;
-            }
-        }
         &__photos {
             &__view_2,
             &__view_3 {
                 background-size: 190%;
             }
         }
-        &__details {
-            padding: 70px 40px 20px 40px;
+        &__info {
+            flex-direction: column;
+            & > * {
+                align-self: center;
+            }
         }
         &__reservation {
-            padding: 70px 40px 70px 40px;
+            margin-left: 0px;
+            margin-top: 70px;
         }
     }
 }
 
-@media only screen and (max-width : 760px) {
+@media only screen and (max-width : 785px) {
     .room {
         &__photos {
             &__view_2,
@@ -117,17 +139,19 @@
                 background-size: 290%;
             }
         }
+        &__info {
+            padding: 40px 40px;
+        }
         &__details {
             flex-direction: column;
             flex-wrap: nowrap;
-            padding: 70px 40px 20px 40px;
             & > *:not(:first-child) {
                 margin: 0;
                 margin-top: 20px;
             }
-        }
-        &__reservation {
-            padding: 40px 40px 70px 40px;
+            &__rules > :first-child {
+                margin-left: 0;
+            }
         }
     }
 }
@@ -148,11 +172,16 @@
                 background-size: cover;
             }
         }
-        &__details {
-            padding: 70px 10px 20px 10px;
+        &__info {
+            padding: 40px 10px;
         }
-        &__reservation {
-            padding: 40px 10px 70px 10px;
+        &__details {
+            .review__title {
+                flex-direction: column;
+                .title__details {
+                    align-self: flex-start;
+                }
+            }
         }
     }
 }
