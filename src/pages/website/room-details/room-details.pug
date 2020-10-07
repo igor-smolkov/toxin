@@ -3,6 +3,7 @@ extends ../../../layout
 include ../../../components/header/header.pug
 include ../../../components/footer/footer.pug
 include ../../../components/card/card.pug
+include ../../../components/chart/chart.pug
 
 block variables
   - var title = 'TOXIN - Room details'
@@ -39,7 +40,12 @@ block content
             })
           section.room__details__impress
             h2='Впечатления от номера'
-            .pie='Диаграмма'
+            +chart([
+              {label: 'Великолепно', value: 130},
+              {label: 'Хорошо', value: 65},
+              {label: 'Удовлетворительно', value: 65},
+              {label: 'Разочарован'}
+            ])
           section.room__details__review
             .review__title.title
               h2='Отзывы посетителей номера'
