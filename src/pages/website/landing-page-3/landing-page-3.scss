@@ -1,3 +1,5 @@
+@import '../../../components/carousel/carousel.scss';
+
 .landing {
     &__main {
         min-height: 830px;
@@ -5,9 +7,8 @@
         flex-direction: column;
         justify-content: space-between;
         padding: 70px 134px 21px 140px;
-        background: no-repeat url('pages/website/landing-page-1/landing__room_3.png');
-        background-size: cover;
-        // background-position: 0px -70px;
+        
+        position: relative;
     }
     &__text {
         align-self: flex-end;

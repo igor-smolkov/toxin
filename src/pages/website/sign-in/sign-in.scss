@@ -1,11 +1,12 @@
+@import '../../../components/carousel/carousel.scss';
+
 .log {
     &__main {
         min-height: 702px;
         display: flex;
         justify-content: center;
         padding: 172px 10px 172px 10px;
-        background: no-repeat url('pages/website/sign-in/log__room_4.png');
-        background-size: cover;
-        // background-position: 0px -70px;
+
+        position: relative;
     }
 }

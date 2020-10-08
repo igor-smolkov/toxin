@@ -3,6 +3,7 @@ extends ../../../layout
 include ../../../components/header/header.pug
 include ../../../components/footer/footer.pug
 include ../../../components/card/card.pug
+include ../../../components/carousel/carousel.pug
 
 block variables
   - var title = 'TOXIN - Landing'
@@ -10,6 +11,7 @@ block variables
 block content
     +header
     main.landing__main
+      +carousel('landing')
       +card({
         type: 'wishes',
         date1: '2019-08-19',
