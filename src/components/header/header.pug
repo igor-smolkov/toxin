@@ -1,36 +1,26 @@
 include ../logo/logo.pug
-include ../button/button.pug
-
-mixin menu__item(item)
-  if item.user
-    li.menu__item.menu__item_user
-      a(href=item.link)=item.text
-  else if item.dropdown
-    li.menu__item.menu__item_dropdown
-      a(href=item.link)=item.text
-  else
-    li.menu__item
-      if item.hovered
-        a(href=item.link).hover=item.text
-      else
-        a(href=item.link)=item.text
+include ../menu/menu.pug
 
 mixin header(props = {demo: false})
   header.header
     +logo('toxin')
-    nav.menu
-      ul
-        if props.demo
-          +menu__item({ link: '#', text: 'О нас', hovered: true })
-        else
-          +menu__item({ link: '#', text: 'О нас' })
-        +menu__item({ link: '#', text: 'Услуги', dropdown: true })
-        +menu__item({ link: '#', text: 'Вакансии' })
-        +menu__item({ link: '#', text: 'Новости' })
-        +menu__item({ link: '#', text: 'Соглашения', dropdown: true })
-        if props.user
-          +menu__item({ link: '#', text: props.user, user: true })
-        else 
-          +button({text: 'войти', style: 'border'})
-          +button({text: 'зарегистрироваться'})
+    if props.user
+      +menu([
+        { link: '#', text: 'О нас', hovered: props.demo ? true : false },
+        { link: '#', text: 'Услуги', dropdown: true },
+        { link: '#', text: 'Вакансии' },
+        { link: '#', text: 'Новости' },
+        { link: '#', text: 'Соглашения', dropdown: true },
+        { link: '#', text: props.user, user: true }
+      ])
+    else 
+      +menu([
+        { link: '#', text: 'О нас', hovered: props.demo ? true : false },
+        { link: '#', text: 'Услуги', dropdown: true },
+        { link: '#', text: 'Вакансии' },
+        { link: '#', text: 'Новости' },
+        { link: '#', text: 'Соглашения', dropdown: true },
+        { link: '#', text: 'Войти', btn: true, style: 'border' },
+        { link: '#', text: 'Зарегистрироваться', btn: true }
+      ])
     
