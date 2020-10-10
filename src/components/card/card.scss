@@ -293,10 +293,12 @@
 
 :not(.card) > .calendar-slot {
     position: relative;
-    margin-left: 40px;
     min-height: 369px;
     & > :first-child {
         top: 0;
+        & > * {
+            margin-left: 2px;
+        }
     }
 }
 
