@@ -59,18 +59,22 @@ export default function() {
             });
 
             let set = $(`#datepicker${n}_value1`).val()
-            if (set.indexOf('-') > -1) {
-                set = [set.split('-')[2], set.split('-')[1], set.split('-')[0]].join('.')
-            }            
+            if (set) {
+                if (set.indexOf('-') > -1) {
+                    set = [set.split('-')[2], set.split('-')[1], set.split('-')[0]].join('.')
+                }      
+            }      
             $(`#datepicker${n}`).datepicker("setDate", set);
 
             function parseDate(date) {
                 let parse;
-                if (date.indexOf('.') > -1) {
-                    let arr = [date.split('.')[2], date.split('.')[1], date.split('.')[0]];
-                    parse = Date.parse(new Date(arr.join('-')+'T00:00:00'));
-                } else {
-                    parse = Date.parse(new Date(date+'T00:00:00'));
+                if (date) {
+                    if (date.indexOf('.') > -1) {
+                        let arr = [date.split('.')[2], date.split('.')[1], date.split('.')[0]];
+                        parse = Date.parse(new Date(arr.join('-')+'T00:00:00'));
+                    } else {
+                        parse = Date.parse(new Date(date+'T00:00:00'));
+                    }
                 }
                 return parse
             };
