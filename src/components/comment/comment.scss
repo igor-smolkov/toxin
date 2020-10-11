@@ -1,0 +1,29 @@
+.comment {
+    display: flex;
+    position: relative;
+    &_texts {
+        margin-left: 58px;
+        //margin-top: 3px;
+
+        font-family: $font-main;
+        font-size: 14px;
+        line-height: 24px;
+        color: $color-75per;
+    }
+    &__ava {
+        position: absolute;
+        top: -10px;
+        left: -20px;
+    }
+    .like {
+        position: absolute;
+        top: 49px;
+        left: 4px;
+    }
+    &__username {
+        font-family: $font-main-bold;
+    }
+    &__text {
+        margin-top: 10px;
+    }
+}

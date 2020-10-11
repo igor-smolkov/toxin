@@ -1,0 +1,6 @@
+mixin extra-list(list)
+  ul.extra-list
+    each item in list
+      li.extra-list__item
+        p.extra-list__item_name=item.name
+        p.extra-list__item_details=item.details

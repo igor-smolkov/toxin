@@ -1,0 +1,17 @@
+extends ../../../layout
+
+include ../../../components/header/header.pug
+include ../../../components/footer/footer.pug
+include ../../../components/card/card.pug
+include ../../../components/carousel/carousel.pug
+
+block variables
+  - var title = 'TOXIN - Landing'
+
+block content
+    +header
+    main.landing__main
+      +carousel('landing')
+      +card('wishes')
+      p.landing__text= 'Лучшие номера для вашей работы, отдыха и просто вдохновения'
+    +footer

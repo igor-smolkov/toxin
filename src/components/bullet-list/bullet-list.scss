@@ -1,0 +1,26 @@
+.bullet-list {
+    font-family: $font-main;
+    font-size: 14px;
+    line-height: 24px;
+    color: $color-75per;
+    white-space: pre-wrap;
+    &__item {
+        position: relative;
+        margin: 10px 0;
+        margin-left: 21px;
+        &:first-child {
+            margin-top: 8px;
+        }
+        &::before{
+            content: '';
+            position: absolute;
+            display: block;
+            width: 10.5px;
+            height: 10px;
+            top: 7px;
+            left: -21px;
+            border-radius: 5px;
+            background: $color_25per;
+        }
+    }
+}

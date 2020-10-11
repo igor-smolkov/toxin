@@ -1,0 +1,270 @@
+include ../section/section.pug
+
+include ../button/button.pug
+include ../field/field.pug
+include ../radio-group/radio-group.pug
+include ../toggle-group/toggle-group.pug
+include ../rate-group/rate-group.pug
+
+include ../preview/preview.pug
+
+include ../calendar/calendar.pug
+
+mixin card(card)
+  if card.type
+    case card.type
+      when 'room-rate'
+        article.card.card_mini
+          +preview('card__preview', card.pic)
+          .card__header
+            h2.card__title= `№${card.number}`
+            if card.luxury
+              p.card__header_room-type= 'люкс'
+            p.card__details
+              span.card__details_price= card.price
+              span= ' в сутки'
+          .card__block_row
+            case card.rate
+              when 1
+                +rate-group({ id: `rate_${card.number}`, checks: [{checked: true},{checked: false},{checked: false},{checked: false},{checked: false}] })
+              when 2
+                +rate-group({ id: `rate_${card.number}`, checks: [{checked: false},{checked: true},{checked: false},{checked: false},{checked: false}] })
+              when 3
+                +rate-group({ id: `rate_${card.number}`, checks: [{checked: false},{checked: false},{checked: true},{checked: false},{checked: false}] })
+              when 4
+                +rate-group({ id: `rate_${card.number}`, checks: [{checked: false},{checked: false},{checked: false},{checked: true},{checked: false}] })
+              when 5
+                +rate-group({ id: `rate_${card.number}`, checks: [{checked: false},{checked: false},{checked: false},{checked: false},{checked: true}] })
+              default
+                +rate-group({ id: `rate_${card.number}`, checks: [{checked: false},{checked: false},{checked: false},{checked: false},{checked: false}] })
+            p.card__details
+              span.card__details_price= card.review
+              span= ' Отзывов'
+      when 'wishes'
+        article.card
+          h1.card__title.font_correct= 'Найдём номера под ваши пожелания'
+          .card__block_row
+            +section({
+                title: { name: 'прибытие' },
+                content: { 
+                  type: 'dropdown',
+                  mode: 'date',
+                  value: card.date1,
+                  datepicker: card.datepicker,
+                  valueID: '1'
+                }
+            })
+            +section({
+                title: { name: 'выезд' },
+                content: { 
+                  type: 'dropdown',
+                  mode: 'date',
+                  value: card.date2,
+                  datepicker: card.datepicker,
+                  valueID: '2'
+                }
+            })
+          .calendar-slot
+            if(card.calendar == 'dropped')
+              article.card.card_mini.card_mini_calendar(id=`calendar${card.datepicker}`)
+                +calendar(card.datepicker)
+            else
+              article.card.card_mini.card_mini_calendar.card_none(id=`calendar${card.datepicker}`)
+                +calendar(card.datepicker)
+          if card.guests
+            +section({
+              title: { name: 'Гости' },
+              content: { 
+                type: 'dropdown',
+                value: `${card.guests.adults+card.guests.kids+card.guests.babies} гостя`,
+                list: [
+                  { name: 'взрослые', count: card.guests.adults },
+                  { name: 'дети', count: card.guests.kids },
+                  { name: 'младенцы', count: card.guests.babies }
+                ],
+                apply: true,
+                clear: true,
+                expanded: card.guests.expanded
+              }
+            })
+          else
+            +section({
+              title: { name: 'Гости' },
+              content: { 
+                type: 'dropdown',
+                value: 'Сколько гостей',
+              }
+            })
+          +button({text: 'подобрать номер', arrow: true })
+  else
+    case card
+      when 'wishes'
+        article.card
+          h1.card__title.font_correct= 'Найдём номера под ваши пожелания'
+          .card__block_row
+            +section({
+                title: { name: 'прибытие' },
+                content: { 
+                  type: 'dropdown',
+                  mode: 'date',
+                  datepicker: '1',
+                  valueID: '1'
+                }
+            })
+            +section({
+                title: { name: 'выезд' },
+                content: { 
+                  type: 'dropdown',
+                  mode: 'date',
+                  datepicker: '1',
+                  valueID: '2'
+                }
+            })
+          .calendar-slot
+            article.card.card_mini.card_mini_calendar.card_none#calendar1
+              +calendar(1)
+          +section({
+            title: { name: 'Гости' },
+            content: { 
+                type: 'dropdown',
+                value: 'Сколько гостей'
+            }
+          })
+          +button({text: 'подобрать номер', arrow: true })
+      when 'check-in'
+        article.card
+          h1.card__title.font_correct= 'Регистрация аккаунта'
+          +field({ 
+            type: 'field',
+            placeholder: 'Имя'
+          })
+          +field({ 
+            type: 'field',
+            placeholder: 'Фамилия'
+          })
+          +radio-group({ 
+            type: 'radio',
+            id: 'sex',
+            checks: [
+              {label: 'Мужчина', checked: true},
+              {label: 'Женщина'}
+            ]
+          })
+          +section({
+            title: { name: 'дата рождения' },
+            content: { 
+                type: 'field',
+                placeholder: 'ДД.ММ.ГГГГ',
+                masked: true
+            }
+          })
+          +section({
+            title: { name: 'данные для входа в сервис' },
+            content: { 
+                type: 'fields',
+                fields: [
+                    {placeholder: 'Email'},
+                    {placeholder: 'Пароль'}
+                ]
+            }
+          })
+          +toggle-group({label: 'Получать спецпредложения'}, 'offers')
+          +button({text: 'перейти к оплате', arrow: true })
+          .card__block_row
+            p.check-acc= 'Уже есть аккаунт на Toxin'
+            +button({text: 'войти', style: 'border' })
+      when 'log-in'
+        article.card
+          h1.card__title.font_correct= 'Войти'
+          +section({
+            content: { 
+                type: 'fields',
+                fields: [
+                    {placeholder: 'Email'},
+                    {placeholder: 'Пароль'}
+                ]
+            }
+          })
+          +button({text: 'войти', arrow: true })
+          .card__block_row
+            p.check-acc= 'Нет аккаунта на Toxin?'
+            +button({text: 'создать', style: 'border' })
+      when 'room'
+        article.card
+          .card__header
+            h1.card__title= '№888'
+            p.card__header_room-type= 'люкс'
+            p.card__details
+              span.card__details_price= '9 990₽'
+              span= ' в сутки'
+          .card__block_row
+            +section({
+                title: { name: 'прибытие' },
+                content: { 
+                  type: 'dropdown',
+                  mode: 'date',
+                  value: '2019-08-19',
+                  datepicker: '2',
+                  valueID: '1'
+                }
+            })
+            +section({
+                title: { name: 'выезд' },
+                content: { 
+                  type: 'dropdown',
+                  mode: 'date',
+                  value: '2019-08-23',
+                  datepicker: '2',
+                  valueID: '2'
+                }
+            })
+          .calendar-slot
+            article.card.card_mini.card_mini_calendar.card_none#calendar2
+              +calendar(2)
+          +section({
+            title: { name: 'Гости' },
+            content: { 
+                type: 'dropdown',
+                value: '3 гостя'
+            }
+          })
+          ul.card__list
+            li.card__list__item
+              p.card__list__item_name= '9 990₽ х 4 суток'
+              p.card__list__item_price= '39 960₽'
+            li.card__list__item
+              p.card__list__item_name= 'Сбор за услуги: скидка 2\u00A0179₽'
+              .card__list__item_info
+              p.card__list__item_price= '0₽'
+            li.card__list__item
+              p.card__list__item_name= 'Сбор за дополнительные услуги'
+              .card__list__item_info
+              p.card__list__item_price= '300₽'
+            li.card__list__item
+              p.card__list__item_name= 'Итого'
+              .card__list__item_info
+              p.card__list__item_price= '38 081₽'
+          +button({text: 'забронировать', arrow: true })
+      when 'room-rate'
+        article.card.card_mini
+          +preview('card__preview', { src: '../images/room_888.png', alt: '№888' }, true)
+          .card__header
+            h2.card__title= '№888'
+            p.card__header_room-type= 'люкс'
+            p.card__details
+              span.card__details_price= '9 990₽'
+              span= ' в сутки'
+          .card__block_row
+            +rate-group({
+              id: 'rate_888',
+              checks: [{checked: false},{checked: false},{checked: false},{checked: false},{checked: true}]
+            })
+            p.card__details
+              span.card__details_price= '145'
+              span= ' Отзывов'
+      when 'calendar'
+        +field({ value: '2019-08-19', type: 'hidden', id: `datepicker_value1`})
+        +field({ value: '2019-08-23', type: 'hidden', id: `datepicker_value2`})
+        .calendar-slot
+          article.card.card_mini.card_mini_calendar#calendar
+           +calendar('')

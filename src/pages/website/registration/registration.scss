@@ -1,0 +1,12 @@
+@import '../../../components/carousel/carousel.scss';
+
+.reg {
+    &__main {
+        min-height: 684px;
+        display: flex;
+        justify-content: center;
+        padding: 19px 10px 19px 10px;
+
+        position: relative;
+    }
+}

@@ -1,0 +1,10 @@
+include ../checkbox-group/checkbox-group.pug
+
+mixin expandable-checkbox-list(list)
+  if list.expanded
+    ul.expandable-checkbox-list.expandable-checkbox-list_expanded
+      each checkbox, index in list.checks
+        li.expandable-checkbox-list__item
+          +checkbox-group(checkbox, `${list.id}_${index}`)
+  else
+    .expandable-checkbox-list

@@ -1,0 +1,26 @@
+include ../logo/logo.pug
+include ../menu/menu.pug
+
+mixin header(props = {demo: false})
+  header.header
+    +logo('toxin')
+    if props.user
+      +menu([
+        { link: '#', text: 'О нас', hovered: props.demo ? true : false },
+        { link: '#', text: 'Услуги', dropdown: true },
+        { link: '#', text: 'Вакансии' },
+        { link: '#', text: 'Новости' },
+        { link: '#', text: 'Соглашения', dropdown: true },
+        { link: '#', text: props.user, user: true }
+      ])
+    else 
+      +menu([
+        { link: '#', text: 'О нас', hovered: props.demo ? true : false },
+        { link: '#', text: 'Услуги', dropdown: true },
+        { link: '#', text: 'Вакансии' },
+        { link: '#', text: 'Новости' },
+        { link: '#', text: 'Соглашения', dropdown: true },
+        { link: '#', text: 'Войти', btn: true, style: 'border' },
+        { link: '#', text: 'Зарегистрироваться', btn: true }
+      ])
+    

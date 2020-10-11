@@ -1,0 +1,62 @@
+include ../logo/logo.pug
+include ../field/field.pug
+
+mixin footer(mode)
+  if mode
+    footer.footer_small
+      +logo('toxin')
+      p= 'Copyright © 2018 Toxin отель. Все права зачищены.'
+      ul
+        li
+          a(href="#").footer__social.footer__social_twi='twitter'
+        li
+          a(href="#").footer__social.footer__social_fb='facebook'
+        li
+          a(href="#").footer__social.footer__social_inst='instagram'
+  else
+    footer.footer
+      nav.footer__widgets
+        .widgets__column
+          +logo('toxin')
+          p= 'Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»'
+        ul.widgets__column
+          h3= 'навигация'
+          li.widgets__item
+            a(href="#")='О нас'
+          li.widgets__item
+            a(href="#")='Новости'
+          li.widgets__item
+            a(href="#")='Служба поддержки'
+          li.widgets__item
+            a(href="#")='Услуги'
+        ul.widgets__column
+          h3= 'о нас'
+          li.widgets__item
+            a(href="#")='О сервисе'
+          li.widgets__item
+            a(href="#")='Наша команда'
+          li.widgets__item
+            a(href="#")='Вакансии'
+          li.widgets__item
+            a(href="#")='Инвесторы'
+        ul.widgets__column
+          h3= 'Служба поддержки'
+          li.widgets__item
+            a(href="#")='Соглашения'
+          li.widgets__item
+            a(href="#")='Сообщества'
+          li.widgets__item
+            a(href="#")='Связь с нами'
+        .widgets__column
+          h3= 'Подписка'
+          p= 'Получайте специальные предложения и новости сервиса'
+          +field({ placeholder: 'Email', subscription: true })
+      .footer__copyright
+        p= 'Copyright © 2018 Toxin отель. Все права зачищены.'
+        ul
+          li
+            a(href="#").footer__social.footer__social_twi='twitter'
+          li
+            a(href="#").footer__social.footer__social_fb='facebook'
+          li
+            a(href="#").footer__social.footer__social_inst='instagram'

@@ -1,0 +1,7 @@
+mixin like(like, id)
+  .like
+    if like.checked
+      input.like__input(type='checkbox' id=id checked)
+    else
+      input.like__input(type='checkbox' id=id)
+    label.like__label(for=id)=like.label

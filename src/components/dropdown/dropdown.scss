@@ -1,0 +1,112 @@
+.dropdown {
+    position: relative;
+    &::before {
+        content: '';
+        position: absolute;
+        display: block;
+
+        width: 44px;
+        height: 44px;
+
+        right: 0;
+
+        background: no-repeat center url('components/dropdown/dropdown__expand_more.png');
+    }
+    &_hover::before,
+    &:hover::before {
+        background: no-repeat center url('components/dropdown/dropdown__expand_more_active.png');
+    }
+
+    &_expanded {
+        & > :first-child {  
+            border-color: $color-50per;
+            border-bottom: 0;
+            height: 43px;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        position: relative;
+        .dropdown__menu {
+            display: block;
+            background-color: white;
+            position: absolute;
+            z-index: 50;
+            height: auto;
+            .button:nth-last-child(2) {
+                margin-top: 0;
+            }
+        }
+    }
+
+    &__menu {
+        display: none;
+        
+        width: 100%;
+
+        border: 1px solid $color-50per;
+        border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 4px;
+
+        box-shadow: 0 10px 15px $color-5per;
+    }
+    &__item {
+        display: flex;
+        justify-content: space-between;
+
+        margin: 6px 6px 7px 7px;
+
+        font-family: $font-main-bold;
+        font-size: 12px;
+        line-height: 15px;
+        text-transform: uppercase;
+        color: $color;
+
+        &_name {
+            padding: 6px 7px;
+        }
+        &_counter {
+            display: flex;
+            justify-content: space-between;
+
+            width: 92px;
+            height: 30px;
+        }
+        &_btn {
+            width: 30px;
+            height: 30px;
+
+            border: 1px solid $color-25per;
+            border-radius: 22px;
+
+            background-color: white;
+
+            font-family: $font-main;
+            font-size: 18px;
+            line-height: 22px;
+            color: $color-50per;
+
+            &_disabled {
+                opacity: 0.5;
+            }
+        }
+        &_number {
+            padding: 6px 7px;
+        }
+    }
+    &__control {
+        width: 100%;
+        padding: 13px 7px 12px 13px;
+        display: flex;
+        justify-content: flex-end;
+        & > :first-child {
+            width: 72px;
+        }
+        & > :last-child {
+            width: 84px;
+        }
+        &_clear {
+            justify-content: space-between;
+        }
+    }
+}

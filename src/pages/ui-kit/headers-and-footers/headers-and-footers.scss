@@ -1,0 +1,35 @@
+@import '../../../components/logo/logo.scss';
+@import '../../../components/header/header.scss';
+@import '../../../components/footer/footer.scss';
+
+.page_headers-and-footers {
+    background: #F4F4F6;
+}
+
+.logo {
+    position: absolute;
+    left: 30px;
+    top: 30px;
+}
+
+.headers-and-footers {
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+    & > * {
+        margin-top: 40px;
+        align-self: center;
+    }
+    & > :last-child {
+        margin-bottom: 140px;
+    }
+}
+
+@media only screen and (max-width : 800px) {
+    .headers-and-footers {
+        margin-top: 100px;
+        & > :last-child {
+            margin-bottom: 100px;
+        }
+    }
+}

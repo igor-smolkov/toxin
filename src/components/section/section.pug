@@ -1,0 +1,81 @@
+include ../slider/slider.pug
+include ../button/button.pug
+include ../pagination/pagination.pug
+include ../dropdown/dropdown.pug
+include ../field/field.pug
+include ../expandable-checkbox-list/expandable-checkbox-list.pug
+include ../checkbox-group/checkbox-group.pug
+include ../radio-group/radio-group.pug
+include ../toggle-group/toggle-group.pug
+include ../like/like.pug
+include ../rate-group/rate-group.pug
+include ../bullet-list/bullet-list.pug
+include ../extra-list/extra-list.pug
+include ../comment/comment.pug
+
+mixin section(section)
+  section.section
+    if section.title
+      if section.title.details
+        .section__title
+          h3.section__title_name= section.title.name
+          p.section__title_details= section.title.details
+      else
+        h3.section__title.section__title_name= section.title.name
+    if section.content
+      case section.content.type
+        when 'slider'
+          +slider(section.content.min, section.content.max)
+          if section.content.details
+            p.section__content_details= section.content.details
+        when 'buttons'
+          each btn, index in section.content.buttons
+            .section__block_btn
+              +button(btn)
+              if btn.demo
+                +button({
+                  text: btn.text,
+                  style: btn.style,
+                  hover: true
+                })
+        when 'pagination'
+          +pagination(section.content)
+        when 'dropdown'
+          +dropdown(section.content)
+        when 'field'
+          +field(section.content)
+        when 'fields'
+          each field in section.content.fields
+            +field(field)
+        when 'expandable-checkbox-list'
+          +expandable-checkbox-list(section.content)
+        when 'checkbox'
+          each checkbox, index in section.content.checks
+            +checkbox-group(checkbox, `${section.content.id}_${index}`)
+        when 'radio'
+          +radio-group(section.content)
+        when 'toggle'
+          each toggle, index in section.content.checks
+            +toggle-group(toggle, `${section.content.id}_${index}`)
+        when 'like'
+          .section__block_like
+            each like, index in section.content.checks
+              +like(like, `${section.id}_${index}`)
+        when 'rate'
+          .section__block_rate
+            +rate-group(section.content)
+            if section.content.demo
+              +rate-group({
+                id: `demo_${section.content.id}`,
+                checks: section.content.demo
+              })
+        when 'bullet-list'
+          +bullet-list(section.content.list)
+        when 'extra-list'
+          +extra-list(section.content.list)
+        when 'comment'
+          +comment(section.content)
+        default
+          .block
+      
+    

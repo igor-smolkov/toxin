@@ -1,0 +1,16 @@
+extends ../../../layout
+
+include ../../../components/header/header.pug
+include ../../../components/footer/footer.pug
+include ../../../components/card/card.pug
+include ../../../components/carousel/carousel.pug
+
+block variables
+  - var title = 'TOXIN - Registration'
+
+block content
+    +header
+    main.reg__main
+      +carousel('log')
+      +card('check-in')
+    +footer

@@ -1,0 +1,71 @@
+.like {
+    display: inline-block;
+    position: relative;
+    width: 40px;
+    margin: 10px 0;
+    & ~ * {
+        margin-left: 10px;
+    }
+    &__input {
+        position: absolute;
+        z-index: -1;
+        opacity: 0;        
+        &:checked+label {
+            color: $color-purple;
+            &::before {
+                background-image: url('components/like/favorite.png');
+                background-position: 4px 5px;
+                border-color: transparent;
+            }
+            &::after {
+                content: '';
+                position: absolute;
+                display: block;
+                background: linear-gradient(180deg, $color-purple 0%, #8BA4F9 100%);
+                height: 20px;
+                width: 40px;
+                border-radius: 10px;
+
+                top: -2px;
+                left: -2px;
+                z-index: -1;
+            }
+        }
+    }
+    &__label {
+        display: block;
+        position: absolute;
+        height: 18px;
+        width: 38px;
+        border-radius: 10px;
+        border: 1px solid transparent;
+        background-color: white;
+
+        margin-top: 2px;
+        margin-left: 1px;
+
+        padding-top: 2px;
+        padding-left: 10px;
+        font-family: $font_main;
+        text-align: center;
+        font-size: 10px;
+        line-height: 12px;
+        color: $color-25per;
+
+        &::before {
+            content: '';
+            position: absolute;
+            display: block;
+            height: 20px;
+            left: 0;
+            border: 1px solid $color-25per;
+
+            width: 40px;
+            border-radius: 10px;
+            top: -2px;
+            left: -2px;
+            background: no-repeat center url('components/like/favorite_border.png');
+            background-position: 4px 5px;
+        }
+    }
+}

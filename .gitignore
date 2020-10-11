@@ -1,1 +1,7 @@
-node_modules
+# пакеты
+/node_modules/
+
+# проракшн сборка
+/dist/
+>>>>>>> dev
+

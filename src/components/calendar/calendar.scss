@@ -1,0 +1,141 @@
+.calendar {
+    display: flex;
+    flex-direction: column;
+    // position: absolute;
+    &__control {
+        order: 2;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+        height: 15px;
+        // border: 1px solid blue;
+        .button {
+            max-width: 84px;
+            & .button__text {
+                text-align: left;
+            }
+        }
+    }
+}
+
+.ui-datepicker {
+    order: 1;
+    &-header {
+        display: flex;
+        justify-content: space-between;
+        height: 24px;
+        // border: 1px solid blue;
+    }
+    &-prev {
+        order: 1;
+        width: 24px;
+        height: 24px;
+        background: no-repeat center url('components/calendar/calendar__month_prev.png');
+        font-size: 0;
+    }
+    &-next {
+        order: 3;
+        width: 24px;
+        height: 24px;
+        background: no-repeat center url('components/calendar/calendar__month_next.png');
+        font-size: 0;
+    }
+    &-title {
+        order: 2;
+        font-family: $font-title-bold;
+        font-weight: bold;
+        font-size: 19px;
+        line-height: 24px;
+        color: $color;
+    }
+    &-calendar {
+        margin-top: 28px;
+        width: 100%;
+        tr {
+            display: flex;
+            flex-wrap: nowrap;
+            width: 100%;
+        }
+        th,
+        td {
+            max-width: 40px;
+            width: 100%;
+            height: 39px;
+            display: inline-flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+
+            font-family: $font-main;
+            font-size: 12px;
+            line-height: 15px;
+        }
+        th {
+            font-family: $font-main-bold;
+            color: $color-purple;
+        }
+        a {
+            color: $color-50per;
+            &:hover {
+                font-family: $font-main-bold;
+                color: white;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                width: 40px;
+                height: 39px;
+                background: linear-gradient(180deg, $color-green 0%, #66D2EA 100%);
+                border-radius: 22px;
+            }
+        }
+    }
+    &-other-month {
+        a {
+            color: $color-25per;
+        }
+    }
+    &-period {
+        background: linear-gradient(180deg,rgba(188,156,255,0.25) 0%, rgba(139,164,249,0.25) 100%);
+        &-start {
+            border-top-left-radius: 22px;
+            border-bottom-left-radius: 22px;
+            &-one {
+                border-radius: 22px;
+            }
+        }
+        &-end {
+            border-top-right-radius: 22px;
+            border-bottom-right-radius: 22px;
+        }
+        &-start a,
+        &-end a {
+            font-family: $font-main-bold;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 40px;
+            height: 39px;
+            background: linear-gradient(180deg, $color-purple 0%, #8BA4F9 100%);
+            border-radius: 22px;
+        }
+    }
+}
+
+@media only screen and (max-width : 370px) {
+    .ui-datepicker {
+        table {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            & > * {
+                align-self: center;
+            }
+        }
+        th,
+        td {
+            width: 32px;
+            height: 31px;
+        }
+    }
+}

@@ -1,0 +1,9 @@
+mixin carousel(className)
+	.carousel(class=`carousel_${className}`)
+		case className
+			when 'landing'
+				.carousel__prev.carousel__pic_2
+				.carousel__next.carousel__pic_3
+			when 'log'
+				.carousel__prev.carousel__pic_4
+				.carousel__next.carousel__pic_5

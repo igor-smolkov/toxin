@@ -1,0 +1,17 @@
+extends ../../../layout
+
+include ../../../components/logo/logo.pug
+include ../../../components/header/header.pug
+include ../../../components/footer/footer.pug
+
+block variables
+  - var title = 'TOXIN - UI kit'
+  - var page = 'page_headers-and-footers'
+
+block content
+  +logo
+  .headers-and-footers
+    +header({demo: true})
+    +header({user: 'Юлий Цезарь', demo: true})
+    +footer
+    +footer('creative')

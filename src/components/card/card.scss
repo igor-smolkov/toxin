@@ -1,0 +1,332 @@
+@import '../preview/preview.scss';
+
+@import '../calendar/calendar.scss';
+
+.font_correct {
+    font-weight: bold;
+    transform: scale(1.085, 1) translate(12px);
+}
+
+.card {
+    max-width: 380px;
+    // height: 374px;
+    min-height: 257px;
+
+    padding: 29px;
+    padding-top: 39px;
+
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+
+    background-color: white;
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 8px;
+        padding-bottom: 4px;
+        &_room-type {
+            flex-grow: 1;
+            align-self: flex-end;
+
+            margin-left: 5px;
+
+            font-family: $font-main-bold;
+            font-size: 12px;
+            line-height: 15px;
+            text-transform: uppercase;
+            color: $color-purple;
+        }
+        .card__title{
+            line-height: 15px;
+            &::first-letter{
+                font-size: 14px;
+                line-height: 15px;
+                font-weight: bold;
+                padding-right: 6px;
+            } 
+        }
+        // h1.card__title {
+        //     margin-left: -32px;
+        //     margin-right: 37px;
+        // }
+        .card__details {
+            padding-top: 4px;
+            padding-right: 4px;
+        }
+    }
+    &__details {
+        align-self: center;
+
+        margin-right: -4px;
+
+        font-family: $font-main;
+        font-size: 12px;
+        line-height: 15px;
+        color: $color-50per;
+
+        &_price {
+            font-size: 14px;
+            font-family: $font-main-bold;
+        }
+    }
+
+
+
+    &__title {
+        max-width: 300px;
+
+        font-size: 24px;
+        line-height: 30px;
+        font-family: $font-title-bold;
+        color: $color;
+    }
+
+    &__block_row {
+        display: flex;
+        justify-content: space-between;
+        .section:last-child {
+            margin-left: 20px;
+            margin-top: 0;
+        }
+        &:last-child {
+            margin-top: 30px;
+        }
+        .button {
+            width: 99px;
+        }
+        .card__details {
+            padding-top: 2px;
+            margin-right: -2px;
+            font-size: 14px;
+        }
+    }
+
+    &__list {
+        margin-top: 20px;
+        padding-left: 1.5px;
+
+        font-family: $font-main;
+        font-size: 14px;
+        line-height: 18px;
+        color: $color-75per;
+        &__item{
+            display: flex;
+            justify-content: space-between;
+
+            margin-top: 16px;
+            &:first-child {
+                margin-top: 0;
+            }
+
+            &_name {
+                max-width: 214px;
+            }
+
+            &_info {
+                flex-grow: 1;
+                position: relative;
+                &::before {
+                    content: 'i';
+                    position: absolute;
+                    display: flex;
+                    align-items: center;
+                    width: 20px;
+                    height: 20px;
+                    top: 0px;
+                    left: 5px;
+                    padding-left: 7px;
+                    border: 1px solid $color-25per;
+                    border-radius: 10px;
+                    font-family: $font-main-bold;
+                    font-size: 12px;
+                    color: $color-25per;
+                    background-color: white;
+                }
+            }
+        }
+
+        & > :last-child {
+            margin-top: 30px;
+            font-family: $font-spare;
+            font-weight: bold;
+            font-size: 19px;
+            line-height: 24px;
+            color: $color;
+            .card__list__item_info::before {
+                content: '';
+                height: 0.5px;
+                width: 93%;
+                top: 18px;
+                border: none;
+                border-bottom: 1px dashed $color-25per;
+            }
+        }
+    }
+
+    .section {
+        margin-top: 20px;
+        &:first-child {
+            margin-top: 0;
+        }
+        .field {
+            margin-top: 10px;
+        }
+        &__title+.field {
+            margin-top: 0;
+        }
+    }
+
+    .field {
+        margin-top: 10px;
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+
+    .radio-group {
+        margin-bottom: 26px;
+    }
+    
+    .section+.button:last-child {
+        margin-top: 32px;
+    }
+    .button:nth-last-child(2) {
+        margin-top: 20px;
+    }
+    .toggle-group+.button {
+        margin-top: 11px;
+    }
+    .card__list+.button {
+        margin-top: 20px;
+    }
+    
+    .card__title+.field {
+        margin-top: 20px;
+    }
+    .card__title+.card__block_row  {
+        margin-top: 20px;
+    }
+    .card__header+.card__block_row  {
+        margin-top: 20px;
+    }
+
+    .check-acc {
+        margin: 12px 1px;
+        font-family: $font-main;
+        font-size: 14px;
+        line-height: 18px;
+        color: #000000;
+    }
+
+    &_mini { 
+        width: 270px;
+        max-height: 257px;
+        position: relative;
+        padding: 21px;
+        border: none;
+        border-radius: 4px;
+        box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
+        .rate-group {
+            margin: 1px 0;
+        }
+        .button:nth-child(n) {
+            margin: 0;
+        }
+        &_calendar {
+            max-width: 320px;
+            width: 100%;
+            min-height: 299px;
+            max-height: 409px;
+            padding-left: 18px;
+            padding-right: 20px;
+            border: 1px solid $color-25per;
+            position: absolute;
+            z-index: 100;
+            top: 5px;
+        }
+        .card__header .card__details {
+            padding-top: 0;
+            padding-right: 0;
+        }
+    }
+    .calendar-slot {
+        position: relative;
+    }
+
+    &_none {
+        display: none;
+    }
+
+    &__preview {
+        position: absolute;
+        width: 100%;
+        height: 150px;
+        top: 0;
+        left: 0;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        // background-color: yellow;
+        &+.card__header {
+            position: relative;
+            margin-top: 147px;
+            // margin-top: 20px;
+            .card__title{
+                font-size: 19px;
+                &::first-letter{
+                    font-size: 14px;
+                } 
+            }
+            &::after {
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 1px;
+                left: 0;
+                top: 38px;
+                background: rgba(31, 32, 65, 0.1);
+            }
+        }
+    }
+}
+
+:not(.card) > .calendar-slot {
+    position: relative;
+    min-height: 369px;
+    & > :first-child {
+        top: 0;
+        & > * {
+            margin-left: 2px;
+        }
+    }
+}
+
+@media only screen and (max-width : 410px) {
+    .card {
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        &__block_row:nth-child(2) {
+            flex-direction: column;
+            & > :last-child {
+                margin-left: 0;
+                margin-top: 5px;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width : 380px) {
+    .card {
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+        align-self: flex-start;
+        &__title {
+            padding-right: 5px;
+        }
+        &__list__item_info {
+            min-width: 30px;
+        }
+        &_mini_calendar {
+            padding: 15px 5px;
+        }
+    }
+}
