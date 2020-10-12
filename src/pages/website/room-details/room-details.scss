@@ -84,6 +84,8 @@
             }
         }
         &__rules {
+            max-width: 253px;
+            width: 100%;
             & > :first-child {
                 margin-left: 20px;
             }
@@ -93,6 +95,7 @@
         }
         &__cancel {
             max-width: 341px;
+            width: 100%;
             margin-left: 110px;
             p {
                 font-family: $font-main;
