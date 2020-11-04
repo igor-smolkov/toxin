@@ -3,10 +3,10 @@
 @font-face {
     font-family:'Quicksand-Bold';
     src: url('Quicksand Bold.eot');
-	src: url('Quicksand Bold.eot?#iefix') format('embedded-opentype'),
-		url('Quicksand Bold.woff2') format('woff2'),
-		url('Quicksand Bold.woff') format('woff'),
-		url('Quicksand Bold.svg#Quicksand Bold') format('svg');
+    src: url('Quicksand Bold.eot?#iefix') format('embedded-opentype'),
+        url('Quicksand Bold.woff2') format('woff2'),
+        url('Quicksand Bold.woff') format('woff'),
+        url('Quicksand Bold.svg#Quicksand Bold') format('svg');
     font-weight: 700;
     font-style: normal;
     font-stretch: normal;

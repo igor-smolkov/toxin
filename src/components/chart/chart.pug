@@ -1,49 +1,49 @@
 mixin chart(arr)
-	- var sum = 0
-	- var pers = []
-	each elem in arr
-		if elem.value
-			- sum = sum + elem.value
-	- var pers = []
-	each elem, index in arr
-		if elem.value
-			- pers[index] = elem.value / sum *100
-		else
-			- pers[index] = 0
-	- var ws = 0.75
-	- var first = pers[0]
-	- pers[0] = pers[1]
-	- pers[1] = first
+  - var sum = 0
+  - var pers = []
+  each elem in arr
+    if elem.value
+      - sum = sum + elem.value
+  - var pers = []
+  each elem, index in arr
+    if elem.value
+      - pers[index] = elem.value / sum *100
+    else
+      - pers[index] = 0
+  - var ws = 0.75
+  - var first = pers[0]
+  - pers[0] = pers[1]
+  - pers[1] = first
 
-	.chart
-		.chart__total
-			span=sum
-			- var str = sum+''
-			if (str[str.length-1] == '1') && (str[str.length-2] != '1')
-				span='голос'
-			else if ((str[str.length-1] == '2')||(str[str.length-1] == '3')||(str[str.length-1] == '4')) && (str[str.length-2] != '1')
-				span='голоса'
-			else
-				span='голосов'
-		svg.chart__pic(width='120' height='120' viewBox='0 0 33 33')
-			- var acc = 0
-			each per, index in pers
-				- var n = index+1
-				if index == 0
-					if pers[index+1]
-						- n = index+2
-				if index == 1
-					- n = index
-				if per != 0
-					circle.chart__unit.unit(r='15.9' cx='50%' cy='50%' stroke=`url(#gradient_color_${n})` stroke-dasharray=`${per-ws} 100` stroke-dashoffset=`-${acc+ws/2}`)
-					- acc = acc + per
-				else
-					circle.chart__unit.unit(r='15.9' cx='50%' cy='50%' stroke=`url(#gradient_color_${n})` stroke-dasharray='0 100' stroke-dashoffset= '0')
-			defs
-				each elem, index in arr
-					linearGradient.unit__gradient.gradient(id=`gradient_color_${index+1}` x1='0' x2='0' y1='0' y2='1')
-						stop.gradient_start(offset='0%')
-						stop.gradient_end(offset='100%')
-		ul.caption-list
-			each elem in arr
-				li.caption-list__item=elem.label
+  .chart
+    .chart__total
+      span=sum
+      - var str = sum+''
+      if (str[str.length-1] == '1') && (str[str.length-2] != '1')
+        span='голос'
+      else if ((str[str.length-1] == '2')||(str[str.length-1] == '3')||(str[str.length-1] == '4')) && (str[str.length-2] != '1')
+        span='голоса'
+      else
+        span='голосов'
+    svg.chart__pic(width='120' height='120' viewBox='0 0 33 33')
+      - var acc = 0
+      each per, index in pers
+        - var n = index+1
+        if index == 0
+          if pers[index+1]
+            - n = index+2
+        if index == 1
+          - n = index
+        if per != 0
+          circle.chart__unit.unit(r='15.9' cx='50%' cy='50%' stroke=`url(#gradient_color_${n})` stroke-dasharray=`${per-ws} 100` stroke-dashoffset=`-${acc+ws/2}`)
+          - acc = acc + per
+        else
+          circle.chart__unit.unit(r='15.9' cx='50%' cy='50%' stroke=`url(#gradient_color_${n})` stroke-dasharray='0 100' stroke-dashoffset= '0')
+      defs
+        each elem, index in arr
+          linearGradient.unit__gradient.gradient(id=`gradient_color_${index+1}` x1='0' x2='0' y1='0' y2='1')
+            stop.gradient_start(offset='0%')
+            stop.gradient_end(offset='100%')
+    ul.caption-list
+      each elem in arr
+        li.caption-list__item=elem.label

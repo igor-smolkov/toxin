@@ -1,14 +1,13 @@
 include ../button/button.pug
 
 mixin menu(items)
-	nav.menu
-		button.menu__button
-			span
-		ul
-			each item in items
-				li.menu__item(class=`${item.dropdown ? 'menu__item_dropdown' : ''} ${item.user ? 'menu__item_user' : ''}`)
-					if item.btn
-						+button({text: item.text, style: item.style})
-					else
-						a(href=item.link class=`${item.hovered ? 'hover' : ''}`)=item.text
-		
+  nav.menu
+    button.menu__button
+      span
+    ul
+      each item in items
+        li.menu__item(class=`${item.dropdown ? 'menu__item_dropdown' : ''} ${item.user ? 'menu__item_user' : ''}`)
+          if item.btn
+            +button({text: item.text, style: item.style})
+          else
+            a(href=item.link class=`${item.hovered ? 'hover' : ''}`)=item.text
