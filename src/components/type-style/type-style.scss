@@ -1,0 +1,14 @@
+@import '../../fonts/Montserrat-Regular/fonts.css';
+@import '../../fonts/Montserrat-Bold/fonts.css';
+
+@import '../colors-style/colors-style.scss';
+
+$font-main: 'Conv_Montserrat-Regular', sans-serif;
+$font-main-bold: 'Conv_Montserrat-Bold', sans-serif;
+
+h2 {
+    font-family: $font-main-bold;
+    font-size: 19px;
+    line-height: 23px;
+    color: $color;
+}

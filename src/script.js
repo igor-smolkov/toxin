@@ -16,3 +16,6 @@ slider();
 like();
 carousel();
 menu()
+
+
+import '@comp/color-section/color-section.scss'

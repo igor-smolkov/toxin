@@ -1,38 +1,50 @@
+@import '../type-style/type-style.scss';
+@import '../colors-style/colors-style.scss';
+
 .color-section {
-    display: flex;
+    // border: 1px solid red;
+    max-width: 300px;
+    max-height: 70px;
+    min-width: 250px;
+    min-height: 70px;
+    padding: 10px;
+    padding-left: 110px;
     margin-bottom: 20px;
-    &__rect {
+
+    &__name {
+        line-height: 29px;
+    }
+    &__code {
+        font-family: $font-main;
+    }
+
+    position: relative;
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
         width: 70px;
         height: 70px;
         background-color: $color;
         border-radius: 6px;
-        &_color_75per {
-            background-color: $color_75per;
-        }
-        &_color_50per {
-            background-color: $color_50per;
-        }
-        &_color_25per {
-            background-color: $color_25per;
-        }
-        &_color_5per {
-            background-color: $color_5per;
-        }
-        &_color_purple {
-            background-color: $color_purple;
-        }
-        &_color_green {
-            background-color: $color_green;
-        }
     }
-    &__name {
-        margin-top: 7px;
-        margin-left: 40px;
-        font-family: $font-title;
-        font-size: 19px;
-        line-height: 29px;
+    &[data-color-name='Dark Shade 75%']::before {
+        background-color: $color_75per;
     }
-    &__title {
-        font-family: $font-title-bold;
+    &[data-color-name='Dark Shade 50%']::before {
+        background-color: $color_50per;
+    }
+    &[data-color-name='Dark Shade 25%']::before {
+        background-color: $color_25per;
+    }
+    &[data-color-name='Dark Shade 5%']::before {
+        background-color: $color_5per;
+    }
+    &[data-color-name='Purple']::before {
+        background-color: $color_purple;
+    }
+    &[data-color-name='Green']::before {
+        background-color: $color_green;
     }
 }

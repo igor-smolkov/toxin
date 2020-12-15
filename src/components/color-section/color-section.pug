@@ -1,20 +1,4 @@
-mixin color-section(title, code)
-  .color-section
-    case title
-      when 'Dark Shade 75%'
-        .color-section__rect.color-section__rect_color_75per
-      when 'Dark Shade 50%'
-        .color-section__rect.color-section__rect_color_50per
-      when 'Dark Shade 25%'
-        .color-section__rect.color-section__rect_color_25per
-      when 'Dark Shade 5%'
-        .color-section__rect.color-section__rect_color_5per
-      when 'Purple'
-        .color-section__rect.color-section__rect_color_purple
-      when 'Green'
-        .color-section__rect.color-section__rect_color_green
-      default
-        .color-section__rect
-    .color-section__name
-      .color-section__title= title
-      .color-section__code= code
+mixin color-section(props)
+  .color-section(data-color-name=props.name)
+    H2.color-section__name= props.name
+      P.color-section__code= props.code

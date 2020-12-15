@@ -52,8 +52,9 @@ const cssLoaders = extra => {
         {
             loader: MiniCssExtractPlugin.loader,
             options: {
-                hmr: isDev,
-                reloadAll: true
+                publicPath: ''
+                // hmr: isDev,
+                // reloadAll: true
             }
         }, 
         'css-loader'
@@ -124,7 +125,8 @@ module.exports = {
     optimization: optimization(),
     devServer: {
         port: 4200,
-        hot: isDev
+        hot: isDev,
+        open: true
     },
     devtool: isDev ? 'source-map' : '',
     plugins: plugins(),
@@ -156,7 +158,7 @@ module.exports = {
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
-                loader: {
+                use: {
                     loader: 'babel-loader',
                     options: {
                         presets: [
