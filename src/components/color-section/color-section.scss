@@ -2,17 +2,16 @@
 @import '../colors-style/colors-style.scss';
 
 .color-section {
-    // border: 1px solid red;
     max-width: 300px;
     max-height: 70px;
     min-width: 250px;
     min-height: 70px;
-    padding: 10px;
+    padding: 8px;
     padding-left: 110px;
     margin-bottom: 20px;
 
     &__name {
-        line-height: 29px;
+        line-height: 28px;
     }
     &__code {
         font-family: $font-main;
