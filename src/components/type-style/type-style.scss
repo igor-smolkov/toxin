@@ -6,9 +6,30 @@
 $font-main: 'Conv_Montserrat-Regular', sans-serif;
 $font-main-bold: 'Conv_Montserrat-Bold', sans-serif;
 
-h2 {
+h1,
+h2,
+h3 {
     font-family: $font-main-bold;
+    color: $color;
+}
+
+h1 {
+    font-size: 24px;
+    line-height: 29px;
+}
+h2 {
     font-size: 19px;
     line-height: 23px;
-    color: $color;
+}
+h3 {
+    font-size: 12px;
+    line-height: 15px;
+    text-transform: uppercase;
+}
+
+body {
+    font-size: 14px;
+    line-height: 24px;
+    font-family: $font-main;
+    color: $color-75per;
 }

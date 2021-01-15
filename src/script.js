@@ -19,3 +19,4 @@ menu()
 
 
 import '@comp/color-section/color-section.scss'
+import '@comp/type-section/type-section.scss'

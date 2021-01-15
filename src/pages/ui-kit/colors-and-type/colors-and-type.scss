@@ -1,5 +1,5 @@
 @import '../../../components/logo/logo.scss';
-@import '../../../components/type-section/type-section.scss';
+// @import '../../../components/type-section/type-section.scss';
 // @import '../../../components/color-section/color-section.scss';
 
 .colors-and-type {
@@ -19,14 +19,9 @@
     }
     .colors {
         min-width: 281px;
-        height: 610px;
     }
     .types {
-        min-width: 403px;
-        height: 321px;
-        margin-left: 50px;
-        display: flex;
-        flex-direction: column;
+        min-width: 436px;
     }
 }
 
