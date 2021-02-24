@@ -33,3 +33,10 @@ body {
     font-family: $font-main;
     color: $color-75per;
 }
+
+@mixin details-type {
+    font-size: 12px;
+    line-height: 15px;
+    text-transform: uppercase;
+    color: $color-50per;
+}

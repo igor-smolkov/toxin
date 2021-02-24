@@ -2,317 +2,326 @@ extends ../../../layout
 
 include ../../../components/logo/logo.pug
 include ../../../components/section/section.pug
+include ../../../components/form-section/form-section.pug
 
 block variables
   - var title = 'TOXIN - UI kit'
 
 block content
-  +logo
-  .form-elements
-    .inputs
-      .fields
-        +section({
-          title: { 
-            name: 'Text Field',
-            details: 'Default'
-          },
-          content: { 
-            type: 'field',
+  .form-elements-page
+    .logo-zone
+      +logo
+    .form-elements
+      .inputs
+        .fields.inputs__fields
+          +form-section({
+            type: 'text-field',
+            title: 'Text Field',
+            details: 'Default',
             placeholder: 'Email'
-          }
-        })
-        +section({
-          title: { 
-            name: 'Text Field',
-            details: 'Hover / Focus'
-          },
-          content: { 
-            type: 'field',
-            placeholder: 'This is pretty awesome',
-            demo: true
-          }
-        })
-        +section({
-          title: { 
-            name: 'Dropdown',
-            details: 'Default'
-          },
-          content: { 
-            type: 'dropdown',
-            value: 'Сколько гостей'
-          }
-        })
-        +section({
-          title: { 
-            name: 'masked text field',
-            details: 'Default'
-          },
-          content: { 
-            type: 'field',
-            placeholder: 'ДД.ММ.ГГГГ',
-            masked: true
-          }
-        })
-        .fields__date-dropdown
+          })
           +section({
-            title: { name: 'date Dropdown' },
+            title: { 
+              name: 'Text Field',
+              details: 'Default'
+            },
             content: { 
-              type: 'dropdown',
-              mode: 'date'
+              type: 'field',
+              placeholder: 'Email'
             }
           })
           +section({
-            title: { name: 'date Dropdown' },
+            title: { 
+              name: 'Text Field',
+              details: 'Hover / Focus'
+            },
             content: { 
-              type: 'dropdown',
-              value: '2019-08-19',
-              mode: 'date'
+              type: 'field',
+              placeholder: 'This is pretty awesome',
+              demo: true
             }
           })
-        +section({
-          title: { name: 'filter date dropdown' },
-          content: { 
-            type: 'dropdown',
-            value: '19 авг - 23 авг',
-            mode: 'filter'
-          }
-        })
-        +section({
-          title: { name: 'subscription text field' },
-          content: { 
-            type: 'field',
-            placeholder: 'Email',
-            subscription: true
-          }
-        })
-      .checks
-        +section({
-          title: { name: 'Checkbox Buttons' },
-          content: { 
-            type: 'checkbox',
-            id: 'checkbox1',
-            checks: [
-              {label: 'Можно курить'},
-              {label: 'Можно с питомцами', checked: true},
-              {label: 'Можно пригласить гостей\n(до 10 человек)', checked: true}
-            ]
-          }
-        })
-        +section({
-          title: { name: 'Radio Buttons' },
-          content: { 
-            type: 'radio',
-            id: 'radio1',
-            checks: [
-              {label: 'Мужчина', checked: true},
-              {label: 'Женщина'}
-            ]
-          }
-        })
-        +section({
-          title: { name: 'Toggle' },
-          content: { 
-            type: 'toggle',
-            id: 'toggle1',
-            checks: [
-              {label: 'Получать спецпредложения', checked: true},
-              {label: 'Получать спецпредложения'}
-            ]
-          }
-        })
-        +section({
-          title: { name: 'like button' },
-          content: { 
-            type: 'like',
-            id: 'like1',
-            checks: [
-              {label: '2'},
-              {label: '12', checked: true}
-            ]
-          }
-        })
-        +section({
-          title: { name: 'rate button' },
-          content: { 
-            type: 'rate',
-            id: 'rate1',
-            checks: [{checked: false},{checked: false},{checked: false},{checked: true},{checked: false}],
-            demo: [{checked: false},{checked: false},{checked: false},{checked: false},{checked: true}]
-          }
-        })
-      .buttons
-        +section({
-          title: { 
-            name: 'Range Slider', 
-            details: '5 000₽ - 10 000₽' 
-          },
-          content: {
-            type: 'slider',
-            min: 31.75,
-            max: 63.5
-          }
-        })
-        +section({
-          title: { name: 'buttons' },
-          content: {
-            type: 'buttons',
-            buttons: [
-              {text: 'CLICK ME', style: 'blue', demo: true},
-              {text: 'CLICK ME', style: 'border', demo: true},
-              {text: 'CLICK ME', style: 'link', demo: true},
-              {text: 'перейти к оплате', arrow: true}
-            ]
-          }
-        })
-        +section({
-          title: { name: 'pagination' },
-          content: { 
-            type: 'pagination',
-            last: 15,
-            description: '1 – 12 из 100+ вариантов аренды'
-          }
-        })
-    .dropdowns
-      .dropdowns_section_1
-        +section({
-          title: { 
-            name: 'dropdown',
-            details: 'Default'
-          },
-          content: { 
-            type: 'dropdown',
-            value: '2 спальни, 2 кровати...',
-            demo: true
-          }
-        })
-        +section({
-          title: { 
-            name: 'dropdown',
-            details: 'expanded'
-          },
-          content: { 
-            type: 'dropdown',
-            value: '2 спальни, 2 кровати...',
-            list: [
-              { name: 'спальни', count: 2 },
-              { name: 'кровати', count: 2 },
-              { name: 'ванные комнаты' }
-            ],
-            expanded: true
-          }
-        })
-      .dropdowns_section_2
-        +section({
-          title: { name: 'dropdown' },
-          content: { 
-            type: 'dropdown',
-            value: 'Сколько гостей',
-            list: [
-              { name: 'взрослые' },
-              { name: 'дети' },
-              { name: 'младенцы' }
-            ],
-            apply: true,
-            expanded: true
-          }
-        })
-      .dropdowns_section_3
-        +section({
-          title: { name: 'dropdown' },
-          content: { 
-            type: 'dropdown',
-            value: '3 гостя',
-            list: [
-              { name: 'взрослые', count: 2 },
-              { name: 'дети', count: 1 },
-              { name: 'младенцы' }
-            ],
-            apply: true,
-            clear: true,
-            expanded: true
-          }
-        })
-    .check-lists
-      .check-lists_section_1
-        +section({
-          title: { name: 'expandable checkbox list' },
-          content: { 
-            type: 'expandable-checkbox-list'
-          }
-        })
-        +section({
-          title: { name: 'expandable checkbox list' },
-          content: { 
-            type: 'expandable-checkbox-list',
-            id: 'checkbox-list',
-            expanded: true,
-            checks: [
-              {label: 'Завтрак'},
-              {label: 'Письменный стол', checked: true},
-              {label: 'Стул для кормления', checked: true},
-              {label: 'Кроватка', checked: true},
-              {label: 'Телевизор'},
-              {label: 'Шампунь'}
-            ]
-          }
-        })
-      .check-lists_section_2
-        +section({
-          title: { name: 'Rich Checkbox Buttons' },
-          content: { 
-            type: 'checkbox',
-            id: 'checkboxrich',
-            checks: [
-              {
-                label: 'Широкий коридор',
-                details: 'Ширина коридоров в номере\nне менее 91 см.'
-              },
-              {
-                label: 'Помощник для инвалидов',
-                details: `На 1 этаже вас встретит специалист\nи проводит до номера.`
+          +section({
+            title: { 
+              name: 'Dropdown',
+              details: 'Default'
+            },
+            content: { 
+              type: 'dropdown',
+              value: 'Сколько гостей'
+            }
+          })
+          +section({
+            title: { 
+              name: 'masked text field',
+              details: 'Default'
+            },
+            content: { 
+              type: 'field',
+              placeholder: 'ДД.ММ.ГГГГ',
+              masked: true
+            }
+          })
+          .fields__date-dropdown
+            +section({
+              title: { name: 'date Dropdown' },
+              content: { 
+                type: 'dropdown',
+                mode: 'date'
               }
-            ]
-          }
-        })
-      .check-lists_section_3
-        +section({
-          title: { name: 'Bullet List' },
-          content: { 
-            type: 'bullet-list',
-            list: [
-              'Нельзя с питомцами',
-              'Без вечеринок и мероприятий',
-              'Время прибытия — после 13:00,\nа выезд до 12:00'
-            ]
-          }
-        })
-    .others
-      .extras
-        +section({
-          content: {
-            type: 'extra-list',
-            list: [
-              {
-                name: 'Комфорт',
-                details: 'Шумопоглощающие стены'
-              },
-              {
-                name: 'Удобство',
-                details: 'Окно в каждой из спален'
-              },
-            ]
-          }
-        })
-      .comments
-        +section({
-          content: {
-            type: 'comment',
-            id: 'comment1',
-            username: 'Мурад Сарафанов',
-            src: '../images/murad.png',
-            datetime: '5 дней назад',
-            text: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.',
-            likes: 12,
-            liked: true
-          }
-        })
+            })
+            +section({
+              title: { name: 'date Dropdown' },
+              content: { 
+                type: 'dropdown',
+                value: '2019-08-19',
+                mode: 'date'
+              }
+            })
+          +section({
+            title: { name: 'filter date dropdown' },
+            content: { 
+              type: 'dropdown',
+              value: '19 авг - 23 авг',
+              mode: 'filter'
+            }
+          })
+          +section({
+            title: { name: 'subscription text field' },
+            content: { 
+              type: 'field',
+              placeholder: 'Email',
+              subscription: true
+            }
+          })
+        .checks.inputs__checks
+          +section({
+            title: { name: 'Checkbox Buttons' },
+            content: { 
+              type: 'checkbox',
+              id: 'checkbox1',
+              checks: [
+                {label: 'Можно курить'},
+                {label: 'Можно с питомцами', checked: true},
+                {label: 'Можно пригласить гостей\n(до 10 человек)', checked: true}
+              ]
+            }
+          })
+          +section({
+            title: { name: 'Radio Buttons' },
+            content: { 
+              type: 'radio',
+              id: 'radio1',
+              checks: [
+                {label: 'Мужчина', checked: true},
+                {label: 'Женщина'}
+              ]
+            }
+          })
+          +section({
+            title: { name: 'Toggle' },
+            content: { 
+              type: 'toggle',
+              id: 'toggle1',
+              checks: [
+                {label: 'Получать спецпредложения', checked: true},
+                {label: 'Получать спецпредложения'}
+              ]
+            }
+          })
+          +section({
+            title: { name: 'like button' },
+            content: { 
+              type: 'like',
+              id: 'like1',
+              checks: [
+                {label: '2'},
+                {label: '12', checked: true}
+              ]
+            }
+          })
+          +section({
+            title: { name: 'rate button' },
+            content: { 
+              type: 'rate',
+              id: 'rate1',
+              checks: [{checked: false},{checked: false},{checked: false},{checked: true},{checked: false}],
+              demo: [{checked: false},{checked: false},{checked: false},{checked: false},{checked: true}]
+            }
+          })
+        .buttons.inputs__buttons
+          +section({
+            title: { 
+              name: 'Range Slider', 
+              details: '5 000₽ - 10 000₽' 
+            },
+            content: {
+              type: 'slider',
+              min: 31.75,
+              max: 63.5
+            }
+          })
+          +section({
+            title: { name: 'buttons' },
+            content: {
+              type: 'buttons',
+              buttons: [
+                {text: 'CLICK ME', style: 'blue', demo: true},
+                {text: 'CLICK ME', style: 'border', demo: true},
+                {text: 'CLICK ME', style: 'link', demo: true},
+                {text: 'перейти к оплате', arrow: true}
+              ]
+            }
+          })
+          +section({
+            title: { name: 'pagination' },
+            content: { 
+              type: 'pagination',
+              last: 15,
+              description: '1 – 12 из 100+ вариантов аренды'
+            }
+          })
+      .dropdowns.form-elements__dropdowns
+        .dropdowns_section_1
+          +section({
+            title: { 
+              name: 'dropdown',
+              details: 'Default'
+            },
+            content: { 
+              type: 'dropdown',
+              value: '2 спальни, 2 кровати...',
+              demo: true
+            }
+          })
+          +section({
+            title: { 
+              name: 'dropdown',
+              details: 'expanded'
+            },
+            content: { 
+              type: 'dropdown',
+              value: '2 спальни, 2 кровати...',
+              list: [
+                { name: 'спальни', count: 2 },
+                { name: 'кровати', count: 2 },
+                { name: 'ванные комнаты' }
+              ],
+              expanded: true
+            }
+          })
+        .dropdowns_section_2
+          +section({
+            title: { name: 'dropdown' },
+            content: { 
+              type: 'dropdown',
+              value: 'Сколько гостей',
+              list: [
+                { name: 'взрослые' },
+                { name: 'дети' },
+                { name: 'младенцы' }
+              ],
+              apply: true,
+              expanded: true
+            }
+          })
+        .dropdowns_section_3
+          +section({
+            title: { name: 'dropdown' },
+            content: { 
+              type: 'dropdown',
+              value: '3 гостя',
+              list: [
+                { name: 'взрослые', count: 2 },
+                { name: 'дети', count: 1 },
+                { name: 'младенцы' }
+              ],
+              apply: true,
+              clear: true,
+              expanded: true
+            }
+          })
+      .check-lists.form-elements__check-lists
+        .check-lists_section_1
+          +section({
+            title: { name: 'expandable checkbox list' },
+            content: { 
+              type: 'expandable-checkbox-list'
+            }
+          })
+          +section({
+            title: { name: 'expandable checkbox list' },
+            content: { 
+              type: 'expandable-checkbox-list',
+              id: 'checkbox-list',
+              expanded: true,
+              checks: [
+                {label: 'Завтрак'},
+                {label: 'Письменный стол', checked: true},
+                {label: 'Стул для кормления', checked: true},
+                {label: 'Кроватка', checked: true},
+                {label: 'Телевизор'},
+                {label: 'Шампунь'}
+              ]
+            }
+          })
+        .check-lists_section_2
+          +section({
+            title: { name: 'Rich Checkbox Buttons' },
+            content: { 
+              type: 'checkbox',
+              id: 'checkboxrich',
+              checks: [
+                {
+                  label: 'Широкий коридор',
+                  details: 'Ширина коридоров в номере\nне менее 91 см.'
+                },
+                {
+                  label: 'Помощник для инвалидов',
+                  details: `На 1 этаже вас встретит специалист\nи проводит до номера.`
+                }
+              ]
+            }
+          })
+        .check-lists_section_3
+          +section({
+            title: { name: 'Bullet List' },
+            content: { 
+              type: 'bullet-list',
+              list: [
+                'Нельзя с питомцами',
+                'Без вечеринок и мероприятий',
+                'Время прибытия — после 13:00,\nа выезд до 12:00'
+              ]
+            }
+          })
+      .others.form-elements__others
+        .extras
+          +section({
+            content: {
+              type: 'extra-list',
+              list: [
+                {
+                  name: 'Комфорт',
+                  details: 'Шумопоглощающие стены'
+                },
+                {
+                  name: 'Удобство',
+                  details: 'Окно в каждой из спален'
+                },
+              ]
+            }
+          })
+        .comments
+          +section({
+            content: {
+              type: 'comment',
+              id: 'comment1',
+              username: 'Мурад Сарафанов',
+              src: '../images/murad.png',
+              datetime: '5 дней назад',
+              text: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.',
+              likes: 12,
+              liked: true
+            }
+          })

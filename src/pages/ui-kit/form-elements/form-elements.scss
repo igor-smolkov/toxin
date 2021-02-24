@@ -22,27 +22,76 @@
 //     top: 30px;
 // }
 
-.form-elements {
-    width: 100%;
-    padding: 0 30px;
-
+.form-elements-page {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    
-    .inputs {
-        display: flex;
-        flex-direction: row;
-        align-self: center;
-        justify-content: space-between;
-
-        min-width: 900px;
-        max-width: 1158px;
+    align-items: center;
+    .logo-zone,
+    .form-elements {
+        max-width: 1432px;
         width: 100%;
+    }
+    .logo-zone {
+        padding: 30px;
+    }
+    .form-elements {
+        padding: 35px 141px;
 
-        margin-top: 143px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        &__dropdowns {
+            margin-top: 100px;
+        }
+        &__check-lists {
+            margin-top: 173px;
+        }
+        &__others {
+            margin-top: 94px;
+            margin-bottom: 131px;
+        }
+        .inputs,
+        .dropdowns,
+        .check-lists,
+        .others {
+            max-width: 1158px;
+            min-width: 900px;
+            width: 100%;
+
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        .inputs {
+            // &__fields,
+            // &__checks,
+            // &__buttons {
+            //     flex-grow: 1;
+            // }
+            &__checks {
+                margin-right: 34px;
+                padding-left: 52px;
+            }
+            .fields,
+            .checks,
+            .buttons {
+                max-width: 320px;
+                width: 100%;
+
+                display: flex;
+                flex-direction: column;
+            }
+            .fields {
+                // border: 1px solid red;
+            }
+        }
+    }
+}
+
+.form-elements {    
+    .inputs {
         .fields {
-            flex-grow: 1;
             .section {
                 max-width: 320px;
                 min-width: 266px;
@@ -94,13 +143,7 @@
                 }
             }
         }
-        .checks {
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-
-            margin-right: 34px;
-            padding-left: 52px;                
+        .checks {              
             .section {
                 align-self: flex-end;
                 max-width: 320px;
@@ -128,11 +171,7 @@
                 }
             }
         }
-        .buttons {          
-            flex-grow: 1;  
-            display: flex;
-            flex-direction: column;
-            
+        .buttons {            
             .section {
                 max-width: 320px;
                 min-width: 266px;
@@ -173,17 +212,7 @@
         }
     }
     
-    .dropdowns {        
-        align-self: center;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-
-        max-width: 1158px;
-        min-width: 900px;
-        width: 100%;
-
-        margin-top: 100px;
+    .dropdowns {
         .dropdowns_section_1 {
             flex-grow: 1;
             
@@ -226,16 +255,6 @@
     }
     
     .check-lists {
-        align-self: center;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-
-        max-width: 1158px;
-        min-width: 900px;
-        width: 100%;
-        
-        margin-top: 173px;
         .check-lists_section_1 {
             flex-grow: 1;
             margin-right: 42px;
@@ -275,19 +294,7 @@
             }
         }
     }
-    
     .others {
-        align-self: center;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        
-        max-width: 1158px;
-        min-width: 900px;
-        width: 100%;
-
-        margin-top: 94px;
-        margin-bottom: 131px;
         .extras {
             flex-grow: 1;
             .section {

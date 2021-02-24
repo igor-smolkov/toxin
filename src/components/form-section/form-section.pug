@@ -1,0 +1,11 @@
+mixin form-section(props)
+  case props.type
+    when 'text-field'
+      .form-section
+        if props.title 
+          .title-section.form-section__title-section
+            h3.title.title-section__title= props.title
+            if props.details 
+              p.details.title-section__details= props.details
+    default
+      DIV= 'ERROR'
