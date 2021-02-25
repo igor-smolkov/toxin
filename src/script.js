@@ -17,6 +17,7 @@ like();
 carousel();
 menu()
 
+import '@comp/logo-zone/logo-zone.scss'
 import '@comp/logo/logo.scss'
 import '@comp/color-section/color-section.scss'
 import '@comp/type-section/type-section.scss'

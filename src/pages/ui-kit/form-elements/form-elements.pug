@@ -9,11 +9,11 @@ block variables
 
 block content
   .form-elements-page
-    .logo-zone
+    .logo-zone.form-elements-page__section
       +logo
-    .form-elements
-      .inputs
-        .fields.inputs__fields
+    .form-elements.form-elements-page__section
+      .inputs.form-elements__section
+        .fields.inputs__section
           +form-section({
             type: 'text-field',
             title: 'Text Field',
@@ -94,7 +94,7 @@ block content
               subscription: true
             }
           })
-        .checks.inputs__checks
+        .checks.inputs__section.inputs__section_margin_to-checks
           +section({
             title: { name: 'Checkbox Buttons' },
             content: { 
@@ -149,7 +149,7 @@ block content
               demo: [{checked: false},{checked: false},{checked: false},{checked: false},{checked: true}]
             }
           })
-        .buttons.inputs__buttons
+        .buttons.inputs__section
           +section({
             title: { 
               name: 'Range Slider', 
@@ -181,7 +181,7 @@ block content
               description: '1 – 12 из 100+ вариантов аренды'
             }
           })
-      .dropdowns.form-elements__dropdowns
+      .dropdowns.form-elements__section.form-elements__section_margin_to-dropdowns
         .dropdowns_section_1
           +section({
             title: { 
@@ -241,7 +241,7 @@ block content
               expanded: true
             }
           })
-      .check-lists.form-elements__check-lists
+      .check-lists.form-elements__section.form-elements__section_margin_to-check-lists
         .check-lists_section_1
           +section({
             title: { name: 'expandable checkbox list' },
@@ -295,7 +295,7 @@ block content
               ]
             }
           })
-      .others.form-elements__others
+      .others.form-elements__section.form-elements__section_margin_to-others
         .extras
           +section({
             content: {
