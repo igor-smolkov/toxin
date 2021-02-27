@@ -1,18 +1,18 @@
 mixin type-section(props)
   case props.name
-    when 'H1'
+    when "H1"
       .type-section
         H1.type-section__name= props.name
         H1.type-section__example= props.example
-    when 'H2'
+    when "H2"
       .type-section
         H2.type-section__name= props.name
         H2.type-section__example= props.example
-    when 'H3'
+    when "H3"
       .type-section
         H3.type-section__name= props.name
         H3.type-section__example= props.example
-    when 'Body'
+    when "Body"
       .type-section
         .type-section__name= props.name
         .type-section__example= props.example

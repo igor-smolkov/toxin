@@ -1,17 +1,13 @@
 .form-section {
-    max-width: 100%;
-    min-width: 90px;
+  max-width: 100%;
+  min-width: 90px;
+  width: 100%;
+  min-height: 15px;
+  .title {
+    padding-bottom: 5px;
     width: 100%;
-    min-height: 15px;
-    .title-section{
-        padding-bottom: 5px;
-        display: flex;
-        .title {
-            width: 100%;
-        }
-        .details {
-            @import '../type-style/type-style.scss';
-            @include details-type
-        }
-    }
+  }
+  .details {
+    float: right;
+  }
 }

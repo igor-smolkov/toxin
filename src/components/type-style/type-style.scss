@@ -1,42 +1,54 @@
-@import '../../fonts/Montserrat-Regular/fonts.css';
-@import '../../fonts/Montserrat-Bold/fonts.css';
-
+@import '../../fonts/fonts.scss';
 @import '../colors-style/colors-style.scss';
 
-$font-main: 'Conv_Montserrat-Regular', sans-serif;
-$font-main-bold: 'Conv_Montserrat-Bold', sans-serif;
-
-h1,
-h2,
-h3 {
-    font-family: $font-main-bold;
-    color: $color;
+@mixin base-type {
+  font-size: 14px;
+  line-height: 1.714;
+  font-family: 'Montserrat', sans-serif;
+  color: $color-75per;
 }
 
+@mixin base-h-type {
+  @include base-type;
+  font-weight: bold;
+  color: $color;
+  & > .details {
+    font-weight: normal;
+  }
+}
+
+@mixin h1-type {
+  @include base-h-type;
+  font-size: 1.714rem;
+  line-height: 1.209;
+}
+
+@mixin h2-type {
+  @include base-h-type;
+  font-size: 1.357rem;
+  line-height: 1.29;
+}
+
+@mixin h3-type {
+  @include base-h-type;
+  font-size: 0.857rem;
+  line-height: 1.25;
+  text-transform: uppercase;
+  & > .details {
+    color: $color-50per;
+  }
+}
+
+html,
+body {
+  @include base-type;
+}
 h1 {
-    font-size: 24px;
-    line-height: 29px;
+  @include h1-type;
 }
 h2 {
-    font-size: 19px;
-    line-height: 23px;
+  @include h2-type;
 }
 h3 {
-    font-size: 12px;
-    line-height: 15px;
-    text-transform: uppercase;
-}
-
-body {
-    font-size: 14px;
-    line-height: 24px;
-    font-family: $font-main;
-    color: $color-75per;
-}
-
-@mixin details-type {
-    font-size: 12px;
-    line-height: 15px;
-    text-transform: uppercase;
-    color: $color-50per;
+  @include h3-type;
 }

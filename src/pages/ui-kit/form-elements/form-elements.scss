@@ -17,65 +17,65 @@
 
 
 .form-elements-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    &__section {
-        max-width: 1432px;
-        width: 100%;
-    }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &__section {
+    max-width: 1432px;
+    width: 100%;
+  }
 }
 
 .form-elements {
-    padding: 35px 141px;
+  padding: 35px 141px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  &__section {
+    max-width: 1158px;
+    min-width: 900px;
+    width: 100%;
 
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    &__section {
-        max-width: 1158px;
-        min-width: 900px;
-        width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
 
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-
-        &_margin {
-            &_to-dropdowns {
-                margin-top: 100px;
-            }
-            &_to-check-lists {
-                margin-top: 173px;
-            }
-            &_to-others {
-                margin-top: 94px;
-                margin-bottom: 131px;
-            }
-        }
+    &_margin {
+      &_to-dropdowns {
+        margin-top: 100px;
+      }
+      &_to-check-lists {
+        margin-top: 173px;
+      }
+      &_to-others {
+        margin-top: 94px;
+        margin-bottom: 131px;
+      }
     }
+  }
 }
 
 .inputs {
-    &__section {
-        max-width: 320px;
-        width: 100%;
+  &__section {
+    max-width: 320px;
+    width: 100%;
 
-        display: flex;
-        flex-direction: column;
+    display: flex;
+    flex-direction: column;
 
-        &_margin {
-            &_to-checks{
-                margin-right: 34px;
-                padding-left: 52px;
-            }
-        }
+    &_margin {
+      &_to-checks{
+        margin-right: 34px;
+        padding-left: 52px;
+      }
     }
+  }
 }
 
 .fields {
-    // border: 1px solid red;
+  // border: 1px solid red;
 }
 
 

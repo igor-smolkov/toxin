@@ -1,19 +1,18 @@
-@import '../type-style/type-style.scss';
 @import '../colors-style/colors-style.scss';
 
 .type-section {
-    display: flex;
-    &:not(:first-child) {
-        margin-top: 50px;
-    }
-    &__name {
-        min-width: 37px;
-        text-align: right;
-        color: $color-25per;
-        font-family: $font-main;
-    }
-    &__example {
-        max-width: 369px;
-        margin-left: 30px;
-    }
+  display: flex;
+  &:not(:first-child) {
+    margin-top: 50px;
+  }
+  &__name {
+    min-width: 37px;
+    text-align: right;
+    color: $color-25per;
+    font-weight: normal;
+  }
+  &__example {
+    max-width: 369px;
+    margin-left: 30px;
+  }
 }

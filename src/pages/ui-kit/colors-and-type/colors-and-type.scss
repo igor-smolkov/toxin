@@ -1,45 +1,45 @@
 .colors-and-type-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    &__section {
-        max-width: 1432px;
-        width: 100%;
-    }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &__section {
+    max-width: 1432px;
+    width: 100%;
+  }
 }
 
 .colors-and-type {
-    padding: 37px 150px;
+  padding: 37px 150px;
 
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
     
-    &__types {
-        margin-left: 25px;
-        @media only screen and (max-width : 800px) {
-            margin-left: 0;
-            margin-top: 25px;
-        }
-    }
-
-    @media only screen and (max-width : 1000px) {
-        padding: 37px 30px;
-    }
+  &__types {
+    margin-left: 25px;
     @media only screen and (max-width : 800px) {
-        flex-direction: column;
-        align-items: center;
-
-        padding: 0 30px;
+      margin-left: 0;
+      margin-top: 25px;
     }
+  }
+
+  @media only screen and (max-width : 1000px) {
+    padding: 37px 30px;
+  }
+  @media only screen and (max-width : 800px) {
+    flex-direction: column;
+    align-items: center;
+
+    padding: 0 30px;
+  }
 }
 
 .colors {
-    min-width: 281px;
+  min-width: 281px;
 }
 
 .types {
-    min-width: 436px;
-    @media only screen and (max-width : 800px) {
-        min-width: 320px;
-    }
+  min-width: 436px;
+  @media only screen and (max-width : 800px) {
+    min-width: 320px;
+  }
 }
