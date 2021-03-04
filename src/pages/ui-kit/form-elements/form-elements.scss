@@ -17,18 +17,19 @@
 
 
 .form-elements-page {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  &__section {
-    max-width: 1432px;
-    width: 100%;
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+
+  &__logo {
+    padding: 30px;
+  }
+  &__form-elements {
+    padding: 35px 141px;
   }
 }
 
 .form-elements {
-  padding: 35px 141px;
-
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -37,10 +38,6 @@
     max-width: 1158px;
     min-width: 900px;
     width: 100%;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
 
     &_margin {
       &_to-dropdowns {
@@ -58,24 +55,19 @@
 }
 
 .inputs {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
   &__section {
     max-width: 320px;
     width: 100%;
-
-    display: flex;
-    flex-direction: column;
-
-    &_margin {
-      &_to-checks{
-        margin-right: 34px;
-        padding-left: 52px;
-      }
-    }
   }
 }
 
 .fields {
-  // border: 1px solid red;
+  display: flex;
+  flex-direction: column;
 }
 
 
@@ -133,7 +125,9 @@
                 }
             }
         }
-        .checks {              
+        .checks { 
+          display: flex;
+          flex-direction: column;             
             .section {
                 align-self: flex-end;
                 max-width: 320px;
@@ -161,7 +155,9 @@
                 }
             }
         }
-        .buttons {            
+        .buttons {
+          display: flex;
+          flex-direction: column;            
             .section {
                 max-width: 320px;
                 min-width: 266px;
@@ -203,6 +199,10 @@
     }
     
     .dropdowns {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      
         .dropdowns_section_1 {
             flex-grow: 1;
             
@@ -245,6 +245,10 @@
     }
     
     .check-lists {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      
         .check-lists_section_1 {
             flex-grow: 1;
             margin-right: 42px;
@@ -285,6 +289,10 @@
         }
     }
     .others {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      
         .extras {
             flex-grow: 1;
             .section {

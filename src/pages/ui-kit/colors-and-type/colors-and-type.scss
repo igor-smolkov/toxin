@@ -1,16 +1,23 @@
 .colors-and-type-page {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  &__section {
-    max-width: 1432px;
-    width: 100%;
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+
+  &__logo {
+    padding: 30px;
+  }
+  &__colors-and-type {
+    padding: 37px 150px;
+    @media only screen and (max-width : 1000px) {
+      padding: 37px 30px;
+    }
+    @media only screen and (max-width : 800px) {
+      padding: 0 30px;
+    }
   }
 }
 
 .colors-and-type {
-  padding: 37px 150px;
-
   display: flex;
   justify-content: space-between;
     
@@ -21,15 +28,9 @@
       margin-top: 25px;
     }
   }
-
-  @media only screen and (max-width : 1000px) {
-    padding: 37px 30px;
-  }
   @media only screen and (max-width : 800px) {
     flex-direction: column;
     align-items: center;
-
-    padding: 0 30px;
   }
 }
 
@@ -38,7 +39,7 @@
 }
 
 .types {
-  min-width: 436px;
+  min-width: 444px;
   @media only screen and (max-width : 800px) {
     min-width: 320px;
   }
