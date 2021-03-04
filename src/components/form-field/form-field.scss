@@ -1,0 +1,29 @@
+@import '../colors-style/colors-style.scss';
+
+.form-field {
+  max-width: 100%;
+  min-width: 133px;
+  width: 100%;
+  max-height: 44px;
+  min-height: 44px;
+
+  padding: 9px 14px 11px 14px;
+
+  border: 1px solid $color-25per;
+  border-radius: 4px;
+
+  &::placeholder {
+    color: $color-25per;
+  }
+
+  &_hovered,
+  &:hover,
+  &_focused,
+  &:focus {
+    border-color: $color-50per;
+        
+    &::placeholder {
+      color: $color-75per;
+    }
+  }
+}

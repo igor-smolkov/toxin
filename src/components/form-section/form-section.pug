@@ -1,10 +1,12 @@
+include ../form-field/form-field.pug
+
 mixin form-section(props)
-  case props.type
-    when "text-field"
-      .form-section
-        if props.title 
-          h3.title.form-section__title= props.title
-            if props.details 
-              p.details.title__details= props.details
-    default
-      DIV= "ERROR"
+  FIELDSET.form-section
+    if props.title
+      LEGEND.form-section__title-fields
+        H3.title-fields= props.title
+          if props.details
+            .title-fields__details
+              P.details= props.details
+    .form-section__form-field
+      +form-field(props.field)

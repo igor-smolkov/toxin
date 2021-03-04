@@ -12,7 +12,8 @@
   @include base-type;
   font-weight: bold;
   color: $color;
-  & > .details {
+  & > .details,
+  & > :first-child > .details {
     font-weight: normal;
   }
 }
@@ -34,7 +35,8 @@
   font-size: 0.857rem;
   line-height: 1.25;
   text-transform: uppercase;
-  & > .details {
+  & > .details,
+  & > :first-child > .details {
     color: $color-50per;
   }
 }

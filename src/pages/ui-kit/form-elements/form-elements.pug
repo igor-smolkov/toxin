@@ -17,86 +17,85 @@ block content
           .inputs
             .inputs__section
               .fields
-                +form-section({
-                  type: "text-field",
-                  title: "Text Field",
-                  details: "Default",
-                  placeholder: "Email"
-                })
-                +section({
-                  title: { 
-                    name: 'Text Field',
-                    details: 'Default'
-                  },
-                  content: { 
-                    type: 'field',
-                    placeholder: 'Email'
-                  }
-                })
-                +section({
-                  title: { 
-                    name: 'Text Field',
-                    details: 'Hover / Focus'
-                  },
-                  content: { 
-                    type: 'field',
-                    placeholder: 'This is pretty awesome',
-                    demo: true
-                  }
-                })
-                +section({
-                  title: { 
-                    name: 'Dropdown',
-                    details: 'Default'
-                  },
-                  content: { 
-                    type: 'dropdown',
-                    value: 'Сколько гостей'
-                  }
-                })
-                +section({
-                  title: { 
-                    name: 'masked text field',
-                    details: 'Default'
-                  },
-                  content: { 
-                    type: 'field',
-                    placeholder: 'ДД.ММ.ГГГГ',
-                    masked: true
-                  }
-                })
-                .fields__date-dropdown
+                .fields__section.fields__section_order_1
+                  +form-section({
+                    title: "Text Field",
+                    details: "Default",
+                    field: { 
+                      id: "text-field-default",
+                      type: "text-field",
+                      placeholder: "Email",
+                    },
+                  })
+                .fields__section
+                  +form-section({
+                    title: "Text Field",
+                    details: "Hover / Focus",
+                    field: { 
+                      id: "text-field-hovered-and-focused",
+                      type: "text-field",
+                      placeholder: "This is pretty awesome",
+                      hovered: true,
+                      focused: true,
+                    },
+                  })
+                .fields__section
                   +section({
-                    title: { name: 'date Dropdown' },
+                    title: { 
+                      name: 'Dropdown',
+                      details: 'Default'
+                    },
                     content: { 
                       type: 'dropdown',
-                      mode: 'date'
+                      value: 'Сколько гостей'
                     }
                   })
+                .fields__section
                   +section({
-                    title: { name: 'date Dropdown' },
+                    title: { 
+                      name: 'masked text field',
+                      details: 'Default'
+                    },
+                    content: { 
+                      type: 'field',
+                      placeholder: 'ДД.ММ.ГГГГ',
+                      masked: true
+                    }
+                  })
+                .fields__section
+                  .fields__date-dropdown
+                    +section({
+                      title: { name: 'date Dropdown' },
+                      content: { 
+                        type: 'dropdown',
+                        mode: 'date'
+                      }
+                    })
+                    +section({
+                      title: { name: 'date Dropdown' },
+                      content: { 
+                        type: 'dropdown',
+                        value: '2019-08-19',
+                        mode: 'date'
+                      }
+                    })
+                  +section({
+                    title: { name: 'filter date dropdown' },
                     content: { 
                       type: 'dropdown',
-                      value: '2019-08-19',
-                      mode: 'date'
+                      value: '19 авг - 23 авг',
+                      mode: 'filter'
                     }
                   })
-                +section({
-                  title: { name: 'filter date dropdown' },
-                  content: { 
-                    type: 'dropdown',
-                    value: '19 авг - 23 авг',
-                    mode: 'filter'
-                  }
-                })
-                +section({
-                  title: { name: 'subscription text field' },
-                  content: { 
-                    type: 'field',
-                    placeholder: 'Email',
-                    subscription: true
-                  }
-                })
+                .fields__section
+                  +section({
+                    title: { name: 'subscription text field' },
+                    content: { 
+                      type: 'field',
+                      placeholder: 'Email',
+                      subscription: true
+                    }
+                  })
             .inputs__section
               .checks
                 +section({

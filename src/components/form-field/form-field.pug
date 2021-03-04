@@ -1,0 +1,10 @@
+mixin form-field(props)
+  input.form-field(
+    id=props.id 
+    type=props.type
+    placeholder=props.placeholder
+    class=`
+      ${props.hovered ? " form-field_hovered" : ""}
+      ${props.focused ? " form-field_focused" : ""}
+    `
+  )

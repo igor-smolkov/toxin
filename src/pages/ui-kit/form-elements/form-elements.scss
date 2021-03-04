@@ -68,6 +68,14 @@
 .fields {
   display: flex;
   flex-direction: column;
+  &__section {
+    margin-top: 20px;
+    &_order {
+      &_1 {
+        margin-top: 0;
+      }
+    }
+  }
 }
 
 

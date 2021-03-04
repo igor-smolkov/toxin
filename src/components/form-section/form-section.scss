@@ -3,11 +3,18 @@
   min-width: 90px;
   width: 100%;
   min-height: 15px;
-  .title {
-    padding-bottom: 5px;
+  &__title-fields {
     width: 100%;
   }
-  .details {
+  &__form-field {
+    margin-top: 5px;
+  }
+}
+
+.title-fields {
+  // padding-bottom: 5px;
+  width: 100%;
+  &__details {
     float: right;
   }
 }
