@@ -1,0 +1,18 @@
+.dropdown-field {
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+
+    width: 44px;
+    height: 44px;
+
+    right: 0;
+
+    background: no-repeat center url('./dropdown-expand-more.png');
+  }
+  &_hovered::before,
+  &:hover::before {
+    background: no-repeat center url('./dropdown-expand-more-active.png');
+  }
+}

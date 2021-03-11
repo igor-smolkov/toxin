@@ -1,12 +1,16 @@
-include ../form-field/form-field.pug
+include ../text-field/text-field.pug
+include ../dropdown-field/dropdown-field.pug
 
 mixin form-section(props)
   FIELDSET.form-section
     if props.title
-      LEGEND.form-section__title-fields
-        H3.title-fields= props.title
+      LEGEND.form-section__title-section
+        H3.title-section= props.title
           if props.details
-            .title-fields__details
+            .title-section__details
               P.details= props.details
-    .form-section__form-field
-      +form-field(props.field)
+    .form-section__field-section
+      if props.field.dropdown
+        +dropdown-field(props.field)
+      else
+        +text-field(props.field)

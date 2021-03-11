@@ -23,7 +23,6 @@ block content
                     details: "Default",
                     field: { 
                       id: "text-field-default",
-                      type: "text-field",
                       placeholder: "Email",
                     },
                   })
@@ -33,52 +32,50 @@ block content
                     details: "Hover / Focus",
                     field: { 
                       id: "text-field-hovered-and-focused",
-                      type: "text-field",
                       placeholder: "This is pretty awesome",
                       hovered: true,
                       focused: true,
                     },
                   })
                 .fields__section
-                  +section({
-                    title: { 
-                      name: 'Dropdown',
-                      details: 'Default'
+                  +form-section({
+                    title: "Dropdown",
+                    details: "Default",
+                    field: {
+                      id: "dropdown-default",
+                      value: "Сколько гостей",
+                      dropdown: true,
                     },
-                    content: { 
-                      type: 'dropdown',
-                      value: 'Сколько гостей'
-                    }
                   })
                 .fields__section
-                  +section({
-                    title: { 
-                      name: 'masked text field',
-                      details: 'Default'
+                  +form-section({
+                    title: "Masked Text Field",
+                    details: "Default",
+                    field: { 
+                      id: "text-field-masked",
+                      placeholder: "ДД.ММ.ГГГГ",
+                      masked: true,
                     },
-                    content: { 
-                      type: 'field',
-                      placeholder: 'ДД.ММ.ГГГГ',
-                      masked: true
-                    }
+                  })
+                .fields__section.fields__section_paired
+                  +form-section({
+                    title: "Date Dropdown",
+                    field: {
+                      id: "date-dropdown-default",
+                      type: "date",
+                      dropdown: true,
+                    },
+                  })
+                  +form-section({
+                    title: "Date Dropdown",
+                    field: {
+                      id: "date-dropdown-with-value",
+                      type: "date",
+                      value: '2019-08-19',
+                      dropdown: true,
+                    },
                   })
                 .fields__section
-                  .fields__date-dropdown
-                    +section({
-                      title: { name: 'date Dropdown' },
-                      content: { 
-                        type: 'dropdown',
-                        mode: 'date'
-                      }
-                    })
-                    +section({
-                      title: { name: 'date Dropdown' },
-                      content: { 
-                        type: 'dropdown',
-                        value: '2019-08-19',
-                        mode: 'date'
-                      }
-                    })
                   +section({
                     title: { name: 'filter date dropdown' },
                     content: { 
