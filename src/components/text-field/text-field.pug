@@ -1,13 +1,29 @@
 mixin text-field(props)
+  if props.directed
+    .field-submit
+      +text-field-base(props)
+      input.field-submit__btn(type="submit")
+  else
+    +text-field-base(props)
+
+mixin text-field-base(props)
   input.text-field(
     id=props.id 
-    type=`${props.type ? props.type : "text"}`
+    type=`${
+      props.type 
+        ? 
+        props.filter ? "text" : props.type 
+        : 
+      "text"
+    }`
     value=props.value
     placeholder=props.placeholder
-    pattern=`${props.masked ? "(0[1-9]|1[0-9]|2[0-9]|3[01]).(0[1-9]|1[012]).[0-9]{4}" : "*"}`
+    pattern=props.masked ? "(0[1-9]|1[0-9]|2[0-9]|3[01]).(0[1-9]|1[012]).[0-9]{4}" : false
+    readonly=props.filter ? "readonly" : false
     class=`
       ${props.hovered ? " text-field_hovered" : ""}
       ${props.focused ? " text-field_focused" : ""}
+      ${props.directed ? " text-field_directed" : ""}
       ${props.masked || props.type === "date" ? " text-field_masked" : ""}
     `
   )

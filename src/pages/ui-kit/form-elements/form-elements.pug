@@ -17,7 +17,7 @@ block content
           .inputs
             .inputs__section
               .fields
-                .fields__section.fields__section_order_1
+                .fields__section.fields__section_first
                   +form-section({
                     title: "Text Field",
                     details: "Default",
@@ -40,7 +40,6 @@ block content
                 .fields__section
                   +form-section({
                     title: "Dropdown",
-                    details: "Default",
                     field: {
                       id: "dropdown-default",
                       value: "Сколько гостей",
@@ -50,48 +49,51 @@ block content
                 .fields__section
                   +form-section({
                     title: "Masked Text Field",
-                    details: "Default",
                     field: { 
                       id: "text-field-masked",
                       placeholder: "ДД.ММ.ГГГГ",
                       masked: true,
                     },
                   })
-                .fields__section.fields__section_paired
+                .fields__section.fields__section_rarefied.fields__section_paired
+                  .fields__subsection.fields__subsection_first
+                    +form-section({
+                      title: "Date Dropdown",
+                      field: {
+                        id: "date-dropdown-default",
+                        type: "date",
+                        dropdown: true,
+                      },
+                    })
+                  .fields__subsection
+                    +form-section({
+                      title: "Date Dropdown",
+                      field: {
+                        id: "date-dropdown-with-value",
+                        type: "date",
+                        value: '2019-08-19',
+                        dropdown: true,
+                      },
+                    })
+                .fields__section.fields__section_rarefied.fields__section_shortened
                   +form-section({
-                    title: "Date Dropdown",
+                    title: "Filter Date Dropdown",
                     field: {
-                      id: "date-dropdown-default",
+                      id: "filter-date-dropdown",
                       type: "date",
+                      value: "19 авг - 23 авг",
                       dropdown: true,
+                      filter: true,
                     },
                   })
+                .fields__section.fields__section_rarefied.fields__section_shortened
                   +form-section({
-                    title: "Date Dropdown",
-                    field: {
-                      id: "date-dropdown-with-value",
-                      type: "date",
-                      value: '2019-08-19',
-                      dropdown: true,
+                    title: "Subscription Text Field",
+                    field: { 
+                      id: "text-field-subscription",
+                      placeholder: "Email",
+                      directed: true,
                     },
-                  })
-                .fields__section
-                  +section({
-                    title: { name: 'filter date dropdown' },
-                    content: { 
-                      type: 'dropdown',
-                      value: '19 авг - 23 авг',
-                      mode: 'filter'
-                    }
-                  })
-                .fields__section
-                  +section({
-                    title: { name: 'subscription text field' },
-                    content: { 
-                      type: 'field',
-                      placeholder: 'Email',
-                      subscription: true
-                    }
                   })
             .inputs__section
               .checks

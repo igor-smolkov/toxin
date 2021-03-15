@@ -1,6 +1,18 @@
 @import '../colors-style/colors-style.scss';
 @import '../type-style/type-style.scss';
 
+.field-submit {
+  position: relative;
+  &__btn {
+    font-size: 0;
+    position: absolute;
+    width: 44px;
+    height: 44px;
+    right: 0;
+    background: no-repeat center url('./field-arrow-forward.png');
+  }
+}
+
 .text-field {
   max-width: 100%;
   min-width: 133px;
@@ -28,6 +40,10 @@
     &::placeholder {
       color: $color-75per;
     }
+  }
+
+  &_directed {
+    padding-right: 40px;
   }
 
   &_masked:invalid {
