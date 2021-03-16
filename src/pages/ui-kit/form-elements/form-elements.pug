@@ -14,10 +14,10 @@ block content
     .form-elements-page__form-elements
       .form-elements
         .form-elements__section
-          .inputs
-            .inputs__section
-              .fields
-                .fields__section.fields__section_first
+          .field-elements
+            .field-elements__section
+              .text-fields
+                .fields__section.text-fields__section_first
                   +form-section({
                     title: "Text Field",
                     details: "Default",
@@ -26,7 +26,7 @@ block content
                       placeholder: "Email",
                     },
                   })
-                .fields__section
+                .text-fields__section
                   +form-section({
                     title: "Text Field",
                     details: "Hover / Focus",
@@ -37,7 +37,7 @@ block content
                       focused: true,
                     },
                   })
-                .fields__section
+                .text-fields__section
                   +form-section({
                     title: "Dropdown",
                     field: {
@@ -46,7 +46,7 @@ block content
                       dropdown: true,
                     },
                   })
-                .fields__section
+                .text-fields__section
                   +form-section({
                     title: "Masked Text Field",
                     field: { 
@@ -55,8 +55,8 @@ block content
                       masked: true,
                     },
                   })
-                .fields__section.fields__section_rarefied.fields__section_paired
-                  .fields__subsection.fields__subsection_first
+                .text-fields__section.text-fields__section_rarefied.text-fields__section_paired
+                  .text-fields__subsection.text-fields__subsection_first
                     +form-section({
                       title: "Date Dropdown",
                       field: {
@@ -65,7 +65,7 @@ block content
                         dropdown: true,
                       },
                     })
-                  .fields__subsection
+                  .text-fields__subsection
                     +form-section({
                       title: "Date Dropdown",
                       field: {
@@ -75,7 +75,7 @@ block content
                         dropdown: true,
                       },
                     })
-                .fields__section.fields__section_rarefied.fields__section_shortened
+                .text-fields__section.text-fields__section_rarefied.text-fields__section_shortened
                   +form-section({
                     title: "Filter Date Dropdown",
                     field: {
@@ -86,7 +86,7 @@ block content
                       filter: true,
                     },
                   })
-                .fields__section.fields__section_rarefied.fields__section_shortened
+                .text-fields__section.text-fields__section_rarefied.text-fields__section_shortened
                   +form-section({
                     title: "Subscription Text Field",
                     field: { 
@@ -95,63 +95,64 @@ block content
                       directed: true,
                     },
                   })
-            .inputs__section
-              .checks
-                +section({
-                  title: { name: 'Checkbox Buttons' },
-                  content: { 
-                    type: 'checkbox',
-                    id: 'checkbox1',
-                    checks: [
-                      {label: 'Можно курить'},
-                      {label: 'Можно с питомцами', checked: true},
-                      {label: 'Можно пригласить гостей\n(до 10 человек)', checked: true}
+            .field-elements__section
+              .check-fields
+                .check-fields__section.check-fields__section_first
+                  +form-section({
+                    title: "Checkbox Buttons",
+                    fields: [
+                      {id: "check-btn-1", label: "Можно курить", check: true},
+                      {id: "check-btn-2", label: "Можно с питомцами", check: true, checked: true},
+                      {id: "check-btn-3", label: "Можно пригласить гостей (до 10 человек)", check: true, checked: true},
                     ]
-                  }
-                })
-                +section({
-                  title: { name: 'Radio Buttons' },
-                  content: { 
-                    type: 'radio',
-                    id: 'radio1',
-                    checks: [
-                      {label: 'Мужчина', checked: true},
-                      {label: 'Женщина'}
-                    ]
-                  }
-                })
-                +section({
-                  title: { name: 'Toggle' },
-                  content: { 
-                    type: 'toggle',
-                    id: 'toggle1',
-                    checks: [
-                      {label: 'Получать спецпредложения', checked: true},
-                      {label: 'Получать спецпредложения'}
-                    ]
-                  }
-                })
-                +section({
-                  title: { name: 'like button' },
-                  content: { 
-                    type: 'like',
-                    id: 'like1',
-                    checks: [
-                      {label: '2'},
-                      {label: '12', checked: true}
-                    ]
-                  }
-                })
-                +section({
-                  title: { name: 'rate button' },
-                  content: { 
-                    type: 'rate',
-                    id: 'rate1',
-                    checks: [{checked: false},{checked: false},{checked: false},{checked: true},{checked: false}],
-                    demo: [{checked: false},{checked: false},{checked: false},{checked: false},{checked: true}]
-                  }
-                })
-            .inputs__section
+                  })
+                .check-fields__section
+                  +section({
+                    title: { name: 'Radio Buttons' },
+                    content: { 
+                      type: 'radio',
+                      id: 'radio1',
+                      checks: [
+                        {label: 'Мужчина', checked: true},
+                        {label: 'Женщина'}
+                      ]
+                    }
+                  })
+                .check-fields__section
+                  +section({
+                      title: { name: 'Toggle' },
+                      content: { 
+                        type: 'toggle',
+                        id: 'toggle1',
+                        checks: [
+                          {label: 'Получать спецпредложения', checked: true},
+                          {label: 'Получать спецпредложения'}
+                        ]
+                      }
+                  })
+                .check-fields__section
+                  +section({
+                    title: { name: 'like button' },
+                    content: { 
+                      type: 'like',
+                      id: 'like1',
+                      checks: [
+                        {label: '2'},
+                        {label: '12', checked: true}
+                      ]
+                    }
+                  })
+                .check-fields__section
+                  +section({
+                    title: { name: 'rate button' },
+                    content: { 
+                      type: 'rate',
+                      id: 'rate1',
+                      checks: [{checked: false},{checked: false},{checked: false},{checked: true},{checked: false}],
+                      demo: [{checked: false},{checked: false},{checked: false},{checked: false},{checked: true}]
+                    }
+                  })
+            .field-elements__section
               .buttons
                 +section({
                   title: { 

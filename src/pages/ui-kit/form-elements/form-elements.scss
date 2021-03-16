@@ -54,7 +54,7 @@
   }
 }
 
-.inputs {
+.field-elements {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -65,7 +65,7 @@
   }
 }
 
-.fields {
+.text-fields {
   display: flex;
   flex-direction: column;
   &__section {
@@ -92,37 +92,46 @@
   }
 }
 
+.check-fields {
+  display: flex;
+  flex-direction: column;
+  &__section {
+    margin-top: 30px;
+    &_first {
+      margin-top: 0;
+    }
+  }
+}
+
 
 .form-elements {    
     .inputs {
-        .checks { 
-          display: flex;
-          flex-direction: column;             
+        .checks {             
             .section {
-                align-self: flex-end;
-                max-width: 320px;
-                min-width: 266px;
-                width: 100%;
+                // align-self: flex-end;
+                // max-width: 320px;
+                // min-width: 266px;
+                // width: 100%;
 
-                margin-top: 33px;
-                &:first-child {
-                    margin-top: 0;
-                }
-                &:nth-child(3){
-                    & > :nth-child(2),
-                    & > :nth-child(3) {
-                        margin-top: 11px;
-                    }
-                }
-                &:nth-child(4){
-                    margin-top: 31px;
-                }
-                &:last-child {
-                    margin-top: 48px;
-                }
-                &__block_rate {
-                    margin-top: 10px;
-                }
+                // margin-top: 33px;
+                // &:first-child {
+                //     margin-top: 0;
+                // }
+                // &:nth-child(3){
+                //     & > :nth-child(2),
+                //     & > :nth-child(3) {
+                //         margin-top: 11px;
+                //     }
+                // }
+                // &:nth-child(4){
+                //     margin-top: 31px;
+                // }
+                // &:last-child {
+                //     margin-top: 48px;
+                // }
+                // &__block_rate {
+                //     margin-top: 10px;
+                // }
             }
         }
         .buttons {

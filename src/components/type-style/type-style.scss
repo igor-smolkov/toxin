@@ -63,3 +63,16 @@ h3 {
     letter-spacing: -1px;
   }
 }
+
+.text {
+  &_light {
+    &_middle {
+      color: $color-50per;
+    }
+  }
+  &_rare {
+    &_less {
+      line-height: 1.2857;
+    }
+  }
+}

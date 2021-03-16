@@ -1,0 +1,15 @@
+mixin check-field(props)
+  .check-field
+    input.check-field__box(
+      id=props.id
+      type="checkbox"
+      checked=props.checked ? true : false
+    )
+    label.check-field__label(
+      for=props.id
+      class=`
+        ${props.checked ? " check-field_checked" : ""}
+        text_light_middle
+        text_rare_less
+      `
+    )=props.label
