@@ -74,6 +74,11 @@ h3 {
   @if $mod == 'rare_less' {
     line-height: 1.2857;
   }
+  @if $mod == 'mod_like' {
+    @include base-type;
+    font-size: 0.7143rem;
+    line-height: 0.857;
+  }
 }
 
 .text {
@@ -88,6 +93,11 @@ h3 {
   &_rare {
     &_less {
       @include text('rare_less');
+    }
+  }
+  &_mod {
+    &_like {
+      @include text('mod_like');
     }
   }
 }

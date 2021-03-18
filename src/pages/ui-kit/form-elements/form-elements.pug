@@ -127,28 +127,12 @@ block content
                     ]
                   })
                 .check-fields__section
-                  +section({
-                      title: { name: 'Toggle' },
-                      content: { 
-                        type: 'toggle',
-                        id: 'toggle1',
-                        checks: [
-                          {label: 'Получать спецпредложения', checked: true},
-                          {label: 'Получать спецпредложения'}
-                        ]
-                      }
-                  })
-                .check-fields__section
-                  +section({
-                    title: { name: 'like button' },
-                    content: { 
-                      type: 'like',
-                      id: 'like1',
-                      checks: [
-                        {label: '2'},
-                        {label: '12', checked: true}
-                      ]
-                    }
+                  +form-section({
+                    title: "Like button",
+                    fields: [
+                      {id: "like-1", value: 2, like: true},
+                      {id: "like-2", value: 12, like: true, checked: true},
+                    ]
                   })
                 .check-fields__section
                   +section({

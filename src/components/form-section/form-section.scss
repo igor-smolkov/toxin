@@ -25,5 +25,18 @@
   margin-top: 17px;
   &__item {
     margin-top: 10px;
+    &_rarefied {
+      margin-top: 14px;
+    }
+  }
+  &_inlined {
+    display: flex;
+    margin-top: 6px;
+    .fields-group__item {
+      margin-left: 10px;
+      &_first {
+        margin-left: 0;
+      }
+    }
   }
 }

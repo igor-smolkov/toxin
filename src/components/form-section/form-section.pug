@@ -2,6 +2,7 @@ include ../text-field/text-field.pug
 include ../dropdown-field/dropdown-field.pug
 include ../check-field/check-field.pug
 include ../radio-field/radio-field.pug
+include ../like-btn/like-btn.pug
 
 mixin form-section(props)
   FIELDSET.form-section
@@ -20,8 +21,14 @@ mixin form-section(props)
         if props.field.radio
           +radio-field(props.field)
       else if props.fields
-        .fields-group
-          each field in props.fields
-            .fields-group__item
+        .fields-group(class=`${props.fields[0].like ? " fields-group_inlined" :""}`)
+          each field, index in props.fields
+            .fields-group__item(class=`${
+                index === 0 ? " fields-group__item_first" :
+                  field.toggle ? " fields-group__item_rarefied" 
+                : ""
+              }`)
               if field.check || field.toggle
                 +check-field(field)
+              if field.like 
+                +like-btn(field)
