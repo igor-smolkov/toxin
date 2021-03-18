@@ -1,0 +1,80 @@
+@import '../colors-style/colors-style.scss';
+@import '../type-style/type-style.scss';
+
+.radio-field {
+  max-width: 100%;
+  min-width: 133px;
+  width: 100%;
+  max-height: 20px;
+  min-height: 20px;
+  display: flex;
+  &__option {
+    margin-left: 20px;
+    padding-left: 30px;
+    position: relative;
+    &_first {
+      margin-left: 0;
+    }
+  }
+  &__box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    z-index: -1;
+    opacity: 0;
+    &:checked+label {
+      @include text('light_normal');
+      &::before {
+        border-color: $color-purple;
+      }
+      &::after {
+        display: block;
+      }
+    }
+    &:not(:checked)+label {
+      @include text('light_middle');
+      &::before {
+        border-color: $color-25per;
+      }
+      &::after {
+        display: none;
+      }
+    }
+  }
+  &__label {
+    display: flex;
+    @include text('light_middle');
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 20px;
+      height: 20px;
+      border: 1px solid $color-25per;
+      border-radius: 10px;
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      width: 12px;
+      height: 12px;
+      background: linear-gradient(180deg, $color-purple 0%, #8BA4F9 100%);
+      border-radius: 10px;
+      display: none;
+    }
+    &_checked {
+      @include text('light_normal');
+      &::before {
+        border-color: $color-purple;
+      }
+      &::after {
+        display: block;
+      }
+    }
+  }
+}

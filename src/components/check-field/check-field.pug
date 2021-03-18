@@ -1,15 +1,24 @@
 mixin check-field(props)
-  .check-field
+  .check-field(class=`
+    ${props.checked ? " check-field_checked" : ""}
+    ${props.toggle ? " check-field_toggler" : ""}
+  `)
     input.check-field__box(
       id=props.id
+      name=props.name ? props.name : props.id
+      value=props.value ? props.value : props.id
       type="checkbox"
       checked=props.checked ? true : false
+      class=`
+        ${props.checked ? " check-field__box_checked" : ""}
+        ${props.toggle ? " check-field__box_toggler" : ""}
+      `
     )
     label.check-field__label(
       for=props.id
       class=`
-        ${props.checked ? " check-field_checked" : ""}
-        text_light_middle
+        ${props.checked ? " check-field__label_checked" : ""}
+        ${props.toggle ? " check-field__label_toggler" : " text_light_middle"}
         text_rare_less
       `
     )=props.label

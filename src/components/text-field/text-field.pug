@@ -8,7 +8,8 @@ mixin text-field(props)
 
 mixin text-field-base(props)
   input.text-field(
-    id=props.id 
+    id=props.id
+    name=props.name ? props.name : props.id
     type=`${
       props.type 
         ? 

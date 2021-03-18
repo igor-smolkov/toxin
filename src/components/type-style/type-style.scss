@@ -64,15 +64,30 @@ h3 {
   }
 }
 
+@mixin text($mod) {
+  @if $mod == 'light_middle' {
+    color: $color-50per;
+  }
+  @if $mod == 'light_normal' {
+    color: $color-75per;
+  }
+  @if $mod == 'rare_less' {
+    line-height: 1.2857;
+  }
+}
+
 .text {
   &_light {
     &_middle {
-      color: $color-50per;
+      @include text('light_middle');
+    }
+    &_normal {
+      @include text('light_normal');
     }
   }
   &_rare {
     &_less {
-      line-height: 1.2857;
+      @include text('rare_less');
     }
   }
 }

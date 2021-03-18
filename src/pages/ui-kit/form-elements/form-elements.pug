@@ -107,16 +107,24 @@ block content
                     ]
                   })
                 .check-fields__section
-                  +section({
-                    title: { name: 'Radio Buttons' },
-                    content: { 
-                      type: 'radio',
-                      id: 'radio1',
-                      checks: [
-                        {label: 'Мужчина', checked: true},
-                        {label: 'Женщина'}
-                      ]
+                  +form-section({
+                    title: "Radio Buttons",
+                    field: {
+                      id: "radio-buttons",
+                      options: [
+                        {label: "Мужчина", checked: true},
+                        {label: "Женщина"},
+                      ],
+                      radio: true,
                     }
+                  })
+                .check-fields__section
+                  +form-section({
+                    title: "Toggle",
+                    fields: [
+                      {id: "toggle-1", label: "Получать спецпредложения", toggle: true, checked: true},
+                      {id: "toggle-2", label: "Получать спецпредложения", toggle: true},
+                    ]
                   })
                 .check-fields__section
                   +section({

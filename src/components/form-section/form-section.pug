@@ -1,6 +1,7 @@
 include ../text-field/text-field.pug
 include ../dropdown-field/dropdown-field.pug
 include ../check-field/check-field.pug
+include ../radio-field/radio-field.pug
 
 mixin form-section(props)
   FIELDSET.form-section
@@ -10,15 +11,17 @@ mixin form-section(props)
           if props.details
             .title-section__details
               P.details= props.details
-    .form-section__fields-section
+    .form-section__fields-section(class=`${props.field ? props.field.radio ? " form-section__fields-section_rarefied" :"":""}`)
       if props.field
+        if !props.field.dropdown && !props.field.radio
+          +text-field(props.field)
         if props.field.dropdown
           +dropdown-field(props.field)
-        else
-          +text-field(props.field)
+        if props.field.radio
+          +radio-field(props.field)
       else if props.fields
         .fields-group
           each field in props.fields
             .fields-group__item
-            if field.check
-              +check-field(field)
+              if field.check || field.toggle
+                +check-field(field)

@@ -1,0 +1,18 @@
+mixin radio-field(props)
+  .radio-field(id=props.id)
+    each option, index in props.options
+      .radio-field__option(class=`${index === 0 ? " radio-field__option_first" : ""}`)
+        input.radio-field__box(
+          type="radio"
+          id=`${props.id}_${index}`
+          name=props.name ? props.name : props.id
+          value=option.value ? option.value : index
+          checked=option.checked ? true : false
+        )
+        label.radio-field__label(
+          for=`${props.id}_${index}`
+          class=`
+            ${option.checked ? " radio-field__label_checked" : ""}
+            text_rare_less
+          `
+        )=option.label
