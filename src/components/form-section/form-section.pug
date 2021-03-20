@@ -21,14 +21,28 @@ mixin form-section(props)
         if props.field.radio
           +radio-field(props.field)
       else if props.fields
-        .fields-group(class=`${props.fields[0].like ? " fields-group_inlined" :""}`)
+        .fields-group(class=`${props.fields[0].like || props.fields[0].rate ? " fields-group_inlined" :""}`)
           each field, index in props.fields
-            .fields-group__item(class=`${
-                index === 0 ? " fields-group__item_first" :
-                  field.toggle ? " fields-group__item_rarefied" 
-                : ""
-              }`)
+            .fields-group__item(class=`
+              ${index === 0 ? " fields-group__item_first" : ""}
+              ${field.toggle ? " fields-group__item_rare-more_ver" : ""}
+              ${field.rate ? " fields-group__item_rare-more_hor" : ""}
+              ${field.like || field.rate ? " fields-group__item_inlined" : ""}
+            `)
               if field.check || field.toggle
                 +check-field(field)
               if field.like 
                 +like-btn(field)
+              if field.rate
+                +radio-field({
+                  id: field.id,
+                  options: [
+                    {checked: (field.value === 0 ? true : false)},
+                    {checked: (field.value === 1 ? true : false)},
+                    {checked: (field.value === 2 ? true : false)},
+                    {checked: (field.value === 3 ? true : false)},
+                    {checked: (field.value === 4 ? true : false)},
+                    {checked: (field.value === 5 ? true : false)},
+                  ],
+                  rate: true,
+                })

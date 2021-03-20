@@ -135,14 +135,12 @@ block content
                     ]
                   })
                 .check-fields__section
-                  +section({
-                    title: { name: 'rate button' },
-                    content: { 
-                      type: 'rate',
-                      id: 'rate1',
-                      checks: [{checked: false},{checked: false},{checked: false},{checked: true},{checked: false}],
-                      demo: [{checked: false},{checked: false},{checked: false},{checked: false},{checked: true}]
-                    }
+                  +form-section({
+                    title: "Rate button",
+                    fields: [
+                      {id: "rate-1", value: 4, rate: true},
+                      {id: "rate-2", value: 5, rate: true},
+                    ]
                   })
             .field-elements__section
               .buttons

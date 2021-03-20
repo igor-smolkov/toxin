@@ -25,18 +25,25 @@
   margin-top: 17px;
   &__item {
     margin-top: 10px;
-    &_rarefied {
-      margin-top: 14px;
+    &_inlined {
+      margin-top: 0;
+      margin-left: 10px;
+    }
+    &_rare-more {
+      &_ver {
+        margin-top: 14px;
+      }
+      &_hor {
+        margin-left: 20px;
+      }
+    }
+    &_first {
+      margin-top: 0;
+      margin-left: 0;
     }
   }
   &_inlined {
     display: flex;
-    margin-top: 6px;
-    .fields-group__item {
-      margin-left: 10px;
-      &_first {
-        margin-left: 0;
-      }
-    }
+    margin-top: 16px;
   }
 }

@@ -5,7 +5,6 @@
   max-width: 100%;
   min-width: 133px;
   width: 100%;
-  max-height: 20px;
   min-height: 20px;
   display: flex;
   &__option {
@@ -18,13 +17,14 @@
   }
   &__box {
     position: absolute;
+    // position: relative;
     top: 0;
     left: 0;
     width: 20px;
     height: 20px;
     z-index: -1;
     opacity: 0;
-    &:checked+label {
+    &:checked+.radio-field__label {
       @include text('light_normal');
       &::before {
         border-color: $color-purple;
@@ -33,10 +33,21 @@
         display: block;
       }
     }
-    &:not(:checked)+label {
+    &:not(:checked)+.radio-field__label {
       @include text('light_middle');
       &::before {
         border-color: $color-25per;
+      }
+      &::after {
+        display: none;
+      }
+    }
+    &:checked~.radio-field__label_mod_rate::before {
+      background: no-repeat center url('./rate-star-border.png');
+    }
+    &:checked+.radio-field__label_mod_rate {
+      &::before {
+        background: no-repeat center url('./rate-star.png');
       }
       &::after {
         display: none;
@@ -75,6 +86,40 @@
       &::after {
         display: block;
       }
+    }
+    &_mod {
+      &_rate {
+        position: relative;
+        margin-left: 24px;
+        &::before {
+          border: none;
+          width: 24px;
+          height: 24px;
+          top: 0;
+          left: 0;
+          background: no-repeat center url('./rate-star.png');
+        }
+        &::after {
+          display: none;
+        }
+        &.radio-field__label_first {
+          display: none;
+        }
+        &.radio-field__label_second {
+          margin-left: 0;
+        }
+      }
+    }
+    &_first {
+      margin-left: 0;
+    }
+  }
+  &_mod {
+    &_rate {
+      position: relative;
+      min-width: 120px;
+      max-width: 120px;
+      min-height: 24px;
     }
   }
 }
