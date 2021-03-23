@@ -144,37 +144,60 @@ block content
                   })
             .field-elements__section
               .buttons
-                +section({
-                  title: { 
-                    name: 'Range Slider', 
-                    details: '5 000₽ - 10 000₽' 
-                  },
-                  content: {
-                    type: 'slider',
-                    min: 31.75,
-                    max: 63.5
-                  }
-                })
-                +section({
-                  title: { name: 'buttons' },
-                  content: {
-                    type: 'buttons',
-                    buttons: [
-                      {text: 'CLICK ME', style: 'blue', demo: true},
-                      {text: 'CLICK ME', style: 'border', demo: true},
-                      {text: 'CLICK ME', style: 'link', demo: true},
-                      {text: 'перейти к оплате', arrow: true}
-                    ]
-                  }
-                })
-                +section({
-                  title: { name: 'pagination' },
-                  content: { 
-                    type: 'pagination',
-                    last: 15,
-                    description: '1 – 12 из 100+ вариантов аренды'
-                  }
-                })
+                .buttons__section.buttons__section_first
+                  +form-section({
+                    title: "Range Slider",
+                    details: '5 000₽ - 10 000₽',
+                    field: {
+                      id: "range-slider",
+                      slider: true,
+                      values: [0, 30.4, 63.5, 100],
+                    },
+                  })
+                //- .buttons__section
+                //-   +form-section({
+                //-     title: "Range Slider2",
+                //-     details: '5 000₽ - 10 000₽',
+                //-     field: {
+                //-       id: "range-slider2",
+                //-       slider: true,
+                //-       values: [30, 51.75, 63.5, 100],
+                //-     },
+                //-   })
+                //- .buttons__section
+                //-   +section({
+                //-     title: { 
+                //-       name: 'Range Slider', 
+                //-       details: '5 000₽ - 10 000₽' 
+                //-     },
+                //-     content: {
+                //-       type: 'slider',
+                //-       min: 31.75,
+                //-       max: 63.5
+                //-     }
+                //-   })
+                .buttons__section
+                  +section({
+                    title: { name: 'buttons' },
+                    content: {
+                      type: 'buttons',
+                      buttons: [
+                        {text: 'CLICK ME', style: 'blue', demo: true},
+                        {text: 'CLICK ME', style: 'border', demo: true},
+                        {text: 'CLICK ME', style: 'link', demo: true},
+                        {text: 'перейти к оплате', arrow: true}
+                      ]
+                    }
+                  })
+                .buttons__section
+                  +section({
+                    title: { name: 'pagination' },
+                    content: { 
+                      type: 'pagination',
+                      last: 15,
+                      description: '1 – 12 из 100+ вариантов аренды'
+                    }
+                  })
         .form-elements__section.form-elements__section_margin_to-dropdowns
           .dropdowns
             .dropdowns_section_1

@@ -8,8 +8,13 @@
   }
   &__fields-section {
     margin-top: 5px;
-    &_rarefied {
-      margin-top: 16px;
+    &_rare {
+      &_more {
+        margin-top: 16px;
+      }
+      &_most {
+        margin-top: 20px;
+      }
     }
   }
 }

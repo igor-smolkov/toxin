@@ -1,3 +1,7 @@
-mixin slider(min, max)
+mixin slider(props)
   .slider
     .slider__slot
+      .slider__root(
+        id=props.id
+        data-values=props.values
+      )

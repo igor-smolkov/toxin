@@ -3,6 +3,7 @@ include ../dropdown-field/dropdown-field.pug
 include ../check-field/check-field.pug
 include ../radio-field/radio-field.pug
 include ../like-btn/like-btn.pug
+include ../slider/slider.pug
 
 mixin form-section(props)
   FIELDSET.form-section
@@ -12,14 +13,19 @@ mixin form-section(props)
           if props.details
             .title-section__details
               P.details= props.details
-    .form-section__fields-section(class=`${props.field ? props.field.radio ? " form-section__fields-section_rarefied" :"":""}`)
+    .form-section__fields-section(class=`
+      ${props.field ? props.field.radio ? " form-section__fields-section_rare_more" :"":""}
+      ${props.field ? props.field.slider ? " form-section__fields-section_rare_most" :"":""}
+    `)
       if props.field
-        if !props.field.dropdown && !props.field.radio
+        if !props.field.dropdown && !props.field.radio && !props.field.slider
           +text-field(props.field)
         if props.field.dropdown
           +dropdown-field(props.field)
         if props.field.radio
           +radio-field(props.field)
+        if props.field.slider 
+          +slider(props.field)
       else if props.fields
         .fields-group(class=`${props.fields[0].like || props.fields[0].rate ? " fields-group_inlined" :""}`)
           each field, index in props.fields

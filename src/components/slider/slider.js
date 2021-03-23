@@ -1,12 +1,18 @@
-require("jquery-ui/ui/widgets/slider");
+import "jquery-ui/ui/widgets/slider";
 
-export default function() {
-    $(function(){
-        $(".slider__slot").slider({
-            range: true,
-            min: 0,
-            max: 100,
-            values: [ 31.75, 63.5 ]
-        });
-    });    
-}
+$(".slider__root").each(function(){
+    const values = this.dataset.values
+        .substring(1, this.dataset.values.length-1)
+        .split(',');
+    const config = {
+        min: +values[0],
+        max: +values[values.length-1],
+        values: [+values[1], +values[values.length-2]],
+    }
+    $(this).slider({
+        range: true,
+        min: config.min,
+        max: config.max,
+        values: config.values,
+    });
+});
