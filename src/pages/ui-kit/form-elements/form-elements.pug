@@ -154,39 +154,71 @@ block content
                       values: [0, 30.4, 63.5, 100],
                     },
                   })
-                //- .buttons__section
-                //-   +form-section({
-                //-     title: "Range Slider2",
-                //-     details: '5 000₽ - 10 000₽',
-                //-     field: {
-                //-       id: "range-slider2",
-                //-       slider: true,
-                //-       values: [30, 51.75, 63.5, 100],
-                //-     },
-                //-   })
-                //- .buttons__section
-                //-   +section({
-                //-     title: { 
-                //-       name: 'Range Slider', 
-                //-       details: '5 000₽ - 10 000₽' 
-                //-     },
-                //-     content: {
-                //-       type: 'slider',
-                //-       min: 31.75,
-                //-       max: 63.5
-                //-     }
-                //-   })
                 .buttons__section
-                  +section({
-                    title: { name: 'buttons' },
-                    content: {
-                      type: 'buttons',
-                      buttons: [
-                        {text: 'CLICK ME', style: 'blue', demo: true},
-                        {text: 'CLICK ME', style: 'border', demo: true},
-                        {text: 'CLICK ME', style: 'link', demo: true},
-                        {text: 'перейти к оплате', arrow: true}
-                      ]
+                  +form-section({
+                    title: "Buttons",
+                    fields: [
+                      {
+                        id: "button-default", 
+                        caption: "click me", 
+                        button: true,
+                        none_arrow: true,
+                      },
+                      {
+                        id: "button-default-hover", 
+                        caption: "click me", 
+                        button: true, 
+                        hovered: true,
+                        none_arrow: true,
+                      },
+                    ]
+                  })
+                .buttons__section.buttons__section_compacted
+                  +form-section({
+                    fields: [
+                      {
+                        id: "button-border", 
+                        caption: "click me", 
+                        button: true, 
+                        border_only: true,
+                        none_arrow: true,
+                      },
+                      {
+                        id: "button-border-hover", 
+                        caption: "click me", 
+                        button: true, 
+                        border_only: true, 
+                        hovered: true,
+                        none_arrow: true,
+                      },
+                    ]
+                  })
+                .buttons__section.buttons__section_compacted
+                  +form-section({
+                    fields: [
+                      {
+                        id: "button-link", 
+                        caption: "click me", 
+                        button: true,
+                        text_only: true,
+                        none_arrow: true,
+                      },
+                      {
+                        id: "button-link-hover", 
+                        caption: "click me", 
+                        button: true,
+                        text_only: true,
+                        hovered: true,
+                        none_arrow: true,
+                      },
+                    ]
+                  })
+                .buttons__section.buttons__section_compacted
+                  +form-section({
+                    field: {
+                      id: "button-with-arrow", 
+                      caption: "перейти к оплате", 
+                      button: true,
                     }
                   })
                 .buttons__section

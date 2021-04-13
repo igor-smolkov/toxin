@@ -1,0 +1,8 @@
+mixin btn(props)
+  BUTTON.btn(class=`
+    ${props.hovered ? ' btn_hovered' : ''}
+    ${props.border_only ? ' btn_border_only' : ''}
+    ${props.text_only ? ' btn_text_only' : ''}
+    ${props.none_arrow ? ' btn_none_arrow' : ''}
+  `)
+    .btn__caption=props.caption

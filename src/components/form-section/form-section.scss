@@ -15,6 +15,9 @@
       &_most {
         margin-top: 20px;
       }
+      &_closed {
+        margin-top: 0;
+      }
     }
   }
 }
@@ -45,6 +48,11 @@
     &_first {
       margin-top: 0;
       margin-left: 0;
+    }
+    &_fixed-width {
+      &_99{
+        width: 99px;
+      }
     }
   }
   &_inlined {

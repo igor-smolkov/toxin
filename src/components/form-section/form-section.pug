@@ -4,6 +4,7 @@ include ../check-field/check-field.pug
 include ../radio-field/radio-field.pug
 include ../like-btn/like-btn.pug
 include ../slider/slider.pug
+include ../btn/btn.pug
 
 mixin form-section(props)
   FIELDSET.form-section
@@ -16,9 +17,10 @@ mixin form-section(props)
     .form-section__fields-section(class=`
       ${props.field ? props.field.radio ? " form-section__fields-section_rare_more" :"":""}
       ${props.field ? props.field.slider ? " form-section__fields-section_rare_most" :"":""}
+      ${props.fields ? " form-section__fields-section_rare_closed" :""}
     `)
       if props.field
-        if !props.field.dropdown && !props.field.radio && !props.field.slider
+        if !props.field.dropdown && !props.field.radio && !props.field.slider && !props.field.button
           +text-field(props.field)
         if props.field.dropdown
           +dropdown-field(props.field)
@@ -26,14 +28,17 @@ mixin form-section(props)
           +radio-field(props.field)
         if props.field.slider 
           +slider(props.field)
+        if props.field.button
+          +btn(props.field)
       else if props.fields
-        .fields-group(class=`${props.fields[0].like || props.fields[0].rate ? " fields-group_inlined" :""}`)
+        .fields-group(class=`${props.fields[0].like || props.fields[0].rate || props.fields[0].button ? " fields-group_inlined" :""}`)
           each field, index in props.fields
             .fields-group__item(class=`
               ${index === 0 ? " fields-group__item_first" : ""}
               ${field.toggle ? " fields-group__item_rare-more_ver" : ""}
-              ${field.rate ? " fields-group__item_rare-more_hor" : ""}
-              ${field.like || field.rate ? " fields-group__item_inlined" : ""}
+              ${field.rate || field.button ? " fields-group__item_rare-more_hor" : ""}
+              ${field.button ? " fields-group__item_fixed-width_99" : ""}
+              ${field.like || field.rate || field.button ? " fields-group__item_inlined" : ""}
             `)
               if field.check || field.toggle
                 +check-field(field)
@@ -52,3 +57,5 @@ mixin form-section(props)
                   ],
                   rate: true,
                 })
+              if field.button
+                +btn(field)

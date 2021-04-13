@@ -27,6 +27,7 @@ import '@comp/text-field/text-field.scss'
 import '@comp/dropdown-field/dropdown-field.scss'
 import '@comp/check-field/check-field.scss'
 import '@comp/radio-field/radio-field.scss'
+import '@comp/btn/btn.scss'
 
 import '@comp/like-btn/like-btn'
 import '@comp/slider/slider'

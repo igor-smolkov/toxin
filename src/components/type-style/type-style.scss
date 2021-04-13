@@ -79,6 +79,9 @@ h3 {
     font-size: 0.7143rem;
     line-height: 0.857;
   }
+  @if $mod == 'white' {
+    color: white;
+  }
 }
 
 .text {
