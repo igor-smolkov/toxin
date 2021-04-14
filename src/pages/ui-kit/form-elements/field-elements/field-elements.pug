@@ -1,82 +1,61 @@
 include ../../../../components/form-section/form-section.pug
+include ../../../../components/form-set/form-set.pug
+include ../../../../components/text-field/text-field.pug
+include ../../../../components/dropdown-field/dropdown-field.pug
 
 mixin field-elements 
   .field-elements
     .field-elements__section.field-elements__section_first
-      +form-section({
-        title: "Text Field",
-        details: "Default",
-        field: { 
-          id: "text-field-default",
-          placeholder: "Email",
-        },
-      })
+      +form-section
+        +form-set({ title: "Text Field", details: "Default" })
+          +text-field({ id: "text-field-default", placeholder: "Email" })
     .field-elements__section
-      +form-section({
-        title: "Text Field",
-        details: "Hover / Focus",
-        field: { 
-          id: "text-field-hovered-and-focused",
-          placeholder: "This is pretty awesome",
-          hovered: true,
-          focused: true,
-        },
-      })
+      +form-section
+        +form-set({ title: "Text Field", details: "Hover / Focus" })
+          +text-field({
+            id: "text-field-hovered-and-focused",
+            placeholder: "This is pretty awesome",
+            hovered: true,
+            focused: true,
+          })
     .field-elements__section
-      +form-section({
-        title: "Dropdown",
-        field: {
-          id: "dropdown-default",
-          value: "Сколько гостей",
-          dropdown: true,
-        },
-      })
+      +form-section
+        +form-set({ title: "Dropdown" })
+          +dropdown-field({ id: "dropdown-default", value: "Сколько гостей" })
     .field-elements__section
-      +form-section({
-        title: "Masked Text Field",
-        field: { 
-          id: "text-field-masked",
-          placeholder: "ДД.ММ.ГГГГ",
-          masked: true,
-        },
-      })
-    .field-elements__section.field-elements__section_rarefied.field-elements__section_paired
-      .field-elements__subsection.field-elements__subsection_first
-        +form-section({
-          title: "Date Dropdown",
-          field: {
-            id: "date-dropdown-default",
+      +form-section
+        +form-set({ title: "Masked Text Field" })
+          +text-field({
+            id: "text-field-masked",
+            placeholder: "ДД.ММ.ГГГГ",
+            masked: true,
+          })
+    .field-elements__section.field-elements__section_rarefied
+      +form-section({ paired: true })
+        .form-section__set.form-section__set_first
+          +form-set({ title: "Date Dropdown" })
+            +dropdown-field({ id: "date-dropdown-default", type: "date" })
+        .form-section__set
+          +form-set({ title: "Date Dropdown" })
+            +dropdown-field({
+              id: "date-dropdown-with-value",
+              type: "date",
+              value: '2019-08-19',
+            })
+    .field-elements__section.field-elements__section_rarefied
+      +form-section({ shortened: true })
+        +form-set({ title: "Filter Date Dropdown" })
+          +dropdown-field({
+            id: "filter-date-dropdown",
             type: "date",
-            dropdown: true,
-          },
-        })
-      .field-elements__subsection
-        +form-section({
-          title: "Date Dropdown",
-          field: {
-            id: "date-dropdown-with-value",
-            type: "date",
-            value: '2019-08-19',
-            dropdown: true,
-          },
-        })
-    .field-elements__section.field-elements__section_rarefied.field-elements__section_shortened
-      +form-section({
-        title: "Filter Date Dropdown",
-        field: {
-          id: "filter-date-dropdown",
-          type: "date",
-          value: "19 авг - 23 авг",
-          dropdown: true,
-          filter: true,
-        },
-      })
-    .field-elements__section.field-elements__section_rarefied.field-elements__section_shortened
-      +form-section({
-        title: "Subscription Text Field",
-        field: { 
-          id: "text-field-subscription",
-          placeholder: "Email",
-          directed: true,
-        },
-      })
+            value: "19 авг - 23 авг",
+            filter: true,
+          })
+    .field-elements__section.field-elements__section_rarefied
+      +form-section({ shortened: true })
+        +form-set({ title: "Subscription Text Field" })
+          +dropdown-field({
+            id: "text-field-subscription",
+            placeholder: "Email",
+            directed: true,
+          })

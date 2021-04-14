@@ -29,5 +29,7 @@ import '@comp/check-field/check-field.scss'
 import '@comp/radio-field/radio-field.scss'
 import '@comp/btn/btn.scss'
 
+import '@comp/form-set/form-set.scss'
+
 import '@comp/like-btn/like-btn'
 import '@comp/slider/slider'

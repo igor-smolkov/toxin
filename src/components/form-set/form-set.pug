@@ -1,0 +1,16 @@
+mixin form-set(props)
+  FIELDSET.form-set
+    if props.title 
+      LEGEND.form-set__title
+        H3.title-section= props.title
+          if props.details
+            .title-section__details
+              P.details= props.details
+    if props.empty 
+      block 
+    else if props.grouped
+      .form-set__group(class=props.inlined ? ' form-set__group_inlined' :'')
+        block
+    else
+      .form-set__element(class=props.indented ? ' form-set__element_indent_top' :'')
+        block

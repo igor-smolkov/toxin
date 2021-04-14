@@ -1,62 +1,15 @@
 .form-section {
-  max-width: 100%;
-  min-width: 90px;
-  width: 100%;
-  min-height: 15px;
-  &__title-section {
+  &_shortened {
+    max-width: 266px;
+  }
+  &_paired {
+    display: flex;
+  }
+  &__set {
     width: 100%;
-  }
-  &__fields-section {
-    margin-top: 5px;
-    &_rare {
-      &_more {
-        margin-top: 16px;
-      }
-      &_most {
-        margin-top: 20px;
-      }
-      &_closed {
-        margin-top: 0;
-      }
-    }
-  }
-}
-
-.title-section {
-  width: 100%;
-  &__details {
-    float: right;
-  }
-}
-
-.fields-group {
-  margin-top: 17px;
-  &__item {
-    margin-top: 10px;
-    &_inlined {
-      margin-top: 0;
-      margin-left: 10px;
-    }
-    &_rare-more {
-      &_ver {
-        margin-top: 14px;
-      }
-      &_hor {
-        margin-left: 20px;
-      }
-    }
+    margin-left: 20px;
     &_first {
-      margin-top: 0;
       margin-left: 0;
     }
-    &_fixed-width {
-      &_99{
-        width: 99px;
-      }
-    }
-  }
-  &_inlined {
-    display: flex;
-    margin-top: 16px;
   }
 }

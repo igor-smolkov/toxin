@@ -1,86 +1,37 @@
 include ../../../../components/section/section.pug
 
 include ../../../../components/form-section/form-section.pug
+include ../../../../components/form-set/form-set.pug
+include ../../../../components/slider/slider.pug
+include ../../../../components/btn/btn.pug
 
 mixin button-elements
   .button-elements
     .button-elements__section.button-elements__section_first
-      +form-section({
-        title: "Range Slider",
-        details: '5 000₽ - 10 000₽',
-        field: {
-          id: "range-slider",
-          slider: true,
-          values: [0, 30.4, 63.5, 100],
-        },
-      })
+      +form-section
+        +form-set({ title: "Range Slider", details: "5 000₽ - 10 000₽", indented: true })
+          +slider({ id: "range-slider", values: [0, 30.4, 63.5, 100] })
     .button-elements__section
-      +form-section({
-        title: "Buttons",
-        fields: [
-          {
-            id: "button-default", 
-            caption: "click me", 
-            button: true,
-            none_arrow: true,
-          },
-          {
-            id: "button-default-hover", 
-            caption: "click me", 
-            button: true, 
-            hovered: true,
-            none_arrow: true,
-          },
-        ]
-      })
-    .button-elements__section.button-elements__section_compacted
-      +form-section({
-        fields: [
-          {
-            id: "button-border", 
-            caption: "click me", 
-            button: true, 
-            border_only: true,
-            none_arrow: true,
-          },
-          {
-            id: "button-border-hover", 
-            caption: "click me", 
-            button: true, 
-            border_only: true, 
-            hovered: true,
-            none_arrow: true,
-          },
-        ]
-      })
-    .button-elements__section.button-elements__section_compacted
-      +form-section({
-        fields: [
-          {
-            id: "button-link", 
-            caption: "click me", 
-            button: true,
-            text_only: true,
-            none_arrow: true,
-          },
-          {
-            id: "button-link-hover", 
-            caption: "click me", 
-            button: true,
-            text_only: true,
-            hovered: true,
-            none_arrow: true,
-          },
-        ]
-      })
-    .button-elements__section.button-elements__section_compacted
-      +form-section({
-        field: {
-          id: "button-with-arrow", 
-          caption: "перейти к оплате", 
-          button: true,
-        }
-      })
+      +form-section
+        +form-set({ title: "Buttons", empty: true })
+          .form-set__elements-container
+            .form-set__group.form-set__group_inlined
+              .form-set__element.form-set__element_wided
+                +btn({ id: "button-default", caption: "click me", none_arrow: true })
+              .form-set__element.form-set__element_inlined.form-set__element_indent_left.form-set__element_wided
+                +btn({ id: "button-default-hover", caption: "click me", none_arrow: true, hovered: true })
+            .form-set__group.form-set__group_inlined
+              .form-set__element.form-set__element_wided
+                +btn({ id: "button-border", caption: "click me", none_arrow: true, border_only: true })
+              .form-set__element.form-set__element_inlined.form-set__element_indent_left.form-set__element_wided
+                +btn({ id: "button-border-hover", caption: "click me", none_arrow: true, border_only: true, hovered: true })
+            .form-set__group.form-set__group_inlined
+              .form-set__element
+                +btn({ id: "button-link", caption: "click me", none_arrow: true, text_only: true })
+              .form-set__element.form-set__element_inlined.form-set__element_indent_left
+                +btn({ id: "button-link-hover", caption: "click me", none_arrow: true, text_only: true, hovered: true })
+            .form-set__element.form-set__element_indent_top
+              +btn({ id: "button-with-arrow", caption: "перейти к оплате" })
     .button-elements__section
       +section({
         title: { name: 'pagination' },

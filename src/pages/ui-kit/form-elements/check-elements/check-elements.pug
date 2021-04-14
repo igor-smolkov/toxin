@@ -1,49 +1,79 @@
 include ../../../../components/form-section/form-section.pug
+include ../../../../components/form-set/form-set.pug
+include ../../../../components/check-field/check-field.pug
+include ../../../../components/radio-field/radio-field.pug
+include ../../../../components/like-btn/like-btn.pug
 
 mixin check-elements
   .check-elements
     .check-elements__section.check-elements__section_first
-      +form-section({
-        title: "Checkbox Buttons",
-        fields: [
-          {id: "check-btn-1", label: "Можно курить", check: true},
-          {id: "check-btn-2", label: "Можно с питомцами", check: true, checked: true},
-          {id: "check-btn-3", label: "Можно пригласить гостей (до 10 человек)", check: true, checked: true},
-        ]
-      })
+      +form-section
+        +form-set({ title: "Checkbox Buttons", grouped: true })
+          .form-set__element
+            +check-field({ id: "check-btn-1", label: "Можно курить" })
+          .form-set__element
+            +check-field({ id: "check-btn-2", label: "Можно с питомцами", checked: true })
+          .form-set__element
+            +check-field({ id: "check-btn-3", label: "Можно пригласить гостей (до 10 человек)", checked: true })
     .check-elements__section
-      +form-section({
-        title: "Radio Buttons",
-        field: {
-          id: "radio-buttons",
-          options: [
-            {label: "Мужчина", checked: true},
-            {label: "Женщина"},
-          ],
-          radio: true,
-        }
-      })
+      +form-section
+        +form-set({ title: "Radio Buttons", indented: true })
+          +radio-field({
+            id: "radio-buttons",
+            options: [
+              {label: "Мужчина", checked: true},
+              {label: "Женщина"},
+            ],
+          })
     .check-elements__section
-      +form-section({
-        title: "Toggle",
-        fields: [
-          {id: "toggle-1", label: "Получать спецпредложения", toggle: true, checked: true},
-          {id: "toggle-2", label: "Получать спецпредложения", toggle: true},
-        ]
-      })
+      +form-section
+        +form-set({ title: "Toggle", grouped: true })
+          .form-set__element
+            +check-field({
+              id: "toggle-1", 
+              label: "Получать спецпредложения", 
+              toggle: true, 
+              checked: true
+            })
+          .form-set__element
+            +check-field({
+              id: "toggle-2", 
+              label: "Получать спецпредложения", 
+              toggle: true
+            })
     .check-elements__section
-      +form-section({
-        title: "Like button",
-        fields: [
-          {id: "like-1", value: 2, like: true},
-          {id: "like-2", value: 12, like: true, checked: true},
-        ]
-      })
+      +form-section
+        +form-set({ title: "Like Button", grouped: true, inlined: true })
+          .form-set__element
+            +like-btn({ id: "like-1", value: 2 })
+          .form-set__element.form-set__element_inlined
+            +like-btn({ id: "like-2", value: 12, checked: true })
     .check-elements__section
-      +form-section({
-        title: "Rate button",
-        fields: [
-          {id: "rate-1", value: 4, rate: true},
-          {id: "rate-2", value: 5, rate: true},
-        ]
-      })
+      +form-section
+        +form-set({ title: "Rate Button", grouped: true, inlined: true })
+          .form-set__element
+            +radio-field({
+              id: 'rate-1',
+              options: [
+                {checked: true},
+                {checked: true},
+                {checked: true},
+                {checked: true},
+                {checked: true},
+                {checked: true},
+              ],
+              rate: true,
+            })
+          .form-set__element.form-set__element_inlined.form-set__element_indent_left
+            +radio-field({
+              id: 'rate-2',
+              options: [
+                {checked: true},
+                {checked: true},
+                {checked: true},
+                {checked: true},
+                {checked: true},
+                {checked: false},
+              ],
+              rate: true,
+            })
