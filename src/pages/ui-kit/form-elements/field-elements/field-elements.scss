@@ -1,0 +1,26 @@
+.field-elements {
+  display: flex;
+  flex-direction: column;
+  &__section {
+    margin-top: 20px;
+    &_first {
+      margin-top: 0;
+    }
+    &_rarefied {
+      margin-top: 40px;
+    }
+    &_shortened {
+      max-width: 266px;
+    }
+    &_paired {
+      display: flex;
+    }
+  }
+  &__subsection {
+    width: 100%;
+    margin-left: 20px;
+    &_first {
+      margin-left: 0;
+    }
+  }
+}

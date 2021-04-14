@@ -1,0 +1,49 @@
+include ../../../../components/form-section/form-section.pug
+
+mixin check-elements
+  .check-elements
+    .check-elements__section.check-elements__section_first
+      +form-section({
+        title: "Checkbox Buttons",
+        fields: [
+          {id: "check-btn-1", label: "Можно курить", check: true},
+          {id: "check-btn-2", label: "Можно с питомцами", check: true, checked: true},
+          {id: "check-btn-3", label: "Можно пригласить гостей (до 10 человек)", check: true, checked: true},
+        ]
+      })
+    .check-elements__section
+      +form-section({
+        title: "Radio Buttons",
+        field: {
+          id: "radio-buttons",
+          options: [
+            {label: "Мужчина", checked: true},
+            {label: "Женщина"},
+          ],
+          radio: true,
+        }
+      })
+    .check-elements__section
+      +form-section({
+        title: "Toggle",
+        fields: [
+          {id: "toggle-1", label: "Получать спецпредложения", toggle: true, checked: true},
+          {id: "toggle-2", label: "Получать спецпредложения", toggle: true},
+        ]
+      })
+    .check-elements__section
+      +form-section({
+        title: "Like button",
+        fields: [
+          {id: "like-1", value: 2, like: true},
+          {id: "like-2", value: 12, like: true, checked: true},
+        ]
+      })
+    .check-elements__section
+      +form-section({
+        title: "Rate button",
+        fields: [
+          {id: "rate-1", value: 4, rate: true},
+          {id: "rate-2", value: 5, rate: true},
+        ]
+      })

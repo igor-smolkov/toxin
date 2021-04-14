@@ -1,0 +1,14 @@
+.button-elements {
+  display: flex;
+  flex-direction: column;
+  &__section {
+    margin-top: 40px;
+    &_first {
+      margin-top: 0;
+      max-width: 266px;
+    }
+    &_compacted {
+        margin-top: 30px;
+    }
+  }
+}
