@@ -4,6 +4,7 @@ include ../../../../components/form-section/form-section.pug
 include ../../../../components/form-set/form-set.pug
 include ../../../../components/slider/slider.pug
 include ../../../../components/btn/btn.pug
+include ../../../../components/pagination/pagination.pug
 
 mixin button-elements
   .button-elements
@@ -33,12 +34,7 @@ mixin button-elements
             .form-set__element.form-set__element_indent_top
               +btn({ id: "button-with-arrow", caption: "перейти к оплате" })
     .button-elements__section
-      +section({
-        title: { name: 'pagination' },
-        content: { 
-          type: 'pagination',
-          last: 15,
-          description: '1 – 12 из 100+ вариантов аренды'
-        }
-      })
+      +form-section
+        +form-set({ title: "Pagination" })
+          +pagination({ id: "pagination", lastPage: 15, description: '1 – 12 из 100+ вариантов аренды' })
     

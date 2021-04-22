@@ -1,6 +1,14 @@
-mixin pagination(pagination)
+//-
+  options.id
+  options.lastPage
+  options.description
+
+mixin pagination(options)
+  if !options
+    - options = {}
+
   .pagination
-    .pagination__items 
+    .pagination__items
       button.pagination__item.pagination__item_current
         p.pagination__value= '1'
       button.pagination__item
@@ -10,6 +18,6 @@ mixin pagination(pagination)
       button.pagination__item
         p.pagination__value= '...'
       button.pagination__item
-        p.pagination__value= pagination.last
+        p.pagination__value= options.lastPage
       button.pagination__item.pagination__item_next
-    p.pagination__description= pagination.description
+    p.pagination__description= options.description
