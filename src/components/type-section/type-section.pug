@@ -1,22 +1,29 @@
-mixin type-section(props)
-  case props.name
+//-
+  options.name
+  options.example
+
+mixin type-section(options)
+  if !options
+    - options = {}
+
+  case options.name
     when "H1"
-      .type-section
-        H1.type-section__name= props.name
-        H1.type-section__example= props.example
+      SECTION.type-section.type-section_first
+        H1.type-section__name= options.name
+        H1.type-section__example= options.example
     when "H2"
-      .type-section
-        H2.type-section__name= props.name
-        H2.type-section__example= props.example
+      SECTION.type-section
+        H2.type-section__name= options.name
+        H2.type-section__example= options.example
     when "H3"
-      .type-section
-        H3.type-section__name= props.name
-        H3.type-section__example= props.example
+      SECTION.type-section
+        H3.type-section__name= options.name
+        H3.type-section__example= options.example
     when "Body"
-      .type-section
-        .type-section__name= props.name
-        .type-section__example= props.example
+      SECTION.type-section
+        .type-section__name= options.name
+        .type-section__example= options.example
     default
-      .type-section
-        .type-section__name= props.name
-        .type-section__example= props.example
+      SECTION.type-section
+        .type-section__name= options.name
+        .type-section__example= options.example

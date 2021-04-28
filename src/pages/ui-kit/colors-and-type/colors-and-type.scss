@@ -1,12 +1,13 @@
-.colors-and-type-page {
+.page {
   max-width: 1440px;
+  min-width: 320px;
   width: 100%;
   margin: 0 auto;
 
-  &__logo {
+  &__header {
     padding: 30px;
   }
-  &__colors-and-type {
+  &__main {
     padding: 37px 150px;
     @media only screen and (max-width : 1000px) {
       padding: 37px 30px;

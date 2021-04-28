@@ -1,4 +1,11 @@
-mixin color-section(props)
-  .color-section(data-color-name=props.name)
-    H2.color-section__name= props.name
-      P.details= props.code
+//-
+  options.name
+  options.code
+
+mixin color-section(options)
+  if !options
+    - options = {}
+
+  SECTION.color-section(data-color-name=options.name)
+    H2.color-section__name= options.name
+      P.details= options.code

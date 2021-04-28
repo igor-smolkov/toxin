@@ -87,17 +87,18 @@ const plugins = () => {
     pages.forEach(type => {
         const key = Object.keys(type)[0]
         type[key].forEach(page => list.push(
-            toHTMLPage(`${pagesDir}/${key}/${page}/${page}.pug`, `${key}/${page}.html`)
+            toHTMLPage(`${pagesDir}/${key}/${page}/${page}.pug`, `${key}/${page}.html`, page)
         ))
     })
 
-    function toHTMLPage (input, output) {
+    function toHTMLPage (input, output, chunk) {
         return new HTMLWebpackPlugin({
             template: `./${input}`,
             filename: output,
             minify: {
                 collapseWhitespace: isProd
-            }
+            },
+            chunks: ['main', chunk]
         })
     }
 
@@ -107,10 +108,8 @@ const plugins = () => {
 module.exports = {
     context: path.resolve(__dirname, 'src'), //папка исходников
     entry: {
-        main: [
-            '@babel/polyfill',
-            `./${entryPoint}`
-        ]
+        main: `./${entryPoint}`,
+        ["colors-and-type"]: './pages/ui-kit/colors-and-type/colors-and-type.js'
     }, //входная точка сборки
     output: {
         filename: filename('js'), //выходной файл приложения
