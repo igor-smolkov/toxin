@@ -1,6 +1,7 @@
-import "jquery-ui/ui/widgets/slider";
+import 'jquery-ui/ui/widgets/slider';
+import './slider.scss';
 
-$(".slider__root").each(function(){
+$('.slider__root').each(function(){
     const values = this.dataset.values
         .substring(1, this.dataset.values.length-1)
         .split(',');

@@ -17,19 +17,20 @@ expandableCheckboxList();
 carousel();
 menu()
 
-// import '@comp/colors-style/colors-style.scss'
+import '@comp/colors-style/colors-style.scss'
 import '@comp/type-style/type-style.scss'
-import '@comp/logo/logo.scss'
-import '@comp/color-section/color-section.scss'
-import '@comp/type-section/type-section.scss'
-import '@comp/form-section/form-section.scss'
-import '@comp/text-field/text-field.scss'
-import '@comp/dropdown-field/dropdown-field.scss'
-import '@comp/check-field/check-field.scss'
-import '@comp/radio-field/radio-field.scss'
-import '@comp/btn/btn.scss'
+// import '@comp/logo/logo.scss'
+// import '@comp/color-section/color-section.scss'
+// import '@comp/type-section/type-section.scss'
 
-import '@comp/form-set/form-set.scss'
+// import '@comp/form-section/form-section.scss'
+// import '@comp/text-field/text-field.scss'
+// import '@comp/dropdown-field/dropdown-field.scss'
+// import '@comp/check-field/check-field.scss'
+// import '@comp/radio-field/radio-field.scss'
+// import '@comp/btn/btn.scss'
 
-import '@comp/like-btn/like-btn'
-import '@comp/slider/slider'
+// import '@comp/form-set/form-set.scss'
+
+// import '@comp/like-btn/like-btn'
+// import '@comp/slider/slider'

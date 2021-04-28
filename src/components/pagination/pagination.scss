@@ -1,3 +1,5 @@
+@import '@comp/colors-style/colors-style.scss';
+
 .pagination {
   &__items {
     // margin-top: 13px;
@@ -24,7 +26,7 @@
       }
     }
     &_next {
-      background-image: url('components/pagination/pagination__arrow_forward.png'), linear-gradient(180deg, $color-green 0%, #66D2EA 100%);
+      background-image: url('./pagination__arrow_forward.png'), linear-gradient(180deg, $color-green 0%, #66D2EA 100%);
       background-repeat: no-repeat;
       background-position: center;
       border-radius: 22px;
@@ -36,7 +38,7 @@
 
     text-align: center;
         
-    font-family: $font-main;
+    // font-family: $font-main;
     font-size: 12px;
     line-height: 15px;
     color: $color-50per;
@@ -45,7 +47,7 @@
     margin-top: 2px;
     padding: 5px;
 
-    font-family: $font-main;
+    // font-family: $font-main;
     font-size: 14px;
     line-height: 24px;
     color: $color-75per;

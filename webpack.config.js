@@ -109,7 +109,8 @@ module.exports = {
     context: path.resolve(__dirname, 'src'), //папка исходников
     entry: {
         main: `./${entryPoint}`,
-        ["colors-and-type"]: './pages/ui-kit/colors-and-type/colors-and-type.js'
+        ['colors-and-type']: './pages/ui-kit/colors-and-type/colors-and-type.js',
+        ['form-elements']: './pages/ui-kit/form-elements/form-elements.js',
     }, //входная точка сборки
     output: {
         filename: filename('js'), //выходной файл приложения
