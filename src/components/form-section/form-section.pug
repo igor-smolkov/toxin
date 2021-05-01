@@ -1,6 +1,13 @@
-mixin form-section(props)
+//-
+  options.paired
+  options.shortened
+
+mixin form-section(options)
+  if !options
+    - options = {}
+
   .form-section(class=`
-    ${props ? props.paired ? ' form-section_paired' :'':''}
-    ${props ? props.shortened ? ' form-section_shortened' :'':''}
+    ${options.paired ? ' form-section_paired' :''}
+    ${options.shortened ? ' form-section_shortened' :''}
   `)
     block

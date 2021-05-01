@@ -1,5 +1,8 @@
 include ../text-field/text-field.pug
 
-mixin dropdown-field(props)
+mixin dropdown-field(options)
+  if !options
+    - options = {}
+
   .dropdown-field
-    +text-field(props)
+    +text-field(options)

@@ -1,29 +1,29 @@
 extends ../../../layout
-
 include ../../../components/logo/logo.pug
-include ../../../components/section/section.pug
-include ../../../components/form-section/form-section.pug
 include ./field-elements/field-elements.pug
 include ./check-elements/check-elements.pug
 include ./button-elements/button-elements.pug
+
+//- убрать
+include ../../../components/section/section.pug
 
 block variables
   - var title = "TOXIN - UI kit"
 
 block content
-    HEADER.page__header
-      +logo
-    MAIN.page__main
-      .form-elements
-        .form-elements__section
-          .simple-elements
-            .simple-elements__section
-              +field-elements
-            .simple-elements__section
-              +check-elements
-            .simple-elements__section
-              +button-elements
-        .form-elements__section.form-elements__section_margin_to-dropdowns
+  HEADER.page__header
+    +logo
+  MAIN.page__main
+    .form-elements
+      SECTION.form-elements__section
+        .simple-elements
+          ARTICLE.simple-elements__article
+            +field-elements
+          ARTICLE.simple-elements__article
+            +check-elements
+          ARTICLE.simple-elements__article
+            +button-elements
+      .form-elements__section.form-elements__section_margin_to-dropdowns
           .dropdowns
             .dropdowns_section_1
               +section({
@@ -84,7 +84,7 @@ block content
                   expanded: true
                 }
               })
-        .form-elements__section.form-elements__section_margin_to-check-lists
+      .form-elements__section.form-elements__section_margin_to-check-lists
           .check-lists
             .check-lists_section_1
               +section({
@@ -139,7 +139,7 @@ block content
                   ]
                 }
               })
-        .form-elements__section.form-elements__section_margin_to-others
+      .form-elements__section.form-elements__section_margin_to-others
           .others
             .extras
               +section({

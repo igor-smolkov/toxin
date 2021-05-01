@@ -1,16 +1,27 @@
-mixin form-set(props)
+//-
+  options.title
+  options.details
+  options.empty
+  options.grouped
+  options.inlined
+  options.indented
+
+mixin form-set(options)
+  if !options
+    - options = {}
+
   FIELDSET.form-set
-    if props.title 
+    if options.title 
       LEGEND.form-set__title
-        H3.title-section= props.title
-          if props.details
+        H3.title-section= options.title
+          if options.details
             .title-section__details
-              P.details= props.details
-    if props.empty 
+              P.details= options.details
+    if options.empty 
       block 
-    else if props.grouped
-      .form-set__group(class=props.inlined ? ' form-set__group_inlined' :'')
+    else if options.grouped
+      .form-set__group(class=options.inlined ? ' form-set__group_inlined' :'')
         block
     else
-      .form-set__element(class=props.indented ? ' form-set__element_indent_top' :'')
+      .form-set__element(class=options.indented ? ' form-set__element_indent_top' :'')
         block
