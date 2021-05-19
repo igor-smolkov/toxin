@@ -1,8 +1,39 @@
-mixin radio-group(radioGroup)
-  .radio-group
-    each radio, index in radioGroup.checks
-      if radio.checked
-        input.radio-group__input(type='radio' name=radioGroup.id id=`${radioGroup.id}_${index}` checked)
-      else
-        input.radio-group__input(type='radio' name=radioGroup.id id=`${radioGroup.id}_${index}`)
-      label.radio-group__label(for=`${radioGroup.id}_${index}`)=radio.label
+//-
+  options.id
+  options.options
+
+mixin radio-group(options)
+  if !options
+    - options = {}
+  if !options.options
+    - options.options = []
+
+  .radio-group(id=options.id)
+    each option, index in options.options
+      .radio-group__option(class=(index === 0) ? "radio-group__option_first" : "")
+        +option(options, option, index)
+
+//-
+  group.id
+  group.name
+
+  option.value
+  option.checked
+  option.label
+
+  index
+
+mixin option(group, option, index)
+  input.radio-group__box(
+    type="radio"
+    id=`${group.id}_${index}`
+    name=group.name ? group.name : group.id
+    value=option.value ? option.value : index
+    checked=option.checked ? true : false
+  )
+  label.radio-group__label(
+    for=`${group.id}_${index}`
+    class=option.checked ? "radio-group__label_checked" : ""
+    class=(index === 0) ? "radio-group__label_first" : ""
+    class="text_rare_less"
+  )=option.label

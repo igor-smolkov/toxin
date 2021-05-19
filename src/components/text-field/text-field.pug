@@ -1,30 +1,46 @@
-mixin text-field(props)
-  if props.directed
+//-
+  options.directed
+
+mixin text-field(options)
+  if !options
+      - options = {}
+
+  if options.directed
     .field-submit
-      +text-field-base(props)
+      +text-field-base(options)
       input.field-submit__btn(type="submit")
   else
-    +text-field-base(props)
+    +text-field-base(options)
 
-mixin text-field-base(props)
+//-
+  options.id
+  options.name
+  options.type
+  options.filter
+  options.value
+  options.placeholder
+  options.masked
+  options.hovered
+  options.focused
+  options.directed
+
+mixin text-field-base(options)
   input.text-field(
-    id=props.id
-    name=props.name ? props.name : props.id
+    id=options.id
+    name=options.name ? options.name : options.id
     type=`${
-      props.type 
+      options.type 
         ? 
-        props.filter ? "text" : props.type 
+        options.filter ? "text" : options.type 
         : 
       "text"
     }`
-    value=props.value
-    placeholder=props.placeholder
-    pattern=props.masked ? "(0[1-9]|1[0-9]|2[0-9]|3[01]).(0[1-9]|1[012]).[0-9]{4}" : false
-    readonly=props.filter ? true : false
-    class=`
-      ${props.hovered ? " text-field_hovered" : ""}
-      ${props.focused ? " text-field_focused" : ""}
-      ${props.directed ? " text-field_directed" : ""}
-      ${props.masked || props.type === "date" ? " text-field_masked" : ""}
-    `
+    value=options.value
+    placeholder=options.placeholder
+    pattern=options.masked ? "(0[1-9]|1[0-9]|2[0-9]|3[01]).(0[1-9]|1[012]).[0-9]{4}" : false
+    readonly=options.filter ? true : false
+    class=options.hovered ? "text-field_hovered" : ""
+    class=options.focused ? "text-field_focused" : ""
+    class=options.directed ? "text-field_directed" : ""
+    class=(options.masked || options.type === "date") ? " text-field_masked" : ""
   )

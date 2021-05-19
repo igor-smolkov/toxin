@@ -1,7 +1,12 @@
 include ../../../../components/form-section/form-section.pug
 include ../../../../components/form-set/form-set.pug
+
+include ../../../../components/check-button/check-button.pug
+include ../../../../components/radio-group/radio-group.pug
+
 include ../../../../components/check-field/check-field.pug
 include ../../../../components/radio-field/radio-field.pug
+
 include ../../../../components/like-btn/like-btn.pug
 
 mixin check-elements
@@ -9,16 +14,16 @@ mixin check-elements
     .check-elements__section.check-elements__section_first
       +form-section
         +form-set({ title: "Checkbox Buttons", grouped: true })
-          .form-set__element
-            +check-field({ id: "check-btn-1", label: "Можно курить" })
-          .form-set__element
-            +check-field({ id: "check-btn-2", label: "Можно с питомцами", checked: true })
-          .form-set__element
-            +check-field({ id: "check-btn-3", label: "Можно пригласить гостей (до 10 человек)", checked: true })
+          .form-set__element.form-set__element_top_10
+            +check-button({ id: "check-btn-1", label: "Можно курить" })
+          .form-set__element.form-set__element_top_10
+            +check-button({ id: "check-btn-2", label: "Можно с питомцами", checked: true })
+          .form-set__element.form-set__element_top_10
+            +check-button({ id: "check-btn-3", label: "Можно пригласить гостей (до 10 человек)", checked: true })
     .check-elements__section
       +form-section
         +form-set({ title: "Radio Buttons", indented: true })
-          +radio-field({
+          +radio-group({
             id: "radio-buttons",
             options: [
               {label: "Мужчина", checked: true},

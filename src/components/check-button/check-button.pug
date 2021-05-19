@@ -1,0 +1,25 @@
+//-
+  options.checked
+  options.id
+  options.name
+  options.value
+  options.label
+
+mixin check-button(options)
+  if !options
+    - options = {}
+
+  .check-button(class=options.checked ? "check-button_checked" : "")
+    input.check-button__box(
+      id=options.id
+      name=options.name ? options.name : options.id
+      value=options.value ? options.value : options.id
+      type="checkbox"
+      checked=options.checked ? true : false
+      class=options.checked ? "check-button__box_checked" : "")
+    label.check-button__label(
+      for=options.id
+      class=options.checked ? "check-button__label_checked" : ""
+      class="text_light_middle"
+      class="text_rare_less"
+    )=options.label

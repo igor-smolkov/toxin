@@ -1,20 +1,3 @@
-// @import '../../../components/section/section.scss';
-
-// @import '../../../components/slider/slider.scss';
-// @import '../../../components/button/button.scss';
-// @import '../../../components/pagination/pagination.scss';
-// @import '../../../components/field/field.scss';
-// @import '../../../components/dropdown/dropdown.scss';
-// @import '../../../components/expandable-checkbox-list/expandable-checkbox-list.scss';
-// @import '../../../components/checkbox-group/checkbox-group.scss';
-// @import '../../../components/radio-group/radio-group.scss';
-// @import '../../../components/toggle-group/toggle-group.scss';
-// @import '../../../components/like/like.scss';
-// @import '../../../components/rate-group/rate-group.scss';
-// @import '../../../components/bullet-list/bullet-list.scss';
-// @import '../../../components/extra-list/extra-list.scss';
-// @import '../../../components/comment/comment.scss';
-
 .page {
   max-width: 1440px;
   min-width: 320px;
@@ -60,8 +43,12 @@
   justify-content: space-between;
 
   &__section {
+    min-width: 260px;
     max-width: 320px;
     width: 100%;
+    &_shrunken {
+        width: auto;
+    }
   }
 }
 

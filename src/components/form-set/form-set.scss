@@ -14,6 +14,13 @@
   }
   &__element {
     margin-top: 5px;
+
+    &_top {
+      &_10 {
+        margin-top: 10px;
+      }
+    }
+
     &_inlined {
       margin-left: 10px;
     }

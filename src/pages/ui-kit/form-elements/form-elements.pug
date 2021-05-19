@@ -1,11 +1,12 @@
 extends ../../../layout
 
-include ../../../components/logo/logo.pug
-include ../../../components/section/section.pug
-include ../../../components/form-section/form-section.pug
 include ./field-elements/field-elements.pug
 include ./check-elements/check-elements.pug
 include ./button-elements/button-elements.pug
+
+include ../../../components/logo/logo.pug
+
+include ../../../components/section/section.pug
 
 block variables
   - var title = "TOXIN - UI kit"
@@ -19,7 +20,7 @@ block content
           .simple-elements
             .simple-elements__section
               +field-elements
-            .simple-elements__section
+            .simple-elements__section.simple-elements__section_shrunken
               +check-elements
             .simple-elements__section
               +button-elements
