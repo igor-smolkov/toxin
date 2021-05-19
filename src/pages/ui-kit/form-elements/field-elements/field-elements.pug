@@ -5,11 +5,11 @@ include ../../../../components/dropdown-field/dropdown-field.pug
 
 mixin field-elements 
   .field-elements
-    .field-elements__section.field-elements__section_first
+    SECTION.field-elements__section.field-elements__section_first
       +form-section
         +form-set({ title: "Text Field", details: "Default" })
           +text-field({ id: "text-field-default", placeholder: "Email" })
-    .field-elements__section
+    SECTION.field-elements__section
       +form-section
         +form-set({ title: "Text Field", details: "Hover / Focus" })
           +text-field({
@@ -18,11 +18,11 @@ mixin field-elements
             hovered: true,
             focused: true,
           })
-    .field-elements__section
+    SECTION.field-elements__section
       +form-section
         +form-set({ title: "Dropdown" })
           +dropdown-field({ id: "dropdown-default", value: "Сколько гостей" })
-    .field-elements__section
+    SECTION.field-elements__section
       +form-section
         +form-set({ title: "Masked Text Field" })
           +text-field({
@@ -30,7 +30,7 @@ mixin field-elements
             placeholder: "ДД.ММ.ГГГГ",
             masked: true,
           })
-    .field-elements__section.field-elements__section_rarefied
+    SECTION.field-elements__section.field-elements__section_rarefied
       +form-section({ paired: true })
         .form-section__set.form-section__set_first
           +form-set({ title: "Date Dropdown" })
@@ -42,7 +42,7 @@ mixin field-elements
               type: "date",
               value: '2019-08-19',
             })
-    .field-elements__section.field-elements__section_rarefied
+    SECTION.field-elements__section.field-elements__section_rarefied
       +form-section({ shortened: true })
         +form-set({ title: "Filter Date Dropdown" })
           +dropdown-field({
@@ -51,7 +51,7 @@ mixin field-elements
             value: "19 авг - 23 авг",
             filter: true,
           })
-    .field-elements__section.field-elements__section_rarefied
+    SECTION.field-elements__section.field-elements__section_rarefied
       +form-section({ shortened: true })
         +form-set({ title: "Subscription Text Field" })
           +dropdown-field({

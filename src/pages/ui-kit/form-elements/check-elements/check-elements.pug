@@ -9,9 +9,12 @@ include ../../../../components/radio-field/radio-field.pug
 
 include ../../../../components/like-btn/like-btn.pug
 
+include ../../../../components/check-button/check-button.pug
+include ../../../../components/radio-group/radio-group.pug
+
 mixin check-elements
   .check-elements
-    .check-elements__section.check-elements__section_first
+    SECTION.check-elements__section.check-elements__section_first
       +form-section
         +form-set({ title: "Checkbox Buttons", grouped: true })
           .form-set__element.form-set__element_top_10
@@ -30,7 +33,7 @@ mixin check-elements
               {label: "Женщина"},
             ],
           })
-    .check-elements__section
+    SECTION.check-elements__section
       +form-section
         +form-set({ title: "Toggle", grouped: true })
           .form-set__element
@@ -46,14 +49,14 @@ mixin check-elements
               label: "Получать спецпредложения", 
               toggle: true
             })
-    .check-elements__section
+    SECTION.check-elements__section
       +form-section
         +form-set({ title: "Like Button", grouped: true, inlined: true })
           .form-set__element
             +like-btn({ id: "like-1", value: 2 })
           .form-set__element.form-set__element_inlined
             +like-btn({ id: "like-2", value: 12, checked: true })
-    .check-elements__section
+    SECTION.check-elements__section
       +form-section
         +form-set({ title: "Rate Button", grouped: true, inlined: true })
           .form-set__element

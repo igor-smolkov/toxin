@@ -55,15 +55,6 @@ h3 {
   @include h3-type;
 }
 
-@mixin date-special {
-  @include base-type;
-  text-transform: uppercase;
-  font-size: 0.97857rem;
-  &-text {
-    letter-spacing: -1px;
-  }
-}
-
 @mixin text($mod) {
   @if $mod == 'light_middle' {
     color: $color-50per;
@@ -73,6 +64,14 @@ h3 {
   }
   @if $mod == 'rare_less' {
     line-height: 1.2857;
+  }
+  @if $mod == 'mod_date' {
+    @include base-type;
+    text-transform: uppercase;
+    font-size: 0.97857rem;
+    &-text {
+      letter-spacing: -1px;
+    }
   }
   @if $mod == 'mod_like' {
     @include base-type;
