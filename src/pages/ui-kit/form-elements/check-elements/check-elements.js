@@ -5,7 +5,7 @@ import '@comp/form-set/form-set'
 
 import '@comp/check-button/check-button'
 import '@comp/radio-group/radio-group'
+import '@comp/toggle/toggle'
+import '@comp/like-button/like-button'
 
-import '@comp/check-field/check-field'
 import '@comp/radio-field/radio-field.scss'
-import '@comp/like-btn/like-btn'

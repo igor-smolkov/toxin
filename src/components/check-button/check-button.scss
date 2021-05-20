@@ -29,6 +29,7 @@
     display:flex;
     align-items: baseline;
     max-width: 200px;
+    cursor: pointer;
     &::before {
       content: '';
       position: absolute;

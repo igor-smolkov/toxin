@@ -1,0 +1,14 @@
+include ../check-button/check-button.pug
+
+//-
+  options.checked
+  options.id
+  options.name
+  options.value
+  options.label
+
+mixin toggle(options)
+  if !options
+    - options = {}
+  - options.isToggle = true
+  +check-button(options)

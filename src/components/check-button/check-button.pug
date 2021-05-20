@@ -4,22 +4,35 @@
   options.name
   options.value
   options.label
+  options.isToggle
+  options.isLike
 
 mixin check-button(options)
+  - className = "check-button"
   if !options
     - options = {}
+  else if options.isToggle 
+    - className = "toggle"
+  else if options.isLike 
+    - className = "like-button"
 
-  .check-button(class=options.checked ? "check-button_checked" : "")
-    input.check-button__box(
+  div(
+    class=className
+    class=options.checked ? `${className}_checked` : ""
+  )
+    input(
+      class=`${className}__box`
+      class=options.checked ? `${className}__box_checked` : ""
       id=options.id
       name=options.name ? options.name : options.id
       value=options.value ? options.value : options.id
       type="checkbox"
       checked=options.checked ? true : false
-      class=options.checked ? "check-button__box_checked" : "")
-    label.check-button__label(
+    )
+    label(
+      class=`${className}__label`
+      class=options.checked ? `${className}__label_checked` : ""
+      class=!(options.isToggle || options.isLike) ? "text_light_middle" : ""
+      class=!options.isLike ? "text_rare_less" : ""
       for=options.id
-      class=options.checked ? "check-button__label_checked" : ""
-      class="text_light_middle"
-      class="text_rare_less"
-    )=options.label
+    )=options.label ? options.label : options.value

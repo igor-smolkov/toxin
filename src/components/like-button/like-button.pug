@@ -1,0 +1,14 @@
+include ../check-button/check-button.pug
+
+//-
+  options.checked
+  options.id
+  options.name
+  options.value
+  options.label
+
+mixin like-button(options)
+  if !options
+    - options = {}
+  - options.isLike = true
+  +check-button(options)

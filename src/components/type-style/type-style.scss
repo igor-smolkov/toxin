@@ -75,8 +75,7 @@ h3 {
   }
   @if $mod == 'mod_like' {
     @include base-type;
-    font-size: 0.7143rem;
-    line-height: 0.857;
+    font-size: 0.65rem;
   }
   @if $mod == 'white' {
     color: white;

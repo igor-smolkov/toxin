@@ -1,0 +1,64 @@
+@import '../colors-style/colors-style.scss';
+@import '../type-style/type-style.scss';
+
+.like-button {
+  max-width: 40px;
+  min-width: 40px;
+  width: 100%;
+  min-height: 20px;
+  height: 20px;
+  padding-left: 10px;
+  position: relative;
+  &__box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 20px;
+    z-index: -1;
+    opacity: 0;
+    &:checked+.like-button__label {
+      color: $color-purple;
+      &::before {
+        border-color: $color-purple;
+        background-image: url('./favorite.png');
+      }
+    }
+    &:not(:checked)+.like-button__label {
+      color: $color-25per;
+      &::before {
+        border-color: $color-25per;
+        background-image: url('./favorite-border.png');
+      }
+    }
+  }
+  &__label {
+    height: 100%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    @include text('mod_like');
+    padding-bottom: 2px;
+    cursor: pointer;
+    user-select: none;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 40px;
+      height: 20px;
+      border: 1px solid $color-25per;
+      border-radius: 10px;
+      background: no-repeat center url('./favorite-border.png');
+      background-position: 4px 5px;
+    }
+    &_checked {
+      color: $color-purple;
+      &::before {
+        border-color: $color-purple;
+        background-image: url('./favorite.png');
+      }
+    }
+  }
+}
