@@ -1,39 +1,56 @@
 //-
   options.id
   options.options
+  options.isRate
 
 mixin radio-group(options)
+  - className = "radio-group"
   if !options
     - options = {}
-  if !options.options
-    - options.options = []
+  if options.isRate
+    - className = "rate-button"
+  - set = ('options' in options) ? options.options : []
 
-  .radio-group(id=options.id)
-    each option, index in options.options
-      .radio-group__option(class=(index === 0) ? "radio-group__option_first" : "")
-        +option(options, option, index)
+  div(
+    class=className
+    id=options.id
+  )
+    each option, index in set
+      if options.isRate
+        +option(options, option, index, className)
+      else
+        div(
+          class=`${className}__option`
+          class=(index === 0) ? `${className}__option_first` : ""
+        )
+          +option(options, option, index, className)
 
 //-
   group.id
   group.name
+  group.isRate
 
   option.value
   option.checked
   option.label
 
   index
+  className
 
-mixin option(group, option, index)
-  input.radio-group__box(
+mixin option(group, option, index, className)
+  input(
+    class=`${className}__box`
     type="radio"
     id=`${group.id}_${index}`
     name=group.name ? group.name : group.id
     value=option.value ? option.value : index
     checked=option.checked ? true : false
   )
-  label.radio-group__label(
+  label(
     for=`${group.id}_${index}`
-    class=option.checked ? "radio-group__label_checked" : ""
-    class=(index === 0) ? "radio-group__label_first" : ""
-    class="text_rare_less"
+    class=`${className}__label`
+    class=option.checked ? `${className}__label_checked` : ""
+    class=(index === 0) ? `${className}__label_first` : ""
+    class=(index === 1 && group.isRate) ? `${className}__label_second` : ""
+    class=!group.isRate ? "text_rare_less" : ""
   )=option.label

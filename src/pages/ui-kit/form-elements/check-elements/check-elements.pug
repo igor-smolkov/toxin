@@ -4,13 +4,8 @@ include ../../../../components/form-set/form-set.pug
 include ../../../../components/check-button/check-button.pug
 include ../../../../components/radio-group/radio-group.pug
 include ../../../../components/toggle/toggle.pug
-
-include ../../../../components/radio-field/radio-field.pug
-
 include ../../../../components/like-button/like-button.pug
-
-include ../../../../components/check-button/check-button.pug
-include ../../../../components/radio-group/radio-group.pug
+include ../../../../components/rate-button/rate-button.pug
 
 mixin check-elements
   .check-elements
@@ -59,28 +54,6 @@ mixin check-elements
       +form-section
         +form-set({ title: "Rate Button", grouped: true, inlined: true })
           .form-set__element
-            +radio-field({
-              id: 'rate-1',
-              options: [
-                {checked: true},
-                {checked: true},
-                {checked: true},
-                {checked: true},
-                {checked: true},
-                {checked: true},
-              ],
-              rate: true,
-            })
+            +rate-button({ id: 'rate-1', value: 4 })
           .form-set__element.form-set__element_inlined.form-set__element_indent_left
-            +radio-field({
-              id: 'rate-2',
-              options: [
-                {checked: true},
-                {checked: true},
-                {checked: true},
-                {checked: true},
-                {checked: true},
-                {checked: false},
-              ],
-              rate: true,
-            })
+            +rate-button({ id: 'rate-2', value: 5 })
