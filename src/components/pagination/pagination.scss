@@ -1,12 +1,13 @@
 @import '@comp/colors-style/colors-style.scss';
+@import '@comp/type-style/type-style.scss';
 
-.pagination {
+$block: 'pagination';
+
+.#{$block} {
   &__items {
-    // margin-top: 13px;
-
     min-width: 241px;
+    max-width: 241px;
     min-height: 40px;
-
     display: flex;
   }
   &__item {
@@ -14,42 +15,34 @@
     min-height: 40px;
 
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    align-items: center;
 
     background: none;
-    border-radius: 22px;
+    border-radius: 20px;
+    &_hovered,
+    &:hover {
+      opacity: 0.5;
+    }
     &_current {
-      background: linear-gradient(180deg, $color-purple 0%, #8BA4F9 100%);
-      .pagination__value {
+      background: linear-gradient(180deg, $color-purple 0%, $color-purple-end 100%);
+      .#{$block}__value {
         color: white;
+        font-weight: bold;
       }
     }
     &_next {
-      background-image: url('./pagination__arrow_forward.png'), linear-gradient(180deg, $color-green 0%, #66D2EA 100%);
+      background-image: url('./pagination-arrow-forward.png'), linear-gradient(180deg, $color-green 0%, $color-green-end 100%);
       background-repeat: no-repeat;
       background-position: center;
-      border-radius: 22px;
+      border-radius: 20px;
     }
   }
   &__value {
     width: 100%;
-    padding-bottom: 1px;
-
-    text-align: center;
-        
-    // font-family: $font-main;
-    font-size: 12px;
-    line-height: 15px;
-    color: $color-50per;
+    @include text('mod_pagination')
   }
   &__description {
-    margin-top: 2px;
+    margin-top: 5px;
     padding: 5px;
-
-    // font-family: $font-main;
-    font-size: 14px;
-    line-height: 24px;
-    color: $color-75per;
   }
 }

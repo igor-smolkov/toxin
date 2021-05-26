@@ -1,7 +1,14 @@
-mixin slider(props)
+//-
+  options.id
+  options.values
+
+mixin slider(options)
+  if !options
+    - options = {}
+
   .slider
     .slider__slot
       .slider__root(
-        id=props.id
-        data-values=props.values
+        id=options.id
+        data-values=options.values
       )

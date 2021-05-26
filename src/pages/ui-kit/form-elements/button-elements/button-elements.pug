@@ -2,7 +2,10 @@ include ../../../../components/section/section.pug
 
 include ../../../../components/form-section/form-section.pug
 include ../../../../components/form-set/form-set.pug
+
 include ../../../../components/slider/slider.pug
+include ../../../../components/button/button.pug
+
 include ../../../../components/btn/btn.pug
 include ../../../../components/pagination/pagination.pug
 
@@ -18,21 +21,21 @@ mixin button-elements
           .form-set__elements-container
             .form-set__group.form-set__group_inlined
               .form-set__element.form-set__element_wided
-                +btn({ id: "button-default", caption: "click me", none_arrow: true })
+                +button({ id: "button-default", caption: "click me", isWithArrow: false })
               .form-set__element.form-set__element_inlined.form-set__element_indent_left.form-set__element_wided
-                +btn({ id: "button-default-hover", caption: "click me", none_arrow: true, hovered: true })
+                +button({ id: "button-default-hover", caption: "click me", isWithArrow: false, isHovered: true })
             .form-set__group.form-set__group_inlined
               .form-set__element.form-set__element_wided
-                +btn({ id: "button-border", caption: "click me", none_arrow: true, border_only: true })
+                +button({ id: "button-border", caption: "click me", isWithArrow: false, isBorderOnly: true })
               .form-set__element.form-set__element_inlined.form-set__element_indent_left.form-set__element_wided
-                +btn({ id: "button-border-hover", caption: "click me", none_arrow: true, border_only: true, hovered: true })
+                +button({ id: "button-border-hover", caption: "click me", isWithArrow: false, isBorderOnly: true, isHovered: true })
             .form-set__group.form-set__group_inlined
               .form-set__element
-                +btn({ id: "button-link", caption: "click me", none_arrow: true, text_only: true })
+                +button({ id: "button-link", caption: "click me", isWithArrow: false, isTextOnly: true })
               .form-set__element.form-set__element_inlined.form-set__element_indent_left
-                +btn({ id: "button-link-hover", caption: "click me", none_arrow: true, text_only: true, hovered: true })
+                +button({ id: "button-link-hover", caption: "click me", isWithArrow: false, isTextOnly: true, isHovered: true })
             .form-set__element.form-set__element_indent_top
-              +btn({ id: "button-with-arrow", caption: "перейти к оплате" })
+              +button({ id: "button-with-arrow", caption: "перейти к оплате" })
     .button-elements__section
       +form-section
         +form-set({ title: "Pagination" })

@@ -9,15 +9,15 @@ mixin pagination(options)
 
   .pagination
     .pagination__items
-      button.pagination__item.pagination__item_current
-        p.pagination__value= '1'
-      button.pagination__item
-        p.pagination__value= '2'
-      button.pagination__item
-        p.pagination__value= '3'
-      button.pagination__item
-        p.pagination__value= '...'
-      button.pagination__item
-        p.pagination__value= options.lastPage
-      button.pagination__item.pagination__item_next
-    p.pagination__description= options.description
+      BUTTON.pagination__item.pagination__item_current
+        P.pagination__value= '1'
+      BUTTON.pagination__item
+        P.pagination__value= '2'
+      BUTTON.pagination__item
+        P.pagination__value= '3'
+      BUTTON.pagination__item
+        P.pagination__value= '...'
+      BUTTON.pagination__item
+        P.pagination__value= options.lastPage
+      BUTTON.pagination__item.pagination__item_next
+    P.pagination__description= options.description

@@ -1,78 +1,65 @@
-.button {
-    position: relative;
+@import '../colors-style/colors-style.scss';
+@import '../type-style/type-style.scss';
 
-    min-width: 61px;
-    max-width: 320px;
-    width: 100%;
-    height: 44px;
-    background: linear-gradient(180deg, $color-purple 0%, #8BA4F9 100%);
-    border-radius: 22px;
+$block: 'button';
 
-    &__text {
-        padding-bottom: 1px;
-        font-family: $font-main-bold;
-        font-size: 12px;
-        line-height: 15px;
-        text-align: center;
-        text-transform: uppercase;
-        color: white;
+.#{$block} {
+  position: relative;
+  min-width: 61px;
+  max-width: 320px;
+  width: 100%;
+  min-height: 44px;
+  background: linear-gradient(180deg, $color-purple 0%, $color-purple-end 100%);
+  border-radius: 22px;
+  cursor: pointer;
+  &__caption {
+    @include h3-type;
+    @include text('white');
+  }
+  &_hovered,
+  &:hover {
+    opacity: 0.5;
+  }
+  &_border_only {
+    .#{$block}__caption {
+      color: $color-purple;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      position: absolute;
+      background-color: white;
+      width: calc(#{100%} - #{4px});
+      height: 40px;
+      border-radius: 22px;
+
+      top: 2px;
+      left: 2px;
     }
-
+  }
+  &_text_only {
+    min-height: 15px;
+    background: none;
+    .#{$block}__caption {
+      color: $color-purple;
+    }
     &:hover,
-    &_hover {
-        opacity: 0.5;
+    &.#{$block}_hovered {
+      opacity: 1;
+      .#{$block}__caption {
+        color: $color-50per;
+      }
     }
-
-    &_border {
-
-        .button__text {
-            color: $color-purple;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-
-            position: absolute;
-            background-color: white;
-            width: calc(#{100%} - #{4px});
-            height: 40px;
-            border-radius: 22px;
-
-            top: 2px;
-            left: 2px;
-        }
-    }
-
-    &_link {
-        height: 15px;
-        background: none;
-
-        .button__text {
-            color: $color-purple;
-        }
-
-        &:hover,
-        &.button_hover {
-            opacity: 1;
-            .button__text {
-                color: $color-50per;
-            }
-        }
-    }
-
+  }
+  &_with_arrow {
     &::before {
-        content: '';
-        position: absolute;
-        display: block;
-        width: 44px;
-        height: 44px;
-        top: 0;
-        right: 0;
-        background: no-repeat center url('components/button/button__arrow_forward.png');
+      content: '';
+      position: absolute;
+      min-width: 44px;
+      min-height: 44px;
+      top: 0;
+      right: 0;
+      background: no-repeat center url('./button-arrow-forward.png');
     }
-
-    &_arrow_none {
-        &::before {
-            display: none;
-        }
-    }
+  }
 }

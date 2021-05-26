@@ -45,6 +45,7 @@
   &__label {
     display: flex;
     @include text('light_middle');
+    cursor: pointer;
     &::before {
       content: '';
       position: absolute;

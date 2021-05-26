@@ -1,47 +1,24 @@
-mixin button(button)
-  case button.style
-    when 'link'
-      if !button.arrow
-        if button.hover
-          button.button.button_link.button_arrow_none.button_hover(id=button.id class=button.className)
-            p.button__text= button.text
-        else
-          button.button.button_link.button_arrow_none(id=button.id class=button.className)
-            p.button__text= button.text
-      else
-        if button.hover
-          button.button.button_link.button_hover
-            p.button__text= button.text
-        else
-          button.button.button_link
-            p.button__text= button.text
-    when 'border'
-      if !button.arrow
-        if button.hover
-          button.button.button_border.button_arrow_none.button_hover
-            p.button__text= button.text
-        else
-          button.button.button_border.button_arrow_none
-            p.button__text= button.text
-      else
-        if button.hover
-          button.button.button_border.button_hover
-            p.button__text= button.text
-        else
-          button.button.button_border
-            p.button__text= button.text
-    default
-      if !button.arrow
-        if button.hover
-          button.button.button_arrow_none.button_hover
-            p.button__text= button.text
-        else
-          button.button.button_arrow_none
-            p.button__text= button.text
-      else
-        if button.hover
-          button.button.button_hover
-            p.button__text
-        else
-          button.button
-            p.button__text= button.text
+//-
+  options.caption
+  options.isHovered
+  options.isBorderOnly
+  options.isTextOnly
+  options.isWithArrow
+
+mixin button(options)
+  - block = 'button'
+  if !options
+    - options = {}
+  if !("isWithArrow" in options)
+    - options.isWithArrow = true
+
+  BUTTON(
+    class=block
+    class=options.isHovered ? `${block}_hovered` : ''
+    class=options.isBorderOnly ? `${block}_border_only` : ''
+    class=options.isTextOnly ? `${block}_text_only` : ''
+    class=options.isWithArrow ? `${block}_with_arrow` : ''
+  )
+    P(
+      class=`${block}__caption`
+    )=options.caption

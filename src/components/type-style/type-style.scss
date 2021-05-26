@@ -77,6 +77,11 @@ h3 {
     @include base-type;
     font-size: 0.65rem;
   }
+  @if $mod == 'mod_pagination' {
+    @include h3-type;
+    font-weight: normal;
+    color: $color-50per;
+  }
   @if $mod == 'white' {
     color: white;
   }
