@@ -3,13 +3,18 @@
 
 .field-submit {
   position: relative;
-  &__btn {
-    font-size: 0;
+  &__button {
     position: absolute;
-    width: 44px;
-    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
     right: 0;
-    background: no-repeat center url('./field-arrow-forward.png');
+    background-color: transparent;
+    color: $color-purple;
+    cursor: pointer;
+  }
+  &__button_hover,
+  &__button:hover {
+    color: $color-purple-end;
   }
 }
 

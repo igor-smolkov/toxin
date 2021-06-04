@@ -8,7 +8,9 @@ include ../check-button/check-button.pug
   options.label
 
 mixin like-button(options)
+  - block = "like-button"
   if !options
     - options = {}
   - options.isLike = true
   +check-button(options)
+    .like-icon.material-icons

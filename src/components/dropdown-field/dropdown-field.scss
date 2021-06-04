@@ -1,18 +1,18 @@
+@import '../colors-style/colors-style.scss';
+
 .dropdown-field {
   position: relative;
-  &::before {
-    content: '';
+  &__expand-more {
     position: absolute;
-
-    width: 44px;
-    height: 44px;
-
+    min-width: 44px;
+    min-height: 44px;
     right: 0;
-
-    background: no-repeat center url('./dropdown-expand-more.png');
+    background-color: transparent;
+    color: $color-50per;
+    cursor: pointer;
   }
-  &_hovered::before,
-  &:hover::before {
-    background: no-repeat center url('./dropdown-expand-more-active.png');
+  &__expand-more_hovered,
+  &__expand-more:hover {
+    color: $color-75per;
   }
 }

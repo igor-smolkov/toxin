@@ -1,7 +1,9 @@
 @import '../colors-style/colors-style.scss';
 @import '../type-style/type-style.scss';
 
-.like-button {
+$block: 'like-button';
+
+.#{$block} {
   max-width: 40px;
   min-width: 40px;
   width: 100%;
@@ -17,18 +19,26 @@
     height: 20px;
     z-index: -1;
     opacity: 0;
-    &:checked+.like-button__label {
+    &:checked+.#{$block}__label {
       color: $color-purple;
+      & .like-icon::before {
+        // content: 'favorite';
+        color: $color-purple;
+      }
       &::before {
         border-color: $color-purple;
-        background-image: url('./favorite.png');
+        // background-image: url('./favorite.png');
       }
     }
-    &:not(:checked)+.like-button__label {
+    &:not(:checked)+.#{$block}__label {
       color: $color-25per;
+      & .like-icon::before {
+        // content: 'favorite_border';
+        color: $color-25per;
+      }
       &::before {
         border-color: $color-25per;
-        background-image: url('./favorite-border.png');
+        // background-image: url('./favorite-border.png');
       }
     }
   }
@@ -50,15 +60,38 @@
       height: 20px;
       border: 1px solid $color-25per;
       border-radius: 10px;
-      background: no-repeat center url('./favorite-border.png');
+      // background: no-repeat center url('./favorite-border.png');
       background-position: 4px 5px;
     }
     &_checked {
       color: $color-purple;
+      .like-icon::before {
+        content: 'favorite';
+        color: $color-purple;
+      }
       &::before {
         border-color: $color-purple;
-        background-image: url('./favorite.png');
+        // background-image: url('./favorite.png');
       }
     }
+  }
+}
+
+.like-icon { 
+  position: absolute;
+  min-width: 20px;
+  min-height: 20px;
+  top: 0;
+  left: 0;
+  &::before {
+    content: 'favorite_border';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $color-25per;
   }
 }
