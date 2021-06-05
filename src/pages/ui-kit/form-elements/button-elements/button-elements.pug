@@ -20,22 +20,22 @@ mixin button-elements
             .form-set__group.form-set__group_inlined
               .form-set__element.form-set__element_wided
                 +button({ id: "button-default", caption: "click me", isWithArrow: false })
-              .form-set__element.form-set__element_inlined.form-set__element_indent_left.form-set__element_wided
+              .form-set__element.form-set__element_inlined.form-set__element_indent-in_buttons-left.form-set__element_wided
                 +button({ id: "button-default-hover", caption: "click me", isWithArrow: false, isHovered: true })
-            .form-set__group.form-set__group_inlined
+            .form-set__group.form-set__group_inlined.form-set__group_indent-in_buttons
               .form-set__element.form-set__element_wided
                 +button({ id: "button-border", caption: "click me", isWithArrow: false, isBorderOnly: true })
-              .form-set__element.form-set__element_inlined.form-set__element_indent_left.form-set__element_wided
+              .form-set__element.form-set__element_inlined.form-set__element_indent-in_buttons-left.form-set__element_wided
                 +button({ id: "button-border-hover", caption: "click me", isWithArrow: false, isBorderOnly: true, isHovered: true })
-            .form-set__group.form-set__group_inlined
+            .form-set__group.form-set__group_inlined.form-set__group_indent-in_buttons
               .form-set__element
                 +button({ id: "button-link", caption: "click me", isWithArrow: false, isTextOnly: true })
-              .form-set__element.form-set__element_inlined.form-set__element_indent_left
+              .form-set__element.form-set__element_inlined.form-set__element_indent-in_buttons-left
                 +button({ id: "button-link-hover", caption: "click me", isWithArrow: false, isTextOnly: true, isHovered: true })
-            .form-set__element.form-set__element_indent_top
+            .form-set__element.form-set__element_indent-in_buttons-top
               +button({ id: "button-with-arrow", caption: "перейти к оплате" })
     .button-elements__section
       +form-section
-        +form-set({ title: "Pagination" })
+        +form-set({ title: "Pagination", indented: true })
           +pagination({ id: "pagination", lastPage: 15, description: '1 – 12 из 100+ вариантов аренды' })
     

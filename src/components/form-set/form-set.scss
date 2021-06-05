@@ -1,4 +1,6 @@
-.form-set {
+$block: 'form-set';
+
+.#{$block} {
   max-width: 100%;
   min-width: 90px;
   width: 100%;
@@ -10,26 +12,41 @@
     margin-top: 17px;
     &_inlined {
       display: flex;
+      .#{$block}__element {
+        margin-top: 0;
+      }
+    }
+    &_indent-in {
+      &_buttons {
+        margin-top: 30px;
+        line-height: 0;
+      }
     }
   }
   &__element {
     margin-top: 5px;
-
-    &_top {
-      &_10 {
+    
+    &_indented {
+      margin-top: 17px;
+    }
+    &_indent-in {
+      &_check-buttons {
         margin-top: 10px;
       }
-    }
-
-    &_inlined {
-      margin-left: 10px;
-    }
-    &_indent {
-      &_top {
-        margin-top: 17px;
+      &_toggles {
+        margin-top: 14px;
       }
-      &_left {
+      &_like-buttons {
+        margin-left: 10px;
+      }
+      &_rate-buttons {
         margin-left: 20px;
+      }
+      &_buttons-left {
+        margin-left: 19px;
+      }
+      &_buttons-top {
+        margin-top: 30px;
       }
     }
     &_first {

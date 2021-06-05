@@ -12,11 +12,11 @@ mixin check-elements
     SECTION.check-elements__section.check-elements__section_first
       +form-section
         +form-set({ title: "Checkbox Buttons", grouped: true })
-          .form-set__element.form-set__element_top_10
+          .form-set__element.form-set__element_indent-in_check-buttons
             +check-button({ id: "check-btn-1", label: "Можно курить" })
-          .form-set__element.form-set__element_top_10
+          .form-set__element.form-set__element_indent-in_check-buttons
             +check-button({ id: "check-btn-2", label: "Можно с питомцами", checked: true })
-          .form-set__element.form-set__element_top_10
+          .form-set__element.form-set__element_indent-in_check-buttons
             +check-button({ id: "check-btn-3", label: "Можно пригласить гостей (до 10 человек)", checked: true })
     .check-elements__section
       +form-section
@@ -37,7 +37,7 @@ mixin check-elements
               label: "Получать спецпредложения", 
               checked: true
             })
-          .form-set__element
+          .form-set__element.form-set__element_indent-in_toggles
             +toggle({
               id: "toggle-2", 
               label: "Получать спецпредложения", 
@@ -48,12 +48,12 @@ mixin check-elements
         +form-set({ title: "Like Button", grouped: true, inlined: true })
           .form-set__element
             +like-button({ id: "like-1", value: 2 })
-          .form-set__element.form-set__element_inlined
+          .form-set__element.form-set__element_indent-in_like-buttons
             +like-button({ id: "like-2", value: 12, checked: true })
     SECTION.check-elements__section
       +form-section
         +form-set({ title: "Rate Button", grouped: true, inlined: true })
           .form-set__element
             +rate-button({ id: 'rate-1', value: 4 })
-          .form-set__element.form-set__element_inlined.form-set__element_indent_left
+          .form-set__element.form-set__element_indent-in_rate-buttons
             +rate-button({ id: 'rate-2', value: 5 })
