@@ -16,11 +16,11 @@ mixin check-button(options)
   else if options.isLike 
     - className = "like-button"
 
-  div(
+  LABEL(
     class=className
     class=options.checked ? `${className}_checked` : ""
   )
-    input(
+    INPUT(
       class=`${className}__box`
       class=options.checked ? `${className}__box_checked` : ""
       id=options.id
@@ -29,11 +29,11 @@ mixin check-button(options)
       type="checkbox"
       checked=options.checked ? true : false
     )
-    label(
+    P(
       class=`${className}__label`
       class=options.checked ? `${className}__label_checked` : ""
       class=!(options.isToggle || options.isLike) ? "text_light_middle" : ""
       class=!options.isLike ? "text_rare_less" : ""
       for=options.id
     )=options.label ? options.label : options.value
-      block
+    block

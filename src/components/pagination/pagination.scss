@@ -31,10 +31,12 @@ $block: 'pagination';
       }
     }
     &_next {
-      background-image: url('./pagination-arrow-forward.png'), linear-gradient(180deg, $color-green 0%, $color-green-end 100%);
-      background-repeat: no-repeat;
-      background-position: center;
+      background: linear-gradient(180deg, $color-green 0%, $color-green-end 100%);
       border-radius: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
     }
   }
   &__value {

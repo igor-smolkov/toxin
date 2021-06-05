@@ -53,13 +53,16 @@ $block: 'button';
   }
   &_with_arrow {
     &::before {
-      content: '';
+      content: 'arrow_forward';
       position: absolute;
       min-width: 44px;
       min-height: 44px;
       top: 0;
       right: 0;
-      background: no-repeat center url('./button-arrow-forward.png');
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
     }
   }
 }

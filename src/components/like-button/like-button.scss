@@ -4,6 +4,7 @@
 $block: 'like-button';
 
 .#{$block} {
+  display: block;
   max-width: 40px;
   min-width: 40px;
   width: 100%;
@@ -11,6 +12,7 @@ $block: 'like-button';
   height: 20px;
   padding-left: 10px;
   position: relative;
+  cursor: pointer;
   &__box {
     position: absolute;
     top: 0;
@@ -21,25 +23,23 @@ $block: 'like-button';
     opacity: 0;
     &:checked+.#{$block}__label {
       color: $color-purple;
-      & .like-icon::before {
-        // content: 'favorite';
-        color: $color-purple;
-      }
       &::before {
         border-color: $color-purple;
-        // background-image: url('./favorite.png');
       }
+    }
+    &:checked~.#{$block}__icon::before {
+      content: 'favorite';
+      color: $color-purple;
     }
     &:not(:checked)+.#{$block}__label {
       color: $color-25per;
-      & .like-icon::before {
-        // content: 'favorite_border';
-        color: $color-25per;
-      }
       &::before {
         border-color: $color-25per;
-        // background-image: url('./favorite-border.png');
       }
+    }
+    &:not(:checked)~.#{$block}__icon::before {
+      content: 'favorite_border';
+      color: $color-25per;
     }
   }
   &__label {
@@ -49,7 +49,6 @@ $block: 'like-button';
     justify-content: center;
     @include text('mod_like');
     padding-bottom: 2px;
-    cursor: pointer;
     user-select: none;
     &::before {
       content: '';
@@ -60,38 +59,34 @@ $block: 'like-button';
       height: 20px;
       border: 1px solid $color-25per;
       border-radius: 10px;
-      // background: no-repeat center url('./favorite-border.png');
-      background-position: 4px 5px;
-    }
-    &_checked {
-      color: $color-purple;
-      .like-icon::before {
-        content: 'favorite';
-        color: $color-purple;
-      }
-      &::before {
-        border-color: $color-purple;
-        // background-image: url('./favorite.png');
-      }
     }
   }
-}
-
-.like-icon { 
-  position: absolute;
-  min-width: 20px;
-  min-height: 20px;
-  top: 0;
-  left: 0;
-  &::before {
-    content: 'favorite_border';
+  &__icon { 
     position: absolute;
-    width: 20px;
-    height: 20px;
-    font-size: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: $color-25per;
+    min-width: 20px;
+    min-height: 20px;
+    top: 0;
+    left: 0;
+    &::before {
+      content: 'favorite_border';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      font-size: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: $color-25per;
+    }
+  }
+  &_checked {
+    color: $color-purple;
+    .#{$block}__label::before {
+      border-color: $color-purple;
+    }
+    .#{$block}__icon::before {
+      content: 'favorite';
+      color: $color-purple;
+    }
   }
 }
