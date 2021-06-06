@@ -3,6 +3,8 @@ include ./field-elements/field-elements.pug
 include ./check-elements/check-elements.pug
 include ./button-elements/button-elements.pug
 
+include ./dropdowns/dropdowns.pug
+
 include ../../../components/logo/logo.pug
 
 include ../../../components/section/section.pug
@@ -16,44 +18,18 @@ block content
     MAIN.page__main
       .form-elements
         .form-elements__section
-          .simple-elements
-            .simple-elements__section
+          .same-type-elements
+            .same-type-elements__section
               +field-elements
-            .simple-elements__section.simple-elements__section_shrunken
+            .same-type-elements__section.same-type-elements__section_shrunken
               +check-elements
-            .simple-elements__section
+            .same-type-elements__section
               +button-elements
         .form-elements__section.form-elements__section_margin_to-dropdowns
-          .dropdowns
-            .dropdowns_section_1
-              +section({
-                title: { 
-                  name: 'dropdown',
-                  details: 'Default'
-                },
-                content: { 
-                  type: 'dropdown',
-                  value: '2 спальни, 2 кровати...',
-                  demo: true
-                }
-              })
-              +section({
-                title: { 
-                  name: 'dropdown',
-                  details: 'expanded'
-                },
-                content: { 
-                  type: 'dropdown',
-                  value: '2 спальни, 2 кровати...',
-                  list: [
-                    { name: 'спальни', count: 2 },
-                    { name: 'кровати', count: 2 },
-                    { name: 'ванные комнаты' }
-                  ],
-                  expanded: true
-                }
-              })
-            .dropdowns_section_2
+          .same-type-elements
+            .same-type-elements__section
+              +dropdowns
+            .same-type-elements__section
               +section({
                 title: { name: 'dropdown' },
                 content: { 
@@ -68,7 +44,7 @@ block content
                   expanded: true
                 }
               })
-            .dropdowns_section_3
+            .same-type-elements__section
               +section({
                 title: { name: 'dropdown' },
                 content: { 

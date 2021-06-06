@@ -1,18 +1,127 @@
 @import '../colors-style/colors-style.scss';
+@import '../type-style/type-style.scss';
 
-.dropdown-field {
+$block: 'dropdown';
+.#{$block} {
   position: relative;
+  border: 1px solid $color-25per;
+  border-radius: 4px;
+  &__check {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    z-index: -1;
+    opacity: 0;
+    &:checked~.#{$block}__control {
+      display: block;
+    }
+    &:not(:checked)~.#{$block}__control {
+      display: none;
+    }
+  }
+  &__label {
+    position: absolute;
+    min-width: 42px;
+    min-height: 42px;
+    right: 0;
+  }
   &__expand-more {
     position: absolute;
-    min-width: 44px;
-    min-height: 44px;
+    min-width: 42px;
+    min-height: 42px;
     right: 0;
-    background-color: transparent;
-    color: $color-50per;
     cursor: pointer;
+    &::before {
+      content: 'expand_more';
+      position: absolute;
+      min-width: 42px;
+      min-height: 42px;
+      background-color: transparent;
+      color: $color-50per;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
   }
-  &__expand-more_hovered,
-  &__expand-more:hover {
+  &__expand-more_hovered::before,
+  &__expand-more:hover::before {
     color: $color-75per;
+  }
+  &__control {
+    display: none;
+    border-top: 1px solid $color-50per;
+  }
+  &_expanded {
+    border-color: $color-50per;
+    .#{$block}__control {
+      display: block;
+    }
+  }
+  &_hovered,
+  &:hover,
+  &_focused,
+  &:focus {
+    border-color: $color-50per;
+  }
+  &:not(:hover) {
+    border-color: $color-25per;
+    .#{$block}__control {
+      border-color: $color-25per;
+    }
+  }
+}
+
+.dropdown-list {
+  &__item {
+    margin: 6px 6px 7px 7px;
+  }
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  &__name {
+    padding-left: 7px;
+    padding-bottom: 4px;
+    flex-grow: 1;
+    @include h3-type;
+  }
+  &__counter {
+    flex-shrink: 0;
+  }
+}
+
+.dropdown-counter {
+  display: flex;
+  &__element {
+    min-width: 30px;
+    min-height: 30px;
+    max-height: 30px;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 4px;
+  }
+  &__button {
+    border: 1px solid $color-25per;
+    border-radius: 22px;
+    @include text('mod_counter-button');
+    &_disabled {
+      opacity: 0.5;
+    }
+    &_hovered,
+    &:hover {
+      border-color: $color-50per;
+      color: $color-75per;
+      &.dropdown-counter__button_disabled {
+        border-color: $color-25per;
+        color: $color-50per;
+      }
+    }
+  }
+  &__count {
+    min-width: 32px;
+    @include h3-type;
   }
 }

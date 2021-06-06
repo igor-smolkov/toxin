@@ -1,6 +1,57 @@
 include ../text-field/text-field.pug
 
+//-
+  options.id
+  options.value
+  options.list
+  options.isExpanded
+
 mixin dropdown-field(options)
-  .dropdown-field
+  if !options
+    - options = {}
+  - options.withBorder = false
+
+  .dropdown(class=options.isExpanded ? 'dropdown_expanded' : '')
     +text-field(options)
-    BUTTON.dropdown-field__expand-more.material-icons='expand_more'
+    INPUT.dropdown__check(
+      id=`${options.id}-check`
+      type="checkbox"
+      checked=options.isExpanded ? true : false
+    )
+    LABEL.dropdown__expand-more.material-icons(for=`${options.id}-check`)
+    .dropdown__control
+      +dropdown-list(options.list)
+
+//-
+  []
+
+mixin dropdown-list(list)
+  if !list
+    - list = []
+
+  UL.dropdown-list
+    each item, index in list
+      LI.dropdown-list__item
+        +dropdown-item(item)
+
+//-
+  options.name
+  options.count
+
+mixin dropdown-item(options)
+  .dropdown-item
+    P.dropdown-item__name=options.name
+    .dropdown-item__counter
+      +dropdown-counter(options.count)
+
+//-
+  count 
+
+mixin dropdown-counter(count)
+  .dropdown-counter
+    BUTTON.dropdown-counter__element.dropdown-counter__button(
+      class=!count ? 'dropdown-counter__button_disabled' : ''
+      disabled=!count ? true : false
+    )='-'
+    P.dropdown-counter__element.dropdown-counter__count=count ? count : '0'
+    BUTTON.dropdown-counter__element.dropdown-counter__button='+'

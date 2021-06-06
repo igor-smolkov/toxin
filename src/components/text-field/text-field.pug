@@ -23,8 +23,12 @@ mixin text-field(options)
   options.hovered
   options.focused
   options.directed
+  options.withBorder
 
 mixin text-field-base(options)
+  if !("withBorder" in options)
+    - options.withBorder = true
+
   INPUT.text-field(
     id=options.id
     name=options.name ? options.name : options.id
@@ -43,4 +47,5 @@ mixin text-field-base(options)
     class=options.focused ? "text-field_focused" : ""
     class=options.directed ? "text-field_directed" : ""
     class=(options.masked || options.type === "date") ? " text-field_masked" : ""
+    class=options.withBorder ? "" : "text-field_border_none"
   )

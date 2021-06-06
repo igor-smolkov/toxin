@@ -63,4 +63,10 @@
     margin: 0;
     @include text('mod_date');
   }
+
+  &_border_none {
+    border: none;
+    min-height: 42px;
+    max-height: 42px;
+  }
 }

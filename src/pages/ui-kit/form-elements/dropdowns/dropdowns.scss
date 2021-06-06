@@ -1,0 +1,11 @@
+.dropdowns {
+  display: flex;
+  flex-direction: column;
+  &__section {
+    margin-top: 20px;
+    &_first {
+      margin-top: 0;
+    }
+  }
+  // border: 1px solid green;
+}

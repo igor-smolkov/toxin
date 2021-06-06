@@ -1,0 +1,23 @@
+include ../../../../components/form-section/form-section.pug
+include ../../../../components/form-set/form-set.pug
+include ../../../../components/dropdown-field/dropdown-field.pug
+
+mixin dropdowns
+  .dropdowns
+    SECTION.dropdowns__section.dropdowns__section_first
+      +form-section({ shortened: true })
+        +form-set({ title: "Dropdown", details: "Default" })
+          +dropdown-field({ id: "dropdown-default-with-value", value: "2 спальни, 2 кровати..." })
+    SECTION.dropdowns__section
+      +form-section({ shortened: true })
+        +form-set({ title: "Dropdown", details: "Expanded"  })
+          +dropdown-field({ 
+            id: "dropdown-expanded", 
+            value: "2 спальни, 2 кровати...", 
+            isExpanded: true,
+            list: [
+              { name: 'спальни', count: 2 },
+              { name: 'кровати', count: 2 },
+              { name: 'ванные комнаты' },
+            ],
+          })
