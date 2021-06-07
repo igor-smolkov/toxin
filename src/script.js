@@ -10,7 +10,7 @@ import carousel from '@comp/carousel/carousel';
 import menu from '@comp/menu/menu';
 
 calendar();
-dropdown();
+// dropdown();
 expandableCheckboxList();
 // slider();
 // like();

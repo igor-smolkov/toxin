@@ -30,36 +30,9 @@ block content
             .same-type-elements__section
               +dropdowns
             .same-type-elements__section
-              +section({
-                title: { name: 'dropdown' },
-                content: { 
-                  type: 'dropdown',
-                  value: 'Сколько гостей',
-                  list: [
-                    { name: 'взрослые' },
-                    { name: 'дети' },
-                    { name: 'младенцы' }
-                  ],
-                  apply: true,
-                  expanded: true
-                }
-              })
+              +dropdowns("fullset")
             .same-type-elements__section
-              +section({
-                title: { name: 'dropdown' },
-                content: { 
-                  type: 'dropdown',
-                  value: '3 гостя',
-                  list: [
-                    { name: 'взрослые', count: 2 },
-                    { name: 'дети', count: 1 },
-                    { name: 'младенцы' }
-                  ],
-                  apply: true,
-                  clear: true,
-                  expanded: true
-                }
-              })
+              +dropdowns("fullset-example")
       .form-elements__section.form-elements__section_margin_to-check-lists
           .check-lists
             .check-lists_section_1

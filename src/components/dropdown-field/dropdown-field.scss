@@ -12,11 +12,13 @@ $block: 'dropdown';
     height: 1px;
     z-index: -1;
     opacity: 0;
-    &:checked~.#{$block}__control {
+    &:checked~.#{$block}__panel {
       display: block;
+      box-shadow: 0 10px 15px $color-5per;
     }
-    &:not(:checked)~.#{$block}__control {
+    &:not(:checked)~.#{$block}__panel {
       display: none;
+      box-shadow: none;
     }
   }
   &__label {
@@ -47,13 +49,15 @@ $block: 'dropdown';
   &__expand-more:hover::before {
     color: $color-75per;
   }
-  &__control {
+  &__panel {
     display: none;
     border-top: 1px solid $color-50per;
+    // padding-bottom: 1px;
   }
   &_expanded {
     border-color: $color-50per;
-    .#{$block}__control {
+    // box-shadow: 0 10px 15px $color-5per;
+    .#{$block}__panel {
       display: block;
     }
   }
@@ -65,13 +69,14 @@ $block: 'dropdown';
   }
   &:not(:hover) {
     border-color: $color-25per;
-    .#{$block}__control {
+    .#{$block}__panel {
       border-color: $color-25per;
     }
   }
 }
 
 .dropdown-list {
+  display: flow-root;
   &__item {
     margin: 6px 6px 7px 7px;
   }
@@ -123,5 +128,17 @@ $block: 'dropdown';
   &__count {
     min-width: 32px;
     @include h3-type;
+  }
+}
+
+.dropdown-control {
+  display: flow-root;
+  &__clear {
+    float: left;
+    padding: 9px 13px 9px;
+  }
+  &__apply {
+    float: right;
+    padding: 9px 6px 8px;
   }
 }

@@ -1,4 +1,5 @@
 include ../text-field/text-field.pug
+include ../button/button.pug
 
 //-
   options.id
@@ -11,7 +12,7 @@ mixin dropdown-field(options)
     - options = {}
   - options.withBorder = false
 
-  .dropdown(class=options.isExpanded ? 'dropdown_expanded' : '')
+  .dropdown(class=options.isExpanded ? "dropdown_expanded" : "")
     +text-field(options)
     INPUT.dropdown__check(
       id=`${options.id}-check`
@@ -19,8 +20,10 @@ mixin dropdown-field(options)
       checked=options.isExpanded ? true : false
     )
     LABEL.dropdown__expand-more.material-icons(for=`${options.id}-check`)
-    .dropdown__control
+    .dropdown__panel
       +dropdown-list(options.list)
+      if options.withControl
+        +dropdown-control(options.list)
 
 //-
   []
@@ -50,8 +53,23 @@ mixin dropdown-item(options)
 mixin dropdown-counter(count)
   .dropdown-counter
     BUTTON.dropdown-counter__element.dropdown-counter__button(
-      class=!count ? 'dropdown-counter__button_disabled' : ''
+      class=!count ? "dropdown-counter__button_disabled" : ""
       disabled=!count ? true : false
-    )='-'
-    P.dropdown-counter__element.dropdown-counter__count=count ? count : '0'
-    BUTTON.dropdown-counter__element.dropdown-counter__button='+'
+    )="-"
+    P.dropdown-counter__element.dropdown-counter__count=count ? count : "0"
+    BUTTON.dropdown-counter__element.dropdown-counter__button="+"
+
+mixin dropdown-control(list)
+  - isClear = true
+  if list
+    each item in list
+      if item.count
+        if item.count !== 0
+          - isClear = false
+
+  .dropdown-control 
+    if !isClear
+      .dropdown-control__clear
+        +button({ id: "dropdown-clear", caption: "Очистить", isWithArrow: false, isTextOnly: true })
+    .dropdown-control__apply
+      +button({ id: "dropdown-apply", caption: "Применить", isWithArrow: false, isTextOnly: true })
