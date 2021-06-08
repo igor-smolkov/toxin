@@ -112,7 +112,8 @@ $block: 'dropdown';
     border: 1px solid $color-25per;
     border-radius: 22px;
     @include text('mod_counter-button');
-    &_disabled {
+    &_disabled,
+    &:disabled {
       opacity: 0.5;
     }
     &_hovered,
