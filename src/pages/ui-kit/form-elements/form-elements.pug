@@ -5,6 +5,8 @@ include ./button-elements/button-elements.pug
 
 include ./dropdowns/dropdowns.pug
 
+include ./lists/lists.pug
+
 include ../../../components/logo/logo.pug
 
 include ../../../components/section/section.pug
@@ -34,31 +36,10 @@ block content
             .same-type-elements__section
               +dropdowns("fullset-example")
       .form-elements__section.form-elements__section_margin_to-check-lists
-          .check-lists
-            .check-lists_section_1
-              +section({
-                title: { name: 'expandable checkbox list' },
-                content: { 
-                  type: 'expandable-checkbox-list'
-                }
-              })
-              +section({
-                title: { name: 'expandable checkbox list' },
-                content: { 
-                  type: 'expandable-checkbox-list',
-                  id: 'checkbox-list',
-                  expanded: true,
-                  checks: [
-                    {label: 'Завтрак'},
-                    {label: 'Письменный стол', checked: true},
-                    {label: 'Стул для кормления', checked: true},
-                    {label: 'Кроватка', checked: true},
-                    {label: 'Телевизор'},
-                    {label: 'Шампунь'}
-                  ]
-                }
-              })
-            .check-lists_section_2
+          .same-type-elements
+            .same-type-elements__section
+              +lists
+            .same-type-elements__section
               +section({
                 title: { name: 'Rich Checkbox Buttons' },
                 content: { 
@@ -76,7 +57,7 @@ block content
                   ]
                 }
               })
-            .check-lists_section_3
+            .same-type-elements__section
               +section({
                 title: { name: 'Bullet List' },
                 content: { 

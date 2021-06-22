@@ -5,6 +5,7 @@
   options.grouped
   options.inlined
   options.indented
+  options.marginNone
 
 mixin form-set(options)
   if !options
@@ -20,8 +21,14 @@ mixin form-set(options)
     if options.empty 
       block 
     else if options.grouped
-      .form-set__group(class=options.inlined ? 'form-set__group_inlined' :'')
+      .form-set__group(
+        class=options.inlined ? 'form-set__group_inlined' :''
+        class=options.marginNone ? 'form-set__group_margin_none' :''
+      )
         block
     else
-      .form-set__element(class=options.indented ? 'form-set__element_indented' :'')
+      .form-set__element(
+        class=options.indented ? 'form-set__element_indented' :''
+        class=options.marginNone ? 'form-set__element_margin_none' :''
+      )
         block

@@ -1,10 +1,25 @@
-include ../checkbox-group/checkbox-group.pug
+include ../check-button/check-button.pug
+include ../form-set/form-set.pug
 
-mixin expandable-checkbox-list(list)
-  if list.expanded
-    ul.expandable-checkbox-list.expandable-checkbox-list_expanded
-      each checkbox, index in list.checks
-        li.expandable-checkbox-list__item
-          +checkbox-group(checkbox, `${list.id}_${index}`)
-  else
-    .expandable-checkbox-list
+mixin expandable-checkbox-list(options)
+  if !options
+    - options = {}
+
+  .expandable-checkbox-list(
+    id=options.id
+    class=options.isExpanded ? "expandable-checkbox-list_expanded" : ""
+  )
+    INPUT.expandable-checkbox-list__check(
+      id=`${options.id}-check`
+      type="checkbox"
+      checked=options.isExpanded ? true : false
+    )
+    LABEL.expandable-checkbox-list__expand-more.material-icons(for=`${options.id}-check`)
+    .expandable-checkbox-list__list
+      +form-set({ grouped: true, marginNone: true })
+        if !options.list
+          - options.list = []
+        each item, index in options.list
+          - item.id = item.id ? item.id : `${options.id}-${index}`
+          .form-set__element(class=index!==0 ? 'form-set__element_indent-in_check-buttons' : 'form-set__element_margin_none')
+            +check-button(item)

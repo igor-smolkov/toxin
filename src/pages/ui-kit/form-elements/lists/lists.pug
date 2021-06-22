@@ -1,0 +1,25 @@
+include ../../../../components/form-section/form-section.pug
+include ../../../../components/form-set/form-set.pug
+include ../../../../components/expandable-checkbox-list/expandable-checkbox-list.pug
+
+mixin lists
+  .lists
+    SECTION.lists__section.lists__section_first
+      +form-section({ shortened: true })
+        +form-set({ title: "Expandable checkbox list", marginNone: true })
+          +expandable-checkbox-list({ id: "expandable-checkbox-list" })
+    SECTION.lists__section
+      +form-section({ shortened: true })
+        +form-set({ title: "Expandable checkbox list", marginNone: true })
+          +expandable-checkbox-list({
+            id: "expandable-checkbox-list-expanded",
+            isExpanded: true,
+            list: [
+              {label: 'Завтрак'},
+              {label: 'Письменный стол', checked: true},
+              {label: 'Стул для кормления', checked: true},
+              {label: 'Кроватка', checked: true},
+              {label: 'Телевизор'},
+              {label: 'Шампунь'}
+            ]
+          })

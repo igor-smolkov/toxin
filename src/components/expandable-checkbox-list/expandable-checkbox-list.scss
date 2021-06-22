@@ -1,36 +1,51 @@
-.expandable-checkbox-list {
-    position: relative;
+@import '../colors-style/colors-style.scss';
+
+$block: 'expandable-checkbox-list';
+
+.#{$block} {
+  min-height: 29px;
+  &__check {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    z-index: -1;
+    opacity: 0;
+    &:checked~.#{$block}__list {
+      display: block;
+    }
+    &:checked~.#{$block}__expand-more {
+      transform:  scale(-1, -1);
+    }
+    &:not(:checked)~.#{$block}__list {
+      display: none;
+    }
+    &:not(:checked)~.#{$block}__expand-more {
+      transform:  none;
+    }
+  }
+  &__expand-more {
+    min-width: 44px;
+    min-height: 44px;
+    margin-top: -29px;
+    float: right;
+    cursor: pointer;
     &::before {
-        content: '';
-        position: absolute;
-        display: block;
-
-        width: 44px;
-        height: 44px;
-
-        right: 0;
-        top: -34px;
-
-        background: no-repeat center url('components/expandable-checkbox-list/expandable-checkbox-list__expand_more.png');
+      content: 'expand_more';
+      position: absolute;
+      min-width: 44px;
+      min-height: 44px;
+      background-color: transparent;
+      color: $color-50per;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
-    &_expanded::before {
-        top: -44px;
-        background: no-repeat center url('components/expandable-checkbox-list/expandable-checkbox-list__expand_more_up.png');
-    }
-    .expandable-checkbox-list__item {
-        display: none;
-    }
-    &_expanded .expandable-checkbox-list__item {
-        display: block;
-    }
-
-    &:hover,
-    &_hover {
-        &::before {
-            background: no-repeat center url('components/expandable-checkbox-list/expandable-checkbox-list__expand_more_active.png');
-        }
-        &.expandable-checkbox-list_expanded::before {
-            background: no-repeat center url('components/expandable-checkbox-list/expandable-checkbox-list__expand_more_up.png');
-        }
-    }
+  }
+  &__expand-more_hovered::before,
+  &__expand-more:hover::before {
+    color: $color-75per;
+  }
+  &__list {
+    padding-top: 18px;
+  }
 }

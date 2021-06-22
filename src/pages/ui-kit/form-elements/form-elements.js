@@ -6,4 +6,6 @@ import './button-elements/button-elements';
 
 import './dropdowns/dropdowns';
 
+import './lists/lists';
+
 import '@comp/logo/logo.scss'

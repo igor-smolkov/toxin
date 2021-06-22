@@ -22,6 +22,9 @@ $block: 'form-set';
         line-height: 0;
       }
     }
+    &_margin_none {
+      margin: 0;
+    }
   }
   &__element {
     margin-top: 5px;
@@ -54,6 +57,9 @@ $block: 'form-set';
     }
     &_wided {
       min-width: 99px;
+    }
+    &_margin_none {
+      margin: 0;
     }
   }
 }
