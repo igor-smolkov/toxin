@@ -10,10 +10,22 @@ include ../button/button.pug
 mixin dropdown-field(options)
   if !options
     - options = {}
-  - options.withBorder = false
+  - fieldOptions = {
+  -  id: `${options.id}-field`,
+  -  name: options.name,
+  -  type: options.type,
+  -  value: options.value,
+  -  placeholder: options.placeholder,
+  -  hovered: options.hovered,
+  -  focused: options.focused,
+  -  withBorder: false,
+  -}
 
-  .dropdown(class=options.isExpanded ? "dropdown_expanded" : "")
-    +text-field(options)
+  .dropdown(
+    id=options.id
+    class=options.isExpanded ? "dropdown_expanded" : ""
+  )
+    +text-field(fieldOptions)
     INPUT.dropdown__check(
       id=`${options.id}-check`
       type="checkbox"
@@ -23,7 +35,7 @@ mixin dropdown-field(options)
     .dropdown__panel
       +dropdown-list(options.list)
       if options.withControl
-        +dropdown-control(options.list)
+        +dropdown-control(options.list, options.id)
 
 //-
   []
@@ -59,7 +71,7 @@ mixin dropdown-counter(count)
     P.dropdown-counter__element.dropdown-counter__count=count ? count : "0"
     BUTTON.dropdown-counter__element.dropdown-counter__button="+"
 
-mixin dropdown-control(list)
+mixin dropdown-control(list, id)
   - isClear = true
   if list
     each item in list
@@ -70,6 +82,6 @@ mixin dropdown-control(list)
   .dropdown-control 
     if !isClear
       .dropdown-control__clear
-        +button({ id: "dropdown-clear", caption: "Очистить", isWithArrow: false, isTextOnly: true })
+        +button({ id: `${id}-clear`, caption: "Очистить", isWithArrow: false, isTextOnly: true })
     .dropdown-control__apply
-      +button({ id: "dropdown-apply", caption: "Применить", isWithArrow: false, isTextOnly: true })
+      +button({ id: `${id}-apply`, caption: "Применить", isWithArrow: false, isTextOnly: true })

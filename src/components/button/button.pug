@@ -1,4 +1,5 @@
 //-
+  options.id
   options.caption
   options.isHovered
   options.isBorderOnly
@@ -13,6 +14,7 @@ mixin button(options)
     - options.isWithArrow = true
 
   BUTTON(
+    id=options.id
     class=block
     class=options.isHovered ? `${block}_hovered` : ''
     class=options.isBorderOnly ? `${block}_border_only` : ''
