@@ -49,101 +49,15 @@
     &_shrunken {
         width: auto;
     }
+    &_shifted {
+        margin-left: 55px;
+    }
     // border: 1px solid blue;
   }
-  // border: 1px solid red;
+//   border: 1px solid red;
 }
 
 .form-elements {        
-    // .dropdowns {
-    //   display: flex;
-    //   flex-direction: row;
-    //   justify-content: space-between;
-      
-    //     .dropdowns_section_1 {
-    //         flex-grow: 1;
-            
-    //         margin-right: 42px;
-    //         .section {
-    //             max-width: 266px;
-    //             min-width: 266px;
-    //             width: 100%;
-
-    //             margin-top: 20px;
-    //             &:first-child {
-    //                 margin-top: 0;
-    //             }
-    //         }
-    //     }
-    //     .dropdowns_section_2 {
-    //         flex-grow: 1;
-    //         display: flex;
-    //         flex-direction: column;
-
-    //         margin-right: 30px;
-    //         .section {
-    //             align-self: flex-end;
-    //             max-width: 320px;
-    //             min-width: 266px;
-    //             width: 100%;
-    //         }
-    //     }
-    //     .dropdowns_section_3 {
-    //         flex-grow: 1;
-    //         display: flex;
-    //         flex-direction: column;
-    //         .section {
-    //             align-self: flex-end;
-    //             max-width: 320px;
-    //             min-width: 266px;
-    //             width: 100%;
-    //         }
-    //     }
-    // }
-    .check-lists {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      
-        .check-lists_section_1 {
-            flex-grow: 1;
-            margin-right: 42px;
-            .section {
-                max-width: 266px;
-                min-width: 266px;
-                width: 100%;
-
-                margin-top: 44px;
-                &:first-child {
-                    margin-top: 0;
-                }
-            }
-        }
-        .check-lists_section_2 {
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-
-            margin-right: 30px;
-            .section {
-                align-self: flex-end; 
-                max-width: 320px;
-                min-width: 266px;
-                width: 100%;
-            }
-        }
-        .check-lists_section_3 {
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            .section {
-                align-self: flex-end; 
-                max-width: 320px;
-                min-width: 266px;
-                width: 100%;
-            }
-        }
-    }
     .others {
       display: flex;
       flex-direction: row;
