@@ -62,6 +62,12 @@ h3 {
   @if $mod == 'light_normal' {
     color: $color-75per;
   }
+  @if $mod == 'bold' {
+    font-weight: bold;
+  }
+  @if $mod == 'small' {
+    font-size: 0.857rem;
+  }
   @if $mod == 'rare_less' {
     line-height: 1.3;
   }

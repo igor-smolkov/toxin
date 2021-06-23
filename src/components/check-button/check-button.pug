@@ -6,6 +6,7 @@
   options.label
   options.isToggle
   options.isLike
+  options.details
 
 mixin check-button(options)
   - className = "check-button"
@@ -19,6 +20,7 @@ mixin check-button(options)
   LABEL(
     class=className
     class=options.checked ? `${className}_checked` : ""
+    class=options.details ? `${className}_rich` : ""
   )
     INPUT(
       class=`${className}__box`
@@ -36,4 +38,8 @@ mixin check-button(options)
       class=!options.isLike ? "text_rare_less" : ""
       for=options.id
     )=options.label ? options.label : options.value
+      if options.details
+        P(
+          class=`${className}__details`
+        )=options.details
     block

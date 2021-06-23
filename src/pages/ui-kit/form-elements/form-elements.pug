@@ -40,35 +40,9 @@ block content
             .same-type-elements__section
               +lists
             .same-type-elements__section
-              +section({
-                title: { name: 'Rich Checkbox Buttons' },
-                content: { 
-                  type: 'checkbox',
-                  id: 'checkboxrich',
-                  checks: [
-                    {
-                      label: 'Широкий коридор',
-                      details: 'Ширина коридоров в номере\nне менее 91 см.'
-                    },
-                    {
-                      label: 'Помощник для инвалидов',
-                      details: `На 1 этаже вас встретит специалист\nи проводит до номера.`
-                    }
-                  ]
-                }
-              })
+              +lists("rich-checks")
             .same-type-elements__section
-              +section({
-                title: { name: 'Bullet List' },
-                content: { 
-                  type: 'bullet-list',
-                  list: [
-                    'Нельзя с питомцами',
-                    'Без вечеринок и мероприятий',
-                    'Время прибытия — после 13:00,\nа выезд до 12:00'
-                  ]
-                }
-              })
+              +lists("bullet")
       .form-elements__section.form-elements__section_margin_to-others
           .others
             .extras

@@ -1,4 +1,20 @@
-mixin bullet-list(list)
-  ul.bullet-list
-    each item in list
-      li.bullet-list__item=item
+//- 
+  options.id
+  options.items
+
+mixin bullet-list(options)
+  - className = "bullet-list"
+  if !options
+    - options = {}
+  if !options.items
+    - options = []
+
+  UL(
+    id=options.id ? options.id : ""
+    class="bullet-list"
+  )
+    each item, index in options.items
+      LI(
+        class=`${className}__item`
+        class=(index===0) ? `${className}__item_first` :""
+      )=item

@@ -1,4 +1,5 @@
 @import '../colors-style/colors-style.scss';
+@import '../type-style/type-style.scss';
 
 $block: 'check-button';
 
@@ -11,6 +12,22 @@ $block: 'check-button';
   padding-left: 30px;
   position: relative;
   cursor: pointer;
+  &_rich {
+    .#{$block} {
+      &__label {
+        max-width: 266px;
+        @include text('light_normal');
+        @include text('bold');
+      }
+      &__details {
+        max-width: 230px;
+        margin-top: 5px;
+        @include text('light_middle');
+        @include text('small');
+        @include text('rare_less');
+      }
+    }
+  }
   &__box {
     position: absolute;
     top: 0;
