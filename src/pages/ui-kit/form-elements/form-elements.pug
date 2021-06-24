@@ -1,4 +1,5 @@
 extends ../../../layout
+
 include ./field-elements/field-elements.pug
 include ./check-elements/check-elements.pug
 include ./button-elements/button-elements.pug
@@ -8,8 +9,6 @@ include ./lists/lists.pug
 include ./extras/extras.pug
 
 include ../../../components/logo/logo.pug
-
-include ../../../components/section/section.pug
 
 block variables
   - var title = "TOXIN - UI kit"
@@ -47,16 +46,5 @@ block content
           .same-type-elements
             .same-type-elements__section.same-type-elements__section_shrunken
               +extras
-            .same-type-elements__section
-              +section({
-                content: {
-                  type: 'comment',
-                  id: 'comment1',
-                  username: 'Мурад Сарафанов',
-                  src: '../images/murad.png',
-                  datetime: '5 дней назад',
-                  text: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.',
-                  likes: 12,
-                  liked: true
-                }
-              })
+            .same-type-elements__section.same-type-elements__section_wide
+              +extras("comment")

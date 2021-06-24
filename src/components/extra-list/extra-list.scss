@@ -8,28 +8,33 @@
   &__item {
     padding: 20px 0;
     padding-left: 58px;
-    position: relative;
+    // position: relative;
     border-bottom: 1px solid $color-10per;
+    &_first {
+      padding-top: 0;
+    }
   }
 }
 
 .extra-list-item {
+  position: relative;
   &__title {
     @include text('bold');
   }
   &__details {
     @include text('rare_more');
   }
-  &__icon {
+  &__icon.material-icons {
     position: absolute;
     min-width: 48px;
     min-height: 48px;
     font-size: 48px;
     line-height: 1;
-    top: 19px;
-    left: 0;
+    top: -1px;
+    left: -58px;
     background: linear-gradient(180deg, $color-purple 0%, $color-purple-end 100%);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     color: $color-purple;
   }

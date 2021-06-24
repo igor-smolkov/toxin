@@ -1,29 +1,46 @@
-.comment {
-    display: flex;
-    position: relative;
-    &_texts {
-        margin-left: 58px;
-        //margin-top: 3px;
+@import '../type-style/type-style.scss';
 
-        font-family: $font-main;
-        font-size: 14px;
-        line-height: 24px;
-        color: $color-75per;
-    }
-    &__ava {
-        position: absolute;
-        top: -10px;
-        left: -20px;
-    }
-    .like {
-        position: absolute;
-        top: 49px;
-        left: 4px;
-    }
-    &__username {
-        font-family: $font-main-bold;
-    }
-    &__text {
-        margin-top: 10px;
-    }
+.comment {
+  display: flex;
+  &__imgs {
+    flex: 0 1 auto;
+  }
+  &__texts {
+    flex: 1 1 auto;
+    padding: 10px;
+    padding-right: 0;
+  }
+  &__avatar {
+    margin-top: 9px;
+  }
+  &__like {
+    margin-top: 12px;
+    display: flex;
+    justify-content: center;
+  }
+  &__username {
+    @include text('bold');
+  }
+  &__datetime {
+    @include text('rare_more');
+  }
+  &__message {
+    margin-top: 10px;
+    @include text('rare_more');
+  }
+}
+
+.comment-avatar {
+  position: relative;
+  min-width: 48px;
+  min-height: 48px;
+  width: 48px;
+  height: 48px;
+  border-radius: 24px;
+  overflow: hidden;
+  &__img {
+    position: absolute;
+    top: -10px;
+    left: -20px;
+  }
 }

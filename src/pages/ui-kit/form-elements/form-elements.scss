@@ -47,14 +47,17 @@
     max-width: 320px;
     width: 100%;
     &_shrunken {
-        width: auto;
+      width: auto;
     }
     &_shifted {
-        margin-left: 55px;
+      margin-left: 55px;
+    }
+    &_wide {
+      max-width: 711px;
     }
     // border: 1px solid blue;
   }
-//   border: 1px solid red;
+  // border: 1px solid red;
 }
 
 // .form-elements {        

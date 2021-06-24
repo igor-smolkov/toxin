@@ -1,11 +1,58 @@
-include ../like/like.pug
+include ../like-button/like-button.pug
 
-mixin comment(comment)
-  .comment
-    .comment_imgs
-      img.comment__ava(src=comment.src, alt=comment.username)
-      +like({ label: comment.likes, checked: comment.liked }, `${comment.id}_like`)
-    .comment_texts
-      p.comment__username=comment.username
-      p.comment__datetime=comment.datetime
-      p.comment__text=comment.text
+//- 
+  options.id
+  options.username
+  options.avatar
+  options.datetime
+  options.message
+  options.likeValue
+  options.isLiked
+
+mixin comment(options)
+  - const className = "comment"
+  if !options
+    - options = {}
+
+  DIV(
+    class=className
+  )
+    DIV(
+      class=`${className}__imgs`
+    )
+      DIV(
+        class=`${className}__avatar`
+      )
+        +comment-avatar(options.avatar, options.username)
+      DIV(
+        class=`${className}__like`
+      )
+        +like-button({
+          id: "comment-like",
+          value: options.likeValue ? options.likeValue : 0,
+          checked: options.isLiked,
+        })
+    DIV(
+      class=`${className}__texts`
+    )
+      P(
+        class=`${className}__username`
+      )=options.username
+      P(
+        class=`${className}__datetime`
+      )=options.datetime
+      P(
+        class=`${className}__message`
+      )=options.message
+
+mixin comment-avatar(src, alt)
+  - const className = "comment-avatar"
+
+  DIV(
+    class=className
+  )
+    IMG(
+      class=`${className}__img`
+      src=src
+      alt=alt
+    )

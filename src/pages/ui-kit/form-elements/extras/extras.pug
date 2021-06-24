@@ -1,10 +1,22 @@
 include ../../../../components/extra-list/extra-list.pug
+include ../../../../components/comment/comment.pug
 
-mixin extras 
-  +extra-list({ 
-    id: "extra-list",
-    items: [
-      { title: "Комфорт", details: "Шумопоглощающие стены", icon: "insert_emoticon" },
-      { title: "Удобство", details: "Окно в каждой из спален", icon: "location_city" },
-    ]
-  })
+mixin extras(param)
+  if (param === "comment")
+    +comment({
+      id: "comment",
+      username: "Мурад Сарафанов",
+      avatar: "../images/murad.png",
+      datetime: "5 дней назад",
+      message: "Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.",
+      likeValue: 12,
+      isLiked: true,
+    })
+  else
+    +extra-list({ 
+      id: "extra-list",
+      items: [
+        { title: "Комфорт", details: "Шумопоглощающие стены", icon: "insert_emoticon" },
+        { title: "Удобство", details: "Окно в каждой из спален", icon: "location_city" },
+      ]
+    })
