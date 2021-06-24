@@ -4,8 +4,8 @@ include ./check-elements/check-elements.pug
 include ./button-elements/button-elements.pug
 
 include ./dropdowns/dropdowns.pug
-
 include ./lists/lists.pug
+include ./extras/extras.pug
 
 include ../../../components/logo/logo.pug
 
@@ -44,24 +44,10 @@ block content
             .same-type-elements__section
               +lists("bullet")
       .form-elements__section.form-elements__section_margin_to-others
-          .others
-            .extras
-              +section({
-                content: {
-                  type: 'extra-list',
-                  list: [
-                    {
-                      name: 'Комфорт',
-                      details: 'Шумопоглощающие стены'
-                    },
-                    {
-                      name: 'Удобство',
-                      details: 'Окно в каждой из спален'
-                    },
-                  ]
-                }
-              })
-            .comments
+          .same-type-elements
+            .same-type-elements__section.same-type-elements__section_shrunken
+              +extras
+            .same-type-elements__section
               +section({
                 content: {
                   type: 'comment',

@@ -1,6 +1,46 @@
-mixin extra-list(list)
-  ul.extra-list
-    each item in list
-      li.extra-list__item
-        p.extra-list__item_name=item.name
-        p.extra-list__item_details=item.details
+//- 
+  options.id
+  options.items
+
+mixin extra-list(options)
+  - const className = "extra-list"
+  if !options
+    - options = {}
+  if !options.items
+    - options = []
+
+  UL.extra-list(
+    id=options.id ? options.id : ""
+    class=className
+  )
+    each item, index in options.items
+      LI(
+        class=`${className}__item`
+        class=(index===0) ? `${className}__item_first` :""
+      )
+        +extra-list-item(item)
+
+//- 
+  options.title
+  options.details
+  options.icon
+
+mixin extra-list-item(options)
+  - const className = "extra-list-item"
+  if !options
+    - options = {}
+  
+  DIV(
+    class=className
+  )
+    P(
+      class=`${className}__title`
+    )=options.title
+    P(
+      class=`${className}__details`
+    )=options.details
+    I(
+      class=`${className}__icon`
+      class="material-icons"
+    )=options.icon
+

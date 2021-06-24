@@ -1,57 +1,36 @@
+@import '../colors-style/colors-style.scss';
+@import '../type-style/type-style.scss';
+
 .extra-list {
-    & > * {
-        margin-top: 41px;
-        &:first-child {
-            margin-top: 0;
-        }
-    }
-    &__item {
-        position: relative;
+  min-width: 280px;
+  width: 100%;
+  min-height: fit-content;
+  &__item {
+    padding: 20px 0;
+    padding-left: 58px;
+    position: relative;
+    border-bottom: 1px solid $color-10per;
+  }
+}
 
-        margin-bottom: 17px;
-
-        font-family: $font-main-bold;
-        font-size: 14px;
-        line-height: 24px;
-        color: $color-75per;
-        &_name {
-            margin-left: 58px;
-        }
-        &_details {
-            margin-left: 58px;
-            font-family: $font-main;
-        }
-        &::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 1px;
-            left: 0;
-            top: 68px;
-            background: rgba(31, 32, 65, 0.1);
-        }
-        &::before {
-            content: '';
-            position: absolute;
-            width: 48px;
-            height: 48px;
-            left: 0;
-            top: 0;
-        }
-
-        &:nth-child(1)::before {
-            background: no-repeat center url('components/extra-list/insert_emoticon.png');
-        }
-        &:nth-child(2)::before {
-            background: no-repeat center url('components/extra-list/location_city.png');
-            background-position: 6px 4px;
-        }
-        &:nth-child(3)::before {
-            background: no-repeat center url('components/extra-list/whatshot.png');
-            background-position: 7px 1px;
-        }
-        &:nth-child(3)::after {
-            display: none;
-        }
-    }
+.extra-list-item {
+  &__title {
+    @include text('bold');
+  }
+  &__details {
+    @include text('rare_more');
+  }
+  &__icon {
+    position: absolute;
+    min-width: 48px;
+    min-height: 48px;
+    font-size: 48px;
+    line-height: 1;
+    top: 19px;
+    left: 0;
+    background: linear-gradient(180deg, $color-purple 0%, $color-purple-end 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: $color-purple;
+  }
 }

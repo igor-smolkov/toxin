@@ -57,37 +57,37 @@
 //   border: 1px solid red;
 }
 
-.form-elements {        
-    .others {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
+// .form-elements {        
+//     .others {
+//       display: flex;
+//       flex-direction: row;
+//       justify-content: space-between;
       
-        .extras {
-            flex-grow: 1;
-            .section {
-                max-width: 280px;
-                min-width: 266px;
-                width: 100%;
-            }
-        }
-        .comments {
-            align-self: center;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
+//         .extras {
+//             flex-grow: 1;
+//             .section {
+//                 max-width: 280px;
+//                 min-width: 266px;
+//                 width: 100%;
+//             }
+//         }
+//         .comments {
+//             align-self: center;
+//             flex-grow: 1;
+//             display: flex;
+//             flex-direction: column;
 
-            margin-bottom: 5px;
-            margin-left: 42px;
-            .section {
-                align-self: flex-end;
-                max-width: 711px;
-                min-width: 266px;
-                width: 100%;
-            }
-        }
-    }    
-}
+//             margin-bottom: 5px;
+//             margin-left: 42px;
+//             .section {
+//                 align-self: flex-end;
+//                 max-width: 711px;
+//                 min-width: 266px;
+//                 width: 100%;
+//             }
+//         }
+//     }    
+// }
 
 @media only screen and (max-width : 950px) {
     .form-elements {

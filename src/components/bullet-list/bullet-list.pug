@@ -11,7 +11,7 @@ mixin bullet-list(options)
 
   UL(
     id=options.id ? options.id : ""
-    class="bullet-list"
+    class=className
   )
     each item, index in options.items
       LI(

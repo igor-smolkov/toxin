@@ -1,0 +1,10 @@
+include ../../../../components/extra-list/extra-list.pug
+
+mixin extras 
+  +extra-list({ 
+    id: "extra-list",
+    items: [
+      { title: "Комфорт", details: "Шумопоглощающие стены", icon: "insert_emoticon" },
+      { title: "Удобство", details: "Окно в каждой из спален", icon: "location_city" },
+    ]
+  })
