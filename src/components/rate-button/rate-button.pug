@@ -2,7 +2,7 @@ include ../radio-group/radio-group.pug
 
 //-
   options.id
-  options.rate
+  options.value
 
 mixin rate-button(options)
   if !options
@@ -10,10 +10,10 @@ mixin rate-button(options)
   - options.isRate = true
   if !("value" in options)
     - options.value = 0
-  - set = []
-  - i = 0
+  - const set = []
+  - let i = 0
   while i <= 5
-    - set[i] = i <= options.value ? {checked: true} : {checked: false}
+    - set[i] = i <= options.value ? {isChecked: true} : {isChecked: false}
     - i = i + 1
   - options.options = set
   +radio-group(options)

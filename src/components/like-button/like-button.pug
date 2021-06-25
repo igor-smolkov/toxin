@@ -1,14 +1,12 @@
 include ../check-button/check-button.pug
 
 //-
-  options.checked
+  options.isChecked
   options.id
   options.name
   options.value
-  options.label
 
 mixin like-button(options)
-  - block = "like-button"
   if !options
     - options = {}
   - options.isLike = true

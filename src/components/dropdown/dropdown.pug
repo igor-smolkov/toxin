@@ -1,56 +1,126 @@
-include ../field/field.pug
+include ../text-field/text-field.pug
 include ../button/button.pug
 
-mixin dropdown(dropdown)
-  if dropdown.expanded
-    .dropdown.dropdown_expanded
-      case dropdown.mode
-        when 'date'
-          +field({ value: dropdown.value, type: 'date' })
-        when 'filter'
-          +field({ value: dropdown.value, disabled: true })
-        default
-          +field({ value: dropdown.value })
-      .dropdown__menu
-        ul.dropdown__list
-          each item, index in dropdown.list
-            li.dropdown__item
-              p.dropdown__item_name= item.name
-              .dropdown__item_counter
-                if item.count
-                  button.dropdown__item_btn= '-'
-                  p.dropdown__item_number= item.count
-                  button.dropdown__item_btn= '+'
-                else
-                  button.dropdown__item_btn.dropdown__item_btn_disabled(disabled=true)= '-'
-                  p.dropdown__item_number= '0'
-                  button.dropdown__item_btn= '+'
-        if dropdown.apply
-          if dropdown.clear
-            .dropdown__control.dropdown__control_clear
-              +button({ text: 'очистить', style: 'link', hover: true, className: 'dropdown__clear' })
-              +button({ text: 'применить', style: 'link', className: 'dropdown__apply' })
-          else
-            .dropdown__control
-              +button({ text: 'применить', style: 'link', className: 'dropdown__apply'  })
-  else
-    if dropdown.demo
-      .dropdown.dropdown_hover
-        case dropdown.mode
-          when 'date'
-            +field({ value: dropdown.value, type: 'date' })
-          when 'filter'
-            +field({ value: dropdown.value, disabled: true })
-          default
-            +field({ value: dropdown.value })
-    else
-      case dropdown.mode
-        when 'date'
-          .dropdown(class=`datepicker_btn` id=`datepicker_btn${dropdown.datepicker}`)
-            +field({ value: dropdown.value, type: 'date', id: `datepicker${dropdown.datepicker}_value${dropdown.valueID}`})
-        when 'filter'
-          .dropdown
-            +field({ value: dropdown.value, disabled: true })
-        default
-          .dropdown
-            +field({ value: dropdown.value })
+//-
+  options.id
+  options.value
+  options.list [{name, count}]
+  options.isExpanded
+  options.isFilter
+
+mixin dropdown(options)
+  - const className = "dropdown"
+  if !options
+    - options = {}
+  - fieldOptions = {
+  -   id: `${options.id}-field`,
+  -   name: options.name,
+  -   type: options.type,
+  -   value: options.value,
+  -   placeholder: options.placeholder,
+  -   isHovered: options.isHovered,
+  -   isFocused: options.isFocused,
+  -   isFilter: options.isFilter,
+  -   withBorder: false,
+  - }
+
+  DIV(
+    class=className
+    id=options.id
+    class=options.isExpanded ? `${className}_expanded` : ""
+  )
+    +text-field(fieldOptions)
+    INPUT(
+      class=`${className}__check`
+      id=`${options.id}-check`
+      type="checkbox"
+      checked=options.isExpanded ? true : false
+    )
+    LABEL(
+      class=`${className}__expand-more`
+      class="material-icons"
+      for=`${options.id}-check`
+    )
+    DIV(
+      class=`${className}__panel`
+    )
+      +dropdown-list(options.list)
+      if options.withControl
+        +dropdown-control(options.list, options.id)
+
+//- 
+
+mixin dropdown-list(list)
+  - const className = "dropdown-list"
+  if !list
+    - list = []
+
+  UL(
+    class=className
+  )
+    each item, index in list
+      LI(
+        class=`${className}__item`
+      )
+        +dropdown-item(item)
+
+//- 
+
+mixin dropdown-item(options)
+  - const className = "dropdown-item"
+  DIV(
+    class=className
+  )
+    P(
+      class=`${className}__name`
+    )=options.name
+    DIV(
+      class=`${className}__counter`
+    )
+      +dropdown-counter(options.count)
+
+//- 
+
+mixin dropdown-counter(count)
+  - const className = "dropdown-counter"
+  DIV(
+    class=className
+  )
+    BUTTON(
+      class=`${className}__element`
+      class=`${className}__button`
+      class=!count ? "dropdown-counter__button_disabled" : ""
+      disabled=!count ? true : false
+    )="-"
+    P(
+      class=`${className}__element`
+      class=`${className}__count`
+    )=count ? count : "0"
+    BUTTON(
+      class=`${className}__element`
+      class=`${className}__button`
+    )="+"
+
+//- 
+
+mixin dropdown-control(list, id)
+  - const className = "dropdown-control"
+  - let isClear = true
+  if list
+    each item in list
+      if item.count
+        if item.count !== 0
+          - isClear = false
+
+  DIV(
+    class=className
+  )
+    if !isClear
+      DIV(
+        class=`${className}__clear`
+      )
+        +button({ id: `${id}-clear`, caption: "Очистить", isWithArrow: false, isTextOnly: true })
+    DIV(
+      class=`${className}__apply`
+    )
+      +button({ id: `${id}-apply`, caption: "Применить", isWithArrow: false, isTextOnly: true })

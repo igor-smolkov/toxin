@@ -1,5 +1,5 @@
 //-
-  options.checked
+  options.isChecked
   options.id
   options.name
   options.value
@@ -9,7 +9,7 @@
   options.details
 
 mixin check-button(options)
-  - className = "check-button"
+  - let className = "check-button"
   if !options
     - options = {}
   else if options.isToggle 
@@ -19,21 +19,21 @@ mixin check-button(options)
 
   LABEL(
     class=className
-    class=options.checked ? `${className}_checked` : ""
+    class=options.isChecked ? `${className}_checked` : ""
     class=options.details ? `${className}_rich` : ""
   )
     INPUT(
       class=`${className}__box`
-      class=options.checked ? `${className}__box_checked` : ""
+      class=options.isChecked ? `${className}__box_checked` : ""
       id=options.id
       name=options.name ? options.name : options.id
       value=options.value ? options.value : options.id
       type="checkbox"
-      checked=options.checked ? true : false
+      checked=options.isChecked ? true : false
     )
     P(
       class=`${className}__label`
-      class=options.checked ? `${className}__label_checked` : ""
+      class=options.isChecked ? `${className}__label_checked` : ""
       class=!(options.isToggle || options.isLike) ? "text_light_middle" : ""
       class=!options.isLike ? "text_rare_less" : ""
       for=options.id

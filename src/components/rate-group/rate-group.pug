@@ -1,8 +1,0 @@
-mixin rate-group(rateGroup)
-  .rate-group
-    each rate, index in rateGroup.checks
-      if rate.checked
-        input.rate-group__input(type='radio' name=rateGroup.id id=`${rateGroup.id}_${index}` checked)
-      else
-        input.rate-group__input(type='radio' name=rateGroup.id id=`${rateGroup.id}_${index}`)
-      label.rate-group__label(for=`${rateGroup.id}_${index}`)

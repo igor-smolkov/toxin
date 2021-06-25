@@ -1,6 +1,8 @@
 @import '../colors-style/colors-style.scss';
 
-.toggle {
+$block: 'toggle';
+
+.#{$block} {
   display: block;
   max-width: 100%;
   min-width: 133px;
@@ -16,7 +18,7 @@
     height: 20px;
     z-index: -1;
     opacity: 0;
-    &:checked+.toggle__label {
+    &:checked+.#{$block}__label {
       &::before {
         border-color: $color-purple;
       }
@@ -25,7 +27,7 @@
         background: linear-gradient(180deg, $color-purple 0%, $color-purple-end 100%);
       }
     }
-    &:not(:checked)+.toggle__label {
+    &:not(:checked)+.#{$block}__label {
       &::before {
         border-color: $color-25per;
       }

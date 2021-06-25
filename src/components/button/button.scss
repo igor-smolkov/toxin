@@ -36,6 +36,11 @@ $block: 'button';
       top: 2px;
       left: 2px;
     }
+    &.#{$block}_hovered,
+    &:hover {
+      opacity: 1;
+      background: linear-gradient(180deg, rgba(188,156,255,0.5) 0%, rgba(139,164,249,0.5) 100%);
+    }
   }
   &_text_only {
     min-height: 15px;

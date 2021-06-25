@@ -1,3 +1,5 @@
+@import '../type-style/type-style.scss';
+
 $block: 'form-set';
 
 .#{$block} {
@@ -64,9 +66,10 @@ $block: 'form-set';
   }
 }
   
-.title-section {
+.set-title {
   width: 100%;
   &__details {
     float: right;
+    @include text('mod_details');
   }
 }

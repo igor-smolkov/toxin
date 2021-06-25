@@ -7,7 +7,7 @@
   options.isWithArrow
 
 mixin button(options)
-  - block = 'button'
+  - const className = "button"
   if !options
     - options = {}
   if !("isWithArrow" in options)
@@ -15,13 +15,13 @@ mixin button(options)
 
   BUTTON(
     id=options.id
-    class=block
-    class=options.isHovered ? `${block}_hovered` : ''
-    class=options.isBorderOnly ? `${block}_border_only` : ''
-    class=options.isTextOnly ? `${block}_text_only` : ''
-    class=options.isWithArrow ? `${block}_with_arrow` : ''
+    class=className
+    class=options.isHovered ? `${className}_hovered` : ''
+    class=options.isBorderOnly ? `${className}_border_only` : ''
+    class=options.isTextOnly ? `${className}_text_only` : ''
+    class=options.isWithArrow ? `${className}_with_arrow` : ''
     class='material-icons'
   )
     P(
-      class=`${block}__caption`
+      class=`${className}__caption`
     )=options.caption

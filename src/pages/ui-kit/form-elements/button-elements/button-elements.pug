@@ -9,13 +9,13 @@ include ../../../../components/pagination/pagination.pug
 
 mixin button-elements
   .button-elements
-    .button-elements__section.button-elements__section_first
+    SECTION.button-elements__section.button-elements__section_first
       +form-section
-        +form-set({ title: "Range Slider", details: "5 000₽ - 10 000₽", indented: true })
+        +form-set({ title: "Range Slider", details: "5 000₽ - 10 000₽", isIndented: true })
           +slider({ id: "range-slider", values: [0, 30.4, 63.5, 100] })
-    .button-elements__section
+    SECTION.button-elements__section
       +form-section
-        +form-set({ title: "Buttons", empty: true })
+        +form-set({ title: "Buttons", isEmpty: true })
           .form-set__elements-container
             .form-set__group.form-set__group_inlined
               .form-set__element.form-set__element_wided
@@ -34,8 +34,8 @@ mixin button-elements
                 +button({ id: "button-link-hover", caption: "click me", isWithArrow: false, isTextOnly: true, isHovered: true })
             .form-set__element.form-set__element_indent-in_buttons-top
               +button({ id: "button-with-arrow", caption: "перейти к оплате" })
-    .button-elements__section
+    SECTION.button-elements__section
       +form-section
-        +form-set({ title: "Pagination", indented: true })
+        +form-set({ title: "Pagination", isIndented: true })
           +pagination({ id: "pagination", lastPage: 15, description: '1 – 12 из 100+ вариантов аренды' })
     

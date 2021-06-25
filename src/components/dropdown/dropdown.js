@@ -1,141 +1,95 @@
-export default function() {
-    const dropdowns = document.querySelectorAll('.dropdown');
-    dropdowns.forEach(dropdown => {
-        dropdown.addEventListener('click', function(event){
-            if ((event.target.lastChild) && (event.target.lastChild.className === 'dropdown__menu')){
-                event.target.classList.toggle('dropdown_expanded');
-            }
-        });
+import './dropdown.scss'
 
-        const itemCounters = dropdown.querySelectorAll('.dropdown__item_counter');
-        itemCounters.forEach(itemCounter => {
-            itemCounter.firstChild.addEventListener('click', function(){
-                if (itemCounter.childNodes[1].innerHTML*1-1 > 0) {
-                    itemCounter.childNodes[1].innerHTML = itemCounter.childNodes[1].innerHTML*1-1;
-                    if (isGuest) {
-                        field.value = guestGrammar(itemCounters[0].childNodes[1].innerHTML*1+itemCounters[1].childNodes[1].innerHTML*1+itemCounters[2].childNodes[1].innerHTML*1+'');
-                    } else {
-                        field.value = guestGrammar(itemCounters[0].childNodes[1].innerHTML, itemCounters[0].previousSibling.innerHTML)+', '+
-                            guestGrammar(itemCounters[1].childNodes[1].innerHTML, itemCounters[1].previousSibling.innerHTML)+'...'
-                    }    
-                } else {
-                    itemCounter.childNodes[1].innerHTML = '0';
-                    itemCounter.firstChild.className = 'dropdown__item_btn dropdown__item_btn_disabled';
+class Counter {
+  constructor($elem) {
+    this._$elem = $elem;
 
-                    if(itemCounters[0].childNodes[1].innerHTML*1+itemCounters[1].childNodes[1].innerHTML*1+itemCounters[2].childNodes[1].innerHTML*1 === 0){
-                        field.value = '';
-                        field.placeholder = isGuest ? 'Сколько гостей' : '';
-                    } else {
-                        if (isGuest) {
-                            field.value = guestGrammar(itemCounters[0].childNodes[1].innerHTML*1+itemCounters[1].childNodes[1].innerHTML*1+itemCounters[2].childNodes[1].innerHTML*1+'');
-                        } else {
-                            field.value = guestGrammar(itemCounters[0].childNodes[1].innerHTML, itemCounters[0].previousSibling.innerHTML)+', '+
-                                guestGrammar(itemCounters[1].childNodes[1].innerHTML, itemCounters[1].previousSibling.innerHTML)+'...';
-                        }                        
-                    }
-                }
-            });
-            itemCounter.lastChild.addEventListener('click', function(){
-                if (itemCounter.childNodes[1].innerHTML*1 === 0) {
-                    itemCounter.firstChild.className = 'dropdown__item_btn';
-                    itemCounter.firstChild.disabled = false;
-                }
-                if (itemCounter.childNodes[1].innerHTML*1+1 < 100) {
-                    itemCounter.childNodes[1].innerHTML = itemCounter.childNodes[1].innerHTML*1+1;
-                    if (isGuest) {
-                        field.value = guestGrammar(itemCounters[0].childNodes[1].innerHTML*1+itemCounters[1].childNodes[1].innerHTML*1+itemCounters[2].childNodes[1].innerHTML*1+'');
-                    } else {
-                        field.value = guestGrammar(itemCounters[0].childNodes[1].innerHTML, itemCounters[0].previousSibling.innerHTML)+', '+
-                            guestGrammar(itemCounters[1].childNodes[1].innerHTML, itemCounters[1].previousSibling.innerHTML)+'...';
-                    }    
-                }
-            });
+    this._$minusButton = this._findMinusButton();
+    this._$plusButton = this._findPlusButton();
+    this._$countField = this._findCountField();
 
-            function guestGrammar(value, other) {
-                if (value[value.length-1].match(/0|[5-9]/g) || (value*1>10 && value*1<20)) {
-                    if (other == 'спальни') {
-                        value += ' спален'
-                    } else if (other == 'кровати') {
-                        value += ' кроватей'
-                    } else {
-                        value += ' гостей';
-                    }
-                } else if (value[value.length-1].match(/1/g)) {
-                    if (other == 'спальни') {
-                        value += ' спаленя'
-                    } else if (other == 'кровати') {
-                        value += ' кровать'
-                    } else {
-                        value += ' гость';
-                    }
-                } else {
-                    if (other == 'спальни') {
-                        value += ' спалени'
-                    } else if (other == 'кровати') {
-                        value += ' кровати'
-                    } else {
-                        value += ' гостя';
-                    }
-                }
-                return value;
-            }
-        })
+    this._count = +this._$countField.text();
 
-        const clearBtn = dropdown.querySelector('.dropdown__clear');
-        if (clearBtn) {
-            clearBtn.addEventListener('click', function(){
-                dropdown.firstChild.value = '';
-                dropdown.firstChild.placeholder = isGuest ? 'Сколько гостей' : '';
-                itemCounters.forEach(itemCounter => {
-                    itemCounter.childNodes[1].innerHTML = '0';
-                    itemCounter.firstChild.className = 'dropdown__item_btn dropdown__item_btn_disabled';
-                });
-            });
-        }
+    this._listenControls();
+  }
+  setCount(value) {
+    this._count = value;
+    this._updateCountField();
+    this.disabledMinusButton(this._count === 0);
+  }
+  getCount() {
+    return this.count
+  }
+  decrementCount() {
+    this.setCount(this._count-1);
+  }
+  incrementCount() {
+    this.setCount(this._count+1);
+  }
+  reset() {
+    this._count = 0;
+    this._updateCountField();
+    this.disabledMinusButton(true);
+  }
+  disabledMinusButton(isTrue = true) {
+    if (isTrue) {
+      this._$minusButton.toggleClass('dropdown-counter__button_disabled');
+    } else {
+      this._$minusButton.removeClass('dropdown-counter__button_disabled');
+    }
+    this._$minusButton.prop('disabled', isTrue);
+  }
 
-        const applyBtn = dropdown.querySelector('.dropdown__apply');
-        if (applyBtn) {
-            applyBtn.addEventListener('click', function(){
-                if (dropdown.lastChild.className === 'dropdown__menu'){
-                    dropdown.classList.toggle('dropdown_expanded');
-                }
-            });
-        }
-
-        const field = dropdown.querySelector('.field');
-        const isGuest = field.value.match(/гост/g) ? true : false;
-        field.addEventListener('input', function(event){
-            let value = 0;
-            if (event.target.value.match(/\d+/g)) {
-                value = event.target.value.match(/\d+/g);
-            } else {
-                itemCounters[0].childNodes[1].innerHTML = 0;
-                itemCounters[1].childNodes[1].innerHTML = 0;
-                itemCounters[2].childNodes[1].innerHTML = 0;
-            }
-            if (value[0] < 100) {
-                if (value[0]-itemCounters[1].childNodes[1].innerHTML*1+itemCounters[2].childNodes[1].innerHTML*1 > 0 ){
-                    itemCounters[0].childNodes[1].innerHTML = value[0]-itemCounters[1].childNodes[1].innerHTML*1+itemCounters[2].childNodes[1].innerHTML*1;
-                } else {
-                    itemCounters[0].childNodes[1].innerHTML = value[0];
-                    itemCounters[1].childNodes[1].innerHTML = 0;
-                    itemCounters[2].childNodes[1].innerHTML = 0;
-                }
-            }
-            if (value[1] < 100) {
-                itemCounters[0].childNodes[1].innerHTML = value[0];
-                if (value[1]-itemCounters[2].childNodes[1].innerHTML*1 > 0) {
-                    itemCounters[1].childNodes[1].innerHTML = value[1]-itemCounters[2].childNodes[1].innerHTML*1;
-                } else {
-                    itemCounters[1].childNodes[1].innerHTML = value[1];
-                    itemCounters[2].childNodes[1].innerHTML = 0;
-                }
-            }
-            if (value[2] < 100) {
-                itemCounters[0].childNodes[1].innerHTML = value[0];
-                itemCounters[1].childNodes[1].innerHTML = value[1];
-                itemCounters[2].childNodes[1].innerHTML = value[2];
-            }
-        });
-    });
+  _findMinusButton() {
+    return $(this._$elem.find('.dropdown-counter__button')[0]);
+  }
+  _findPlusButton() {
+    return $(this._$elem.find('.dropdown-counter__button')[1]);
+  }
+  _findCountField() {
+    return $(this._$elem.find('.dropdown-counter__count'));
+  }
+  _listenControls() {
+    this._$minusButton.on('click', (e) => this._handleMinusButtonClick(e));
+    this._$plusButton.on('click', (e) => this._handlePlusButtonClick(e));
+  } 
+  _handleMinusButtonClick(e) {
+    e.preventDefault();
+    this.decrementCount();
+  }
+  _handlePlusButtonClick(e) {
+    e.preventDefault();
+    this.incrementCount();
+  }
+  _updateCountField() {
+    this._$countField.text(this._count.toString());
+  }
 }
+
+class Dropdown {
+  constructor($elem) {
+    this._$elem = $elem;
+    this._id = this._$elem.attr('id');
+    this._counters = this._initCounters();
+    this._$clearButton = $(`#${this._id}-clear`);
+    this._$clearButton.on('click', (e) => this._handleClearButtonClick(e));
+  }
+  _initCounters() {
+    const counters = [];
+    this._$elem.find('.dropdown-counter').each((_, counter) => {
+      counters.push(new Counter($(counter)));
+    })
+    return counters;
+  }
+  _handleClearButtonClick(e) {
+    e.preventDefault();
+    this._resetCounters();
+  }
+  _resetCounters() {
+    this._counters.forEach(counter => {
+      counter.reset();
+    });
+  }
+}
+
+$('.dropdown').each((_, elem) => new Dropdown($(elem)));

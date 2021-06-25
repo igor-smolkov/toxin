@@ -1,12 +1,12 @@
 include ../../../../components/form-section/form-section.pug
 include ../../../../components/form-set/form-set.pug
-include ../../../../components/dropdown-field/dropdown-field.pug
+include ../../../../components/dropdown/dropdown.pug
 
 mixin dropdowns(param)
   if (param === "fullset")
     +form-section
       +form-set({ title: "Dropdown" })
-        +dropdown-field({ 
+        +dropdown({ 
           id: "dropdown-with-control", 
             value: "Сколько гостей", 
             isExpanded: true,
@@ -20,7 +20,7 @@ mixin dropdowns(param)
   else if (param === "fullset-example")
     +form-section
       +form-set({ title: "Dropdown" })
-        +dropdown-field({ 
+        +dropdown({ 
           id: "dropdown-with-control-example", 
             value: "3 гостя", 
             isExpanded: true,
@@ -36,11 +36,11 @@ mixin dropdowns(param)
       SECTION.dropdowns__section.dropdowns__section_first
         +form-section({ shortened: true })
           +form-set({ title: "Dropdown", details: "Default" })
-            +dropdown-field({ id: "dropdown-default-with-value", value: "2 спальни, 2 кровати..." })
+            +dropdown({ id: "dropdown-default-with-value", value: "2 спальни, 2 кровати..." })
       SECTION.dropdowns__section
         +form-section({ shortened: true })
           +form-set({ title: "Dropdown", details: "Expanded"  })
-            +dropdown-field({ 
+            +dropdown({ 
               id: "dropdown-expanded", 
               value: "2 спальни, 2 кровати...", 
               isExpanded: true,

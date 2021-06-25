@@ -1,7 +1,9 @@
 @import '../colors-style/colors-style.scss';
 @import '../type-style/type-style.scss';
 
-.radio-group {
+$block: 'radio-group';
+
+.#{$block} {
   max-width: 100%;
   min-width: 133px;
   width: 100%;
@@ -23,7 +25,7 @@
     height: 20px;
     z-index: -1;
     opacity: 0;
-    &:checked+.radio-group__label {
+    &:checked+.#{$block}__label {
       @include text('light_normal');
       &::before {
         border-color: $color-purple;
@@ -32,7 +34,7 @@
         display: block;
       }
     }
-    &:not(:checked)+.radio-group__label {
+    &:not(:checked)+.#{$block}__label {
       @include text('light_middle');
       &::before {
         border-color: $color-25per;
