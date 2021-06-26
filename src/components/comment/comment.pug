@@ -30,7 +30,7 @@ mixin comment(options)
         +like-button({
           id: "comment-like",
           value: options.likeValue ? options.likeValue : 0,
-          checked: options.isLiked,
+          isChecked: options.isLiked,
         })
     DIV(
       class=`${blockName}__texts`
