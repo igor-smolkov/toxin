@@ -10,22 +10,22 @@ include ../like-button/like-button.pug
   options.isLiked
 
 mixin comment(options)
-  - const className = "comment"
+  - const blockName = "comment"
   if !options
     - options = {}
 
   DIV(
-    class=className
+    class=blockName
   )
     DIV(
-      class=`${className}__imgs`
+      class=`${blockName}__imgs`
     )
       DIV(
-        class=`${className}__avatar`
+        class=`${blockName}__avatar`
       )
         +comment-avatar(options.avatar, options.username)
       DIV(
-        class=`${className}__like`
+        class=`${blockName}__like`
       )
         +like-button({
           id: "comment-like",
@@ -33,26 +33,26 @@ mixin comment(options)
           checked: options.isLiked,
         })
     DIV(
-      class=`${className}__texts`
+      class=`${blockName}__texts`
     )
       P(
-        class=`${className}__username`
+        class=`${blockName}__username`
       )=options.username
       P(
-        class=`${className}__datetime`
+        class=`${blockName}__datetime`
       )=options.datetime
       P(
-        class=`${className}__message`
+        class=`${blockName}__message`
       )=options.message
 
 mixin comment-avatar(src, alt)
-  - const className = "comment-avatar"
+  - const blockName = "comment-avatar"
 
   DIV(
-    class=className
+    class=blockName
   )
     IMG(
-      class=`${className}__img`
+      class=`${blockName}__img`
       src=src
       alt=alt
     )

@@ -6,7 +6,7 @@ include ./button-elements/button-elements.pug
 
 include ./dropdowns/dropdowns.pug
 include ./lists/lists.pug
-include ./extras/extras.pug
+include ./others/others.pug
 
 include ../../../components/logo/logo.pug
 
@@ -37,14 +37,14 @@ block content
       SECTION.form-elements__section.form-elements__section_margin_to-check-lists
         .form-elements-section
           ARTICLE.form-elements-section__column
-            +lists
+            +lists("expandable-checks")
           ARTICLE.form-elements-section__column.form-elements-section__column_shifted
-            +lists("rich-checks")
+            +others("rich-checks")
           ARTICLE.form-elements-section__column
             +lists("bullet")
       SECTION.form-elements__section.form-elements__section_margin_to-others
         .form-elements-section
           ARTICLE.form-elements-section__column.form-elements-section__column_shrunken
-            +extras
+            +lists("extra")
           ARTICLE.form-elements-section__column.form-elements-section__column_wide
-            +extras("comment")
+            +others("comment")

@@ -1,27 +1,35 @@
 include ../../../../components/form-section/form-section.pug
 include ../../../../components/form-set/form-set.pug
+
 include ../../../../components/expandable-checkbox-list/expandable-checkbox-list.pug
 include ../../../../components/bullet-list/bullet-list.pug
+include ../../../../components/extra-list/extra-list.pug
 
 mixin lists(param)
-  if (param === "rich-checks")
-    +form-section
-      +form-set({ title: "Rich Checkbox Buttons", grouped: true })
-        .form-set__element.form-set__element_indent-in_check-buttons
-          +check-button({ 
-            id: "rich-check-btn-1", 
-            label: "Широкий коридор",
-            details: "Ширина коридоров в номере не менее 91 см.",
-          })
-        .form-set__element.form-set__element_indent-in_check-buttons
-          +check-button({ 
-            id: "rich-check-btn-2", 
-            label: "Помощник для инвалидов",
-            details: "На 1 этаже вас встретит специалист и проводит до номера.",
-          })
+  if (param === "expandable-checks")
+    .lists
+      SECTION.lists__section.lists__section_first
+        +form-section({ isShortened: true })
+          +form-set({ title: "Expandable checkbox list", isMarginNone: true })
+            +expandable-checkbox-list({ id: "expandable-checkbox-list" })
+      SECTION.lists__section
+        +form-section({ isShortened: true })
+          +form-set({ title: "Expandable checkbox list", isMarginNone: true })
+            +expandable-checkbox-list({
+              id: "expandable-checkbox-list-expanded",
+              isExpanded: true,
+              list: [
+                {label: 'Завтрак'},
+                {label: 'Письменный стол', isChecked: true},
+                {label: 'Стул для кормления', isChecked: true},
+                {label: 'Кроватка', isChecked: true},
+                {label: 'Телевизор'},
+                {label: 'Шампунь'}
+              ]
+            })
   else if (param === "bullet")
     +form-section
-      +form-set({ title: "Bullet List", indented: true })
+      +form-set({ title: "Bullet List", isIndented: true })
         +bullet-list({ 
           id: "bullet-list",
           items: [
@@ -30,24 +38,13 @@ mixin lists(param)
             'Время прибытия — после 13:00, а выезд до 12:00',
           ]
         })
-  else
-    .lists
-      SECTION.lists__section.lists__section_first
-        +form-section({ shortened: true })
-          +form-set({ title: "Expandable checkbox list", marginNone: true })
-            +expandable-checkbox-list({ id: "expandable-checkbox-list" })
-      SECTION.lists__section
-        +form-section({ shortened: true })
-          +form-set({ title: "Expandable checkbox list", marginNone: true })
-            +expandable-checkbox-list({
-              id: "expandable-checkbox-list-expanded",
-              isExpanded: true,
-              list: [
-                {label: 'Завтрак'},
-                {label: 'Письменный стол', checked: true},
-                {label: 'Стул для кормления', checked: true},
-                {label: 'Кроватка', checked: true},
-                {label: 'Телевизор'},
-                {label: 'Шампунь'}
-              ]
-            })
+  else if (param === "extra")
+    +form-section
+      +extra-list({ 
+        id: "extra-list",
+        items: [
+          { title: "Комфорт", details: "Шумопоглощающие стены", icon: "insert_emoticon" },
+          { title: "Удобство", details: "Окно в каждой из спален", icon: "location_city" },
+        ]
+      })
+    

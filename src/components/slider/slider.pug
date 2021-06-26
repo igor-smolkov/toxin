@@ -3,18 +3,18 @@
   options.values
 
 mixin slider(options)
-  - const className = "slider"
+  - const blockName = "slider"
   if !options
     - options = {}
 
   DIV(
-    class=className
+    class=blockName
   )
     DIV(
-      class=`${className}__slot`
+      class=`${blockName}__slot`
     )
       DIV(
-        class=`${className}__root`
+        class=`${blockName}__root`
         id=options.id
         data-values=options.values
       )

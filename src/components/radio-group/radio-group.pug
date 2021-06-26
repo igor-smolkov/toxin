@@ -5,32 +5,32 @@
   options.isRate
 
 mixin radio-group(options)
-  - let className = "radio-group"
+  - let blockName = "radio-group"
   if !options
     - options = {}
   if options.isRate
-    - className = "rate-button"
+    - blockName = "rate-button"
   - const set = ('options' in options) ? options.options : []
 
   DIV(
-    class=className
+    class=blockName
     id=options.id
   )
     each option, index in set
       if options.isRate
-        +option(options, option, index, className)
+        +option(options, option, index, blockName)
       else
         DIV(
-          class=`${className}__option`
-          class=(index === 0) ? `${className}__option_first` : ""
+          class=`${blockName}__option`
+          class=(index === 0) ? `${blockName}__option_first` : ""
         )
-          +option(options, option, index, className)
+          +option(options, option, index, blockName)
 
 //- 
 
-mixin option(group, option, index, className)
+mixin option(group, option, index, blockName)
   INPUT(
-    class=`${className}__box`
+    class=`${blockName}__box`
     type="radio"
     id=`${group.id}_${index}`
     name=group.name ? group.name : group.id
@@ -39,9 +39,9 @@ mixin option(group, option, index, className)
   )
   LABEL(
     for=`${group.id}_${index}`
-    class=`${className}__label`
-    class=option.isChecked ? `${className}__label_checked` : ""
-    class=(index === 0) ? `${className}__label_first` : ""
-    class=(index === 1 && group.isRate) ? `${className}__label_second` : ""
+    class=`${blockName}__label`
+    class=option.isChecked ? `${blockName}__label_checked` : ""
+    class=(index === 0) ? `${blockName}__label_first` : ""
+    class=(index === 1 && group.isRate) ? `${blockName}__label_second` : ""
     class=!group.isRate ? "text_rare_less" : ""
   )=option.label

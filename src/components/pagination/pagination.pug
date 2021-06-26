@@ -4,29 +4,29 @@
   options.description
 
 mixin pagination(options)
-  - const className = "pagination"
+  - const blockName = "pagination"
   if !options
     - options = {}
 
   DIV(
-    class=className
+    class=blockName
   )
     DIV(
-      class=`${className}__items`
+      class=`${blockName}__items`
     )
       each value, index in ["1", "2", "3", "...", options.lastPage]
         BUTTON(
-          class=`${className}__item`
-          class=(index===0) ? `${className}__item_current` : ""
+          class=`${blockName}__item`
+          class=(index===0) ? `${blockName}__item_current` : ""
         )
           P(
-            class=`${className}__value`
+            class=`${blockName}__value`
           )=value
       BUTTON(
-        class=`${className}__item`
-        class=`${className}__item_next`
+        class=`${blockName}__item`
+        class=`${blockName}__item_next`
         class="material-icons"
       )="arrow_forward"
     P(
-      class=`${className}__description`
+      class=`${blockName}__description`
     )= options.description

@@ -34,11 +34,11 @@ mixin dropdowns(param)
   else
     .dropdowns
       SECTION.dropdowns__section.dropdowns__section_first
-        +form-section({ shortened: true })
+        +form-section({ isShortened: true })
           +form-set({ title: "Dropdown", details: "Default" })
             +dropdown({ id: "dropdown-default-with-value", value: "2 спальни, 2 кровати..." })
       SECTION.dropdowns__section
-        +form-section({ shortened: true })
+        +form-section({ isShortened: true })
           +form-set({ title: "Dropdown", details: "Expanded"  })
             +dropdown({ 
               id: "dropdown-expanded", 

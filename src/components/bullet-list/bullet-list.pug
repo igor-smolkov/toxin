@@ -3,7 +3,7 @@
   options.items
 
 mixin bullet-list(options)
-  - className = "bullet-list"
+  - const blockName = "bullet-list"
   if !options
     - options = {}
   if !options.items
@@ -11,10 +11,10 @@ mixin bullet-list(options)
 
   UL(
     id=options.id ? options.id : ""
-    class=className
+    class=blockName
   )
     each item, index in options.items
       LI(
-        class=`${className}__item`
-        class=(index===0) ? `${className}__item_first` :""
+        class=`${blockName}__item`
+        class=(index===0) ? `${blockName}__item_first` :""
       )=item

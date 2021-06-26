@@ -5,3 +5,4 @@ import '@comp/form-set/form-set'
 
 import '@comp/expandable-checkbox-list/expandable-checkbox-list'
 import '@comp/bullet-list/bullet-list'
+import '@comp/extra-list/extra-list';

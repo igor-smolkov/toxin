@@ -9,7 +9,7 @@ include ../button/button.pug
   options.isFilter
 
 mixin dropdown(options)
-  - const className = "dropdown"
+  - const blockName = "dropdown"
   if !options
     - options = {}
   - fieldOptions = {
@@ -25,24 +25,24 @@ mixin dropdown(options)
   - }
 
   DIV(
-    class=className
+    class=blockName
     id=options.id
-    class=options.isExpanded ? `${className}_expanded` : ""
+    class=options.isExpanded ? `${blockName}_expanded` : ""
   )
     +text-field(fieldOptions)
     INPUT(
-      class=`${className}__check`
+      class=`${blockName}__check`
       id=`${options.id}-check`
       type="checkbox"
       checked=options.isExpanded ? true : false
     )
     LABEL(
-      class=`${className}__expand-more`
+      class=`${blockName}__expand-more`
       class="material-icons"
       for=`${options.id}-check`
     )
     DIV(
-      class=`${className}__panel`
+      class=`${blockName}__panel`
     )
       +dropdown-list(options.list)
       if options.withControl
@@ -51,60 +51,60 @@ mixin dropdown(options)
 //- 
 
 mixin dropdown-list(list)
-  - const className = "dropdown-list"
+  - const blockName = "dropdown-list"
   if !list
     - list = []
 
   UL(
-    class=className
+    class=blockName
   )
     each item, index in list
       LI(
-        class=`${className}__item`
+        class=`${blockName}__item`
       )
         +dropdown-item(item)
 
 //- 
 
 mixin dropdown-item(options)
-  - const className = "dropdown-item"
+  - const blockName = "dropdown-item"
   DIV(
-    class=className
+    class=blockName
   )
     P(
-      class=`${className}__name`
+      class=`${blockName}__name`
     )=options.name
     DIV(
-      class=`${className}__counter`
+      class=`${blockName}__counter`
     )
       +dropdown-counter(options.count)
 
 //- 
 
 mixin dropdown-counter(count)
-  - const className = "dropdown-counter"
+  - const blockName = "dropdown-counter"
   DIV(
-    class=className
+    class=blockName
   )
     BUTTON(
-      class=`${className}__element`
-      class=`${className}__button`
+      class=`${blockName}__element`
+      class=`${blockName}__button`
       class=!count ? "dropdown-counter__button_disabled" : ""
       disabled=!count ? true : false
     )="-"
     P(
-      class=`${className}__element`
-      class=`${className}__count`
+      class=`${blockName}__element`
+      class=`${blockName}__count`
     )=count ? count : "0"
     BUTTON(
-      class=`${className}__element`
-      class=`${className}__button`
+      class=`${blockName}__element`
+      class=`${blockName}__button`
     )="+"
 
 //- 
 
 mixin dropdown-control(list, id)
-  - const className = "dropdown-control"
+  - const blockName = "dropdown-control"
   - let isClear = true
   if list
     each item in list
@@ -113,14 +113,14 @@ mixin dropdown-control(list, id)
           - isClear = false
 
   DIV(
-    class=className
+    class=blockName
   )
     if !isClear
       DIV(
-        class=`${className}__clear`
+        class=`${blockName}__clear`
       )
         +button({ id: `${id}-clear`, caption: "Очистить", isWithArrow: false, isTextOnly: true })
     DIV(
-      class=`${className}__apply`
+      class=`${blockName}__apply`
     )
       +button({ id: `${id}-apply`, caption: "Применить", isWithArrow: false, isTextOnly: true })

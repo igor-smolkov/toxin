@@ -5,19 +5,19 @@
   options.isGrouped
   options.isInlined
   options.isIndented
-  options.marginNone
+  options.isMarginNone
 
 mixin form-set(options)
-  - const className = "form-set"
+  - const blockName = "form-set"
   if !options
     - options = {}
 
   FIELDSET(
-    class=className
+    class=blockName
   )
     if options.title 
       LEGEND(
-        class=`${className}__title`
+        class=`${blockName}__title`
       )
         H3.set-title=options.title
           if options.details
@@ -27,12 +27,12 @@ mixin form-set(options)
     else if options.isGrouped
       .form-set__group(
         class=options.isInlined ? 'form-set__group_inlined' :''
-        class=options.marginNone ? 'form-set__group_margin_none' :''
+        class=options.isMarginNone ? 'form-set__group_margin_none' :''
       )
         block
     else
       .form-set__element(
         class=options.isIndented ? 'form-set__element_indented' :''
-        class=options.marginNone ? 'form-set__element_margin_none' :''
+        class=options.isMarginNone ? 'form-set__element_margin_none' :''
       )
         block
