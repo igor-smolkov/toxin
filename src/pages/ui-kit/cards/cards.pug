@@ -1,7 +1,7 @@
 extends ../../../layout
 
 include ../../../components/logo/logo.pug
-include ../../../components/card/card.pug
+//- include ../../../components/card/card.pug
 
 block variables
   - var title = 'TOXIN - UI kit'
@@ -10,18 +10,18 @@ block variables
 block content
   +logo
   .cards
-    +card('wishes')
-    +card('check-in')
-    +card('room')
-    +card('log-in')
-    .calendar_demo
-      +card('calendar')
-    +card('room-rate')
-    +card({
-      type: 'room-rate',
-      pic: { src: '../images/room_840.png', alt: '№840' },
-      number: '840',
-      price: '9 900₽',
-      rate: 4,
-      review: '65'
-    })
+    //- +card('wishes')
+    //- +card('check-in')
+    //- +card('room')
+    //- +card('log-in')
+    //- .calendar_demo
+    //-   +card('calendar')
+    //- +card('room-rate')
+    //- +card({
+    //-   type: 'room-rate',
+    //-   pic: { src: '../images/room_840.png', alt: '№840' },
+    //-   number: '840',
+    //-   price: '9 900₽',
+    //-   rate: 4,
+    //-   review: '65'
+    //- })

@@ -21,7 +21,7 @@ const fontsDir = 'fonts'
 
 const pagesDir = 'pages'
 const pages = [
-    { 'ui-kit' : ['colors-and-type', 'form-elements'] }, 
+    { 'ui-kit' : ['colors-and-type', 'form-elements', 'cards'] }, 
     // { 'ui-kit' : ['colors-and-type', 'form-elements', 'cards', 'headers-and-footers'] }, 
     // { 'website' : ['registration', 'sign-in', 'room-details', 'search-room-1', 'search-room-2', 'search-room-3', 'landing-page-1', 'landing-page-2', 'landing-page-3'] }
 ]
@@ -112,6 +112,7 @@ module.exports = {
         main: `./${entryPoint}`,
         ['colors-and-type']: './pages/ui-kit/colors-and-type/colors-and-type.js',
         ['form-elements']: './pages/ui-kit/form-elements/form-elements.js',
+        ['cards']: './pages/ui-kit/cards/cards.js',
     }, //входная точка сборки
     output: {
         filename: filename('js'), //выходной файл приложения
