@@ -31,8 +31,17 @@ $block: 'form-set';
   &__element {
     margin-top: 5px;
     
+    &_growed {
+      flex-grow: 1;
+    }
+    &_align-mid {
+      align-self: center;
+    }
     &_indented {
       margin-top: 17px;
+    }
+    &_indent-mid {
+      margin-top: 10px;
     }
     &_indent-in {
       &_check-buttons {

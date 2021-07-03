@@ -21,6 +21,7 @@ $block: 'button';
     opacity: 0.5;
   }
   &_border_only {
+    min-width: 99px;
     .#{$block}__caption {
       color: $color-purple;
       display: flex;

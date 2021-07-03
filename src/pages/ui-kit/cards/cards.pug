@@ -1,15 +1,23 @@
 extends ../../../layout
 
 include ../../../components/logo/logo.pug
-//- include ../../../components/card/card.pug
+include ../../../components/card/card.pug
 
 block variables
-  - var title = 'TOXIN - UI kit'
-  - var page = 'page_cards'
+  - const title = "TOXIN - UI kit"
+  - const page = "page_gray"
 
 block content
-  +logo
-  .cards
+  HEADER.page__header
+    +logo
+  MAIN.page__main
+    .cards
+      ARTICLE.cards__unit
+        +card("wishes")
+      ARTICLE.cards__unit
+        +card("check-in")
+      ARTICLE.cards__unit
+        +card("room")
     //- +card('wishes')
     //- +card('check-in')
     //- +card('room')

@@ -1,5 +1,7 @@
 import './dropdown.scss'
 
+import '@comp/text-field/text-field'
+
 class Counter {
   constructor($elem) {
     this._$elem = $elem;
