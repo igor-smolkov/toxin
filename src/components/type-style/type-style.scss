@@ -5,6 +5,7 @@
   font-size: 14px;
   line-height: 1.714;
   font-family: 'Montserrat', sans-serif;
+  font-weight: normal;
   color: $color-75per;
 }
 
@@ -92,6 +93,11 @@ h3 {
     font-size: 1.22rem;
     font-weight: normal;
     color: $color-50per;
+  }
+  @if $mod == 'mod_info-button' {
+    @include h3-type;
+    text-transform: lowercase;
+    color: $color-25per;
   }
   @if $mod == 'white' {
     color: white;

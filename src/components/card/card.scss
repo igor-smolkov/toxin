@@ -7,9 +7,13 @@
 //     transform: scale(1.085, 1) translate(12px);
 // }
 
+@import '../colors-style/colors-style.scss';
+@import '../type-style/type-style.scss';
+
 .card {
   min-height: 257px;
   max-width: 380px;
+  width: 100%;
 
   padding-top: 39px;
   padding: 29px;
@@ -21,22 +25,111 @@
   background-color: white;
 
   &__title {
-    padding: 10px 0;
+    margin-top: 10px;
   }
   &__form {
-    margin-top: 12px;
+    margin-top: 21px;
   }
 }
 
-.form {
+.card-title {
+  display: flex;
+  align-items: baseline;
+  &__main {
+    flex-grow: 1;
+  }
+  &__details {
+    margin-left: 20px;
+  }
+}
+
+.card-title-main {
+  &__prefix {
+    @include base-h-type;
+  }
+  &__content {
+    padding-left: 4px;
+  }
+  &__postfix {
+    padding-left: 8px;
+    @include h3-type;
+    color: $color-purple;
+  }
+}
+
+.card-title-details {
+  @include base-h-type;
+  color: $color-50per;
+  &__second {
+    padding-left: 4px;
+    @include base-type;
+    @include text('small')
+  }
+}
+
+.card-form {
   &__section {
-    margin-top: 21px;
+    margin-top: 20px;
+    &_rare_more {
+      margin-top: 24px;
+    }
     &_first {
       margin-top: 0;
     }
     &_last {
-      margin-top: 31px;
+      margin-top: 30px;
     }
+  }
+}
+
+.bill {
+  padding-left: 1px;
+  &__item {
+    margin-top: 11px;
+    &_first {
+      margin-top: 0;
+    }
+  }
+  &__total {
+    margin-top: 31px;
+  }
+}
+
+.bill-item {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  &__name {
+    flex-grow: 1;
+    max-width: 239px;
+    display: flex;
+    justify-content: space-between;
+    @include text('rare_less');
+    &_with_line {
+      overflow: hidden;
+      &::after {
+        content: '';
+        position: relative;
+        min-width: 100%;
+        min-height: 1px;
+        left: 4px;
+        top: -5px;
+        border-bottom: 1px dotted $color-25per;
+      }
+    }
+  }
+  &__info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 20px;
+    min-height: 20px;
+    max-width: 20px;
+    max-height: 20px;
+    border: 1px solid $color-25per;
+    border-radius: 10px;
+    @include text("mod_info-button");
+    background-color: white;
   }
 }
 

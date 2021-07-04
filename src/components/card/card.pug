@@ -24,20 +24,76 @@ mixin card(type)
   DIV(class=blockName)
     case type
       when "wishes"
-        H1(class=`${blockName}__title`)="Найдём номера под ваши пожелания"
-        FORM(class=`${blockName}__form`)
-          +form-for-wishes
+        H1(class=`${blockName}__title`)
+          +card-title("Найдём номера под ваши пожелания")
+        FORM(class=`${blockName}__form` id="form-wishes")
+          +card-form-for-wishes
       when "check-in"
-        H1(class=`${blockName}__title`)="Регистрация аккаунта"
-        FORM(class=`${blockName}__form`)
-          +form-for-check-in
+        H1(class=`${blockName}__title`)
+          +card-title("Регистрация аккаунта")
+        FORM(class=`${blockName}__form` id="form-check-in")
+          +card-form-for-check-in
       when "room"
-        H1(class=`${blockName}__title`)="№888"
-        FORM(class=`${blockName}__form`)
-          +form-for-room
+        H1(class=`${blockName}__title`)
+          +card-title({
+            main: { prefix: "№", content: "888", postfix: "Люкс" },
+            details: { first: "9 990₽", second: "в сутки" }
+          })
+        FORM(class=`${blockName}__form` id="form-room")
+          +card-form-for-room
+      when "log-in"
+        H1(class=`${blockName}__title`)
+          +card-title("Войти")
+        FORM(class=`${blockName}__form` id="log-check-in")
+          +card-form-for-log-in
 
-mixin form-for-wishes
-  - const blockName = "form"
+//- 
+
+mixin card-title(options)
+  - const blockName = "card-title"
+  if !options
+    - options = {}
+  
+  if (typeof options) === "string"
+    DIV(class=blockName)=options
+  else
+    DIV(class=blockName)
+      DIV(class=`${blockName}__main`)
+        +card-title-main(options.main)
+      if (options.details)
+        DIV(class=`${blockName}__details`)
+          +card-title-details(options.details)
+
+//- 
+
+mixin card-title-main(options)
+  - const blockName = "card-title-main"
+  if !options
+    - options = {}
+
+  DIV(class=blockName)
+    if options.prefix
+      SPAN(class=`${blockName}__prefix`)=options.prefix
+    SPAN(class=`${blockName}__content`)=options.content
+    if options.postfix
+      SPAN(class=`${blockName}__postfix`)=options.postfix
+
+//- 
+
+mixin card-title-details(options)
+  - const blockName = "card-title-details"
+  if !options
+    - options = {}
+
+  DIV(class=blockName)
+    SPAN(class=`${blockName}__first`)=options.first
+    if options.second
+      SPAN(class=`${blockName}__second`)=options.second
+
+//- 
+
+mixin card-form-for-wishes
+  - const blockName = "card-form"
   DIV(class=blockName)
     SECTION(
       class=`${blockName}__section`
@@ -61,8 +117,10 @@ mixin form-for-wishes
       +form-section
         +button({ id: "button-choose-number", caption: "Подобрать номер" })
 
-mixin form-for-check-in
-  - const blockName = "form"
+//- 
+
+mixin card-form-for-check-in
+  - const blockName = "card-form"
   DIV(class=blockName)
     SECTION(
       class=`${blockName}__section`
@@ -82,7 +140,10 @@ mixin form-for-check-in
                 {label: "Женщина"},
               ],
             })
-    SECTION(class=`${blockName}__section`)
+    SECTION(
+      class=`${blockName}__section`
+      class=`${blockName}__section_rare_more`
+    )
       +form-section
         +form-set({ title: "Дата рождения" })
           +text-field({
@@ -99,7 +160,10 @@ mixin form-for-check-in
             +text-field({ id: "text-field-password", placeholder: "Пароль" })
           .form-set__element.form-set__element_indent-mid
             +toggle({ id: "toggle-special", label: "Получать спецпредложения" })
-    SECTION(class=`${blockName}__section`)
+    SECTION(
+      class=`${blockName}__section`
+      class=`${blockName}__section_rare_more`
+    )
       +form-section
         +button({ id: "button-pay", caption: "Перейти к оплате" })
     SECTION(
@@ -113,13 +177,105 @@ mixin form-for-check-in
           .form-set__element
             +button({ id: "button-in", caption: "Войти", isWithArrow: false, isBorderOnly: true })
 
-mixin form-for-room 
-  - const blockName = "form"
+//- 
+
+mixin card-form-for-log-in
+  - const blockName = "card-form"
   DIV(class=blockName)
     SECTION(
       class=`${blockName}__section`
       class=`${blockName}__section_first`
     )
+      +form-section
+        +form-set({ isGrouped: true, isMarginNone: true })
+          .form-set__element.form-set__element_margin_none
+            +text-field({ id: "text-field-email-in", placeholder: "Email" })
+          .form-set__element.form-set__element_indent-mid
+            +text-field({ id: "text-field-password-in", placeholder: "Пароль" })
+    SECTION(class=`${blockName}__section`)
+      +form-section
+        +button({ id: "button-log-in", caption: "Войти" })
+    SECTION(
+      class=`${blockName}__section`
+      class=`${blockName}__section_last`
+    )
+      +form-section
+        +form-set({ isInlined: true, isGrouped: true, isMarginNone: true })
+          .form-set__element.form-set__element_align-mid.form-set__element_growed
+            DIV(class=`${blockName}__question`)="Нет аккаунта на Toxin?"
+          .form-set__element
+            +button({ id: "button-reg", caption: "Создать", isWithArrow: false, isBorderOnly: true })
+
+//- 
+
+mixin card-form-for-room 
+  - const blockName = "card-form"
+  DIV(class=blockName)
+    SECTION(
+      class=`${blockName}__section`
+      class=`${blockName}__section_first`
+    )
+      +form-section({ isPaired: true })
+        .form-section__set.form-section__set_first
+          +form-set({ title: "Прибытие" })
+            +dropdown({ id: "date-arrival-room", type: "date", value: '2019-08-19' })
+        .form-section__set
+          +form-set({ title: "Выезд" })
+            +dropdown({ id: "date-departure-room", type: "date", value: '2019-08-23' })
+    SECTION(class=`${blockName}__section`)
+      +form-section
+        +form-set({ title: "Гости" })
+          +dropdown({ id: "dropdown-guests-room", value: "3 гостя" })
+    SECTION(class=`${blockName}__section`)
+      +form-section 
+        +bill({
+          list: [
+            { name: "9 990₽ х 4 суток", price: "39 960₽" },
+            { name: "Сбор за услуги: скидка 2 179₽", price: "0₽", withInfo: true },
+            { name: "Сбор за дополнительные услуги", price: "300₽", withInfo: true },
+          ],
+          total: "38 081₽",
+        })
+    SECTION(class=`${blockName}__section`)
+      +form-section
+        +button({ id: "button-book", caption: "Забронировать" })
+
+//- 
+
+mixin bill(options)
+  - const blockName = "bill"
+  if !options
+    - options = {}
+  - const list = options.list ? options.list : []
+
+  DIV(class=blockName)
+    UL(class=`${blockName}__list`)
+      each item, index in list
+        LI(
+          class=`${blockName}__item`
+          class=(index===0) ? `${blockName}__item_first` : ""
+        )
+          +bill-item(item)
+    H2(class=`${blockName}__total`)
+      +bill-item({ name: "Итого", price: options.total, withLine: true })
+    
+//- 
+
+mixin bill-item(options)
+  - const blockName = "bill-item"
+  if !options
+    - options = {}
+  
+  DIV(class=blockName)
+    DIV(
+      class=`${blockName}__name`
+      class=options.withLine ? `${blockName}__name_with_line` : ""
+    )=options.name
+      if options.withInfo
+        BUTTON(class=`${blockName}__info`)="i"
+    DIV(class=`${blockName}__price`)=options.price
+
+//-
 
 //- mixin card(card)
 //-   if card.type
