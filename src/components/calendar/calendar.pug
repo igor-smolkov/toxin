@@ -1,8 +1,20 @@
 include ../button/button.pug
 
-mixin calendar(id)
-  .calendar
-    .datepicker(id=`datepicker${id}`)
-    .calendar__control
-      +button({ id:`calendar__clear_${id}`, text: 'очистить', style: 'link', hover: true })
-      +button({ id:`calendar__apply_${id}`, text: 'применить', style: 'link' })
+mixin calendar(options)
+  - const blockName = "calendar"
+  if !options
+    - options = {}
+  
+  DIV(
+    class=blockName
+    data-from=options.from
+    data-to=options.to
+  )
+    DIV(class=`${blockName}__plugin`)
+
+//- mixin calendar(id)
+//-   .calendar
+//-     .datepicker(id=`datepicker${id}`)
+//-     .calendar__control
+//-       +button({ id:`calendar__clear_${id}`, text: 'очистить', style: 'link', hover: true })
+//-       +button({ id:`calendar__apply_${id}`, text: 'применить', style: 'link' })

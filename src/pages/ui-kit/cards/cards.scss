@@ -21,14 +21,15 @@
 .cards {
   display: flex;
   flex-flow: column wrap;
-  // align-content: flex-start;
-  align-content: stretch;
+  align-content: flex-start;
   height: 1140px;
   margin-left: -40px;
   margin-top: -40px;
   &__unit {
     margin-left: 40px;
     margin-top: 40px;
+    max-width: 380px;
+    width: 100%;
   }
 }
 

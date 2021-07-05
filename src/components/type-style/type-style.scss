@@ -58,6 +58,9 @@ h3 {
   @if $mod == 'bold' {
     font-weight: bold;
   }
+  @if $mod == 'capitalize' {
+    text-transform: capitalize;
+  }
   @if $mod == 'small' {
     font-size: 0.857rem;
   }
@@ -84,6 +87,11 @@ h3 {
     font-size: 0.65rem;
   }
   @if $mod == 'mod_pagination' {
+    @include h3-type;
+    font-weight: normal;
+    color: $color-50per;
+  }
+  @if $mod == 'mod_number' {
     @include h3-type;
     font-weight: normal;
     color: $color-50per;
@@ -123,4 +131,29 @@ h3 {
       @include text('mod_like');
     }
   }
+}
+
+@mixin icon-type {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
 }

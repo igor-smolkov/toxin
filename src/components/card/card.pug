@@ -18,10 +18,15 @@ include ../button/button.pug
 include ../radio-group/radio-group.pug
 include ../toggle/toggle.pug
 
+include ../calendar/calendar.pug
+
 mixin card(type)
   - const blockName = "card"
 
-  DIV(class=blockName)
+  DIV(
+    class=blockName
+    class=(type==="calendar") ? `${blockName}_small` : ""
+  )
     case type
       when "wishes"
         H1(class=`${blockName}__title`)
@@ -46,6 +51,13 @@ mixin card(type)
           +card-title("Войти")
         FORM(class=`${blockName}__form` id="log-check-in")
           +card-form-for-log-in
+      when "calendar"
+        FORM(
+          class=`${blockName}__form`
+          class=`${blockName}__form_margin_none` 
+          id="calendar"
+        )
+          +card-form-for-calendar
 
 //- 
 
@@ -218,10 +230,10 @@ mixin card-form-for-room
       +form-section({ isPaired: true })
         .form-section__set.form-section__set_first
           +form-set({ title: "Прибытие" })
-            +dropdown({ id: "date-arrival-room", type: "date", value: '2019-08-19' })
+            +dropdown({ id: "date-arrival-room", type: "date", value: "2019-08-19" })
         .form-section__set
           +form-set({ title: "Выезд" })
-            +dropdown({ id: "date-departure-room", type: "date", value: '2019-08-23' })
+            +dropdown({ id: "date-departure-room", type: "date", value: "2019-08-23" })
     SECTION(class=`${blockName}__section`)
       +form-section
         +form-set({ title: "Гости" })
@@ -240,6 +252,17 @@ mixin card-form-for-room
       +form-section
         +button({ id: "button-book", caption: "Забронировать" })
 
+//- 
+
+mixin card-form-for-calendar
+  - const blockName = "card-form"
+  DIV(class=blockName)
+    +calendar({ 
+      id:"calendar-card", 
+      from: "2019-08-19", 
+      to: "2019-08-23",
+    })
+  
 //- 
 
 mixin bill(options)

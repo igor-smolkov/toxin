@@ -24,11 +24,18 @@
 
   background-color: white;
 
+  &_small {
+    max-width: 320px;
+    padding: 20px;
+  }
   &__title {
     margin-top: 10px;
   }
   &__form {
     margin-top: 21px;
+    &_margin_none {
+      margin: 0;
+    }
   }
 }
 
