@@ -1,14 +1,60 @@
-mixin preview(pushClass, room, demo)
-  .preview(class=pushClass)
-    img.preview__pic(src=room.src, alt=room.alt)
-    if demo
-      button.preview__change.preview__change_hover
-      button.preview__change.preview__change_next.preview__change_hover
-    else
-      button.preview__change
-      button.preview__change.preview__change_next
-    .preview__rooms
-      button.preview__rooms_item.preview__rooms_item_checked
-      button.preview__rooms_item
-      button.preview__rooms_item
-      button.preview__rooms_item
+mixin preview(options)
+  - const blockName = "preview"
+  if !options
+    - options = {}
+  - const imgs = options.imgs ? options.imgs : []
+  - const selected = options.selected ? options.selected : 0
+  
+  DIV(class=blockName)
+    DATALIST(
+      class=`${blockName}__data`
+      id=options.id
+    )
+      each img in imgs
+        OPTION(value=img)
+    IMG(
+      class=`${blockName}__img`
+      src=options.imgs[selected]
+    )
+    DIV(class=`${blockName}__arrows`)
+      BUTTON(
+        class=`${blockName}__arrow`
+        class=`${blockName}__arrow_prev`
+        class="material-icons"
+      )
+      BUTTON(
+        class=`${blockName}__arrow`
+        class=`${blockName}__arrow_next`
+        class="material-icons"
+      )
+    DIV(class=`${blockName}__radio-group`)
+      each img, index in imgs
+        INPUT(
+          class=`${blockName}__radio-input`
+          id=`${blockName}__radio-input-${index}`
+          type="radio"
+          name=`${options.id}-radio`
+          value=img
+          checked=(index===selected) ? true : false
+        )
+        LABEL(
+          class=`${blockName}__radio-label`
+          class=(index===selected) ? `${blockName}__radio-label_checked` : ""
+          for=`${blockName}__radio-input-${index}`
+        )
+      
+
+//- mixin preview(pushClass, room, demo)
+//-   .preview(class=pushClass)
+//-     img.preview__pic(src=room.src, alt=room.alt)
+//-     if demo
+//-       button.preview__change.preview__change_hover
+//-       button.preview__change.preview__change_next.preview__change_hover
+//-     else
+//-       button.preview__change
+//-       button.preview__change.preview__change_next
+//-     .preview__rooms
+//-       button.preview__rooms_item.preview__rooms_item_checked
+//-       button.preview__rooms_item
+//-       button.preview__rooms_item
+//-       button.preview__rooms_item

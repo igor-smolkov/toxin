@@ -1,49 +1,136 @@
-.preview {
-    overflow: hidden;
-    &__change {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 44px;
-        height: 100%;
-        background: none;
-        background: no-repeat center url('components/preview/preview__prev.png'), linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 99.99%, rgba(255, 255, 255, 0) 100%);
-        opacity: 0;
-        &:hover,
-        &_hover {
-            opacity: 1;
-        }
-        &_next {
-            left: auto;
-            right: 0;
-            transform: matrix(-1, 0, 0, 1, 0, 0);
-        }
+$block: 'preview';
+
+.#{$block} {
+  max-width: 270px;
+  max-height: 151px;
+  overflow: hidden;
+  position: relative;
+  &__arrows {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  &__arrow {
+    flex-grow: 1;
+    max-width: 42px;
+    background: transparent;
+    position: relative;
+    &::before {
+      content: 'chevron_left';
+      position: absolute;
+      top: 0;
+      left: 0;
+      max-width: 42px;
+      width: 100%;
+      min-height: 100%;
+      background: linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 99.99%, rgba(255, 255, 255, 0) 100%);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 22px;
     }
-    &__rooms {
-        position: absolute;
-        top: 124px;
-        right: 10px;
-        width: 45px;
-        height: 10px;
-        &_item {
-            width: 7px;
-            height: 7px;
-            border-radius: 3.5px;
-            border: 1px solid white;
-            background: none;
-            margin-left: 4px;
-            &:first-child {
-                margin-left: 0;
-            }
-            &_checked {
-                background-color: white;
-            }
-        }
+    &_next::before {
+      content: 'chevron_right';
+      left: auto;
+      right: 0;
+      background: linear-gradient(-90deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 99.99%, rgba(255, 255, 255, 0) 100%);
     }
-    &__pic {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
+  }
+  &__radio-group {
+    display: flex;
+    min-width: 41px;
+    max-width: 41px;
+    min-height: 7px;
+    max-height: 7px;
+    position: absolute;
+    bottom: 14px;
+    right: 15px;
+  }
+  &__radio-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    max-height: 1px;
+    max-width: 1px;
+    height: 1px;
+    width: 1px;
+    z-index: -1;
+    opacity: 0;
+    &:checked+.#{$block}__radio-label {
+      background-color: white;
     }
+    &:not(:checked)+.#{$block}__radio-label {
+      background: none;
+    }
+  }
+  &__radio-label {
+    display: block;
+    min-width: 7px;
+    min-height: 7px;
+    max-width: 7px;
+    max-height: 7px;
+    width: 7px;
+    height: 7px;
+    border-radius: 3.5px;
+    border: 1px solid white;
+    margin-left: 4px;
+    cursor: pointer;
+    &_checked {
+      background-color: white;
+    }
+  }
 }
+// .preview {
+//     overflow: hidden;
+//     &__change {
+//         position: absolute;
+//         top: 0;
+//         left: 0;
+//         width: 44px;
+//         height: 100%;
+//         background: none;
+//         background: no-repeat center url('components/preview/preview__prev.png'), linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 99.99%, rgba(255, 255, 255, 0) 100%);
+//         opacity: 0;
+//         &:hover,
+//         &_hover {
+//             opacity: 1;
+//         }
+//         &_next {
+//             left: auto;
+//             right: 0;
+//             transform: matrix(-1, 0, 0, 1, 0, 0);
+//         }
+//     }
+//     &__rooms {
+//         position: absolute;
+//         top: 124px;
+//         right: 10px;
+//         width: 45px;
+//         height: 10px;
+//         &_item {
+//             width: 7px;
+//             height: 7px;
+//             border-radius: 3.5px;
+//             border: 1px solid white;
+//             background: none;
+//             margin-left: 4px;
+//             &:first-child {
+//                 margin-left: 0;
+//             }
+//             &_checked {
+//                 background-color: white;
+//             }
+//         }
+//     }
+//     &__pic {
+//         position: absolute;
+//         top: 0;
+//         left: 0;
+//         width: 100%;
+//     }
+// }

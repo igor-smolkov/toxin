@@ -17,15 +17,17 @@ include ../dropdown/dropdown.pug
 include ../button/button.pug
 include ../radio-group/radio-group.pug
 include ../toggle/toggle.pug
-
 include ../calendar/calendar.pug
+
+include ../preview/preview.pug
 
 mixin card(type)
   - const blockName = "card"
 
   DIV(
     class=blockName
-    class=(type==="calendar") ? `${blockName}_small` : ""
+    class=type==="calendar" ? `${blockName}_medium` : ""
+    class=type==="room-rate" ? `${blockName}_small` : ""
   )
     case type
       when "wishes"
@@ -58,6 +60,32 @@ mixin card(type)
           id="calendar"
         )
           +card-form-for-calendar
+      when "room-rate"
+        HEADER(class=`${blockName}__header`)
+          +preview({ 
+            id: "preview",
+            imgs: [
+              "../images/room_888.png",
+              "../images/room_350.png",
+              "../images/room_352.png",
+              "../images/room_444.png",
+            ],
+            isHovered: true, 
+          })
+        SECTION(class=`${blockName}__body`)
+          H2(
+            class=`${blockName}__title`
+            class=`${blockName}__title_margin_none`
+          )
+            +card-title({
+              main: { prefix: "№", content: "888", postfix: "Люкс" },
+              details: { first: "9 990₽", second: "в сутки" }
+            })
+          FORM(
+            class=`${blockName}__form`
+            class=`${blockName}__form_margin_none` 
+            id="room-rate"
+          )
 
 //- 
 
