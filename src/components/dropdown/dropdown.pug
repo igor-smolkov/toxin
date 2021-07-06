@@ -1,5 +1,6 @@
 include ../text-field/text-field.pug
 include ../button/button.pug
+include ../dropdown-control/dropdown-control.pug
 
 //-
   options.id
@@ -41,12 +42,32 @@ mixin dropdown(options)
       class="material-icons"
       for=`${options.id}-check`
     )
-    DIV(
-      class=`${blockName}__panel`
-    )
+    DIV(class=`${blockName}__panel`)
+      +dropdown-panel({ 
+        id: options.id, 
+        list: options.list, 
+        withControl: options.withControl,
+      })
+
+//- 
+
+mixin dropdown-panel(options)
+  - const blockName = "dropdown-panel"
+  if !options
+    - options = {}
+
+  DIV(class=blockName)
+    DIV(class=`${blockName}__list`)
       +dropdown-list(options.list)
-      if options.withControl
-        +dropdown-control(options.list, options.id)
+    if options.withControl
+      - let isClear = true
+      if options.list
+        each item in options.list
+          if item.count
+            if item.count !== 0
+              - isClear = false
+      DIV(class=`${blockName}__control`)
+        +dropdown-control({ id: options.id, isClear: isClear })
 
 //- 
 
@@ -100,27 +121,3 @@ mixin dropdown-counter(count)
       class=`${blockName}__element`
       class=`${blockName}__button`
     )="+"
-
-//- 
-
-mixin dropdown-control(list, id)
-  - const blockName = "dropdown-control"
-  - let isClear = true
-  if list
-    each item in list
-      if item.count
-        if item.count !== 0
-          - isClear = false
-
-  DIV(
-    class=blockName
-  )
-    if !isClear
-      DIV(
-        class=`${blockName}__clear`
-      )
-        +button({ id: `${id}-clear`, caption: "Очистить", isWithArrow: false, isTextOnly: true })
-    DIV(
-      class=`${blockName}__apply`
-    )
-      +button({ id: `${id}-apply`, caption: "Применить", isWithArrow: false, isTextOnly: true })

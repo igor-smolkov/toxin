@@ -1,0 +1,20 @@
+include ../button/button.pug
+
+//-
+  options.id
+  options.isClear
+
+mixin dropdown-control(options)
+  - const blockName = "dropdown-control"
+  if !options
+    - options = {}
+  - const isClear = options.isClear === false ? false : true
+
+  DIV(
+    class=blockName
+  )
+    if !isClear
+      DIV(class=`${blockName}__clear`)
+        +button({ id: `${options.id}-clear`, caption: "Очистить", isWithArrow: false, isTextOnly: true })
+    DIV(class=`${blockName}__apply`)
+      +button({ id: `${options.id}-apply`, caption: "Применить", isWithArrow: false, isTextOnly: true })

@@ -1,4 +1,4 @@
-include ../button/button.pug
+include ../dropdown-control/dropdown-control.pug
 
 mixin calendar(options)
   - const blockName = "calendar"
@@ -7,14 +7,14 @@ mixin calendar(options)
   
   DIV(
     class=blockName
+    id=options.id
     data-from=options.from
     data-to=options.to
+    data-active=options.active
   )
     DIV(class=`${blockName}__plugin`)
-
-//- mixin calendar(id)
-//-   .calendar
-//-     .datepicker(id=`datepicker${id}`)
-//-     .calendar__control
-//-       +button({ id:`calendar__clear_${id}`, text: 'очистить', style: 'link', hover: true })
-//-       +button({ id:`calendar__apply_${id}`, text: 'применить', style: 'link' })
+    DIV(class=`${blockName}__control`)
+      +dropdown-control({ 
+        id: options.id, 
+        isClear: (options.to || options.from || options.active) ? false : true,
+      })

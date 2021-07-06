@@ -67,6 +67,12 @@ $block: 'dropdown';
   }
 }
 
+.dropdown-panel {
+  &__control {
+    padding: 9px 6px 8px 13px;
+  }
+}
+
 .dropdown-list {
   display: flow-root;
   &__item {
@@ -121,17 +127,5 @@ $block: 'dropdown';
   &__count {
     min-width: 32px;
     @include h3-type;
-  }
-}
-
-.dropdown-control {
-  display: flow-root;
-  &__clear {
-    float: left;
-    padding: 9px 13px 9px;
-  }
-  &__apply {
-    float: right;
-    padding: 9px 6px 8px;
   }
 }

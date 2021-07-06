@@ -1,25 +1,29 @@
-// .calendar {
-//     display: flex;
-//     flex-direction: column;
-//     // position: absolute;
-//     &__control {
-//         order: 2;
-//         display: flex;
-//         justify-content: space-between;
-//         margin-top: 20px;
-//         height: 15px;
-//         // border: 1px solid blue;
-//         .button {
-//             max-width: 84px;
-//             & .button__text {
-//                 text-align: left;
-//             }
-//         }
-//     }
-// }
-
 @import '../colors-style/colors-style.scss';
 @import '../type-style/type-style.scss';
+
+@mixin dayCircle($color) {
+  @include text('bold');
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 40px;
+  min-height: 40px;
+  border-radius: 22px;
+  @if $color == 'green' {
+    background: linear-gradient(180deg, $color-green 0%, $color-green-end 100%);
+  }
+  @if $color == 'purple' {
+    background: linear-gradient(180deg, $color-purple 0%, $color-purple-end 100%);
+  }
+}
+
+.calendar {
+  &__control {
+    margin-top: 12px;
+  }
+}
 
 .ui-datepicker {
   .ui-datepicker-header {
@@ -85,93 +89,32 @@
     a {
       color: $color-50per;
       &:hover {
-        @include text('bold');
-        color: white;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        min-width: 40px;
-        min-height: 40px;
-        background: linear-gradient(180deg, $color-green 0%, $color-green-end 100%);
-        border-radius: 22px;
+        @include dayCircle('green');
       }
     }
   }
-  .ui-datepicker-other-month {
-    a {
-      color: $color-25per;
-    }
+  .ui-datepicker-other-month a {
+    color: $color-25per;
   }
   .ui-datepicker-period {
     background: linear-gradient(180deg,rgba(188,156,255,0.25) 0%, rgba(139,164,249,0.25) 100%);
-    .ui-datepicker-period-from {
-      border-top-left-radius: 22px;
-      border-bottom-left-radius: 22px;
-      .ui-datepicker-period-from-to {
-        border-radius: 22px;
-      }
-    }
-    .ui-datepicker-period-to {
-      border-top-right-radius: 22px;
-      border-bottom-right-radius: 22px;
-    }
-    .ui-datepicker-period-from a,
-    .ui-datepicker-period-to a {
-      @include text('bold');
-      color: white;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      min-width: 40px;
-      min-height: 40px;
-      background: linear-gradient(180deg, $color-purple 0%, $color-purple-end 100%);
-      border-radius: 22px;
+  }
+  .ui-datepicker-period-from {
+    border-top-left-radius: 22px;
+    border-bottom-left-radius: 22px;
+  }
+  .ui-datepicker-period-to {
+    border-top-right-radius: 22px;
+    border-bottom-right-radius: 22px;
+  }
+  .ui-datepicker-period-from a,
+  .ui-datepicker-period-to a {
+    @include dayCircle('purple');
+  }
+  .ui-datepicker-active a {
+    @include dayCircle('green');
+    &:hover {
+      @include dayCircle('purple');
     }
   }
-    // &-period {
-    //     background: linear-gradient(180deg,rgba(188,156,255,0.25) 0%, rgba(139,164,249,0.25) 100%);
-    //     &-start {
-    //         border-top-left-radius: 22px;
-    //         border-bottom-left-radius: 22px;
-    //         &-one {
-    //             border-radius: 22px;
-    //         }
-    //     }
-    //     &-end {
-    //         border-top-right-radius: 22px;
-    //         border-bottom-right-radius: 22px;
-    //     }
-    //     &-start a,
-    //     &-end a {
-    //         // font-family: $font-main-bold;
-    //         color: white;
-    //         display: flex;
-    //         flex-direction: column;
-    //         justify-content: center;
-    //         width: 40px;
-    //         height: 39px;
-    //         // background: linear-gradient(180deg, $color-purple 0%, #8BA4F9 100%);
-    //         border-radius: 22px;
-    //     }
-    // }
 }
-
-// @media only screen and (max-width : 370px) {
-//     .ui-datepicker {
-//         table {
-//             display: flex;
-//             flex-direction: column;
-//             justify-content: center;
-//             & > * {
-//                 align-self: center;
-//             }
-//         }
-//         th,
-//         td {
-//             width: 32px;
-//             height: 31px;
-//         }
-//     }
-// }

@@ -9,6 +9,3 @@ import '@comp/radio-group/radio-group'
 import '@comp/toggle/toggle'
 
 import '@comp/calendar/calendar'
-
-// import calendar from '../calendar/calendar';
-// calendar();
