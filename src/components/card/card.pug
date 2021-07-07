@@ -20,16 +20,19 @@ include ../toggle/toggle.pug
 include ../calendar/calendar.pug
 
 include ../preview/preview.pug
+include ../rate-button/rate-button.pug
 
-mixin card(type)
+mixin card(options)
   - const blockName = "card"
+  if !options
+    - options = {}
 
   DIV(
     class=blockName
-    class=type==="calendar" ? `${blockName}_medium` : ""
-    class=type==="room-rate" ? `${blockName}_small` : ""
+    class=options.type==="calendar" ? `${blockName}_medium` : ""
+    class=options.type==="room-rate" ? `${blockName}_small` : ""
   )
-    case type
+    case options.type
       when "wishes"
         H1(class=`${blockName}__title`)
           +card-title("Найдём номера под ваши пожелания")
@@ -78,7 +81,7 @@ mixin card(type)
             class=`${blockName}__title_margin_none`
           )
             +card-title({
-              main: { prefix: "№", content: "888", postfix: "Люкс" },
+              main: { prefix: "№", content: "888", postfix: "Люкс", isShiftedPostfix: true },
               details: { first: "9 990₽", second: "в сутки" }
             })
           FORM(
@@ -86,6 +89,7 @@ mixin card(type)
             class=`${blockName}__form_margin_none` 
             id="room-rate"
           )
+            +card-form-for-room-rate
 
 //- 
 
@@ -116,7 +120,10 @@ mixin card-title-main(options)
       SPAN(class=`${blockName}__prefix`)=options.prefix
     SPAN(class=`${blockName}__content`)=options.content
     if options.postfix
-      SPAN(class=`${blockName}__postfix`)=options.postfix
+      SPAN(
+        class=`${blockName}__postfix`
+        class=options.isShiftedPostfix ? `${blockName}__postfix_shifted` : ""
+      )=options.postfix
 
 //- 
 
@@ -294,6 +301,17 @@ mixin card-form-for-calendar
   
 //- 
 
+mixin card-form-for-room-rate 
+  - const blockName = "card-form"
+  DIV(class=blockName)
+    +form-section
+      +form-set({ isGrouped: true, isInlined: true, withLine: true, isAligned: true })
+        .form-set__element
+          +rate-button({ id: 'card-form-rate', value: 5 })
+        .form-set__element          
+          +reviews-counter(145)
+//- 
+
 mixin bill(options)
   - const blockName = "bill"
   if !options
@@ -328,6 +346,13 @@ mixin bill-item(options)
     DIV(class=`${blockName}__price`)=options.price
 
 //-
+
+mixin reviews-counter(value)
+  - const blockName = "reviews-counter"
+  - const count = value ? value : 0
+  DIV(class=blockName)
+    SPAN(class=`${blockName}__counter`)=count
+    SPAN(class=`${blockName}__text`)="Отзывов"
 
 //- mixin card(card)
 //-   if card.type

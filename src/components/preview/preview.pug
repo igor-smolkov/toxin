@@ -1,3 +1,9 @@
+//- 
+  options.id
+  options.imgs
+  options.selected
+  options.isHovered
+
 mixin preview(options)
   - const blockName = "preview"
   if !options
@@ -5,56 +11,74 @@ mixin preview(options)
   - const imgs = options.imgs ? options.imgs : []
   - const selected = options.selected ? options.selected : 0
   
-  DIV(class=blockName)
+  DIV(
+    class=blockName
+    class=options.isHovered ? `${blockName}_hovered` : ""
+    id=options.id
+    data-selected=selected
+  )
     DATALIST(
       class=`${blockName}__data`
-      id=options.id
+      id=`${options.id}-data`
     )
       each img in imgs
         OPTION(value=img)
     IMG(
       class=`${blockName}__img`
       src=options.imgs[selected]
+      id=`${options.id}-img`
     )
     DIV(class=`${blockName}__arrows`)
-      BUTTON(
-        class=`${blockName}__arrow`
-        class=`${blockName}__arrow_prev`
-        class="material-icons"
-      )
-      BUTTON(
-        class=`${blockName}__arrow`
-        class=`${blockName}__arrow_next`
-        class="material-icons"
-      )
-    DIV(class=`${blockName}__radio-group`)
-      each img, index in imgs
-        INPUT(
-          class=`${blockName}__radio-input`
-          id=`${blockName}__radio-input-${index}`
-          type="radio"
-          name=`${options.id}-radio`
-          value=img
-          checked=(index===selected) ? true : false
-        )
-        LABEL(
-          class=`${blockName}__radio-label`
-          class=(index===selected) ? `${blockName}__radio-label_checked` : ""
-          for=`${blockName}__radio-input-${index}`
-        )
-      
+      +carousel-arrows-control
+    DIV(class=`${blockName}__points`)
+      +carousel-points-control({
+        id: `${options.id}-points`,
+        count: `${imgs.length}`,
+        selected: selected,
+      })
 
-//- mixin preview(pushClass, room, demo)
-//-   .preview(class=pushClass)
-//-     img.preview__pic(src=room.src, alt=room.alt)
-//-     if demo
-//-       button.preview__change.preview__change_hover
-//-       button.preview__change.preview__change_next.preview__change_hover
-//-     else
-//-       button.preview__change
-//-       button.preview__change.preview__change_next
-//-     .preview__rooms
-//-       button.preview__rooms_item.preview__rooms_item_checked
-//-       button.preview__rooms_item
-//-       button.preview__rooms_item
-//-       button.preview__rooms_item
+//- 
+
+mixin carousel-arrows-control
+  - const blockName = "carousel-arrows-control"
+  DIV(class=blockName)
+    BUTTON(
+      class=`${blockName}__arrow`
+      class=`${blockName}__arrow_prev`
+      class="material-icons"
+    )
+    BUTTON(
+      class=`${blockName}__arrow`
+      class=`${blockName}__arrow_next`
+      class="material-icons"
+    )
+
+//- 
+  options.id
+  options.count
+  options.selected
+
+mixin carousel-points-control(options)
+  - const blockName = "carousel-points-control"
+  if !options
+    - options = {}
+  DIV(
+    class=blockName
+    id=options.id
+  )
+    - let i = 0
+    while i < options.count
+      INPUT(
+        class=`${blockName}__input`
+        id=`${blockName}__input-${i}`
+        type="radio"
+        name=`${options.id}-radio`
+        value=i
+        checked=(i===options.selected) ? true : false
+      )
+      LABEL(
+        class=`${blockName}__label`
+        class=(i===options.selected) ? `${blockName}__label_checked` : ""
+        for=`${blockName}__input-${i}`
+      )
+      - i++

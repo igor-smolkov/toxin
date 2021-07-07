@@ -78,6 +78,12 @@ $block: 'card';
     padding-left: 8px;
     @include h3-type;
     color: $color-purple;
+    &_shifted {
+      display: inline-block;
+      position: relative;
+      left: -7px;
+      bottom: -1px;
+    }
   }
 }
 
@@ -87,7 +93,8 @@ $block: 'card';
   &__second {
     padding-left: 4px;
     @include base-type;
-    @include text('small')
+    @include text('small');
+    @include text('light_middle');
   }
 }
 
@@ -154,6 +161,16 @@ $block: 'card';
     border-radius: 10px;
     @include text("mod_info-button");
     background-color: white;
+  }
+}
+
+.reviews-counter {
+  @include base-h-type;
+  color: $color-50per;
+  &__text {
+    padding-left: 4px;
+    @include base-type;
+    @include text('light_middle');
   }
 }
 

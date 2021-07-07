@@ -6,6 +6,8 @@
   options.isInlined
   options.isIndented
   options.isMarginNone
+  options.isAligned
+  options.withLine
 
 mixin form-set(options)
   - const blockName = "form-set"
@@ -28,6 +30,8 @@ mixin form-set(options)
       .form-set__group(
         class=options.isInlined ? 'form-set__group_inlined' :''
         class=options.isMarginNone ? 'form-set__group_margin_none' :''
+        class=options.isAligned ? 'form-set__group_aligned' :''
+        class=options.withLine ? 'form-set__group_with_line' :''
       )
         block
     else

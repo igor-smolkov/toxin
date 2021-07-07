@@ -10,3 +10,4 @@ import '@comp/toggle/toggle'
 import '@comp/calendar/calendar'
 
 import '@comp/preview/preview'
+import '@comp/rate-button/rate-button'

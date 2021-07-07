@@ -27,6 +27,22 @@ $block: 'form-set';
     &_margin_none {
       margin: 0;
     }
+    &_aligned {
+      justify-content: space-between;
+      align-items: center;
+    }
+    &_with_line {
+      position: relative;
+      &::before {
+        content: '';
+        position: absolute;
+        top: -7px;
+        left: 0;
+        min-width: 100%;
+        min-height: 1px;
+        background-color: $color-10per;
+      }
+    }
   }
   &__element {
     margin-top: 5px;
