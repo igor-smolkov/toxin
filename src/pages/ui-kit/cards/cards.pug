@@ -2,6 +2,10 @@ extends ../../../layout
 
 include ../../../components/logo/logo.pug
 include ../../../components/card/card.pug
+include ../../../components/card-title/card-title.pug
+include ../../../components/card-form/card-form.pug
+include ../../../components/calendar/calendar.pug
+include ../../../components/preview/preview.pug
 
 block variables
   - const title = "TOXIN - UI kit"
@@ -13,29 +17,74 @@ block content
   MAIN.page__main
     .cards
       ARTICLE.cards__unit
-        +card({type: "wishes"})
+        +card({ title: "Найдём номера под ваши пожелания" })
+          +card-form({ for: "wishes", id: "wishes-form" })
       ARTICLE.cards__unit
-        +card({type: "check-in"})
+        +card({ title: "Регистрация аккаунта" })
+          +card-form({ for: "check-in", id: "check-in-form" })
       ARTICLE.cards__unit
-        +card({type: "room"})
+        +card({ 
+          title: {
+            main: { prefix: "№", content: "888", postfix: "Люкс" },
+            details: { first: "9 990₽", second: "в сутки" }
+          }
+        })
+          +card-form({ for: "room", id: "room-form" })
       ARTICLE.cards__unit
-        +card({type: "log-in"})
+        +card({ title: "Войти" })
+          +card-form({ for: "log-in", id: "log-in-form" })
       ARTICLE.cards__unit
-        +card({type: "calendar"})
+        +card({ isMedium: true, isEmpty: true })
+          +calendar({ 
+            id:"calendar-card", 
+            from: "2019-08-19", 
+            to: "2019-08-23",
+            active: "2019-08-08",
+          })
       ARTICLE.cards__unit
-        +card({type: "room-rate"})
-    //- +card('wishes')
-    //- +card('check-in')
-    //- +card('room')
-    //- +card('log-in')
-    //- .calendar_demo
-    //-   +card('calendar')
-    //- +card('room-rate')
-    //- +card({
-    //-   type: 'room-rate',
-    //-   pic: { src: '../images/room_840.png', alt: '№840' },
-    //-   number: '840',
-    //-   price: '9 900₽',
-    //-   rate: 4,
-    //-   review: '65'
-    //- })
+        +card({ isSmall: true, isEmpty: true })
+          HEADER.card__header
+            +preview({ 
+              id: "preview-888",
+              imgs: [
+                "../images/room_888.png",
+                "../images/room_350.png",
+                "../images/room_352.png",
+                "../images/room_444.png",
+              ],
+              isHovered: true, 
+            })
+          SECTION.card__body
+            H2.card__title.card__title_margin_none
+              +card-title({
+                main: { prefix: "№", content: "888", postfix: "Люкс", isShiftedPostfix: true },
+                details: { first: "9 990₽", second: "в сутки" }
+              })
+            +card-form({ 
+              for: "room-rate", 
+              id: "room-rate-form-888",
+              options: { rate: 5, reviews: 145 }
+            })
+      ARTICLE.cards__unit
+        +card({ isSmall: true, isEmpty: true })
+          HEADER.card__header
+            +preview({ 
+              id: "preview-840",
+              imgs: [
+                "../images/room_840.png",
+                "../images/room_350.png",
+                "../images/room_352.png",
+                "../images/room_444.png",
+              ]
+            })
+          SECTION.card__body
+            H2.card__title.card__title_margin_none
+              +card-title({
+                main: { prefix: "№", content: "840" },
+                details: { first: "9 900₽", second: "в сутки" }
+              })
+            +card-form({ 
+              for: "room-rate", 
+              id: "room-rate-form-840", 
+              options: { rate: 4, reviews: 65 }
+            })

@@ -1,0 +1,6 @@
+mixin reviews-counter(value)
+  - const blockName = "reviews-counter"
+  - const count = value ? value : 0
+  DIV(class=blockName)
+    SPAN(class=`${blockName}__counter`)=count
+    SPAN(class=`${blockName}__text`)="Отзывов"

@@ -1,0 +1,39 @@
+//- 
+  options.list
+  options.total
+
+mixin bill(options)
+  - const blockName = "bill"
+  if !options
+    - options = {}
+  - const list = options.list ? options.list : []
+
+  DIV(class=blockName)
+    UL(class=`${blockName}__list`)
+      each item, index in list
+        LI(
+          class=`${blockName}__item`
+          class=(index===0) ? `${blockName}__item_first` : ""
+        )
+          +bill-item(item)
+    H2(class=`${blockName}__total`)
+      +bill-item({ name: "Итого", price: options.total, withLine: true })
+    
+//- 
+  options.name
+  options.price
+  options.withLine
+
+mixin bill-item(options)
+  - const blockName = "bill-item"
+  if !options
+    - options = {}
+  
+  DIV(class=blockName)
+    DIV(
+      class=`${blockName}__name`
+      class=options.withLine ? `${blockName}__name_with_line` : ""
+    )=options.name
+      if options.withInfo
+        BUTTON(class=`${blockName}__info`)="i"
+    DIV(class=`${blockName}__price`)=options.price

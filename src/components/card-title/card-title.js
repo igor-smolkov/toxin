@@ -1,0 +1,1 @@
+import './card-title.scss';

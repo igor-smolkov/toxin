@@ -1,0 +1,12 @@
+@import '../colors-style/colors-style.scss';
+@import '../type-style/type-style.scss';
+
+.reviews-counter {
+  @include base-h-type;
+  color: $color-50per;
+  &__text {
+    padding-left: 4px;
+    @include base-type;
+    @include text('light_middle');
+  }
+}

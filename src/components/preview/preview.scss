@@ -3,14 +3,12 @@
   max-height: 151px;
   overflow: hidden;
   position: relative;
-  &__arrows,
-  &__points {
+  &__arrows {
     display: none;
   }
   &_hovered,
   &:hover {
-    .preview__arrows,
-    .preview__points {
+    .preview__arrows {
       display: block;
     }
   }

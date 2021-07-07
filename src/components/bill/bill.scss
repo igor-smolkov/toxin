@@ -1,0 +1,53 @@
+@import '../colors-style/colors-style.scss';
+@import '../type-style/type-style.scss';
+
+.bill {
+  padding-left: 1px;
+  &__item {
+    margin-top: 11px;
+    &_first {
+      margin-top: 0;
+    }
+  }
+  &__total {
+    margin-top: 31px;
+  }
+}
+
+.bill-item {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  &__name {
+    flex-grow: 1;
+    max-width: 239px;
+    display: flex;
+    justify-content: space-between;
+    @include text('rare_less');
+    &_with_line {
+      overflow: hidden;
+      &::after {
+        content: '';
+        position: relative;
+        min-width: 100%;
+        min-height: 1px;
+        left: 4px;
+        top: -5px;
+        border-bottom: 1px dotted $color-25per;
+      }
+    }
+  }
+  &__info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 20px;
+    min-height: 20px;
+    max-width: 20px;
+    max-height: 20px;
+    border: 1px solid $color-25per;
+    border-radius: 10px;
+    @include text("mod_info-button");
+    background-color: white;
+  }
+}

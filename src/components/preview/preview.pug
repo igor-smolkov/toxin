@@ -70,7 +70,7 @@ mixin carousel-points-control(options)
     while i < options.count
       INPUT(
         class=`${blockName}__input`
-        id=`${blockName}__input-${i}`
+        id=`${options.id}__input-${i}`
         type="radio"
         name=`${options.id}-radio`
         value=i
@@ -79,6 +79,6 @@ mixin carousel-points-control(options)
       LABEL(
         class=`${blockName}__label`
         class=(i===options.selected) ? `${blockName}__label_checked` : ""
-        for=`${blockName}__input-${i}`
+        for=`${options.id}__input-${i}`
       )
       - i++
