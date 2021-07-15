@@ -1,0 +1,81 @@
+@import '../colors-style/colors-style.scss';
+@import '../type-style/type-style.scss';
+
+$block: 'expandable-list';
+.#{$block} {
+  float: right;
+  max-height: 21px;
+  &__check {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    z-index: -1;
+    opacity: 0;
+    &:checked~.#{$block}__list {
+      display: block;
+    }
+    &:checked~.#{$block}__expand-more {
+      transform:  scale(-1, -1) translateY(-2px);
+    }
+    &:not(:checked)~.#{$block}__list {
+      display: none;
+    }
+    &:not(:checked)~.#{$block}__expand-more {
+      transform:  none;
+    }
+  }
+  &__expand-more {
+    min-width: 24px;
+    min-height: 21px;
+    cursor: pointer;
+    &::before {
+      content: 'expand_more';
+      position: absolute;
+      min-width: 24px;
+      min-height: 21px;
+      background-color: transparent;
+      color: $color-50per;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  &__expand-more_hovered::before,
+  &__expand-more:hover::before {
+    color: $color-75per;
+  }
+  &_with-checks {
+    float: none;
+    max-height: max-content;
+    min-height: 29px;
+    .#{$block}__check:checked~.#{$block}__expand-more {
+      transform:  scale(-1, -1);
+    }
+    .#{$block}__expand-more {
+      min-width: 44px;
+      min-height: 44px;
+      margin-top: -29px;
+      float: right;
+      &::before {
+        min-width: 44px;
+        min-height: 44px;
+      }
+    }
+    .#{$block}__list {
+      padding-top: 18px;
+    }
+  }
+}
+
+.list {
+  position: absolute;
+  top: 26px;
+  left: 0;
+  min-width: 100%;
+  max-width: 320px;
+  width: max-content;
+  background-color: white;
+  padding: 10px;
+  @include text('light_middle');
+  box-shadow: 0px 10px 20px $color-5per;
+}

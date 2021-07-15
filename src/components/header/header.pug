@@ -19,10 +19,10 @@ mixin header(options = {})
           id: options.id,
           navLinks: [
             { link: "/change-link", text: "О нас" },
-            { link: "/change-link", text: "Услуги", isDropdown: true },
+            { link: "/change-link", text: "Услуги", isDropdown: true, list: ['Элемент 1', 'Элемент 2', 'Элемент 3'] },
             { link: "/change-link", text: "Вакансии" },
             { link: "/change-link", text: "Новости" },
-            { link: "/change-link", text: "Соглашения", isDropdown: true },
+            { link: "/change-link", text: "Соглашения", isDropdown: true, list: ['Элемент 1', 'Элемент 2', 'Элемент 3'] },
           ],
           user: options.user ? { link: "/change-link", text: options.user } : null
         })

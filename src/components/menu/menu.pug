@@ -1,4 +1,5 @@
 include ../button/button.pug
+include ../expandable-list/expandable-list.pug
 
 //- 
   options.navLinks
@@ -22,7 +23,7 @@ mixin menu(options = {})
 //- 
   options.id
   options.navLinks [
-    { isDropdown, isHovered, link, text }
+    { isDropdown, isHovered, link, text, list }
   ]
 
 mixin nav-links(options = {})
@@ -37,7 +38,7 @@ mixin nav-links(options = {})
       )
         +link(item)
         if item.isDropdown
-          +expandable-list({ id: `${options.id}-dropdown-${index}` })
+          +expandable-list({ id: `${options.id}-dropdown-${index}`, list: item.list })
 
 //- 
   options.isHovered
@@ -51,32 +52,6 @@ mixin link(options = {})
     class=options.isHovered ? `${blockName}_hovered` : ""
     href=options.link
   )=options.text
-
-//- 
-  options.id
-  options.isExpanded
-
-mixin expandable-list(options)
-  - const blockName = "expandable-list"
-  DIV(class=blockName)
-    INPUT(
-      class=`${blockName}__check`
-      id=`${options.id}-check`
-      type="checkbox"
-      checked=options.isExpanded ? true : false
-    )
-    LABEL(
-      class=`${blockName}__expand-more`
-      class="material-icons"
-      for=`${options.id}-check`
-    )
-    DIV(
-      class=`${blockName}__list`
-    )
-      UL
-        LI="Строка 1"
-        LI="Строка 2"
-        LI="Строка 3"
 
 //- 
   options.id

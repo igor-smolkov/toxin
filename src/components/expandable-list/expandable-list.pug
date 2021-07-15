@@ -1,0 +1,51 @@
+include ../form-set/form-set.pug
+include ../check-button/check-button.pug
+
+//- 
+  options.id
+  options.isExpanded
+  options.withChecks
+  options.list
+
+mixin expandable-list(options = {})
+  - const blockName = "expandable-list"
+  DIV(
+    class=blockName
+    class=options.withChecks ? `${blockName}_with-checks` : ""
+  )
+    INPUT(
+      class=`${blockName}__check`
+      id=`${options.id}-check`
+      type="checkbox"
+      checked=options.isExpanded ? true : false
+    )
+    LABEL(
+      class=`${blockName}__expand-more`
+      class="material-icons"
+      for=`${options.id}-check`
+    )
+    DIV(class=`${blockName}__list`)
+      if options.withChecks
+        +form-set({ isGrouped: true, isMarginNone: true })
+          +check-list({
+            id: `${options.id}-list`,
+            list: options.list ? options.list : [],
+          })
+      else
+        +list(options.list)
+
+//- 
+
+mixin check-list(options)
+  each item, index in options.list
+    - item.id = item.id ? item.id : `${options.id}-${index}`
+    .form-set__element(class=index!==0 ? "form-set__element_indent-in_check-buttons" : "form-set__element_margin_none")
+      +check-button(item)
+
+//- 
+
+mixin list(list = [])
+  - const blockName = "list"
+  UL(class=blockName)
+    each item in list
+      LI(class=`${blockName}__item`)=item

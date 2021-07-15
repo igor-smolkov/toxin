@@ -1,7 +1,7 @@
 include ../../../../components/form-section/form-section.pug
 include ../../../../components/form-set/form-set.pug
 
-include ../../../../components/expandable-checkbox-list/expandable-checkbox-list.pug
+include ../../../../components/expandable-list/expandable-list.pug
 include ../../../../components/bullet-list/bullet-list.pug
 include ../../../../components/extra-list/extra-list.pug
 
@@ -11,13 +11,25 @@ mixin lists(param)
       SECTION.lists__section.lists__section_first
         +form-section({ isShortened: true })
           +form-set({ title: "Expandable checkbox list", isMarginNone: true })
-            +expandable-checkbox-list({ id: "expandable-checkbox-list" })
+            +expandable-list({ 
+              id: "expandable-list", 
+              withChecks: true,
+              list: [
+                {label: 'Завтрак'},
+                {label: 'Письменный стол'},
+                {label: 'Стул для кормления'},
+                {label: 'Кроватка'},
+                {label: 'Телевизор'},
+                {label: 'Шампунь'}
+              ]
+            })
       SECTION.lists__section
         +form-section({ isShortened: true })
           +form-set({ title: "Expandable checkbox list", isMarginNone: true })
-            +expandable-checkbox-list({
-              id: "expandable-checkbox-list-expanded",
+            +expandable-list({
+              id: "expandable-list-expanded",
               isExpanded: true,
+              withChecks: true,
               list: [
                 {label: 'Завтрак'},
                 {label: 'Письменный стол', isChecked: true},
