@@ -1,5 +1,12 @@
-mixin logo(name)
-  if name
-    .logo_full
-  else
-    .logo
+//- 
+  options.isSimplified
+
+mixin logo(options = {})
+  - const blockName = "logo"
+  DIV(
+    class=blockName
+    class=options.isSimplified ? `${blockName}_simplified` : ""
+  )
+    DIV(class=`${blockName}__pic`)
+    if (!options.isSimplified)
+      DIV(class=`${blockName}__text`)

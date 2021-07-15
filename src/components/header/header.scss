@@ -1,8 +1,8 @@
 @import '../colors-style/colors-style.scss';
 
-header.header {
+.header {
     min-height: 70px;
-    width: 100%;
+    min-width: 100%;
     padding: 15px 140px;
     background-color: #FFFFFF;
     box-shadow: 0px 10px 20px $color-5per;
@@ -11,24 +11,24 @@ header.header {
     justify-content: space-between;
 }
 
-@media only screen and (max-width : 900px) {
-    header.header {
-        padding-left: 100px;
-        padding-right: 100px;
-    }
-}
+// @media only screen and (max-width : 900px) {
+//     header.header {
+//         padding-left: 100px;
+//         padding-right: 100px;
+//     }
+// }
 
-@media only screen and (max-width : 820px) {
-    header.header {
-        min-height: 50px;
-        padding-top: 5px;
-        padding-bottom: 5px;
-    }
-}
+// @media only screen and (max-width : 820px) {
+//     header.header {
+//         min-height: 50px;
+//         padding-top: 5px;
+//         padding-bottom: 5px;
+//     }
+// }
 
-@media only screen and (max-width : 700px) {
-    header.header {
-        padding-left: 40px;
-        padding-right: 40px;
-    }
-}
+// @media only screen and (max-width : 700px) {
+//     header.header {
+//         padding-left: 40px;
+//         padding-right: 40px;
+//     }
+// }
