@@ -71,4 +71,15 @@ $block: 'button';
       color: white;
     }
   }
+  &_compacted {
+    min-height: 34px;
+    padding: 0 20px;
+    &.#{$block}_border_only {
+      min-width: 87px;
+      .#{$block}__caption {
+        width: calc(#{100%} - #{4px});
+        height: 30px;
+      }
+    }
+  }
 }

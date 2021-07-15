@@ -1,33 +1,29 @@
 include ../logo/logo.pug
 include ../menu/menu.pug
 
-mixin header
-  .header
-    .header__logo
-      +logo
-    .header__menu
-      block
+//-
+  options.id
+  options.user
+  options.isCustomed
 
-//- mixin header(props = {demo: false})
-//-   header.header
-//-     +logo('toxin')
-//-     if props.user
-//-       +menu([
-//-         { link: '#', text: 'О нас', hovered: props.demo ? true : false },
-//-         { link: '#', text: 'Услуги', dropdown: true },
-//-         { link: '#', text: 'Вакансии' },
-//-         { link: '#', text: 'Новости' },
-//-         { link: '#', text: 'Соглашения', dropdown: true },
-//-         { link: '#', text: props.user, user: true }
-//-       ])
-//-     else 
-//-       +menu([
-//-         { link: '#', text: 'О нас', hovered: props.demo ? true : false },
-//-         { link: '#', text: 'Услуги', dropdown: true },
-//-         { link: '#', text: 'Вакансии' },
-//-         { link: '#', text: 'Новости' },
-//-         { link: '#', text: 'Соглашения', dropdown: true },
-//-         { link: '#', text: 'Войти', btn: true, style: 'border' },
-//-         { link: '#', text: 'Зарегистрироваться', btn: true }
-//-       ])
+mixin header(options = {})
+  - const blockName = "header"
+  DIV(class=blockName)
+    DIV(class=`${blockName}__logo`)
+      +logo
+    NAV(class=`${blockName}__menu`)
+      if (options.isCustomed)
+        block
+      else
+        +menu({
+          id: options.id,
+          navLinks: [
+            { link: "/change-link", text: "О нас" },
+            { link: "/change-link", text: "Услуги", isDropdown: true },
+            { link: "/change-link", text: "Вакансии" },
+            { link: "/change-link", text: "Новости" },
+            { link: "/change-link", text: "Соглашения", isDropdown: true },
+          ],
+          user: options.user ? { link: "/change-link", text: options.user } : null
+        })
     

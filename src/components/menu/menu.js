@@ -1,3 +1,7 @@
+import './menu.scss';
+
+import '@comp/button/button';
+
 export default function() {
     const menuElements = document.querySelectorAll('.menu')
     menuElements.forEach(menu => {

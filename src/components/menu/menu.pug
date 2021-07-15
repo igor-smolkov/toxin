@@ -1,13 +1,114 @@
 include ../button/button.pug
 
-mixin menu(items)
-  nav.menu
-    button.menu__button
-      span
-    ul
-      each item in items
-        li.menu__item(class=`${item.dropdown ? 'menu__item_dropdown' : ''} ${item.user ? 'menu__item_user' : ''}`)
-          if item.btn
-            +button({text: item.text, style: item.style})
-          else
-            a(href=item.link class=`${item.hovered ? 'hover' : ''}`)=item.text
+//- 
+  options.navLinks
+  options.user
+  options.id
+
+mixin menu(options = {})
+  - const blockName = "menu"
+  DIV(class=blockName)
+    DIV(class=`${blockName}__nav-links`)
+      +nav-links({
+        id: `${options.id}-nav-links`,
+        navLinks: options.navLinks,
+      })
+    DIV(class=`${blockName}__user-panel`)
+      +user-panel({
+        id: `${options.id}-user-panel`,
+        user: options.user,
+      })
+
+//- 
+  options.id
+  options.navLinks [
+    { isDropdown, isHovered, link, text }
+  ]
+
+mixin nav-links(options = {})
+  - const blockName = "nav-links"
+  - const navLinks = options.navLinks ? options.navLinks : []
+  UL(class=blockName)
+    each item, index in navLinks
+      LI(
+        class=`${blockName}__item`
+        class=item.isDropdown ? `${blockName}__item_dropdown` : ""
+        class=(index === 0) ? `${blockName}__item_first` : ""
+      )
+        +link(item)
+        if item.isDropdown
+          +expandable-list({ id: `${options.id}-dropdown-${index}` })
+
+//- 
+  options.isHovered
+  options.link
+  options.text
+
+mixin link(options = {})
+  - const blockName = "link"
+  A(
+    class=blockName
+    class=options.isHovered ? `${blockName}_hovered` : ""
+    href=options.link
+  )=options.text
+
+//- 
+  options.id
+  options.isExpanded
+
+mixin expandable-list(options)
+  - const blockName = "expandable-list"
+  DIV(class=blockName)
+    INPUT(
+      class=`${blockName}__check`
+      id=`${options.id}-check`
+      type="checkbox"
+      checked=options.isExpanded ? true : false
+    )
+    LABEL(
+      class=`${blockName}__expand-more`
+      class="material-icons"
+      for=`${options.id}-check`
+    )
+    DIV(
+      class=`${blockName}__list`
+    )
+      UL
+        LI="Строка 1"
+        LI="Строка 2"
+        LI="Строка 3"
+
+//- 
+  options.id
+  options.user
+
+mixin user-panel(options = {})
+  - const blockName = "user-panel"
+  DIV(class=blockName)
+    if (options.user)
+      DIV(
+        class=`${blockName}__item`
+        class=`${blockName}__item_only`
+      )
+        +link(options.user)
+    else
+      DIV(
+        class=`${blockName}__item`
+        class=`${blockName}__item_first`
+      )
+        +button({ id:`${options.id}-log-in`, caption: "Войти", isBorderOnly: true, isWithArrow: false, isCompact: true })
+      DIV(class=`${blockName}__item`)
+        +button({ id:`${options.id}-check-in`, caption: "Зарегистрироваться", isWithArrow: false, isCompact: true })
+
+
+//- mixin menu(items)
+//-   nav.menu
+//-     button.menu__button
+//-       span
+//-     ul
+//-       each item in items
+//-         li.menu__item(class=`${item.dropdown ? 'menu__item_dropdown' : ''} ${item.user ? 'menu__item_user' : ''}`)
+//-           if item.btn
+//-             +button({text: item.text, style: item.style})
+//-           else
+//-             a(href=item.link class=`${item.hovered ? 'hover' : ''}`)=item.text

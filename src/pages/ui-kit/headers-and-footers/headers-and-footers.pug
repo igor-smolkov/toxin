@@ -2,11 +2,12 @@ extends ../../../layout
 
 include ../../../components/logo/logo.pug
 include ../../../components/header/header.pug
+include ../../../components/menu/menu.pug
 //- include ../../../components/footer/footer.pug
 
 block variables
-  - var title = 'TOXIN - UI kit'
-  - var page = 'page_gray'
+  - var title = "TOXIN - UI kit"
+  - var page = "page_gray"
 
 block content
   HEADER.page__header
@@ -14,9 +15,30 @@ block content
   MAIN.page__main
     .headers-and-footers
       ARTICLE.headers-and-footers__unit.headers-and-footers__unit_first
-        +header
+        +header({ isCustomed: true })
+          +menu({
+            id: "demo-1",
+            navLinks: [
+              { link: "/change-link", text: "О нас", isHovered: true },
+              { link: "/change-link", text: "Услуги", isDropdown: true },
+              { link: "/change-link", text: "Вакансии" },
+              { link: "/change-link", text: "Новости" },
+              { link: "/change-link", text: "Соглашения", isDropdown: true },
+            ]
+          })
       ARTICLE.headers-and-footers__unit
-        +header
+        +header({ isCustomed: true })
+          +menu({
+            id: "demo-2",
+            navLinks: [
+              { link: "/change-link", text: "О нас", isHovered: true },
+              { link: "/change-link", text: "Услуги", isDropdown: true },
+              { link: "/change-link", text: "Вакансии" },
+              { link: "/change-link", text: "Новости" },
+              { link: "/change-link", text: "Соглашения", isDropdown: true },
+            ],
+            user: { link: "/change-link", text: "Юлий Цезарь" }
+          })
     //- +header({demo: true})
     //- +header({user: 'Юлий Цезарь', demo: true})
     //- +footer
