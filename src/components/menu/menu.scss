@@ -1,3 +1,5 @@
+@import '../colors-style/colors-style.scss';
+
 .menu {
     ul {
         height: 100%;
@@ -8,7 +10,7 @@
     &__item {
         margin-left: 20px;
         white-space: nowrap;
-        font-family: $font-main;
+        // font-family: $font-main;
         align-self: center;
         min-height: 39px;
         display: flex;
@@ -19,7 +21,7 @@
             color: $color-50per;
             &:hover,
             &.hover {
-                font-family: $font-main-bold;
+                // font-family: $font-main-bold;
                 color: $color-75per;
             }
         }
@@ -30,7 +32,7 @@
                 position: relative;
                 &.hover::after,
                 &:hover::after {
-                    background-image: url('components/menu/menu__item_expand_more_75.png');
+                    background-image: url('./menu__item_expand_more_75.png');
                 }
                 &::after {
                     content: '';
@@ -40,7 +42,7 @@
                     height: 21px;
                     top: -3px;
                     right: -25px;
-                    background: no-repeat center url('components/menu/menu__item_expand_more_50.png');
+                    background: no-repeat center url('./menu__item_expand_more_50.png');
                 }
             }
         }

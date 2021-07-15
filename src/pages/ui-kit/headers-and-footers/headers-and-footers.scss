@@ -1,35 +1,39 @@
-// @import '../../../components/logo/logo.scss';
-@import '../../../components/header/header.scss';
-@import '../../../components/footer/footer.scss';
+// @import '../../../components/header/header.scss';
+// @import '../../../components/footer/footer.scss';
 
-.page_headers-and-footers {
+.page {
+  max-width: 1440px;
+  min-width: 320px;
+  width: 100%;
+  margin: 0 auto;
+
+  &__header {
+    padding: 30px;
+  }
+  &__main {
+    padding: 32px 0px 140px;
+  }
+  &_gray {
     background: #F4F4F6;
+  }
 }
-
-// .logo {
-//     position: absolute;
-//     left: 30px;
-//     top: 30px;
-// }
 
 .headers-and-footers {
-    display: flex;
-    flex-direction: column;
-    margin-top: 100px;
-    & > * {
-        margin-top: 40px;
-        align-self: center;
+  display: flex;
+  flex-direction: column;
+  &__unit {
+    margin-top: 40px;
+    &_first {
+      margin-top: 0;
     }
-    & > :last-child {
-        margin-bottom: 140px;
-    }
+  }
 }
 
-@media only screen and (max-width : 800px) {
-    .headers-and-footers {
-        margin-top: 100px;
-        & > :last-child {
-            margin-bottom: 100px;
-        }
-    }
-}
+// @media only screen and (max-width : 800px) {
+//     .headers-and-footers {
+//         margin-top: 100px;
+//         & > :last-child {
+//             margin-bottom: 100px;
+//         }
+//     }
+// }

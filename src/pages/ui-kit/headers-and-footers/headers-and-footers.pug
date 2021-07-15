@@ -2,16 +2,22 @@ extends ../../../layout
 
 include ../../../components/logo/logo.pug
 include ../../../components/header/header.pug
-include ../../../components/footer/footer.pug
+//- include ../../../components/footer/footer.pug
 
 block variables
   - var title = 'TOXIN - UI kit'
-  - var page = 'page_headers-and-footers'
+  - var page = 'page_gray'
 
 block content
-  +logo
-  .headers-and-footers
-    +header({demo: true})
-    +header({user: 'Юлий Цезарь', demo: true})
-    +footer
-    +footer('creative')
+  HEADER.page__header
+    +logo
+  MAIN.page__main
+    .headers-and-footers
+      ARTICLE.headers-and-footers__unit.headers-and-footers__unit_first
+        +header
+      ARTICLE.headers-and-footers__unit
+        +header
+    //- +header({demo: true})
+    //- +header({user: 'Юлий Цезарь', demo: true})
+    //- +footer
+    //- +footer('creative')
