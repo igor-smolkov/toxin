@@ -1,0 +1,38 @@
+include ../link/link.pug
+include ../text-field/text-field.pug
+
+//- 
+  options.title
+  options.links
+  options.text
+  options.withSubscribe
+
+mixin widget(options = {})
+  - const blockName = "widget"
+  DIV(class=blockName)
+    H3(class=`${blockName}__title`)=options.title
+    SECTION(class=`${blockName}__content`)
+      if options.links
+        NAV(class=`${blockName}__nav`)
+          +link-list(options.links)
+      if options.text
+        P(class=`${blockName}__text`)=options.text 
+      if options.withSubscribe
+        FORM(class=`${blockName}__form`, id="subscribe-form")
+          +text-field({
+            id: "subscribe",
+            placeholder: "Email",
+            isDirected: true,
+          })
+
+//- 
+    
+mixin link-list(links = [])
+  - const blockName = "link-list"
+  UL(class=blockName)
+    each link, index in links
+      LI(
+        class=`${blockName}__item`
+        class=(index===0) ? `${blockName}__item_first` : ""
+      )
+        +link(link)

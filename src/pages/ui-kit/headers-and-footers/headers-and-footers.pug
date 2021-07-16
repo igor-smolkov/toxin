@@ -3,7 +3,7 @@ extends ../../../layout
 include ../../../components/logo/logo.pug
 include ../../../components/header/header.pug
 include ../../../components/menu/menu.pug
-//- include ../../../components/footer/footer.pug
+include ../../../components/footer/footer.pug
 
 block variables
   - var title = "TOXIN - UI kit"
@@ -39,7 +39,7 @@ block content
             ],
             user: { link: "/change-link", text: "Юлий Цезарь" }
           })
-    //- +header({demo: true})
-    //- +header({user: 'Юлий Цезарь', demo: true})
-    //- +footer
-    //- +footer('creative')
+      ARTICLE.headers-and-footers__unit
+        +footer
+      ARTICLE.headers-and-footers__unit.headers-and-footers__unit_last
+        +footer({ asCard: true })

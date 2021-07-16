@@ -1,0 +1,12 @@
+@import '../type-style/type-style.scss';
+
+.link {
+  @include base-type;
+  @include text('light_middle');
+  @include text('rare_less');
+  &_hovered,
+  &:hover {
+    @include text('light_normal');
+    @include text('bold');
+  }
+}

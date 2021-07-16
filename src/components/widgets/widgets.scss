@@ -1,0 +1,25 @@
+.widgets {
+  display: flex;
+  padding: 100px 140px;
+  background: #FFFFFF;
+  &__widgets-list {
+    flex-grow: 1;
+    margin-left: 40px;
+  }
+}
+
+.about {
+  max-width: 260px;
+  &__text {
+    margin-top: 20px;
+  }
+}
+
+.widgets-list {
+  display: flex;
+  justify-content: space-between;
+  margin-left: -40px;
+  &__item {
+    margin-left: 40px;
+  }
+}

@@ -1,5 +1,6 @@
 include ../button/button.pug
 include ../expandable-list/expandable-list.pug
+include ../link/link.pug
 
 //- 
   options.navLinks
@@ -41,19 +42,6 @@ mixin nav-links(options = {})
           +expandable-list({ id: `${options.id}-dropdown-${index}`, list: item.list })
 
 //- 
-  options.isHovered
-  options.link
-  options.text
-
-mixin link(options = {})
-  - const blockName = "link"
-  A(
-    class=blockName
-    class=options.isHovered ? `${blockName}_hovered` : ""
-    href=options.link
-  )=options.text
-
-//- 
   options.id
   options.user
 
@@ -74,16 +62,3 @@ mixin user-panel(options = {})
         +button({ id:`${options.id}-log-in`, caption: "Войти", isBorderOnly: true, isWithArrow: false, isCompact: true })
       DIV(class=`${blockName}__item`)
         +button({ id:`${options.id}-check-in`, caption: "Зарегистрироваться", isWithArrow: false, isCompact: true })
-
-
-//- mixin menu(items)
-//-   nav.menu
-//-     button.menu__button
-//-       span
-//-     ul
-//-       each item in items
-//-         li.menu__item(class=`${item.dropdown ? 'menu__item_dropdown' : ''} ${item.user ? 'menu__item_user' : ''}`)
-//-           if item.btn
-//-             +button({text: item.text, style: item.style})
-//-           else
-//-             a(href=item.link class=`${item.hovered ? 'hover' : ''}`)=item.text

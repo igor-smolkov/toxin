@@ -1,0 +1,5 @@
+@import '../type-style/type-style.scss';
+
+.copyright {
+  @include text('rare_less');
+}

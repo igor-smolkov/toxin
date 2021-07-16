@@ -1,0 +1,24 @@
+mixin socials
+  - const blockName = "socials"
+  UL(class=blockName)
+    LI(
+      class=`${blockName}__item`
+      class=`${blockName}__item_first`
+    )
+      A(
+        class=`${blockName}__link`
+        class=`${blockName}__link_twitter`
+        href="/change-link"
+      )="twitter"
+    LI(class=`${blockName}__item`)
+      A(
+        class=`${blockName}__link`
+        class=`${blockName}__link_facebook`
+        href="/change-link"
+      )="facebook"
+    LI(class=`${blockName}__item`)
+      A(
+        class=`${blockName}__link`
+        class=`${blockName}__link_instagram`
+        href="/change-link"
+      )="instagram"

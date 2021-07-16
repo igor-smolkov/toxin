@@ -1,0 +1,59 @@
+include ../logo/logo.pug
+include ../widget/widget.pug
+
+mixin widgets
+  - const blockName = "widgets"
+  DIV(class=blockName)
+    DIV(class=`${blockName}__about`)
+      +about
+    DIV(class=`${blockName}__widgets-list`)
+      +widgets-list([
+        { 
+          title: "Навигация",
+          links: [
+            { link: "/change-link", text: "О нас" },
+            { link: "/change-link", text: "Новости" },
+            { link: "/change-link", text: "Служба поддержки" },
+            { link: "/change-link", text: "Услуги" },
+          ]
+        },
+        { 
+          title: "О нас",
+          links: [
+            { link: "/change-link", text: "О сервисе" },
+            { link: "/change-link", text: "Наша команда" },
+            { link: "/change-link", text: "Вакансии" },
+            { link: "/change-link", text: "Инвесторы" },
+          ]
+        },
+        { title: "Служба поддержки",
+          links: [
+            { link: "/change-link", text: "Соглашения" },
+            { link: "/change-link", text: "Сообщества" },
+            { link: "/change-link", text: "Связь с нами" },
+          ] 
+        },
+        { 
+          title: "Подписка",
+          text: "Получайте специальные предложения и новости сервиса",
+          withSubscribe: true,
+        },
+      ])
+
+//- 
+
+mixin about 
+  - const blockName = "about"
+  DIV(class=blockName)
+    DIV(class=`${blockName}__logo`)
+      +logo
+    DIV(class=`${blockName}__text`)="Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»"
+
+//-
+
+mixin widgets-list(list = [])
+  - const blockName = "widgets-list"
+  UL(class=blockName)
+    each item in list
+      LI(class=`${blockName}__item`)
+        +widget(item)

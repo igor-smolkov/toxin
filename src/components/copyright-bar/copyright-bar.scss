@@ -1,0 +1,10 @@
+@import '../colors-style/colors-style.scss';
+
+.copyright-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 23px 140px;
+  background-color: #FFFFFF;
+  box-shadow: 0px 10px 20px $color-5per;
+}
