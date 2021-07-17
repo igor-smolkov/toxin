@@ -13,92 +13,31 @@
     min-height: 100%;
     background: no-repeat center;
     background-size: cover;
-    right: 0;
+    &_current {
+      z-index: 1;
+      right: 0;
+    }
     &_next {
+      z-index: 2;
       left: 100%;
     }
-  }
-}
-
-.slide-next-animate {
-  animation: shift-next 2s;
-  @keyframes shift-next {
-    to {
-      left: 0;
+    &_animate {
+      &_overlay {
+        animation: shift-1 2s;
+        @keyframes shift-1 {
+          to {
+            left: 0;
+          }
+        }
+      }
+      &_hiding {
+        animation: shift 2s;
+        @keyframes shift {
+          to {
+            right: 100%;
+          }
+        }
+      }
     }
   }
 }
-.slide-current-animate {
-  animation: shift-current 2s;
-  @keyframes shift-current {
-    to {
-      right: 100%;
-    }
-  }
-}
-
-// .carousel {
-//     width: 100%;
-//     height: 100%;
-//     position: absolute;
-//     top: 0;
-//     left: 0;
-//     overflow: hidden;
-
-//     &__prev,
-//     &__next {
-//         width: 100%;
-//         height: 100%;
-//         position: absolute;
-//         z-index: -1;
-//         top: 0;
-//         left: 0;
-//     }
-//     &__prev {
-//         animation: shift-prev 2s;
-//         z-index: -2;
-//     }
-//     &__next {
-//         animation: shift-next 2s;
-//     }
-
-//     &__pic_1 {
-//         background: no-repeat center url('components/carousel/landing__room_1.png');
-//         background-size: cover;
-//     }
-//     &__pic_2 {
-//         background: no-repeat center url('components/carousel/landing__room_2.png');
-//         background-size: cover;
-//     }
-//     &__pic_3 {
-//         background: no-repeat center url('components/carousel/landing__room_3.png');
-//         background-size: cover;
-//     } 
-//     &__pic_4 {
-//         background: no-repeat center url('components/carousel/log__room_3.png');
-//         background-size: cover;
-//     }
-//     &__pic_5 {
-//         background: no-repeat center url('components/carousel/log__room_4.png');
-//         background-size: cover;
-//     }        
-// }
-
-
-// @keyframes shift-next {
-//     from { 
-//         left: 100%;
-//     }
-//     to { 
-//         left: 0;
-//     }
-// }
-
-// @keyframes shift-prev {
-//     from { 
-//         left: 0;
-//     }
-//     to { 
-//         left: -100%;
-//     }
-// }

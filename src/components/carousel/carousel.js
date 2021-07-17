@@ -3,70 +3,56 @@ import './carousel.scss'
 class Carousel {
   constructor($elem) {
     this._$elem = $elem;
-    this._id = this._$elem.attr('id');
-    this._$currentSlide = $(`#${this._id}-current`);
-    this._$nextSlide = $(`#${this._id}-next`);
-    this._slideLinks = Array.from(this._$elem.find('.carousel-slide-src')).map(elem => elem.value);
-    this._delay = this._$elem.data().delay * 1000;
-    this._$currentSlide.css('backgroundImage', `url('${this._slideLinks[0]}'`);
-    this._$nextSlide.css('backgroundImage', `url('${this._slideLinks[0]}'`);
-    setTimeout(()=>this.play(1), this._delay);
+    this._className = 'carousel';
+    this._$currentSlide = this._findCurrentSlide();
+    this._$nextSlide =this._findNextSlide();
+    this._slideLinks = this._makeArrOfSlidesLinks();
+    this._delay = this._initDelay();
+    this._currentIndex = 0;
+    this.startFrom(this._currentIndex);
   }
-  play(n) {
-    if (n >= this._slideLinks.length) { n = 0 }
-    this._$nextSlide.css('backgroundImage', `url('${this._slideLinks[n]}'`);
-    this._$nextSlide.addClass('slide-next-animate');
-    this._$currentSlide.addClass('slide-current-animate');
+  startFrom(from) {
+    this._setCurrentImage(from);
+    this._setNextImage(from);
+    setTimeout(()=>this._looping(from + 1), this._delay);
+  }
+  _looping(index) {
+    this._currentIndex = index;
+    if (this._currentIndex >= this._slideLinks.length) { this._currentIndex = 0 }
+    this._setNextImage(this._currentIndex);
+    this._animateBegin();
     this._$nextSlide.on('animationend', () => {
-      this._$currentSlide.css('backgroundImage', `url('${this._slideLinks[n]}'`);
-      this._$nextSlide.removeClass('slide-next-animate');
-      this._$currentSlide.removeClass('slide-current-animate');
-      setTimeout(() => this.play(n + 1), this._delay);
+      this._setCurrentImage(this._currentIndex);
+      this._animateEnd();
+      setTimeout(() => this._looping(this._currentIndex + 1), this._delay);
     })
+  }
+  _setCurrentImage(index) {
+    this._$currentSlide.css('backgroundImage', `url('${this._slideLinks[index]}'`);
+  }
+  _setNextImage(index) {
+    this._$nextSlide.css('backgroundImage', `url('${this._slideLinks[index]}'`);
+  }
+  _animateBegin() {
+    this._$nextSlide.addClass(`${this._className}__slide_animate_overlay`);
+    this._$currentSlide.addClass(`${this._className}__slide_animate_hiding`);
+  }
+  _animateEnd() {
+    this._$nextSlide.removeClass(`${this._className}__slide_animate_overlay`);
+      this._$currentSlide.removeClass(`${this._className}__slide_animate_hiding`);
+  }
+  _findCurrentSlide() {
+    return $(this._$elem.find(`.${this._className}__slide_current`))
+  }
+  _findNextSlide() {
+    return $(this._$elem.find(`.${this._className}__slide_next`))
+  }
+  _makeArrOfSlidesLinks() {
+    return Array.from(this._$elem.find(`.${this._className}__link`)).map(elem => elem.value)
+  }
+  _initDelay() {
+    return this._$elem.data().delay * 1000;
   }
 }
 
 $('.carousel').each((_, elem) => new Carousel($(elem)));
-
-export default function(delay = 10000) {
-    const carousels = document.querySelectorAll('.carousel')
-    carousels.forEach(carousel => {
-        let counterPrev = 0;
-        let counterNext = 0;
-        let first = 0;
-        let last = 0;
-        if (carousel.classList.contains('carousel_landing')) {
-            counterPrev = 2;
-            counterNext = 3;
-            first = 1;
-            last = 3;
-        }
-        if (carousel.classList.contains('carousel_log')) {
-            counterPrev = 4;
-            counterNext = 5;
-            first = 4;
-            last = 5;
-        }
-        setInterval(() => {
-            carousel.querySelector('.carousel__prev').classList.remove('carousel__pic_'+counterPrev);
-
-            counterPrev = counterNext;
-            counterNext = counterNext >= last ? first : counterNext + 1;
-            
-            carousel.querySelector('.carousel__prev').classList.add('carousel__pic_'+counterNext);
-
-            carousel.firstChild.style.webkitAnimation = 'none';
-            carousel.lastChild.style.webkitAnimation = 'none';
-            setTimeout(function() { 
-                carousel.firstChild.style.webkitAnimation = '';
-                carousel.lastChild.style.webkitAnimation = '';
-
-                carousel.firstChild.classList.toggle('carousel__next');
-                carousel.firstChild.classList.toggle('carousel__prev');
-
-                carousel.lastChild.classList.toggle('carousel__prev');
-                carousel.lastChild.classList.toggle('carousel__next');
-            }, 10);
-        }, delay);
-    });
-}

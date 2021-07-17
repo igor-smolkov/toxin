@@ -1,29 +1,24 @@
+//- 
+  options.delaySec
+  options.slides
+
 mixin carousel(options = {})
   - const blockName = "carousel"
   DIV(
-    class=blockName 
-    id=options.id
+    class=blockName
     data-delay=options.delaySec
   )
     DIV(
       class=`${blockName}__slide`
-      id=`${options.id}-current`
+      class=`${blockName}__slide_current`
     )
     DIV(
       class=`${blockName}__slide`
       class=`${blockName}__slide_next`
-      id=`${options.id}-next`
     )
     DATA(class=`${blockName}__links`)
       each slide, index in options.slides
-        OPTION(value=slide class="carousel-slide-src")
-
-//- mixin carousel(className)
-//-   .carousel(class=`carousel_${className}`)
-//-     case className
-//-       when 'landing'
-//-         .carousel__prev.carousel__pic_2
-//-         .carousel__next.carousel__pic_3
-//-       when 'log'
-//-         .carousel__prev.carousel__pic_4
-//-         .carousel__next.carousel__pic_5
+        OPTION(
+          class=`${blockName}__link`
+          value=slide
+        )
