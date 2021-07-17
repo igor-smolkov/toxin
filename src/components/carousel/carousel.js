@@ -1,3 +1,33 @@
+import './carousel.scss'
+
+class Carousel {
+  constructor($elem) {
+    this._$elem = $elem;
+    this._id = this._$elem.attr('id');
+    this._$currentSlide = $(`#${this._id}-current`);
+    this._$nextSlide = $(`#${this._id}-next`);
+    this._slideLinks = Array.from(this._$elem.find('.carousel-slide-src')).map(elem => elem.value);
+    this._delay = this._$elem.data().delay * 1000;
+    this._$currentSlide.css('backgroundImage', `url('${this._slideLinks[0]}'`);
+    this._$nextSlide.css('backgroundImage', `url('${this._slideLinks[0]}'`);
+    setTimeout(()=>this.play(1), this._delay);
+  }
+  play(n) {
+    if (n >= this._slideLinks.length) { n = 0 }
+    this._$nextSlide.css('backgroundImage', `url('${this._slideLinks[n]}'`);
+    this._$nextSlide.addClass('slide-next-animate');
+    this._$currentSlide.addClass('slide-current-animate');
+    this._$nextSlide.on('animationend', () => {
+      this._$currentSlide.css('backgroundImage', `url('${this._slideLinks[n]}'`);
+      this._$nextSlide.removeClass('slide-next-animate');
+      this._$currentSlide.removeClass('slide-current-animate');
+      setTimeout(() => this.play(n + 1), this._delay);
+    })
+  }
+}
+
+$('.carousel').each((_, elem) => new Carousel($(elem)));
+
 export default function(delay = 10000) {
     const carousels = document.querySelectorAll('.carousel')
     carousels.forEach(carousel => {
