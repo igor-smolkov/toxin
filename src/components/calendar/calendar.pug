@@ -1,9 +1,7 @@
 include ../dropdown-control/dropdown-control.pug
 
-mixin calendar(options)
+mixin calendar(options = {})
   - const blockName = "calendar"
-  if !options
-    - options = {}
   
   DIV(
     class=blockName

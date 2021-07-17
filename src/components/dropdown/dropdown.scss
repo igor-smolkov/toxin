@@ -46,6 +46,13 @@ $block: 'dropdown';
   &__panel {
     display: none;
     border-top: 1px solid $color-50per;
+    &_independent {
+      z-index: 1;
+      border: none;
+      position: absolute;
+      left: -1px;
+      top: 50px;
+    }
   }
   &_expanded {
     border-color: $color-50per;

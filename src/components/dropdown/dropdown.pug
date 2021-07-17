@@ -42,12 +42,18 @@ mixin dropdown(options)
       class="material-icons"
       for=`${options.id}-check`
     )
-    DIV(class=`${blockName}__panel`)
-      +dropdown-panel({ 
-        id: options.id, 
-        list: options.list, 
-        withControl: options.withControl,
-      })
+    DIV(
+      class=`${blockName}__panel`
+      class=!options.list ? `${blockName}__panel_independent` : ""
+    )
+      if options.list
+        +dropdown-panel({ 
+          id: options.id, 
+          list: options.list, 
+          withControl: options.withControl,
+        })
+      else
+        block
 
 //- 
 
