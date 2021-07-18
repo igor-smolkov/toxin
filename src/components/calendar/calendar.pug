@@ -5,7 +5,11 @@ mixin calendar(options = {})
   
   DIV(
     class=blockName
+    class=options.isArrival ? `${blockName}_arrival` : ""
+    class=options.isDeparture ? `${blockName}_departure` : ""
     id=options.id
+    data-for-arrival=options.forArrival
+    data-for-departure=options.forDeparture
     data-from=options.from
     data-to=options.to
     data-active=options.active

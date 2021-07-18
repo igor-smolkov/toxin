@@ -62,6 +62,7 @@ $block: 'like-button';
     }
   }
   &__icon { 
+    @include icon-type;
     position: absolute;
     min-width: 20px;
     min-height: 20px;

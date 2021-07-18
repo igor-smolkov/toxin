@@ -23,7 +23,8 @@
   &__details {
     @include text('rare_more');
   }
-  &__icon.material-icons {
+  &__icon {
+    @include icon-type;
     position: absolute;
     min-width: 48px;
     min-height: 48px;

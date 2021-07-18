@@ -22,6 +22,7 @@ $block: 'dropdown';
     }
   }
   &__expand-more {
+    @include icon-type;
     position: absolute;
     min-width: 42px;
     min-height: 42px;

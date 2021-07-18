@@ -50,9 +50,10 @@ mixin card-form-wishes-content(blockName, id, options = {})
           })
             +card({ isMedium: true, isEmpty: true })
               +calendar({ 
-                id: `${id}-calendar-mark-arrival`, 
-                from: options.dateFrom ? options.dateFrom : "", 
-                to: options.dateTo ? options.dateTo : "",
+                id: `${id}-calendar-mark-arrival`,
+                forArrival: `${id}-date-arrival`,
+                forDeparture: `${id}-date-departure`,
+                isArrival: true,
                 active: options.calendarArrivalDateActivate ? options.calendarArrivalDateActivate : "",
               })
       .form-section__set
@@ -66,8 +67,9 @@ mixin card-form-wishes-content(blockName, id, options = {})
             +card({ isMedium: true, isEmpty: true })
               +calendar({ 
                 id: `${id}-calendar-mark-departure`,
-                from: options.dateFrom ? options.dateFrom : "", 
-                to: options.dateTo ? options.dateTo : "",
+                forArrival: `${id}-date-arrival`,
+                forDeparture: `${id}-date-departure`,
+                isDeparture: true,
                 active: options.calendarDepartureDateActivate ? options.calendarDepartureDateActivate : "",
               })
   SECTION(class=`${blockName}__section`)

@@ -4,6 +4,7 @@
 $block: 'button';
 
 .#{$block} {
+  @include icon-type;
   position: relative;
   min-width: 61px;
   max-width: 320px;
@@ -81,5 +82,8 @@ $block: 'button';
         height: 30px;
       }
     }
+  }
+  &_none {
+    display: none;
   }
 }

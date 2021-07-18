@@ -107,14 +107,14 @@
     border-top-right-radius: 22px;
     border-bottom-right-radius: 22px;
   }
-  .ui-datepicker-period-from a,
-  .ui-datepicker-period-to a {
-    @include dayCircle('purple');
-  }
   .ui-datepicker-active a {
     @include dayCircle('green');
     &:hover {
       @include dayCircle('purple');
     }
+  }
+  .ui-datepicker-period-from a,
+  .ui-datepicker-period-to a {
+    @include dayCircle('purple');
   }
 }

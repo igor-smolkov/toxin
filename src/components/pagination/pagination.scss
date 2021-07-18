@@ -11,6 +11,7 @@ $block: 'pagination';
     display: flex;
   }
   &__item {
+    @include icon-type;
     min-width: 40px;
     min-height: 40px;
 

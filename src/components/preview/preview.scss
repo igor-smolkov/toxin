@@ -1,3 +1,5 @@
+@import '@comp/type-style/type-style.scss';
+
 .preview {
   max-width: 270px;
   max-height: 151px;
@@ -23,6 +25,7 @@
   display: flex;
   justify-content: space-between;
   &__arrow {
+    @include icon-type;
     flex-grow: 1;
     max-width: 42px;
     background: transparent;

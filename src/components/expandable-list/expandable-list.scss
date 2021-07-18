@@ -25,6 +25,7 @@ $block: 'expandable-list';
     }
   }
   &__expand-more {
+    @include icon-type;
     min-width: 24px;
     min-height: 21px;
     cursor: pointer;

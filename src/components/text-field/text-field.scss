@@ -4,6 +4,7 @@
 .field-submit {
   position: relative;
   &__button {
+    @include icon-type;
     position: absolute;
     min-width: 44px;
     min-height: 44px;

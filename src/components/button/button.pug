@@ -6,6 +6,7 @@
   options.isTextOnly
   options.isWithArrow
   options.isCompact
+  options.isNone
 
 mixin button(options)
   - const blockName = "button"
@@ -17,12 +18,12 @@ mixin button(options)
   BUTTON(
     id=options.id
     class=blockName
-    class=options.isHovered ? `${blockName}_hovered` : ''
-    class=options.isBorderOnly ? `${blockName}_border_only` : ''
-    class=options.isTextOnly ? `${blockName}_text_only` : ''
-    class=options.isWithArrow ? `${blockName}_with_arrow` : ''
-    class=options.isCompact ? `${blockName}_compacted` : ''
-    class='material-icons'
+    class=options.isHovered ? `${blockName}_hovered` : ""
+    class=options.isBorderOnly ? `${blockName}_border_only` : ""
+    class=options.isTextOnly ? `${blockName}_text_only` : ""
+    class=options.isWithArrow ? `${blockName}_with_arrow` : ""
+    class=options.isCompact ? `${blockName}_compacted` : ""
+    class=options.isNone ? `${blockName}_none` : ""
   )
     P(
       class=`${blockName}__caption`

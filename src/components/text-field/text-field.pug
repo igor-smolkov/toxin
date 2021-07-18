@@ -18,7 +18,7 @@ mixin text-field(options)
   if options.isDirected
     .field-submit
       +text-field-base(options)
-      INPUT.field-submit__button.material-icons(type="submit" value="arrow_forward")
+      INPUT.field-submit__button(type="submit" value="arrow_forward")
   else
     +text-field-base(options)
 
