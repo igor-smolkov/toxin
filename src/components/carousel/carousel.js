@@ -14,18 +14,27 @@ class Carousel {
   startFrom(from) {
     this._setCurrentImage(from);
     this._setNextImage(from);
-    setTimeout(()=>this._looping(from + 1), this._delay);
+    this._currentIndex = from;
+    this._isAnimationEnd = true;
+    this.timer = setTimeout(this._looping.bind(this), this._delay)
   }
-  _looping(index) {
+  _looping() {
+    if (!this._isAnimationEnd) { this._stepEnd() }
+    this._stepStart(this._currentIndex + 1);
+    this.timer = setTimeout(this._looping.bind(this), this._delay);
+  }
+  _stepStart(index) {
     this._currentIndex = index;
     if (this._currentIndex >= this._slideLinks.length) { this._currentIndex = 0 }
     this._setNextImage(this._currentIndex);
     this._animateBegin();
-    this._$nextSlide.on('animationend', () => {
-      this._setCurrentImage(this._currentIndex);
-      this._animateEnd();
-      setTimeout(() => this._looping(this._currentIndex + 1), this._delay);
-    })
+    this._isAnimationEnd = false;
+    this._$nextSlide.on('animationend', this._stepEnd.bind(this))
+  }
+  _stepEnd() {
+    this._isAnimationEnd = true;
+    this._setCurrentImage(this._currentIndex);
+    this._animateEnd();
   }
   _setCurrentImage(index) {
     this._$currentSlide.css('backgroundImage', `url('${this._slideLinks[index]}'`);
@@ -39,7 +48,9 @@ class Carousel {
   }
   _animateEnd() {
     this._$nextSlide.removeClass(`${this._className}__slide_animate_overlay`);
-      this._$currentSlide.removeClass(`${this._className}__slide_animate_hiding`);
+    this._$currentSlide.removeClass(`${this._className}__slide_animate_hiding`);
+    this._$nextSlide.finish();
+    this._$currentSlide.finish();
   }
   _findCurrentSlide() {
     return $(this._$elem.find(`.${this._className}__slide_current`))
