@@ -1,42 +1,21 @@
-@import '../../../components/carousel/carousel.scss';
-
+.page {
+    min-width: 320px;
+    width: 100%;
+  }
+  
 .landing {
-    &__main {
-        min-height: 830px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        padding: 70px 134px 21px 140px;
-        
-        position: relative;
-    }
-    &__text {
-        align-self: flex-end;
-        max-width: 297px;
-        font-family: $font-main;
-        font-size: 14px;
-        line-height: 24px;
-        text-align: right;
-        color: $color-75per;
-    }
-}
-
-@media only screen and (max-width : 660px) {
-    .landing {
-        &__main {
-            padding: 40px;
-        }
-    }
-}
-
-@media only screen and (max-width : 460px) {
-    .landing {
-        &__main {
-            padding: 40px 10px;
-            .card {
-                align-self: center;
-            }
-        }
-        
-    }
+  position: relative;
+  z-index: 0;
+  &__content {
+    padding: 70px 134px 21px 140px;
+    min-height: 830px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  &__about {
+    max-width: 297px;
+    align-self: flex-end;
+    text-align: right;
+  }
 }

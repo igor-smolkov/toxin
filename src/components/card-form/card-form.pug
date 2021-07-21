@@ -50,7 +50,13 @@ mixin card-form-wishes-content(blockName, id, options = {})
   SECTION(class=`${blockName}__section`)
     +form-section
       +form-set({ title: "Гости" })
-        +dropdown({ id: `${id}-dropdown-guests`, value: "Сколько гостей" })
+        +dropdown({ 
+          id: `${id}-dropdown-guests`, 
+            value: options.guests ? options.guests : "Сколько гостей", 
+            isExpanded: options.isGuestListExpanded,
+            withControl: true,
+            list: options.guestList,
+          })
   SECTION(
     class=`${blockName}__section`
     class=`${blockName}__section_last`

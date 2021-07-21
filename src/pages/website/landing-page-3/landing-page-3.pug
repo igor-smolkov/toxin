@@ -3,26 +3,40 @@ extends ../../../layout
 include ../../../components/header/header.pug
 include ../../../components/footer/footer.pug
 include ../../../components/card/card.pug
+include ../../../components/card-form/card-form.pug
 include ../../../components/carousel/carousel.pug
 
 block variables
   - var title = 'TOXIN - Landing'
 
 block content
+  HEADER.page__header
     +header
-    main.landing__main
-      +carousel('landing')
-      +card({
-        type: 'wishes',
-        date1: '2019-08-19',
-        date2: '2019-08-23',
-        datepicker: '',
-        guests: {
-          adults: 2,
-          kids: 1,
-          babies: 0,
-          expanded: true
-        }
-      })
-      p.landing__text= 'Лучшие номера для вашей работы, отдыха и просто вдохновения'
+  MAIN.page__main
+    .landing
+      .landing__background
+        +carousel({
+          slides: [ "../images/landing-room-1.png", "../images/landing-room-2.png", "../images/landing-room-3.png"],
+          delaySec: 10,
+        })
+      .landing__content
+        .landing__card
+          +card({ title: "Найдём номера под ваши пожелания" })
+            +card-form({ 
+              for: "wishes", 
+              id: "wishes-form",
+              options: {
+                dateFrom: "2019-08-19",
+                dateTo: "2019-08-23",
+                guests: "3 гостя",
+                guestList: [
+                  { name: "взрослые", count: 2 },
+                  { name: "дети", count: 1 },
+                  { name: "младенцы" }
+                ],
+                isGuestListExpanded: true,
+              }
+            })
+        P.landing__about="Лучшие номера для вашей работы, отдыха и просто вдохновения"
+  FOOTER.page__footer
     +footer

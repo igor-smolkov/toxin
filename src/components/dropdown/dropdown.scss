@@ -46,19 +46,28 @@ $block: 'dropdown';
   }
   &__panel {
     display: none;
-    border-top: 1px solid $color-50per;
+    border: 1px solid $color-25per;
+    border-radius: 4px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    min-width: calc(100% + 2px);
+    left: -1px;
+    background-color: white;
+    z-index: 1;
+    position: absolute;
     &_independent {
-      z-index: 1;
+      z-index: 2;
       border: none;
-      position: absolute;
-      left: -1px;
       top: 50px;
     }
   }
   &_expanded {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
     border-color: $color-50per;
     .#{$block}__panel {
       display: block;
+      border-color: $color-50per;
     }
   }
   &_hovered,

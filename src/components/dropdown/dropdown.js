@@ -21,7 +21,7 @@ class Counter {
     this.disabledMinusButton(this._count === 0);
   }
   getCount() {
-    return this.count
+    return this._count
   }
   decrementCount() {
     this.setCount(this._count-1);
@@ -30,6 +30,7 @@ class Counter {
     this.setCount(this._count+1);
   }
   reset() {
+    console.log('asdasd');
     this._count = 0;
     this._updateCountField();
     this.disabledMinusButton(true);
@@ -74,8 +75,13 @@ class Dropdown {
     this._$elem = $elem;
     this._id = this._$elem.attr('id');
     this._counters = this._initCounters();
+    this._$field = $(`#${this._id}-field`);
     this._$clearButton = $(`#${this._id}-clear`);
     this._$clearButton.on('click', (e) => this._handleClearButtonClick(e));
+    this._$applyButton = $(`#${this._id}-apply`);
+    this._$applyButton.on('click', (e) => this._handleApplyButtonClick(e));
+    this._$dropper = $(`#${this._id}-check`);
+    this._$dropper.on('change', (e) => this._handleDrop(e));
   }
   _initCounters() {
     const counters = [];
@@ -92,6 +98,31 @@ class Dropdown {
     this._counters.forEach(counter => {
       counter.reset();
     });
+  }
+  _handleApplyButtonClick(e) {
+    e.preventDefault();
+    this._$field.val(this._makeGuestStr(this._calcCountersSum()))
+  }
+  _calcCountersSum() {
+    return this._counters.reduce((sum, counter) => sum + counter.getCount(), 0);
+  }
+  _makeGuestStr(count) {
+    if (count === 0) return 'Сколько гостей';
+    if (count > 10) {
+      const lastTwoDigits = +count.toString().substring(count.toString().length-2);
+      if (lastTwoDigits > 10 && lastTwoDigits <= 19) return `${count} гостей`;
+    }
+    const lastDigit = +count.toString()[count.toString().length-1];
+    if (lastDigit === 1) return `${count} гость`;
+    if (lastDigit > 1 && lastDigit <= 4) return `${count} гостя`;
+    if (lastDigit > 4 && lastDigit <= 9 || lastDigit === 0) return `${count} гостей`;
+  }
+  _handleDrop(e) {
+    if (e.target.checked) {
+      this._$elem.addClass('dropdown_expanded');
+    } else {
+      this._$elem.removeClass('dropdown_expanded');
+    }
   }
 }
 
