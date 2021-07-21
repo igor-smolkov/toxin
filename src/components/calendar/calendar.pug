@@ -5,18 +5,17 @@ mixin calendar(options = {})
   
   DIV(
     class=blockName
-    class=options.isArrival ? `${blockName}_arrival` : ""
-    class=options.isDeparture ? `${blockName}_departure` : ""
     id=options.id
-    data-for-arrival=options.forArrival
-    data-for-departure=options.forDeparture
     data-from=options.from
     data-to=options.to
     data-active=options.active
   )
-    DIV(class=`${blockName}__plugin`)
+    DIV(
+      class=`${blockName}__plugin`
+      id=`${options.id}-plugin`
+    )
     DIV(class=`${blockName}__control`)
       +dropdown-control({ 
-        id: options.id, 
+        id: `${options.id}-control`, 
         isClear: (options.to || options.from || options.active) ? false : true,
       })

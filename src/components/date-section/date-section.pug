@@ -1,0 +1,53 @@
+include ../form-set/form-set.pug
+include ../dropdown/dropdown.pug
+include ../card/card.pug
+include ../calendar/calendar.pug
+
+//- 
+  options.id
+  options.dateFrom
+  options.dateTo
+  options.isCalendarArrivalExpanded
+  options.isCalendarDepartureExpanded
+  options.calendarArrivalDateActivate
+  options.calendarDepartureDateActivate
+
+mixin date-section(options = {})
+  - const blockName = "date-section"
+  DIV(
+    class=blockName
+    id=options.id
+  )
+    DIV(
+      class=`${blockName}__set`
+      class=`${blockName}__set_first`
+    )
+      +form-set({ title: "Прибытие" })
+        +dropdown({ 
+          id: `${options.id}-arrival`, 
+          type: "date",
+          value: options.dateFrom ? options.dateFrom : "",
+          isExpanded: options.isCalendarArrivalExpanded,
+        })
+          +card({ isMedium: true, isEmpty: true })
+            +calendar({ 
+              id: `${options.id}-arrival-calendar`,
+              from: options.dateFrom ? options.dateFrom : "",
+              to: options.dateTo ? options.dateTo : "",
+              active: options.calendarArrivalDateActivate ? options.calendarArrivalDateActivate : "",
+            })
+    DIV(class=`${blockName}__set`)
+      +form-set({ title: "Выезд" })
+        +dropdown({ 
+          id: `${options.id}-departure`, 
+          type: "date",
+          value: options.dateTo ? options.dateTo : "",
+          isExpanded: options.isCalendarDepartureExpanded,
+        })
+          +card({ isMedium: true, isEmpty: true })
+            +calendar({ 
+              id: `${options.id}-departure-calendar`,
+              from: options.dateFrom ? options.dateFrom : "",
+              to: options.dateTo ? options.dateTo : "",
+              active: options.calendarDepartureDateActivate ? options.calendarDepartureDateActivate : "",
+            })

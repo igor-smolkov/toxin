@@ -8,8 +8,7 @@ include ../toggle/toggle.pug
 include ../rate-button/rate-button.pug
 include ../bill/bill.pug
 include ../reviews-counter/reviews-counter.pug
-include ../card/card.pug
-include ../calendar/calendar.pug
+include ../date-section/date-section.pug
 
 //- 
   options.id
@@ -39,39 +38,15 @@ mixin card-form-wishes-content(blockName, id, options = {})
     class=`${blockName}__section`
     class=`${blockName}__section_first`
   )
-    +form-section({ isPaired: true })
-      .form-section__set.form-section__set_first
-        +form-set({ title: "Прибытие" })
-          +dropdown({ 
-            id: `${id}-date-arrival`, 
-            type: "date",
-            value: options.dateFrom ? options.dateFrom : "",
-            isExpanded: options.isCalendarArrivalExpanded,
-          })
-            +card({ isMedium: true, isEmpty: true })
-              +calendar({ 
-                id: `${id}-calendar-mark-arrival`,
-                forArrival: `${id}-date-arrival`,
-                forDeparture: `${id}-date-departure`,
-                isArrival: true,
-                active: options.calendarArrivalDateActivate ? options.calendarArrivalDateActivate : "",
-              })
-      .form-section__set
-        +form-set({ title: "Выезд" })
-          +dropdown({ 
-            id: `${id}-date-departure`, 
-            type: "date",
-            value: options.dateTo ? options.dateTo : "",
-            isExpanded: options.isCalendarDepartureExpanded,
-          })
-            +card({ isMedium: true, isEmpty: true })
-              +calendar({ 
-                id: `${id}-calendar-mark-departure`,
-                forArrival: `${id}-date-arrival`,
-                forDeparture: `${id}-date-departure`,
-                isDeparture: true,
-                active: options.calendarDepartureDateActivate ? options.calendarDepartureDateActivate : "",
-              })
+    +date-section({
+      id: `${id}-date-section`,
+      dateFrom: options.dateFrom,
+      dateTo: options.dateTo,
+      isCalendarArrivalExpanded: options.isCalendarArrivalExpanded,
+      isCalendarArrivalDeparture: options.isCalendarArrivalDeparture,
+      calendarArrivalDateActivate: options.calendarArrivalDateActivate,
+      calendarDepartureDateActivate: options.calendarDepartureDateActivate,
+    })
   SECTION(class=`${blockName}__section`)
     +form-section
       +form-set({ title: "Гости" })

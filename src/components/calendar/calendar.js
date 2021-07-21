@@ -8,23 +8,17 @@ class Calendar {
   constructor($elem) {
     this._$elem = $elem;
     this._id = this._$elem.attr('id');
-    this._$arrivalField = $(`#${this._$elem.data().forArrival}-field`);
-    this._$departureField = $(`#${this._$elem.data().forDeparture}-field`);
-    this._$pluginElem = this._$elem.find('.calendar__plugin');
-    this._$clearButton = $(`#${this._id}-clear`);
-    this._$applyButton = $(`#${this._id}-apply`);
+    this.$pluginElem = this._$elem.find('.calendar__plugin');
+    this.$clearButton = $(`#${this._id}-control-clear`);
+    this._$applyButton = $(`#${this._id}-control-apply`);
     this._init();
   }
   _init() {
-    this.dateFrom = this._createDate(this._pullOutDateStrFrom(this._$arrivalField, this._$elem.data().from));
-    this.dateTo = this._createDate(this._pullOutDateStrFrom(this._$departureField, this._$elem.data().to));
+    this.dateFrom = this._createDate(this._$elem.data().from);
+    this.dateTo = this._createDate(this._$elem.data().to);
     this.dateActive = this._createDate(this._$elem.data().active);
     this._initPlugin();
     this._initControlButtons();
-  }
-  _pullOutDateStrFrom(dateField, dateProp) {
-    const dateStr = dateField ? dateField.val() : dateProp;
-    return dateStr ?? null;
   }
   _createDate(date) {
     return date ? 
@@ -33,22 +27,22 @@ class Calendar {
   }
   _initControlButtons() {
     if (this.dateFrom || this.dateTo) {
-      this._$clearButton.removeClass('button_none');
+      this.$clearButton.removeClass('button_none');
     }
-    this._$clearButton.on('click', (e) => this._handleClearButtonClick(e));
-    this._$applyButton.on('click', (e) => this._handleApplyButtonClick(e));
+    this.$clearButton.on('click', (e) => this._handleClearButtonClick(e));
+    this._$applyButton.on('click', (e) => this.handleApplyButtonClick(e));
   }
   _initPlugin() {
     datepickerFactory($);
     datepickerRUFactory($);
     $(()=>{
-      this._$pluginElem.datepicker({
+      this.$pluginElem.datepicker({
         showOtherMonths: true,
         selectOtherMonths: true,
         beforeShowDay: (date) => this._checkDayInPeriod(date),
         onSelect: (date) => this.handleSelect(date),
       }); 
-      this._$pluginElem.datepicker("setDate", this.dateActive);
+      this.$pluginElem.datepicker("setDate", this.dateActive);
     });
   }
   _checkDayInPeriod(date) {
@@ -72,17 +66,11 @@ class Calendar {
     this.dateFrom = null;
     this.dateTo = null;
     this.dateActive = this._createDate();
-    this._$pluginElem.datepicker("setDate", this.dateActive);
-    if (this._$arrivalField) { this._$arrivalField.val(null) }
-    if (this._$departureField) { this._$departureField.val(null) }
-    this._$clearButton.addClass('button_none');
-  }
-  _handleApplyButtonClick(e) {
-    e.preventDefault();
-    if (this._$arrivalField) { this._$arrivalField.val(this.convertDateToYMDHyphen(this.dateFrom)) }
-    if (this._$departureField) { this._$departureField.val(this.convertDateToYMDHyphen(this.dateTo)) }
+    this.$pluginElem.datepicker("setDate", this.dateActive);
+    this.notify();
   }
   convertDateToYMDHyphen(date) {
+    if (!date) return null;
     const month = date.getMonth()+1 < 10 ? `0${date.getMonth()+1}` : date.getMonth()+1;
     const day = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate();
     return `${date.getFullYear()}-${month}-${day}`;
@@ -105,37 +93,72 @@ class Calendar {
       this.dateTo = date;
     }
     this.dateActive = date;
-    this._$clearButton.removeClass('button_none');
+    this.$clearButton.removeClass('button_none');
+  }
+  update(dateFrom, dateTo) {
+    this.dateFrom = dateFrom ? this._createDate(dateFrom) : null;
+    this.dateTo = dateTo ? this._createDate(dateTo) : null;
+    if (!this.dateFrom && !this.dateTo) {
+      this.$clearButton.addClass('button_none');
+    } else {
+      this.$clearButton.removeClass('button_none');
+    }
+  }
+  notify(date) {
+    this._callback(date ? this.convertDateToYMDHyphen(date) : null)
+  }
+  listen(callback) {
+    this._callback = callback;
   }
 }
 
 class ArrivalCalendar extends Calendar {
+  update(dateFrom, dateTo) {
+    super.update(dateFrom, dateTo)
+    this.dateActive = !this.dateFrom && !this.dateTo ? this._createDate() : this.dateFrom;
+    this.dateTo = this.dateFrom > this.dateTo ? this.dateFrom : this.dateTo;
+    this.$pluginElem.datepicker("refresh");
+    this.$pluginElem.datepicker("setDate", this.dateFrom);
+  }
   handleSelect(dateDMYDot) {
     const date = this.createDateFromDMYDot(dateDMYDot);
-    if (+date <= +this.dateTo || !this.dateTo) {
+    console.log(this.dateTo, this.dateFrom)
+    if (+date <= +this.dateTo || !this.dateTo || !this.dateFrom) {
       this.dateActive = date;
       this.dateFrom = date;
-      this._$clearButton.removeClass('button_none');
+      this.$clearButton.removeClass('button_none');
     }
   }
+  handleApplyButtonClick(e) {
+    e.preventDefault();
+    this.$pluginElem.datepicker("setDate", this.dateFrom);
+    this.notify(this.dateFrom);
+  }
 }
-class DeparturCalendar extends Calendar {
+
+class DepartureCalendar extends Calendar {
+  update(dateFrom, dateTo) {
+    super.update(dateFrom, dateTo)
+    this.dateActive = !this.dateFrom && !this.dateTo ? this._createDate() :  this.dateTo;
+    this.dateFrom = this.dateTo < this.dateFrom && this.dateTo !== null ? this.dateTo : this.dateFrom;
+    this.$pluginElem.datepicker("refresh");
+    this.$pluginElem.datepicker("setDate", this.dateTo);
+  }
   handleSelect(dateDMYDot) {
     const date = this.createDateFromDMYDot(dateDMYDot);
     if (+date >= +this.dateFrom || !this.dateFrom) {
       this.dateActive = date;
       this.dateTo = date;
-      this._$clearButton.removeClass('button_none');
+      this.$clearButton.removeClass('button_none');
     }
+  }
+  handleApplyButtonClick(e) {
+    e.preventDefault();
+    this.$pluginElem.datepicker("setDate", this.dateTo);
+    this.notify(this.dateTo);
   }
 }
 
-$('.calendar').each((_, elem) => {
-  if (elem.classList.contains('calendar_arrival')) {
-    return new ArrivalCalendar($(elem))
-  } else if (elem.classList.contains('calendar_departure')) {
-    return new DeparturCalendar($(elem))
-  } else {
-    return new Calendar($(elem));
-  }
-});
+// $('.calendar').each((_, elem) => new Calendar($(elem)));
+
+export { ArrivalCalendar, DepartureCalendar }

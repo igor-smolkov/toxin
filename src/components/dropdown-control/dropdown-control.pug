@@ -12,6 +12,7 @@ mixin dropdown-control(options)
 
   DIV(
     class=blockName
+    id=options.id
   )
     DIV(class=`${blockName}__clear`)
       +button({ 
@@ -22,4 +23,9 @@ mixin dropdown-control(options)
         isNone: isClear,
       })
     DIV(class=`${blockName}__apply`)
-      +button({ id: `${options.id}-apply`, caption: "Применить", isWithArrow: false, isTextOnly: true })
+      +button({ 
+        id: `${options.id}-apply`, 
+        caption: "Применить", 
+        isWithArrow: false, 
+        isTextOnly: true 
+      })
