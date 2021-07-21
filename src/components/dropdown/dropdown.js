@@ -30,7 +30,6 @@ class Counter {
     this.setCount(this._count+1);
   }
   reset() {
-    console.log('asdasd');
     this._count = 0;
     this._updateCountField();
     this.disabledMinusButton(true);
@@ -93,6 +92,7 @@ class Dropdown {
   _handleClearButtonClick(e) {
     e.preventDefault();
     this._resetCounters();
+    this._updateField();
   }
   _resetCounters() {
     this._counters.forEach(counter => {
@@ -101,6 +101,9 @@ class Dropdown {
   }
   _handleApplyButtonClick(e) {
     e.preventDefault();
+    this._updateField();
+  }
+  _updateField() {
     this._$field.val(this._makeGuestStr(this._calcCountersSum()))
   }
   _calcCountersSum() {
