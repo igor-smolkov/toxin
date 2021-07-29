@@ -1,5 +1,6 @@
 include ../form-set/form-set.pug
 include ../date-filter/date-filter.pug
+include ../dropdown/dropdown.pug
 
 //-
   options.id
@@ -18,11 +19,40 @@ mixin filter(options = {})
   - const blockName = "filter"
   - const id = options.id ? options.id : blockName
   FORM(class=blockName id=id)
-    if options.dateFrom && options.dateTo
-      SECTION(class=`${blockName}__dates`)
-        +form-set({ title: "Даты пребывания в отеле" })
-          +date-filter({
-            id: `${id}-dates`,
-            dateFrom: options.dateFrom,
-            dateTo: options.dateTo,
-          })
+    SECTION(
+      class=`${blockName}__section`
+      class=`${blockName}__section_first`
+    )
+      +form-set({ title: "Даты пребывания в отеле" })
+        +date-filter({
+          id: `${id}-dates`,
+          dateFrom: options.dateFrom,
+          dateTo: options.dateTo,
+        })
+    SECTION(
+      class=`${blockName}__section`
+      class=`${blockName}__section_second`
+    )
+      +form-set({ title: "Гости" })
+        +dropdown({
+          id: `${id}-guests`,
+          list: [
+            { name: "Взрослые", count: 3, category: "гость" },
+            { name: "Дети", category: "гость" },
+            { name: "Младенцы", count: 1, category: "младенец" }
+          ]
+        })
+    SECTION(
+      class=`${blockName}__section`
+      class=`${blockName}__section_second`
+    )
+      +form-set({ title: "Удобства номера" })
+        +dropdown({
+          id: `${id}-amenities`,
+          list: [
+            { name: "Спальни", count: 2, category: "спальня" },
+            { name: "Кровати", count: 2, category: "кровать" },
+            { name: "Ванные комнаты", category: "ванная" }
+          ]
+        })
+

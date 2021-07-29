@@ -105,14 +105,15 @@ mixin dropdown-item(options)
     DIV(
       class=`${blockName}__counter`
     )
-      +dropdown-counter(options.count)
+      +dropdown-counter(options.count, options.category)
 
 //- 
 
-mixin dropdown-counter(count)
+mixin dropdown-counter(count, category)
   - const blockName = "dropdown-counter"
   DIV(
     class=blockName
+    data-category=category
   )
     BUTTON(
       class=`${blockName}__element`
