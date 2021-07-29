@@ -14,9 +14,9 @@ class Calendar {
     this._init();
   }
   _init() {
-    this.dateFrom = this._createDate(this._$elem.data().from);
-    this.dateTo = this._createDate(this._$elem.data().to);
-    this.dateActive = this._createDate(this._$elem.data().active);
+    this.dateFrom = this._$elem.data().from ? this._createDate(this._$elem.data().from) : null;
+    this.dateTo = this._$elem.data().to ? this._createDate(this._$elem.data().to) : null;
+    this.dateActive = this._$elem.data().active ? this._createDate(this._$elem.data().active) : null;
     this._initPlugin();
     this._initControlButtons();
   }
@@ -115,7 +115,7 @@ class Calendar {
 class ArrivalCalendar extends Calendar {
   update(dateFrom, dateTo) {
     super.update(dateFrom, dateTo)
-    this.dateActive = !this.dateFrom && !this.dateTo ? this._createDate() : this.dateFrom;
+    this.dateActive = this.dateActive ?? (!this.dateFrom && !this.dateTo ? this._createDate() : this.dateFrom);
     this.dateTo = this.dateFrom > this.dateTo ? this.dateFrom : this.dateTo;
     this.$pluginElem.datepicker("refresh");
     this.$pluginElem.datepicker("setDate", this.dateFrom);
@@ -139,7 +139,7 @@ class ArrivalCalendar extends Calendar {
 class DepartureCalendar extends Calendar {
   update(dateFrom, dateTo) {
     super.update(dateFrom, dateTo)
-    this.dateActive = !this.dateFrom && !this.dateTo ? this._createDate() :  this.dateTo;
+    this.dateActive = this.dateActive ?? (!this.dateFrom && !this.dateTo ? this._createDate() :  this.dateTo);
     this.dateFrom = this.dateTo < this.dateFrom && this.dateTo !== null ? this.dateTo : this.dateFrom;
     this.$pluginElem.datepicker("refresh");
     this.$pluginElem.datepicker("setDate", this.dateTo);

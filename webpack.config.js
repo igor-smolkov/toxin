@@ -22,7 +22,7 @@ const fontsDir = 'fonts'
 const pagesDir = 'pages'
 const pages = [
     { 'ui-kit' : ['colors-and-type', 'form-elements', 'cards', 'headers-and-footers'] }, 
-    { 'website' : ['landing-page-1', 'landing-page-2', 'landing-page-3'] }
+    { 'website' : ['landing-page', 'landing-page-dates-dropdown', 'landing-page-guests-dropdown'] }
     // { 'website' : ['registration', 'sign-in', 'room-details', 'search-room-1', 'search-room-2', 'search-room-3', 'landing-page-1', 'landing-page-2', 'landing-page-3'] }
 ]
 
@@ -110,9 +110,9 @@ module.exports = {
     context: path.resolve(__dirname, 'src'), //папка исходников
     entry: {
         main: `./${entryPoint}`,
-        ['landing-page-1']: './pages/website/landing-page-1/landing-page-1.js',
-        ['landing-page-2']: './pages/website/landing-page-2/landing-page-2.js',
-        ['landing-page-3']: './pages/website/landing-page-3/landing-page-3.js',
+        ['landing-page']: './pages/website/landing-page/landing-page.js',
+        ['landing-page-dates-dropdown']: './pages/website/landing-page/landing-page.js',
+        ['landing-page-guests-dropdown']: './pages/website/landing-page/landing-page.js',
         ['colors-and-type']: './pages/ui-kit/colors-and-type/colors-and-type.js',
         ['form-elements']: './pages/ui-kit/form-elements/form-elements.js',
         ['cards']: './pages/ui-kit/cards/cards.js',

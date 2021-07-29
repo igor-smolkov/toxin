@@ -70,6 +70,7 @@ $block: 'expandable-list';
 
 .list {
   position: absolute;
+  z-index: 1;
   top: 26px;
   left: 0;
   min-width: 100%;

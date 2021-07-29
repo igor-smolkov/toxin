@@ -1,4 +1,4 @@
-import './landing-page-3.scss';
+import './landing-page.scss';
 
 import '@comp/header/header';
 import '@comp/footer/footer';

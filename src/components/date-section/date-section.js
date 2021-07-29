@@ -14,6 +14,7 @@ class DateSection {
     this._$departureField = $(`#${this._id}-departure-field`);
     this._arrivalCalendar = new ArrivalCalendar($(`#${this._id}-arrival-calendar`));
     this._departureCalendar = new DepartureCalendar($(`#${this._id}-departure-calendar`));
+    this._updateCalendars();
     
     this._listen();
   }

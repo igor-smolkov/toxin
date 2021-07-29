@@ -81,6 +81,7 @@ class Dropdown {
     this._$applyButton.on('click', (e) => this._handleApplyButtonClick(e));
     this._$dropper = $(`#${this._id}-check`);
     this._$dropper.on('change', (e) => this._handleDrop(e));
+    this._$elem.on('click', this._handleCheckClear.bind(this))
   }
   _initCounters() {
     const counters = [];
@@ -125,6 +126,13 @@ class Dropdown {
       this._$elem.addClass('dropdown_expanded');
     } else {
       this._$elem.removeClass('dropdown_expanded');
+    }
+  }
+  _handleCheckClear() {
+    if (this._calcCountersSum() > 0) {
+      this._$clearButton.removeClass('button_none')
+    } else {
+      this._$clearButton.addClass('button_none')
     }
   }
 }

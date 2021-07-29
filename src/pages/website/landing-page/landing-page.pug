@@ -22,7 +22,17 @@ block content
       .landing__content
         .landing__card
           +card({ title: "Найдём номера под ваши пожелания" })
-            +card-form({ for: "wishes", id: "wishes-form" })
+            +card-form({ 
+              for: "wishes", 
+              id: "wishes-form",
+              options: {
+                guestList: [
+                  { name: "взрослые" },
+                  { name: "дети" },
+                  { name: "младенцы" }
+                ]
+              }
+            })
         P.landing__about="Лучшие номера для вашей работы, отдыха и просто вдохновения"
   FOOTER.page__footer
     +footer
