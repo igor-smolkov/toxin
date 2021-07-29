@@ -36,7 +36,7 @@ mixin text-field-base(options)
         : 
       "text"
     }`
-    value=options.value
+    value=!options.isFilter ? options.value : `${options.dateFrom} - ${options.dateTo}`
     placeholder=options.placeholder
     pattern=options.isMasked ? "(0[1-9]|1[0-9]|2[0-9]|3[01]).(0[1-9]|1[012]).[0-9]{4}" : false
     readonly=options.isFilter ? true : false

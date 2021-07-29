@@ -1,0 +1,28 @@
+include ../form-set/form-set.pug
+include ../date-filter/date-filter.pug
+
+//-
+  options.id
+  options.dateFrom
+  options.dateTo
+  options.guests
+  options.babies
+  options.priceRange
+  options.ruleChecks
+  options.accessibleChecks
+  options.bedrooms
+  options.beds
+  options.additionalChecks
+
+mixin filter(options = {})
+  - const blockName = "filter"
+  - const id = options.id ? options.id : blockName
+  FORM(class=blockName id=id)
+    if options.dateFrom && options.dateTo
+      SECTION(class=`${blockName}__dates`)
+        +form-set({ title: "Даты пребывания в отеле" })
+          +date-filter({
+            id: `${id}-dates`,
+            dateFrom: options.dateFrom,
+            dateTo: options.dateTo,
+          })

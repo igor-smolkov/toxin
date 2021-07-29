@@ -1,0 +1,26 @@
+include ../dropdown/dropdown.pug
+include ../card/card.pug
+include ../calendar/calendar.pug
+
+mixin date-filter(options = {})
+  - const blockName = "date-filter"
+  - const id = options.id ? options.id : blockName
+  DIV(
+    class=blockName 
+    id=id
+    data-from=options.dateFrom
+    data-to=options.dateTo
+  )
+    +dropdown({
+      id: `${id}-dropdown`,
+      type: "date",
+      dateFrom: options.dateFrom,
+      dateTo: options.dateTo,
+      isFilter: true,
+    })
+      +card({ isMedium: true, isEmpty: true })
+        +calendar({ 
+          id: `${options.id}-calendar`,
+          from: options.dateFrom ? options.dateFrom : "",
+          to: options.dateTo ? options.dateTo : "",
+        })

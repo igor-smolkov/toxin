@@ -1,0 +1,46 @@
+extends ../../../layout
+
+include ../../../components/header/header.pug
+include ../../../components/footer/footer.pug
+include ../../../components/filter/filter.pug
+
+block variables
+  - var title = 'TOXIN - Search room'
+
+block content
+  HEADER.page__header
+    +header
+  MAIN.page__main
+    .search-room
+      ASIDE.search-room__filter
+        +filter({
+          id: "search-room-filter",
+          dateFrom: "2019-08-19",
+          dateTo: "2019-08-23",
+          guests: 3,
+          babies: 1,
+          priceRange: [5000, 10000],
+          ruleChecks: [
+            { label: "Можно курить" },
+            { label: "Можно с питомцами", isChecked: true },
+            { label: "Можно пригласить гостей (до 10 человек)", isChecked: true }
+          ],
+          accessibleChecks: [
+            { label: "Широкий коридор", details: "Ширина коридоров в номере не менее 91 см." },
+            { label: "Помощник для инвалидов", details: "На 1 этаже вас встретит специалист и проводит до номера." }
+          ],
+          bedrooms: 2,
+          beds: 2,
+          additionalChecks: [
+            { label: "Завтрак" },
+            { label: "Письменный стол", isChecked: true },
+            { label: "Стул для кормления", isChecked: true },
+            { label: "Кроватка", isChecked: true },
+            { label: "Телевизор" },
+            { label: "Шампунь" }
+          ]
+        })
+      ARTICLE.search-room__rooms
+        .rooms
+  FOOTER.page__footer
+    +footer

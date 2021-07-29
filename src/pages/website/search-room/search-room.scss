@@ -1,0 +1,13 @@
+.page {
+  min-width: 320px;
+  width: 100%;
+}
+
+.search-room {
+  padding: 30px 140px 70px;
+  display: flex;
+  border-bottom: 1px solid rgba(31, 32, 65, 0.25);
+  &__rooms {
+    margin-left: 60px;
+  }
+}

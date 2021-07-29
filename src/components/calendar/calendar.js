@@ -82,9 +82,13 @@ class Calendar {
   handleSelect(dateDMYDot) {
     const date = this.createDateFromDMYDot(dateDMYDot);
     if (+this.dateActive === +date) {
-      const midDateValue = +this.dateFrom + ((+this.dateTo - +this.dateFrom) / 2);
-      this.dateFrom = +date <= midDateValue ? date : this.dateFrom;
-      this.dateTo = +date >= midDateValue ? date : this.dateTo;
+      if (!this.dateFrom && !this.dateTo) {
+        this.dateFrom = this.dateActive
+      } else {
+        const midDateValue = +this.dateFrom + ((+this.dateTo - +this.dateFrom) / 2);
+        this.dateFrom = +date <= midDateValue ? date : this.dateFrom;
+        this.dateTo = +date >= midDateValue ? date : this.dateTo;
+      }
     }
     if (+this.dateActive === +this.dateFrom && +date < +this.dateTo) {
       this.dateFrom = date;
@@ -98,17 +102,25 @@ class Calendar {
   update(dateFrom, dateTo) {
     this.dateFrom = dateFrom ? this._createDate(dateFrom) : null;
     this.dateTo = dateTo ? this._createDate(dateTo) : null;
+    this._updateClearButton();
+  }
+  notify() {
+    this._updateClearButton();
+    this._callback(this.dateFrom, this.dateTo)
+  }
+  listen(callback) {
+    this._callback = callback;
+  }
+  handleApplyButtonClick(e) {
+    e.preventDefault();
+    this.notify();
+  }
+  _updateClearButton() {
     if (!this.dateFrom && !this.dateTo) {
       this.$clearButton.addClass('button_none');
     } else {
       this.$clearButton.removeClass('button_none');
     }
-  }
-  notify(date) {
-    this._callback(date ? this.convertDateToYMDHyphen(date) : null)
-  }
-  listen(callback) {
-    this._callback = callback;
   }
 }
 
@@ -134,6 +146,9 @@ class ArrivalCalendar extends Calendar {
     this.$pluginElem.datepicker("setDate", this.dateFrom);
     this.notify(this.dateFrom);
   }
+  notify(date) {
+    this._callback(date ? this.convertDateToYMDHyphen(date) : null)
+  }
 }
 
 class DepartureCalendar extends Calendar {
@@ -157,8 +172,11 @@ class DepartureCalendar extends Calendar {
     this.$pluginElem.datepicker("setDate", this.dateTo);
     this.notify(this.dateTo);
   }
+  notify(date) {
+    this._callback(date ? this.convertDateToYMDHyphen(date) : null)
+  }
 }
 
 // $('.calendar').each((_, elem) => new Calendar($(elem)));
 
-export { ArrivalCalendar, DepartureCalendar }
+export { ArrivalCalendar, DepartureCalendar, Calendar }
