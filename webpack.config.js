@@ -22,7 +22,13 @@ const fontsDir = 'fonts'
 const pagesDir = 'pages'
 const pages = [
     { 'ui-kit' : ['colors-and-type', 'form-elements', 'cards', 'headers-and-footers'] }, 
-    { 'website' : ['landing-page', 'landing-page-dates-dropdown', 'landing-page-guests-dropdown', 'search-room'] }
+    {
+        'website' : [
+            'landing-page', 'landing-page-dates-dropdown', 'landing-page-guests-dropdown', 
+            'search-room', 'search-room-dropdown', 'search-room-checks',
+            'room-details',
+        ] 
+    }
     // { 'website' : ['registration', 'sign-in', 'room-details', 'search-room-1', 'search-room-2', 'search-room-3', 'landing-page-1', 'landing-page-2', 'landing-page-3'] }
 ]
 
@@ -114,6 +120,9 @@ module.exports = {
         ['landing-page-dates-dropdown']: './pages/website/landing-page/landing-page.js',
         ['landing-page-guests-dropdown']: './pages/website/landing-page/landing-page.js',
         ['search-room']: './pages/website/search-room/search-room.js',
+        ['search-room-dropdown']: './pages/website/search-room/search-room.js',
+        ['search-room-checks']: './pages/website/search-room/search-room.js',
+        ['room-details']: './pages/website/room-details/room-details.js',
         ['colors-and-type']: './pages/ui-kit/colors-and-type/colors-and-type.js',
         ['form-elements']: './pages/ui-kit/form-elements/form-elements.js',
         ['cards']: './pages/ui-kit/cards/cards.js',

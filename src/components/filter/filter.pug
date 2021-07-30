@@ -10,14 +10,11 @@ include ../expandable-list/expandable-list.pug
   options.dateFrom
   options.dateTo
   options.guests
-  options.babies
   options.priceRange
   options.ruleChecks
   options.accessibleChecks
-  options.bedrooms
-  options.beds
-  options.bathrooms
-  options.additionalChecks
+  options.amenities
+  options.additionals
 
 mixin filter(options = {})
   - const blockName = "filter"
@@ -41,10 +38,11 @@ mixin filter(options = {})
         +dropdown({
           id: `${id}-guests`,
           list: [
-            { name: "Взрослые", count: options.guests, category: "гость" },
+            { name: "Взрослые", count: options.guests.count[0], category: "гость" },
             { name: "Дети", category: "гость" },
-            { name: "Младенцы", count: options.babies, category: "младенец" }
-          ]
+            { name: "Младенцы", count: options.guests.count[1], category: "младенец" }
+          ],
+          isExpanded: options.guests.isExpanded
         })
     SECTION(class=`${blockName}__section`)
       +form-set({ 
@@ -78,16 +76,18 @@ mixin filter(options = {})
         +dropdown({
           id: `${id}-amenities`,
           list: [
-            { name: "Спальни", count: options.bedrooms, category: "спальня" },
-            { name: "Кровати", count: options.beds, category: "кровать" },
-            { name: "Ванные комнаты", count: options.bathrooms, category: "ванная" }
-          ]
+            { name: "Спальни", count: options.amenities.count[0], category: "спальня" },
+            { name: "Кровати", count: options.amenities.count[1], category: "кровать" },
+            { name: "Ванные комнаты", count: options.amenities.count[2], category: "ванная" }
+          ],
+          isExpanded: options.amenities.isExpanded
         })
     SECTION(class=`${blockName}__section`)
       +form-set({ title: "Дополнительные удобства", isMarginNone: true })
         +expandable-list({
           id: "expandable-list-expanded",
           withChecks: true,
-          list: options.additionalChecks
+          list: options.additionals.checks,
+          isExpanded: options.additionals.isExpanded
         })
 
