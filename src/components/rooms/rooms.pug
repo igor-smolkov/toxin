@@ -1,0 +1,34 @@
+include ../pagination/pagination.pug
+include ../room/room.pug
+
+//- 
+  options.id
+  options.title
+  options.numbers
+  options.lastPage
+
+mixin rooms(options = {})
+  - const blockName = "rooms"
+  - const id = options.id ? options.id : blockName
+  DIV(class=blockName id=id)
+    H1(class=`${blockName}__title`)=options.title
+    DIV(class=`${blockName}__list`)
+      +rooms-list({ id: `${options.id}-list`, items: options.numbers })
+    DIV(class=`${blockName}__pagination`)
+      +pagination({ 
+        id: `${id}-pagination`, 
+        lastPage: options.lastPage, 
+        description: `1 – ${options.numbers.length} из 100+ вариантов аренды` 
+      })
+
+//- 
+  options.id
+  options.items
+
+mixin rooms-list(options = {})
+  - const blockName = "rooms-list"
+  - const id = options.id ? options.id : blockName
+  UL(class=blockName id=id)
+    each item, index in options.items
+      LI(class=`${blockName}__item`)
+        +room(item)

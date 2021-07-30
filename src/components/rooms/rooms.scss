@@ -1,0 +1,23 @@
+.rooms {
+  &__list {
+    margin-top: 20.5px;
+  }
+  &__pagination {
+    max-width: fit-content;
+    margin: auto;
+    margin-top: 41px;
+  }
+}
+
+.rooms-list {
+  max-width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: -20px;
+  margin-left: -12px;
+  &__item {
+    margin-top: 20px;
+    margin-left: 12px;
+  }
+}

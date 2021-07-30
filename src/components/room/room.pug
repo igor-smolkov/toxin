@@ -1,0 +1,46 @@
+include ../card/card.pug
+include ../card-title/card-title.pug
+include ../card-form/card-form.pug
+include ../preview/preview.pug
+
+//- 
+  options.id
+  options.isLux
+  options.price
+  options.rate
+  options.reviews
+  options.imgs
+  options.isHovered
+
+mixin room(options = {})
+  - const blockName = "room"
+  - const id = options.number ? `room-${options.number}` : blockName
+  DIV(class=blockName id=id)
+    +card({ isSmall: true, isEmpty: true })
+      HEADER.card__header
+        +preview({ 
+          id: `${id}-preview`,
+          imgs: options.imgs,
+          isHovered: options.isHovered, 
+        })
+      SECTION.card__body
+        H2.card__title.card__title_margin_none
+          +card-title({
+            main: { 
+              prefix: "№", 
+              content: options.number, 
+              postfix: options.isLux ? "Люкс" : ""
+            },
+            details: { 
+              first: `${options.price.toLocaleString("ru")}₽`, 
+              second: "в сутки" 
+            }
+          })
+        +card-form({ 
+          for: "room-rate", 
+          id: `${id}-rate-form`,
+          options: { 
+            rate: options.rate, 
+            reviews: options.reviews 
+          }
+        })
