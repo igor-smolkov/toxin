@@ -1,6 +1,9 @@
 include ../form-set/form-set.pug
 include ../date-filter/date-filter.pug
 include ../dropdown/dropdown.pug
+include ../slider/slider.pug
+include ../check-button/check-button.pug
+include ../expandable-list/expandable-list.pug
 
 //-
   options.id
@@ -13,6 +16,7 @@ include ../dropdown/dropdown.pug
   options.accessibleChecks
   options.bedrooms
   options.beds
+  options.bathrooms
   options.additionalChecks
 
 mixin filter(options = {})
@@ -37,22 +41,53 @@ mixin filter(options = {})
         +dropdown({
           id: `${id}-guests`,
           list: [
-            { name: "Взрослые", count: 3, category: "гость" },
+            { name: "Взрослые", count: options.guests, category: "гость" },
             { name: "Дети", category: "гость" },
-            { name: "Младенцы", count: 1, category: "младенец" }
+            { name: "Младенцы", count: options.babies, category: "младенец" }
           ]
         })
-    SECTION(
-      class=`${blockName}__section`
-      class=`${blockName}__section_second`
-    )
+    SECTION(class=`${blockName}__section`)
+      +form-set({ 
+        title: "Диапазон цены", 
+        details: `${options.priceRange[0].toLocaleString("ru")}₽ - ${options.priceRange[1].toLocaleString("ru")}₽`,
+        description: "Стоимость за сутки пребывания в номере",
+        isIndented: true
+      })
+        +slider({ id: "price-slider", values: [0, 30.4, 63.5, 100] })
+    SECTION(class=`${blockName}__section`)
+      +form-set({ title: "Правила дома", isGrouped: true })
+        each item, index in options.ruleChecks
+          .form-set__element.form-set__element_indent-in_check-buttons
+            +check-button({ 
+              id: `rule-check-${index+1}`, 
+              label: item.label, 
+              isChecked: item.isChecked 
+            })
+    SECTION(class=`${blockName}__section`)
+      +form-set({ title: "Доступность", isGrouped: true })
+        each item, index in options.accessibleChecks
+          .form-set__element.form-set__element_indent-in_check-buttons
+            +check-button({ 
+              id: `accessible-check-${index+1}`, 
+              label: item.label, 
+              details: item.details, 
+              isChecked: item.isChecked 
+            })
+    SECTION(class=`${blockName}__section`)
       +form-set({ title: "Удобства номера" })
         +dropdown({
           id: `${id}-amenities`,
           list: [
-            { name: "Спальни", count: 2, category: "спальня" },
-            { name: "Кровати", count: 2, category: "кровать" },
-            { name: "Ванные комнаты", category: "ванная" }
+            { name: "Спальни", count: options.bedrooms, category: "спальня" },
+            { name: "Кровати", count: options.beds, category: "кровать" },
+            { name: "Ванные комнаты", count: options.bathrooms, category: "ванная" }
           ]
+        })
+    SECTION(class=`${blockName}__section`)
+      +form-set({ title: "Дополнительные удобства", isMarginNone: true })
+        +expandable-list({
+          id: "expandable-list-expanded",
+          withChecks: true,
+          list: options.additionalChecks
         })
 

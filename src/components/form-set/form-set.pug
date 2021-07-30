@@ -8,6 +8,7 @@
   options.isMarginNone
   options.isAligned
   options.withLine
+  options.description
 
 mixin form-set(options)
   - const blockName = "form-set"
@@ -40,3 +41,5 @@ mixin form-set(options)
         class=options.isMarginNone ? 'form-set__element_margin_none' :''
       )
         block
+    if options.description
+      P(class=`${blockName}__description`)=options.description
