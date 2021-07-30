@@ -2,6 +2,7 @@ extends ../../../layout
 
 include ../../../components/header/header.pug
 include ../../../components/footer/footer.pug
+include ../../../components/room-photos/room-photos.pug
 //- include ../../../components/card/card.pug
 //- include ../../../components/chart/chart.pug
 
@@ -13,5 +14,10 @@ block content
     +header
   MAIN.page__main
     .room-details
+      ASIDE.room-details__photos
+        +room-photos({
+          imgs: [ "../images/room-888-view-1.png", "../images/room-888-view-2.png", "../images/room-888-view-3.png" ]
+        })
+      SECTION.room-details__info
   FOOTER.page__footer
     +footer
