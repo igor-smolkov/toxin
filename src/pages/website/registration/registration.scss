@@ -1,12 +1,15 @@
-@import '../../../components/carousel/carousel.scss';
+.page {
+  min-width: 320px;
+  width: 100%;
+}
 
-.reg {
-    &__main {
-        min-height: 684px;
-        display: flex;
-        justify-content: center;
-        padding: 19px 10px 19px 10px;
-
-        position: relative;
-    }
+.registration {
+  position: relative;
+  z-index: 0;
+  padding: 19px;
+  display: flex;
+  &__card {
+    flex-basis: 380px;
+    margin: auto;
+  }
 }

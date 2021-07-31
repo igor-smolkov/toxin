@@ -3,14 +3,24 @@ extends ../../../layout
 include ../../../components/header/header.pug
 include ../../../components/footer/footer.pug
 include ../../../components/card/card.pug
+include ../../../components/card-form/card-form.pug
 include ../../../components/carousel/carousel.pug
 
 block variables
   - var title = 'TOXIN - Sign in'
 
 block content
+  HEADER.page__header
     +header
-    main.log__main
-      +carousel('log')
-      +card('log-in')
+  MAIN.page__main
+    .sign-in
+      .sign-in__background
+        +carousel({
+          slides: [ "../images/log-room-2.png", "../images/log-room-1.png" ],
+          delaySec: 10,
+        })
+      .sign-in__card
+        +card({ title: "Войти" })
+          +card-form({ for: "log-in", id: "log-in-form" })
+  FOOTER.page__footer
     +footer

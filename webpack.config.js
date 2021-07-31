@@ -26,10 +26,9 @@ const pages = [
         'website' : [
             'landing-page', 'landing-page-dates-dropdown', 'landing-page-guests-dropdown', 
             'search-room', 'search-room-dropdown', 'search-room-checks',
-            'room-details',
+            'room-details', 'registration', 'sign-in'
         ] 
     }
-    // { 'website' : ['registration', 'sign-in', 'room-details', 'search-room-1', 'search-room-2', 'search-room-3', 'landing-page-1', 'landing-page-2', 'landing-page-3'] }
 ]
 
 //сборка имен
@@ -123,6 +122,8 @@ module.exports = {
         ['search-room-dropdown']: './pages/website/search-room/search-room.js',
         ['search-room-checks']: './pages/website/search-room/search-room.js',
         ['room-details']: './pages/website/room-details/room-details.js',
+        ['registration']: './pages/website/registration/registration',
+        ['sign-in']: './pages/website/sign-in/sign-in',
         ['colors-and-type']: './pages/ui-kit/colors-and-type/colors-and-type.js',
         ['form-elements']: './pages/ui-kit/form-elements/form-elements.js',
         ['cards']: './pages/ui-kit/cards/cards.js',
