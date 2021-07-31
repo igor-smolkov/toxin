@@ -3,7 +3,12 @@ extends ../../../layout
 include ../../../components/header/header.pug
 include ../../../components/footer/footer.pug
 include ../../../components/room-photos/room-photos.pug
-//- include ../../../components/card/card.pug
+include ../../../components/room-section/room-section.pug
+include ../../../components/extra-list/extra-list.pug
+include ../../../components/comment/comment.pug
+include ../../../components/bullet-list/bullet-list.pug
+include ../../../components/card/card.pug
+include ../../../components/card-form/card-form.pug
 //- include ../../../components/chart/chart.pug
 
 block variables
@@ -18,6 +23,68 @@ block content
         +room-photos({
           imgs: [ "../images/room-888-view-1.png", "../images/room-888-view-2.png", "../images/room-888-view-3.png" ]
         })
-      SECTION.room-details__info
+      SECTION.room-details__content
+        .room-content
+          SECTION.room-content__info
+            .room-info
+              SECTION.room-info__section.room-info__section_first
+                .room-info-section.room-info-section_grouped
+                  SECTION.room-info-section__subsection.room-info-section__subsection_first
+                    +room-section({ title: "Сведения о номере" })
+                      +extra-list({ 
+                        id: "room-details-list",
+                        items: [
+                          { title: "Комфорт", details: "Шумопоглощающие стены", icon: "insert_emoticon" },
+                          { title: "Удобство", details: "Окно в каждой из спален", icon: "location_city" },
+                          { title: "Уют", details: "Номер оснащён камином", icon: "whatshot" },
+                        ]
+                      })
+                  SECTION.room-info-section__subsection
+                    +room-section({ title: "Впечатления от номера" })
+                      //- chart
+              SECTION.room-info__section
+                +room-section({ title: "Отзывы посетителей номера", details: "2 отзыва", isEmpty: true })
+                  .room-section__item.room-section__item_first
+                    +comment({
+                      id: "comment-1",
+                      username: "Мурад Сарафанов",
+                      avatar: "../images/murad.png",
+                      datetime: "5 дней назад",
+                      message: "Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.",
+                      likeValue: 12,
+                      isLiked: true,
+                    })
+                  .room-section__item
+                    +comment({
+                      id: "comment-2",
+                      username: "Патрисия Стёклышкова",
+                      avatar: "../images/patricia.png",
+                      datetime: "Неделю назад",
+                      message: "Обслуживание на высоте! Всё аккуратно, чисто. Завтраки в номер советую заказать, каждый день новое блюдо и десерт как комплимент",
+                      likeValue: 2,
+                    })
+              SECTION.room-info__section.room-info__section_last
+                .room-info-section.room-info-section_grouped
+                  SECTION.room-info-section__subsection.room-info-section__subsection_first
+                    +room-section({ title: "Правила", isShifted: true })
+                      +bullet-list({ 
+                        id: "rules-list",
+                        items: [
+                          'Нельзя с питомцами',
+                          'Без вечеринок и мероприятий',
+                          'Время прибытия — после 13:00, а выезд до 12:00',
+                        ]
+                      })
+                  SECTION.room-info-section__subsection
+                    +room-section({ title: "Отмена" })
+                      P="Бесплатная отмена в течение 48 ч. После этого при отмене не позднее чем за 5 дн. до прибытия вы получите полный возврат за вычетом сбора за услуги."
+          SECTION.room-content__card
+            +card({ 
+              title: {
+                main: { prefix: "№", content: "888", postfix: "Люкс" },
+                details: { first: "9 990₽", second: "в сутки" }
+              }
+            })
+              +card-form({ for: "room", id: "room-form" })
   FOOTER.page__footer
     +footer

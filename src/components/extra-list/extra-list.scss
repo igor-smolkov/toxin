@@ -6,11 +6,15 @@
   width: 100%;
   min-height: fit-content;
   &__item {
-    padding: 20px 0;
+    padding: 21px 0;
     padding-left: 58px;
     border-bottom: 1px solid $color-10per;
     &_first {
       padding-top: 0;
+    }
+    &_last {
+      padding-bottom: 0;
+      border-bottom: none;
     }
   }
 }

@@ -1,0 +1,15 @@
+
+mixin room-section(options = {})
+  - const blockName = "room-section"
+  DIV(class=blockName)
+    H2(
+      class=`${blockName}__title`
+      class=options.isShifted ? `${blockName}__title_shifted` : ""
+    )=options.title
+      if options.details
+        P(class=`${blockName}__details`)=options.details
+    if options.isEmpty
+      block
+    else
+      DIV(class=`${blockName}__content`)
+        block

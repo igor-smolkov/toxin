@@ -1,2 +1,42 @@
-.room {
+.room-details {
+  border-bottom: 1px solid rgba(31, 32, 65, 0.25);
+}
+
+.room-content {
+  padding: 70px 140px;
+  display: flex;
+  justify-content: center;
+  &__info {
+    max-width: 712px;
+  }
+  &__card {
+    flex-basis: 380px;
+    margin-left: 70px;
+  }
+}
+
+.room-info {
+  &__section {
+    margin-top: 32px;
+    &_first {
+      margin-top: 0;
+    }
+    &_last {
+      margin-top: 23px;
+    }
+  }
+}
+
+.room-info-section {
+  &_grouped {
+    display: flex;
+  }
+  &__subsection {
+    margin-left: 82px;
+    flex-basis: 340px;
+    &_first {
+      margin-left: 0;
+      flex-basis: 280px;
+    }
+  }
 }

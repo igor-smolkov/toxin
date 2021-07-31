@@ -1,0 +1,26 @@
+@import '../type-style/type-style.scss';
+
+.room-section {
+  &__title {
+    display: flex;
+    justify-content: space-between;
+    &_shifted {
+      margin-left: 21px;
+    }
+  }
+  &__details {
+    align-self: flex-end;
+    @include base-type;
+    @include text('light_middle');
+    @include text('rare_less');
+  }
+  &__content {
+    margin-top: 20px;
+  }
+  &__item {
+    margin-top: 4px;
+    &_first {
+      margin-top: 11px;
+    }
+  }
+}

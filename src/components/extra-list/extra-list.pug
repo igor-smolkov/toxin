@@ -17,6 +17,7 @@ mixin extra-list(options)
       LI(
         class=`${blockName}__item`
         class=(index===0) ? `${blockName}__item_first` :""
+        class=(index===options.items.length-1) ? `${blockName}__item_last` :""
       )
         +extra-list-item(item)
 
