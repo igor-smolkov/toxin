@@ -9,7 +9,7 @@ include ../../../components/comment/comment.pug
 include ../../../components/bullet-list/bullet-list.pug
 include ../../../components/card/card.pug
 include ../../../components/card-form/card-form.pug
-//- include ../../../components/chart/chart.pug
+include ../../../components/chart/chart.pug
 
 block variables
   - var title = 'TOXIN - Room details'
@@ -41,7 +41,12 @@ block content
                       })
                   SECTION.room-info-section__subsection
                     +room-section({ title: "Впечатления от номера" })
-                      //- chart
+                      +chart([
+                        {label: 'Великолепно', value: 130},
+                        {label: 'Хорошо', value: 65},
+                        {label: 'Удовлетворительно', value: 65},
+                        {label: 'Разочарован'}
+                      ])
               SECTION.room-info__section
                 +room-section({ title: "Отзывы посетителей номера", details: "2 отзыва", isEmpty: true })
                   .room-section__item.room-section__item_first

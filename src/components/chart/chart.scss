@@ -1,81 +1,83 @@
+@import '../colors-style/colors-style.scss';
+@import '../type-style/type-style.scss';
+
 .chart {
-    display: flex;
+  display: flex;
+  position: relative;
+  &__total {
+    position: absolute;
+    top: 36px;
+    left: 29px;
+  }
+  &__caption-list {
+    margin-left: 30px;
+    margin-top: 27px;
+  }
+}
+
+.chart-total {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  &__number {
+    @include h1-type;
+    color: $color-purple;
+  }
+  &__text {
+    @include h3-type;
+    color: $color-purple;
+  }
+}
+
+.chart-circle {
+  &__unit {
+    fill: none;
+    stroke-width: 1.1;
+  }
+  &__gradient {
+    &_yellow {
+      &_start { stop-color: $color-yellow }
+      &_end { stop-color: $color-yellow-end }
+    }
+    &_green {
+      &_start { stop-color: $color-green-end }
+      &_end { stop-color: $color-green }
+    }
+    &_purple {
+      &_start { stop-color: $color-purple }
+      &_end { stop-color: $color-purple-end }
+    }
+    &_gray {
+      &_start { stop-color: $color-gray }
+      &_end { stop-color: $color-gray-end }
+    }
+  }
+}
+
+.chart-caption-list {
+  padding-left: 15px;
+  &__item {
     position: relative;
-    &__total {
-        position: absolute;
-        display: flex;
-        flex-direction: column;
-        color: $color-purple;
-        text-align: center;
-        top: 36px;
-        left: 29px;
-        span:first-child {
-            font-family: $font-title-bold;
-            font-size: 24px;
-            line-height: 30px;
-        }
-        span:last-child {
-            font-family: $font-main-bold;
-            font-size: 12px;
-            line-height: 15px;
-            text-transform: uppercase;
-        }
+    &::before {
+      content: '';
+      position: absolute;
+      min-width: 10px;
+      min-height: 10px;
+      left: -15px;
+      top: 7px;
+      border-radius: 5px;
     }
-    .unit {
-        fill: none;
-        stroke-width: 1.1;
+    &_yellow::before {
+        background: linear-gradient(180deg, $color-yellow 0%, $color-yellow-end 100%);
     }
-    .caption-list {
-        margin-left: 30px;
-        margin-top: 27px;
-        padding-left: 15px;
-
-        font-family: $font-main;
-        font-size: 14px;
-        line-height: 24px;
-        color: $color-75per;
-
-        &__item {
-            position: relative;
-            &::before {
-                content: '';
-                display: block;
-                position: absolute;
-                width: 10px;
-                height: 10px;
-                left: -15px;
-                top: 7px;
-                border-radius: 5px;
-            }
-            &:nth-child(1)::before {
-                background: linear-gradient(180deg, $color-yellow 0%, $color-yellow-end 100%);
-            }
-            &:nth-child(2)::before {
-                background: linear-gradient(180deg, $color-green 0%, $color-green-end 100%);
-            }
-            &:nth-child(3)::before {
-                background: linear-gradient(180deg, $color-purple 0%, $color-purple-end 100%);
-            }
-            &:nth-child(4)::before {
-                background: linear-gradient(180deg, $color-gray 0%, $color-gray-end 100%);
-            }
-        }
+    &_green::before {
+        background: linear-gradient(180deg, $color-green 0%, $color-green-end 100%);
     }
-
-    #gradient_color_1 {
-        .gradient_start { stop-color: $color-yellow; }
-        .gradient_end { stop-color: $color-yellow-end; }
+    &_purple::before {
+        background: linear-gradient(180deg, $color-purple 0%, $color-purple-end 100%);
     }
-    #gradient_color_2 {
-        .gradient_start { stop-color: $color-green; }
-        .gradient_end { stop-color: $color-green; }
+    &_gray::before {
+        background: linear-gradient(180deg, $color-gray 0%, $color-gray-end 100%);
     }
-    #gradient_color_3 {
-        .gradient_start { stop-color: $color-purple; }
-        .gradient_end { stop-color: $color-purple-end; }
-    }
-    #gradient_color_4 {
-        .gradient_start { stop-color: $color-gray; }
-        .gradient_end { stop-color: $color-gray-end; }
-    }
+  }
 }

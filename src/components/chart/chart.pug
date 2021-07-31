@@ -1,49 +1,98 @@
-mixin chart(arr)
-  - var sum = 0
-  - var pers = []
-  each elem in arr
-    if elem.value
-      - sum = sum + elem.value
-  - var pers = []
-  each elem, index in arr
-    if elem.value
-      - pers[index] = elem.value / sum *100
-    else
-      - pers[index] = 0
-  - var ws = 0.75
-  - var first = pers[0]
-  - pers[0] = pers[1]
-  - pers[1] = first
+//- 
+  [
+    item.label
+    item.value
+  ]
 
-  .chart
-    .chart__total
-      span=sum
-      - var str = sum+''
-      if (str[str.length-1] == '1') && (str[str.length-2] != '1')
-        span='голос'
-      else if ((str[str.length-1] == '2')||(str[str.length-1] == '3')||(str[str.length-1] == '4')) && (str[str.length-2] != '1')
-        span='голоса'
-      else
-        span='голосов'
-    svg.chart__pic(width='120' height='120' viewBox='0 0 33 33')
-      - var acc = 0
-      each per, index in pers
-        - var n = index+1
-        if index == 0
-          if pers[index+1]
-            - n = index+2
-        if index == 1
-          - n = index
-        if per != 0
-          circle.chart__unit.unit(r='15.9' cx='50%' cy='50%' stroke=`url(#gradient_color_${n})` stroke-dasharray=`${per-ws} 100` stroke-dashoffset=`-${acc+ws/2}`)
-          - acc = acc + per
-        else
-          circle.chart__unit.unit(r='15.9' cx='50%' cy='50%' stroke=`url(#gradient_color_${n})` stroke-dasharray='0 100' stroke-dashoffset= '0')
-      defs
-        each elem, index in arr
-          linearGradient.unit__gradient.gradient(id=`gradient_color_${index+1}` x1='0' x2='0' y1='0' y2='1')
-            stop.gradient_start(offset='0%')
-            stop.gradient_end(offset='100%')
-    ul.caption-list
-      each elem in arr
-        li.caption-list__item=elem.label
+mixin chart(items = [])
+  - const blockName = "chart"
+
+  - let sum = 0
+  each item in items
+    - sum += item.value ? item.value : 0
+
+  - let perValues = []
+  each item, index in items
+    - perValues[index] = item.value ? item.value / sum * 100 : 0
+  - const firstSecondSwap = perValues[0]
+  - perValues[0] = perValues[1]
+  - perValues[1] = firstSecondSwap
+
+  DIV(class=blockName)
+    DIV(class=`${blockName}__total`)
+      +chart-total(sum)
+    DIV(class=`${blockName}__circle`)
+      +chart-circle(perValues)
+    DIV(class=`${blockName}__caption-list`)
+      +chart-caption-list(items)
+
+//- 
+
+mixin chart-total(sum)
+  - const blockName = "chart-total"
+  - const lastDigit = +sum.toString()[sum.toString().length - 1]
+  - const penultDigit = +sum.toString()[sum.toString().length - 2]
+  - let wordForm = "голосов"
+  if lastDigit == 1 && penultDigit != 1
+    - wordForm = "голос"
+  if (lastDigit == 2 || lastDigit == 3 || lastDigit == 4) && penultDigit != 1
+    - wordFrom = "голоса"
+
+  DIV(class=blockName)
+    SPAN(class=`${blockName}__number`)=sum
+    SPAN(class=`${blockName}__text`)=wordForm
+
+//- 
+
+mixin chart-circle(perValues = [])
+  - const blockName = "chart-circle"
+  - const betweenUnitSpace = 0.75
+
+  SVG(
+    class = blockName
+    width = "120" 
+    height = "120" 
+    viewBox = "0 0 33 33"
+  )
+    - let acc = 0
+    each perValue, index in perValues
+      CIRCLE(
+        class = `${blockName}__unit`
+        r = "15.9" 
+        cx = "50%" 
+        cy = "50%" 
+        stroke = `url(#chart-gradient-${index})`
+        stroke-dasharray = (perValue != 0) ? `${perValue - betweenUnitSpace} 100` : "0 100"
+        stroke-dashoffset = (perValue != 0) ? `-${acc + betweenUnitSpace/2}` : "0"
+      )
+      - acc = (perValue != 0) ? acc + perValue : acc
+    DEFS
+      each color, index in ['green', 'yellow', 'purple', 'gray']
+        LINEARGRADIENT(
+          class = `${blockName}__gradient`
+          class = `${blockName}__gradient_${color}`
+          id = `chart-gradient-${index}`
+          x1 = "0"
+          x2 = "0"
+          y1 = "0"
+          y2 = "1"
+        )
+          STOP(
+            class = `${blockName}__gradient_${color}_start`
+            offset = "0%"
+          )
+          STOP.gradient_end(
+            class = `${blockName}__gradient_${color}_end`
+            offset = "100%"
+          )
+
+//- 
+
+mixin chart-caption-list(items = [])
+  - const blockName = "chart-caption-list"
+  UL(class=blockName)
+    each color, index in ['yellow', 'green', 'purple', 'gray']
+      LI(
+        class=`${blockName}__item`
+        class=`${blockName}__item_${color}`
+      )=items[index].label
