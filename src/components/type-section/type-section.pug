@@ -2,28 +2,25 @@
   options.name
   options.example
 
-mixin type-section(options)
-  if !options
-    - options = {}
-
-  case options.name
-    when "H1"
-      SECTION.type-section.type-section_first
-        H1.type-section__name= options.name
-        H1.type-section__example= options.example
-    when "H2"
-      SECTION.type-section
-        H2.type-section__name= options.name
-        H2.type-section__example= options.example
-    when "H3"
-      SECTION.type-section
-        H3.type-section__name= options.name
-        H3.type-section__example= options.example
-    when "Body"
-      SECTION.type-section
-        .type-section__name= options.name
-        .type-section__example= options.example
-    default
-      SECTION.type-section
-        .type-section__name= options.name
-        .type-section__example= options.example
+mixin type-section(options = {})
+  - const blockName = "type-section"
+  SECTION(
+    class=blockName
+    class=(options.name === "H1") ? `${blockName}_first` : ""
+  )
+    case options.name
+      when "H1"
+        H1(class=`${blockName}__name`)=options.name
+        H1(class=`${blockName}__example`)=options.example
+      when "H2"
+        H2(class=`${blockName}__name`)=options.name
+        H2(class=`${blockName}__example`)=options.example
+      when "H3"
+        H3(class=`${blockName}__name`)=options.name
+        H3(class=`${blockName}__example`)=options.example
+      when "Body"
+        DIV(class=`${blockName}__name`)=options.name
+        DIV(class=`${blockName}__example`)=options.example
+      default
+        DIV(class=`${blockName}__name`)=options.name
+        DIV(class=`${blockName}__example`)=options.example

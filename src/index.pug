@@ -1,38 +1,65 @@
 extends layout
 
 block variables
-  - var title = "TOXIN"
-  - var descr = "Верстка макета TOXIN по второму заданию FSD"
+  - const title = "TOXIN"
+  - const descr = "Верстка макета TOXIN по второму заданию FSD"
 
 block content
-    ul.pages
-      li.pages_type= "Website Pages"
-        ul.pages_list
-          li.pages_name
-            a.pages_link(href="website/landing-page.html")= "Landing page"
-          li.pages_name
-            a.pages_link(href="website/landing-page-dates-dropdown.html")= "Landing page/Dates Dropdown"
-          li.pages_name
-            a.pages_link(href="website/landing-page-guests-dropdown.html")= "Landing page/Guests Dropdown"
-          li.pages_name
-            a.pages_link(href="website/search-room.html")= "Search room/Filter"
-          li.pages_name
-            a.pages_link(href="website/search-room-dropdown.html")= "Search room/Filter/Preferences Dropdown"
-          li.pages_name
-            a.pages_link(href="website/search-room-checks.html")= "Search room/Filter/Preferences Expandable Checkbox list"
-          li.pages_name
-            a.pages_link(href="website/room-details.html")= "Room details"
-          li.pages_name
-            a.pages_link(href="website/registration.html")= "Registration"
-          li.pages_name
-            a.pages_link(href="website/sign-in.html")= "Sign in"
-      li.pages_type= "UI-KIT"
-        ul.pages_list
-          li.pages_name
-            a.pages_link(href="ui-kit/colors-and-type.html")= "Colors & Type"
-          li.pages_name
-            a.pages_link(href="ui-kit/form-elements.html")= "Form Elements"
-          li.pages_name
-            a.pages_link(href="ui-kit/cards.html")= "Cards"
-          li.pages_name
-            a.pages_link(href="ui-kit/headers-and-footers.html")= "Headers & Footers"
+  .demo-menu
+    UL.pages
+      LI.pages__website= "Website Pages"
+        UL.link-list
+          LI.link-list__item
+            A.page-link(
+              href="website/landing-page.html"
+            )="Landing page"
+          LI.link-list__item
+            A.page-link(
+              href="website/landing-page-dates-dropdown.html"
+            )="Landing page/Dates Dropdown"
+          LI.link-list__item
+            A.page-link(
+              href="website/landing-page-guests-dropdown.html"
+            )="Landing page/Guests Dropdown"
+          LI.link-list__item
+            A.page-link(
+              href="website/search-room.html"
+            )="Search room/Filter"
+          LI.link-list__item
+            A.page-link(
+              href="website/search-room-dropdown.html"
+            )="Search room/Filter/Preferences Dropdown"
+          LI.link-list__item
+            A.page-link(
+              href="website/search-room-checks.html"
+            )="Search room/Filter/Preferences Expandable Checkbox list"
+          LI.link-list__item
+            A.page-link(
+              href="website/room-details.html"
+            )="Room details"
+          LI.link-list__item
+            A.page-link(
+              href="website/registration.html"
+            )="Registration"
+          LI.link-list__item
+            A.page-link(
+              href="website/sign-in.html"
+            )="Sign in"
+      LI.pages__ui-kit= "UI-KIT"
+        UL.link-list
+          LI.link-list__item
+            A.page-link(
+              href="ui-kit/colors-and-type.html"
+            )="Colors & Type"
+          LI.link-list__item
+            A.page-link(
+              href="ui-kit/form-elements.html"
+            )="Form Elements"
+          LI.link-list__item
+            A.page-link(
+              href="ui-kit/cards.html"
+            )="Cards"
+          LI.link-list__item
+            A.page-link(
+              href="ui-kit/headers-and-footers.html"
+            )="Headers & Footers"

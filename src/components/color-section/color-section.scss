@@ -1,4 +1,5 @@
-@import '../colors-style/colors-style.scss';
+@import '../../colors.scss';
+@import '../../types.scss';
 
 .color-section {
   max-width: 300px;
@@ -12,6 +13,9 @@
   &__name {
     min-width: 171px;
     line-height: 1.474;
+  }
+  &__details {
+    @include text('mod_details');
   }
 
   position: relative;

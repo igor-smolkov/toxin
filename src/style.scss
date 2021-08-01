@@ -1,108 +1,82 @@
-@import 'reset.css';
-@import 'fonts/Montserrat-Regular/fonts.css';
-@import 'fonts/Montserrat-Bold/fonts.css';
-@import 'fonts/Quicksand-Regular/Quicksand.css';
-@import 'fonts/Quicksand-Bold/Quicksand.css';
+@import 'types.scss';
 
-$font-main: 'Montserrat', sans-serif;
-$font-main-bold: 'Montserrat', sans-serif;
-$font-title: 'Quicksand-Regular', sans-serif;
-$font-title-bold: 'Quicksand-Bold', sans-serif;
-$font-spare: 'Open Sans', sans-serif;
-
-$color: #1F2041;
-$color-75per: rgba(31, 32, 65, 0.75);
-$color-50per: rgba(31, 32, 65, 0.5);
-$color-25per: rgba(31, 32, 65, 0.25);
-$color-5per: rgba(31, 32, 65, 0.05);
-$color-yellow: #FFE39C;
-$color-yellow-end: #FFBA9C;
-$color-purple: #BC9CFF;
-$color-purple-end: #8BA4F9;
-$color-green: #6FCF97;
-$color-green-end: #66D2EA;
-$color-gray: #919191;
-$color-gray-end: #3D4975;
-
-.page {
-  max-width: 1920px;
-  min-width: 320px;
+// общие сбросы и настройки
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+*,*:before,*:after{
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+input,
+button,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+}
+button{
+  cursor: pointer;
+}
+a, 
+a:visited, 
+a:hover {
+  text-decoration: none;
+}
+ul li {
+  list-style: none;
 }
 
-.pages {
+// базовые стили
+html,
+body {
+  min-width: 100%;
   min-height: 100%;
+  height: 100%;
+  background-color: #FFFFFF;
+  @include base-type;
+}
+h1 {
+  @include h1-type;
+}
+h2 {
+  @include h2-type;
+}
+h3 {
+  @include h3-type;
+}
+
+// демо-меню
+.demo-menu {
+  background: #F4F4F6;
+  min-width: 100%;
+  min-height: 100%;
+  padding: 70px;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  font-family: $font-title;
-  padding: 70px 70px;
-  &_type {
-    align-self: center;
+  .pages {
+    background: white;
+    margin: auto;
+    padding: 70px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
+    @include h1-type;
+    &__ui-kit {
+      margin-top: 40px;
+    }
+  }
+  .link-list {
     max-width: 320px;
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    font-size: 24px;
-    margin-top: 40px;
-    &:first-child {
-      margin-top: 0;
+    &__item {
+      margin-top: 10px;
+      margin-left: 20px;
+      list-style: circle;
+      @include h3-type;
     }
   }
-  &_list {
-    margin: 5px 0;
-  }
-  &_name {
-    margin: 10px 0;
-    list-style: circle;
-    font-size: 20px;
-    line-height: 26px;
-    a {
-      text-decoration: none;
-    }
-  }
-  &_link {
+  .page-link {
     text-decoration: underline;
   }
 }
-
-h1 {
-  font-family: $font-title-bold;
-  font-size: 25px;
-  line-height: 30px;
-  color: $color;
-  //коорректировка
-  // font-family: $font-spare;
-  font-weight: bold;
-  // transform: scale(1.085, 1) translate(32px);
-  // margin-left: 14px;
-}
-h2 {
-  font-family: $font-title-bold;
-  font-size: 19px;
-  line-height: 24px;
-  color: $color;
-  //коорректировка
-  font-weight: bold;
-}
-h3 {
-  font-family: $font-main-bold;
-  font-size: 12px;
-  line-height: 15px;
-  color: $color;
-  text-transform: uppercase;
-}
-
-// @import 'pages/ui-kit/colors-and-type/colors-and-type.scss';
-// @import 'pages/ui-kit/form-elements/form-elements.scss';
-// @import 'pages/ui-kit/cards/cards.scss';
-// @import 'pages/ui-kit/headers-and-footers/headers-and-footers.scss';
-
-// @import 'pages/website/landing-page-1/landing-page-1.scss';
-// @import 'pages/website/landing-page-2/landing-page-2.scss';
-// @import 'pages/website/landing-page-3/landing-page-3.scss';
-// @import 'pages/website/search-room-1/search-room-1.scss';
-// @import 'pages/website/search-room-2/search-room-2.scss';
-// @import 'pages/website/search-room-3/search-room-3.scss';
-// @import 'pages/website/room-details/room-details.scss';
-// @import 'pages/website/registration/registration.scss';
-// @import 'pages/website/sign-in/sign-in.scss';

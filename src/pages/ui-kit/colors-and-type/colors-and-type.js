@@ -1,5 +1,5 @@
-import './colors-and-type.scss'
+import './colors-and-type.scss';
 
-import '@comp/logo/logo'
-import '@comp/color-section/color-section.scss'
-import '@comp/type-section/type-section.scss'
+import '../../../components/logo/logo';
+import '../../../components/color-section/color-section';
+import '../../../components/type-section/type-section';

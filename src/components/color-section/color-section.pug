@@ -2,10 +2,12 @@
   options.name
   options.code
 
-mixin color-section(options)
-  if !options
-    - options = {}
+mixin color-section(options = {})
+  - const blockName = "color-section"
 
-  SECTION.color-section(data-color-name=options.name)
-    H2.color-section__name= options.name
-      P.details= options.code
+  SECTION(
+    class=blockName
+    data-color-name=options.name
+  )
+    H2(class=`${blockName}__name`)=options.name
+      P(class=`${blockName}__details`)=options.code
