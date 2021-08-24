@@ -28,6 +28,7 @@ mixin preview(options)
       class=`${blockName}__img`
       src=options.imgs[selected]
       id=`${options.id}-img`
+      alt="Превью номера"
     )
     DIV(class=`${blockName}__arrows`)
       +carousel-arrows-control

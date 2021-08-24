@@ -12,8 +12,8 @@ class Dropdown {
     this._id = this._$elem.attr('id');
     this._counters = this._initCounters();
     this._$field = $(`#${this._id}-field`);
-    this._$clearButton = $(`#${this._id}-clear`);
-    this._$applyButton = $(`#${this._id}-apply`);
+    this._$clearButton = $(`#${this._id}-control-clear`);
+    this._$applyButton = $(`#${this._id}-control-apply`);
     this._$dropper = $(`#${this._id}-check`);
     this._bindEventListeners();
     if (this._counters.length) this._updateField();

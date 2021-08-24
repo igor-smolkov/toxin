@@ -29,11 +29,11 @@ mixin bill-item(options)
   if !options
     - options = {}
   
-  DIV(class=blockName)
-    DIV(
+  SPAN(class=blockName)
+    SPAN(
       class=`${blockName}__name`
       class=options.withLine ? `${blockName}__name_with_line` : ""
     )=options.name
       if options.withInfo
         BUTTON(class=`${blockName}__info`)="i"
-    DIV(class=`${blockName}__price`)=options.price
+    SPAN(class=`${blockName}__price`)=options.price

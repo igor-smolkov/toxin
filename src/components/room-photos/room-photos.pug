@@ -5,7 +5,19 @@ mixin room-photos(options = {})
   - const blockName = "room-photos"
   DIV(class=blockName)
     DIV(class=`${blockName}__main`)
-      IMG(class=`${blockName}__photo`, src=options.imgs[0])
+      IMG(
+        class=`${blockName}__photo`, 
+        src=options.imgs[0],
+        alt="Вид номера - 1"
+      )
     DIV(class=`${blockName}__aside`)
-      IMG(class=`${blockName}__photo`, src=options.imgs[1])
-      IMG(class=`${blockName}__photo`, src=options.imgs[2])
+      IMG(
+        class=`${blockName}__photo`, 
+        src=options.imgs[1],
+        alt="Вид номера - 2"
+      )
+      IMG(
+        class=`${blockName}__photo`, 
+        src=options.imgs[2],
+        alt="Вид номера - 3"
+      )

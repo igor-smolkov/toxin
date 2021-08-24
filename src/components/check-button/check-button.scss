@@ -20,6 +20,7 @@ $block: 'check-button';
         @include text('bold');
       }
       &__details {
+        display: block;
         max-width: 230px;
         margin-top: 5px;
         @include text('light_middle');
@@ -47,6 +48,7 @@ $block: 'check-button';
     }
   }
   &__label {
+    display: block;
     max-width: 200px;
     &::before {
       content: '';

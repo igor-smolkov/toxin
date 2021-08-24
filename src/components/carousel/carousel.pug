@@ -17,7 +17,7 @@ mixin carousel(options = {})
       class=`${blockName}__slide`
       class=`${blockName}__slide_next`
     )
-    DATA(class=`${blockName}__links`)
+    DATALIST(class=`${blockName}__links`)
       each slide, index in options.slides
         OPTION(
           class=`${blockName}__link`

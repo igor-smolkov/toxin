@@ -19,7 +19,7 @@ mixin pagination(options)
           class=`${blockName}__item`
           class=(index===0) ? `${blockName}__item_current` : ""
         )
-          P(
+          SPAN(
             class=`${blockName}__value`
           )=value
       BUTTON(

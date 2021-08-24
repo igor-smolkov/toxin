@@ -25,6 +25,6 @@ mixin button(options)
     class=options.isCompact ? `${blockName}_compacted` : ""
     class=options.isNone ? `${blockName}_none` : ""
   )
-    P(
+    SPAN(
       class=`${blockName}__caption`
     )=options.caption

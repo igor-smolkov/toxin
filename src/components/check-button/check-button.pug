@@ -21,6 +21,7 @@ mixin check-button(options)
     class=blockName
     class=options.isChecked ? `${blockName}_checked` : ""
     class=options.details ? `${blockName}_rich` : ""
+    for=options.id
   )
     INPUT(
       class=`${blockName}__box`
@@ -32,15 +33,14 @@ mixin check-button(options)
       type="checkbox"
       checked=options.isChecked ? true : false
     )
-    P(
+    SPAN(
       class=`${blockName}__label`
       class=options.isChecked ? `${blockName}__label_checked` : ""
       class=!(options.isToggle || options.isLike) ? "text_light_middle" : ""
       class=!options.isLike ? "text_rare_less" : ""
-      for=options.id
     )=options.label ? options.label : options.value
       if options.details
-        P(
+        SPAN(
           class=`${blockName}__details`
         )=options.details
     block

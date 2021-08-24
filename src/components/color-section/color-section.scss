@@ -15,6 +15,7 @@
     line-height: 1.474;
   }
   &__details {
+    display: block;
     @include text('mod_details');
   }
 

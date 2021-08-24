@@ -8,13 +8,13 @@ mixin card-title(options)
     - options = {}
   
   if (typeof options) === "string"
-    DIV(class=blockName)=options
+    SPAN(class=blockName)=options
   else
-    DIV(class=blockName)
-      DIV(class=`${blockName}__main`)
+    SPAN(class=blockName)
+      SPAN(class=`${blockName}__main`)
         +card-title-main(options.main)
       if (options.details)
-        DIV(class=`${blockName}__details`)
+        SPAN(class=`${blockName}__details`)
           +card-title-details(options.details)
 
 //- 
@@ -28,7 +28,7 @@ mixin card-title-main(options)
   if !options
     - options = {}
 
-  DIV(class=blockName)
+  SPAN(class=blockName)
     if options.prefix
       SPAN(class=`${blockName}__prefix`)=options.prefix
     SPAN(class=`${blockName}__content`)=options.content
@@ -47,7 +47,7 @@ mixin card-title-details(options)
   if !options
     - options = {}
 
-  DIV(class=blockName)
+  SPAN(class=blockName)
     SPAN(class=`${blockName}__first`)=options.first
     if options.second
       SPAN(class=`${blockName}__second`)=options.second

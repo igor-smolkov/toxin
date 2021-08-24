@@ -75,7 +75,10 @@ mixin dropdown-panel(options)
             if item.count !== 0
               - isClear = false
       DIV(class=`${blockName}__control`)
-        +dropdown-control({ id: options.id, isClear: isClear })
+        +dropdown-control({ 
+          id: `${options.id}-control`, 
+          isClear: isClear 
+        })
 
 //- 
 

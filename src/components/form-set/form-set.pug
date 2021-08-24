@@ -10,21 +10,15 @@
   options.withLine
   options.description
 
-mixin form-set(options)
+mixin form-set(options = {})
   - const blockName = "form-set"
-  if !options
-    - options = {}
 
-  FIELDSET(
-    class=blockName
-  )
+  FIELDSET(class=blockName)
     if options.title 
-      LEGEND(
-        class=`${blockName}__title`
-      )
+      LEGEND(class=`${blockName}__title`)
         H3.set-title=options.title
           if options.details
-            .set-title__details=options.details
+            SPAN.set-title__details=options.details
     if options.isEmpty 
       block 
     else if options.isGrouped

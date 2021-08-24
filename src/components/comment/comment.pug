@@ -28,7 +28,7 @@ mixin comment(options)
         class=`${blockName}__like`
       )
         +like-button({
-          id: "comment-like",
+          id: `${options.id}-like`,
           value: options.likeValue ? options.likeValue : 0,
           isChecked: options.isLiked,
         })

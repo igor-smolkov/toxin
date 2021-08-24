@@ -7,7 +7,7 @@ mixin room-section(options = {})
       class=options.isShifted ? `${blockName}__title_shifted` : ""
     )=options.title
       if options.details
-        P(class=`${blockName}__details`)=options.details
+        SPAN(class=`${blockName}__details`)=options.details
     if options.isEmpty
       block
     else
