@@ -1,5 +1,4 @@
 //- 
-  options.id
   options.items
 
 mixin bullet-list(options)
@@ -9,10 +8,7 @@ mixin bullet-list(options)
   if !options.items
     - options = []
 
-  UL(
-    id=options.id ? options.id : ""
-    class=blockName
-  )
+  UL(class=blockName)
     each item, index in options.items
       LI(
         class=`${blockName}__item`

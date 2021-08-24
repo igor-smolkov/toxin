@@ -8,12 +8,11 @@ mixin field-elements
     SECTION.field-elements__section.field-elements__section_first
       +form-section
         +form-set({ title: "Text Field", details: "Default" })
-          +text-field({ id: "text-field-default", placeholder: "Email" })
+          +text-field({ placeholder: "Email" })
     SECTION.field-elements__section
       +form-section
         +form-set({ title: "Text Field", details: "Hover / Focus" })
           +text-field({
-            id: "text-field-hovered-and-focused",
             placeholder: "This is pretty awesome",
             isHovered: true,
             isFocused: true,
@@ -21,12 +20,11 @@ mixin field-elements
     SECTION.field-elements__section
       +form-section
         +form-set({ title: "Dropdown" })
-          +dropdown({ id: "dropdown-default", value: "Сколько гостей" })
+          +dropdown({ value: "Сколько гостей" })
     SECTION.field-elements__section
       +form-section
         +form-set({ title: "Masked Text Field" })
           +text-field({
-            id: "text-field-masked",
             placeholder: "ДД.ММ.ГГГГ",
             isMasked: true,
           })
@@ -34,11 +32,10 @@ mixin field-elements
       +form-section({ isPaired: true })
         .form-section__set.form-section__set_first
           +form-set({ title: "Date Dropdown" })
-            +dropdown({ id: "date-dropdown-default", type: "date" })
+            +dropdown({ type: "date" })
         .form-section__set
           +form-set({ title: "Date Dropdown" })
             +dropdown({
-              id: "date-dropdown-with-value",
               type: "date",
               value: '2019-08-19',
             })
@@ -46,7 +43,6 @@ mixin field-elements
       +form-section({ isShortened: true })
         +form-set({ title: "Filter Date Dropdown" })
           +dropdown({
-            id: "filter-date-dropdown",
             type: "date",
             value: "19 авг - 23 авг",
             isFilter: true,
@@ -55,7 +51,6 @@ mixin field-elements
       +form-section({ isShortened: true })
         +form-set({ title: "Subscription Text Field" })
           +text-field({
-            id: "text-field-subscription",
             placeholder: "Email",
             isDirected: true,
           })

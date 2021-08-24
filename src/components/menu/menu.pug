@@ -5,24 +5,20 @@ include ../link/link.pug
 //- 
   options.navLinks
   options.user
-  options.id
 
 mixin menu(options = {})
   - const blockName = "menu"
   DIV(class=blockName)
     DIV(class=`${blockName}__nav-links`)
       +nav-links({
-        id: `${options.id}-nav-links`,
         navLinks: options.navLinks,
       })
     DIV(class=`${blockName}__user-panel`)
       +user-panel({
-        id: `${options.id}-user-panel`,
         user: options.user,
       })
 
 //- 
-  options.id
   options.navLinks [
     { isDropdown, isHovered, link, text, list }
   ]
@@ -39,10 +35,9 @@ mixin nav-links(options = {})
       )
         +link(item)
         if item.isDropdown
-          +expandable-list({ id: `${options.id}-dropdown-${index}`, list: item.list })
+          +expandable-list({ list: item.list, name: item.name })
 
 //- 
-  options.id
   options.user
 
 mixin user-panel(options = {})
@@ -59,6 +54,6 @@ mixin user-panel(options = {})
         class=`${blockName}__item`
         class=`${blockName}__item_first`
       )
-        +button({ id:`${options.id}-log-in`, caption: "Войти", isBorderOnly: true, isWithArrow: false, isCompact: true })
+        +button({ caption: "Войти", isBorderOnly: true, isWithArrow: false, isCompact: true })
       DIV(class=`${blockName}__item`)
-        +button({ id:`${options.id}-check-in`, caption: "Зарегистрироваться", isWithArrow: false, isCompact: true })
+        +button({ caption: "Зарегистрироваться", isWithArrow: false, isCompact: true })

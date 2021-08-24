@@ -8,10 +8,9 @@ import Calendar from '../calendar/calendar';
 class DateFilter {
   constructor($elem) {
     this._$elem = $elem;
-    this._id = this._$elem.attr('id');
 
-    this._$field = $(`#${this._id}-dropdown-field`);
-    this._calendar = new Calendar($(`#${this._id}-calendar`));
+    this._$field = this._$elem.find('.dropdown').find('.text-field');
+    this._calendar = new Calendar(this._$elem.find('.dropdown__panel').find('.calendar'));
 
     this.dateFrom = DateFilter._createDate(this._$elem.data().from);
     this.dateTo = DateFilter._createDate(this._$elem.data().to);

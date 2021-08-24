@@ -6,7 +6,6 @@ include ../check-button/check-button.pug
 include ../expandable-list/expandable-list.pug
 
 //-
-  options.id
   options.dateFrom
   options.dateTo
   options.guests
@@ -18,15 +17,14 @@ include ../expandable-list/expandable-list.pug
 
 mixin filter(options = {})
   - const blockName = "filter"
-  - const id = options.id ? options.id : blockName
-  FORM(class=blockName id=id)
+  FORM(class=blockName)
     SECTION(
       class=`${blockName}__section`
       class=`${blockName}__section_first`
     )
       +form-set({ title: "Даты пребывания в отеле" })
         +date-filter({
-          id: `${id}-dates`,
+          name: "dates",
           dateFrom: options.dateFrom,
           dateTo: options.dateTo,
         })
@@ -36,7 +34,7 @@ mixin filter(options = {})
     )
       +form-set({ title: "Гости" })
         +dropdown({
-          id: `${id}-guests`,
+          name: "guests",
           list: [
             { name: "Взрослые", count: options.guests.count[0], category: "гость" },
             { name: "Дети", category: "гость" },
@@ -51,13 +49,12 @@ mixin filter(options = {})
         description: "Стоимость за сутки пребывания в номере",
         isIndented: true
       })
-        +slider({ id: "price-slider", values: [0, 30.4, 63.5, 100] })
+        +slider({ values: [0, 30.4, 63.5, 100] })
     SECTION(class=`${blockName}__section`)
       +form-set({ title: "Правила дома", isGrouped: true })
         each item, index in options.ruleChecks
           .form-set__element.form-set__element_indent-in_check-buttons
-            +check-button({ 
-              id: `rule-check-${index+1}`, 
+            +check-button({  
               label: item.label, 
               isChecked: item.isChecked 
             })
@@ -65,8 +62,7 @@ mixin filter(options = {})
       +form-set({ title: "Доступность", isGrouped: true })
         each item, index in options.accessibleChecks
           .form-set__element.form-set__element_indent-in_check-buttons
-            +check-button({ 
-              id: `accessible-check-${index+1}`, 
+            +check-button({  
               label: item.label, 
               details: item.details, 
               isChecked: item.isChecked 
@@ -74,7 +70,7 @@ mixin filter(options = {})
     SECTION(class=`${blockName}__section`)
       +form-set({ title: "Удобства номера" })
         +dropdown({
-          id: `${id}-amenities`,
+          name: "amenities",
           list: [
             { name: "Спальни", count: options.amenities.count[0], category: "спальня" },
             { name: "Кровати", count: options.amenities.count[1], category: "кровать" },
@@ -85,7 +81,7 @@ mixin filter(options = {})
     SECTION(class=`${blockName}__section`)
       +form-set({ title: "Дополнительные удобства", isMarginNone: true })
         +expandable-list({
-          id: "expandable-list-expanded",
+          name: "additionals",
           withChecks: true,
           list: options.additionals.checks,
           isExpanded: options.additionals.isExpanded

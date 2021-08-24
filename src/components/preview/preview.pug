@@ -1,5 +1,4 @@
 //- 
-  options.id
   options.imgs
   options.selected
   options.isHovered
@@ -15,26 +14,22 @@ mixin preview(options)
     class=blockName
     class=`js-${blockName}`
     class=options.isHovered ? `${blockName}_hovered` : ""
-    id=options.id
     data-selected=selected
+    data-number=options.number
   )
-    DATALIST(
-      class=`${blockName}__data`
-      id=`${options.id}-data`
-    )
+    DATALIST(class=`${blockName}__data`)
       each img in imgs
         OPTION(value=img)
     IMG(
       class=`${blockName}__img`
       src=options.imgs[selected]
-      id=`${options.id}-img`
       alt="Превью номера"
     )
     DIV(class=`${blockName}__arrows`)
       +carousel-arrows-control
     DIV(class=`${blockName}__points`)
       +carousel-points-control({
-        id: `${options.id}-points`,
+        name: `views-${options.number}`,
         count: `${imgs.length}`,
         selected: selected,
       })
@@ -54,31 +49,25 @@ mixin carousel-arrows-control
     )
 
 //- 
-  options.id
   options.count
   options.selected
 
-mixin carousel-points-control(options)
+mixin carousel-points-control(options = {})
   - const blockName = "carousel-points-control"
-  if !options
-    - options = {}
-  DIV(
-    class=blockName
-    id=options.id
-  )
+  DIV(class=blockName)
     - let i = 0
     while i < options.count
       INPUT(
         class=`${blockName}__input`
-        id=`${options.id}__input-${i}`
         type="radio"
-        name=`${options.id}-radio`
+        name=options.name
+        id=`${options.name}-${i}`
         value=i
         checked=(i===options.selected) ? true : false
       )
       LABEL(
+        for=`${options.name}-${i}`
         class=`${blockName}__label`
         class=(i===options.selected) ? `${blockName}__label_checked` : ""
-        for=`${options.id}__input-${i}`
       )
       - i++

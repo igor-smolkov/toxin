@@ -4,19 +4,19 @@ import './preview.scss';
 class Preview {
   constructor($elem) {
     this._$elem = $elem;
-    this._id = this._$elem.attr('id');
     this._selected = this._$elem.data().selected;
-    this._imgs = Array.from($(`#${this._id}-data`).children()).map((option) => option.value);
-    this._$img = $(`#${this._id}-img`);
+    this._number = this._$elem.data().number;
+    this._imgs = Array.from(this._$elem.find('.preview__data').children()).map((option) => option.value);
+    this._$img = this._$elem.find('.preview__img');
     this._$prevButton = this._$elem.find('.carousel-arrows-control__arrow_prev');
     this._$nextButton = this._$elem.find('.carousel-arrows-control__arrow_next');
-    this._$pointsControl = $(`#${this._id}-points`);
+    this._$pointsControl = this._$elem.find('.carousel-points-control');
     this._bindEventListeners();
   }
 
   update() {
     this._$img.attr('src', this._imgs[this._selected]);
-    $(`input[name="${this._id}-points-radio"][value=${this._selected}]`).prop('checked', true);
+    $(`input[name="views-${this._number}"][value=${this._selected}]`).prop('checked', true);
   }
 
   prev() {
@@ -47,7 +47,7 @@ class Preview {
 
   _handlePointsControlChange(e) {
     e.preventDefault();
-    this.setSelected(+$(`input[name="${this._id}-points-radio"]:checked`).val());
+    this.setSelected(+$(`input[name="views-${this._number}"]:checked`).val());
   }
 
   _bindEventListeners() {

@@ -2,13 +2,10 @@ include ../check-button/check-button.pug
 
 //-
   options.isChecked
-  options.id
   options.name
   options.value
   options.label
 
-mixin toggle(options)
-  if !options
-    - options = {}
+mixin toggle(options = {})
   - options.isToggle = true
   +check-button(options)

@@ -12,7 +12,7 @@ mixin lists(param)
         +form-section({ isShortened: true })
           +form-set({ title: "Expandable checkbox list", isMarginNone: true })
             +expandable-list({ 
-              id: "expandable-list", 
+              name: "additionals-1",
               withChecks: true,
               list: [
                 {label: 'Завтрак'},
@@ -27,7 +27,7 @@ mixin lists(param)
         +form-section({ isShortened: true })
           +form-set({ title: "Expandable checkbox list", isMarginNone: true })
             +expandable-list({
-              id: "expandable-list-expanded",
+              name: "additionals-2",
               isExpanded: true,
               withChecks: true,
               list: [
@@ -43,7 +43,6 @@ mixin lists(param)
     +form-section
       +form-set({ title: "Bullet List", isIndented: true })
         +bullet-list({ 
-          id: "bullet-list",
           items: [
             'Нельзя с питомцами',
             'Без вечеринок и мероприятий',
@@ -53,7 +52,6 @@ mixin lists(param)
   else if (param === "extra")
     +form-section
       +extra-list({ 
-        id: "extra-list",
         items: [
           { title: "Комфорт", details: "Шумопоглощающие стены", icon: "insert_emoticon" },
           { title: "Удобство", details: "Окно в каждой из спален", icon: "location_city" },

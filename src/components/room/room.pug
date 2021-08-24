@@ -4,7 +4,6 @@ include ../card-form/card-form.pug
 include ../preview/preview.pug
 
 //- 
-  options.id
   options.isLux
   options.price
   options.rate
@@ -14,14 +13,13 @@ include ../preview/preview.pug
 
 mixin room(options = {})
   - const blockName = "room"
-  - const id = options.number ? `room-${options.number}` : blockName
-  DIV(class=blockName id=id)
+  DIV(class=blockName)
     +card({ isSmall: true, isEmpty: true })
       HEADER.card__header
         +preview({ 
-          id: `${id}-preview`,
           imgs: options.imgs,
-          isHovered: options.isHovered, 
+          isHovered: options.isHovered,
+          number: options.number,
         })
       SECTION.card__body
         H2.card__title.card__title_margin_none
@@ -37,9 +35,9 @@ mixin room(options = {})
             }
           })
         +card-form({ 
-          for: "room-rate", 
-          id: `${id}-rate-form`,
+          for: "room-rate",
           options: { 
+            number: options.number,
             rate: options.rate, 
             reviews: options.reviews 
           }

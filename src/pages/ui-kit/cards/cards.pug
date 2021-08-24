@@ -20,10 +20,10 @@ block content
     .cards
       ARTICLE.cards__unit
         +card({ title: "Найдём номера под ваши пожелания" })
-          +card-form({ for: "wishes", id: "wishes-form" })
+          +card-form({ for: "wishes" })
       ARTICLE.cards__unit
         +card({ title: "Регистрация аккаунта" })
-          +card-form({ for: "check-in", id: "check-in-form" })
+          +card-form({ for: "check-in" })
       ARTICLE.cards__unit
         +card({ 
           title: {
@@ -31,14 +31,13 @@ block content
             details: { first: "9 990₽", second: "в сутки" }
           }
         })
-          +card-form({ for: "room", id: "room-form" })
+          +card-form({ for: "room" })
       ARTICLE.cards__unit
         +card({ title: "Войти" })
-          +card-form({ for: "log-in", id: "log-in-form" })
+          +card-form({ for: "log-in" })
       ARTICLE.cards__unit
         +card({ isMedium: true, isEmpty: true })
-          +calendar({ 
-            id:"calendar-card", 
+          +calendar({  
             from: "2019-08-19", 
             to: "2019-08-23",
             active: "2019-08-08",
@@ -47,7 +46,6 @@ block content
         +card({ isSmall: true, isEmpty: true })
           HEADER.card__header
             +preview({ 
-              id: "preview-888",
               imgs: [
                 "../images/room_888.png",
                 "../images/room_350.png",
@@ -64,14 +62,12 @@ block content
               })
             +card-form({ 
               for: "room-rate", 
-              id: "room-rate-form-888",
               options: { rate: 5, reviews: 145 }
             })
       ARTICLE.cards__unit
         +card({ isSmall: true, isEmpty: true })
           HEADER.card__header
             +preview({ 
-              id: "preview-840",
               imgs: [
                 "../images/room_840.png",
                 "../images/room_350.png",
@@ -87,6 +83,5 @@ block content
               })
             +card-form({ 
               for: "room-rate", 
-              id: "room-rate-form-840", 
               options: { rate: 4, reviews: 65 }
             })

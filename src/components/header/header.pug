@@ -2,7 +2,6 @@ include ../logo/logo.pug
 include ../menu/menu.pug
 
 //-
-  options.id
   options.user
   options.isCustomed
 
@@ -16,13 +15,12 @@ mixin header(options = {})
         block
       else
         +menu({
-          id: options.id,
           navLinks: [
             { link: "/change-link", text: "О нас" },
-            { link: "/change-link", text: "Услуги", isDropdown: true, list: ['Элемент 1', 'Элемент 2', 'Элемент 3'] },
+            { link: "/change-link", text: "Услуги", isDropdown: true, list: ["Элемент 1", "Элемент 2", "Элемент 3"], name: "services" },
             { link: "/change-link", text: "Вакансии" },
             { link: "/change-link", text: "Новости" },
-            { link: "/change-link", text: "Соглашения", isDropdown: true, list: ['Элемент 1', 'Элемент 2', 'Элемент 3'] },
+            { link: "/change-link", text: "Соглашения", isDropdown: true, list: ["Элемент 1", "Элемент 2", "Элемент 3"], name: "agreements" },
           ],
           user: options.user ? { link: "/change-link", text: options.user } : null
         })

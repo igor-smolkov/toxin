@@ -6,42 +6,42 @@ mixin dropdowns(param)
   if (param === "fullset")
     +form-section
       +form-set({ title: "Dropdown" })
-        +dropdown({ 
-          id: "dropdown-with-control", 
-            value: "Сколько гостей", 
-            isExpanded: true,
-            withControl: true,
-            list: [
-              { name: "взрослые" },
-              { name: "дети" },
-              { name: "младенцы" }
-            ],
-          })
+        +dropdown({  
+          name: "guests-1",
+          value: "Сколько гостей", 
+          isExpanded: true,
+          withControl: true,
+          list: [
+            { name: "взрослые" },
+            { name: "дети" },
+            { name: "младенцы" }
+          ],
+        })
   else if (param === "fullset-example")
     +form-section
       +form-set({ title: "Dropdown" })
-        +dropdown({ 
-          id: "dropdown-with-control-example", 
-            value: "3 гостя", 
-            isExpanded: true,
-            withControl: true,
-            list: [
-              { name: "взрослые", count: 2 },
-              { name: "дети", count: 1 },
-              { name: "младенцы" }
-            ],
-          })
+        +dropdown({  
+          name: "guests-2",
+          value: "3 гостя", 
+          isExpanded: true,
+          withControl: true,
+          list: [
+            { name: "взрослые", count: 2 },
+            { name: "дети", count: 1 },
+            { name: "младенцы" }
+          ],
+        })
   else
     .dropdowns
       SECTION.dropdowns__section.dropdowns__section_first
         +form-section({ isShortened: true })
           +form-set({ title: "Dropdown", details: "Default" })
-            +dropdown({ id: "dropdown-default-with-value", value: "2 спальни, 2 кровати..." })
+            +dropdown({ name: "amenities-1", value: "2 спальни, 2 кровати..." })
       SECTION.dropdowns__section
         +form-section({ isShortened: true })
           +form-set({ title: "Dropdown", details: "Expanded"  })
             +dropdown({ 
-              id: "dropdown-expanded", 
+              name: "amenities-2",
               value: "2 спальни, 2 кровати...", 
               isExpanded: true,
               list: [

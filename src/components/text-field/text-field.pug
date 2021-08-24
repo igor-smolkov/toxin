@@ -1,5 +1,4 @@
 //-
-  options.id
   options.name
   options.type
   options.isFilter
@@ -11,10 +10,7 @@
   options.isDirected
   options.withBorder
 
-mixin text-field(options)
-  if !options
-    - options = {}
-
+mixin text-field(options = {})
   if options.isDirected
     .field-submit
       +text-field-base(options)
@@ -27,8 +23,7 @@ mixin text-field-base(options)
     - options.withBorder = true
 
   INPUT.text-field(
-    id=options.id
-    name=options.name ? options.name : options.id
+    name=options.name
     type=`${
       options.type 
         ? 

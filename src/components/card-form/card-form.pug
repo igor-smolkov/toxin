@@ -11,47 +11,44 @@ include ../reviews-counter/reviews-counter.pug
 include ../date-section/date-section.pug
 
 //- 
-  options.id
   options.options
 
-mixin card-form(options)
+mixin card-form(options = {})
   - const blockName = "card-form"
-  if !options
-    - options = {}
-  FORM(class=blockName id=options.id)
+  FORM(class=blockName)
     case options.for
       when "wishes"
-        +card-form-wishes-content(blockName, options.id, options.options)
+        +card-form-wishes-content(blockName, options.options)
       when "check-in"
-        +card-form-check-in-content(blockName, options.id)
+        +card-form-check-in-content(blockName)
       when "room"
-        +card-form-room-content(blockName, options.id)
+        +card-form-room-content(blockName)
       when "log-in"
-        +card-form-log-in-content(blockName, options.id)
+        +card-form-log-in-content(blockName)
       when "room-rate"
-        +card-form-room-rate-content(options.id, options.options)
+        +card-form-room-rate-content(options.options)
 
 //- 
 
-mixin card-form-wishes-content(blockName, id, options = {})
+mixin card-form-wishes-content(blockName, options = {})
   SECTION(
     class=`${blockName}__section`
     class=`${blockName}__section_first`
   )
     +date-section({
-      id: `${id}-date-section`,
+      name: "dates",
       dateFrom: options.dateFrom,
       dateTo: options.dateTo,
       isCalendarArrivalExpanded: options.isCalendarArrivalExpanded,
-      isCalendarArrivalDeparture: options.isCalendarArrivalDeparture,
+      isCalendarDepartureExpanded: options.isCalendarDepartureExpanded,
       calendarArrivalDateActivate: options.calendarArrivalDateActivate,
       calendarDepartureDateActivate: options.calendarDepartureDateActivate,
     })
   SECTION(class=`${blockName}__section`)
     +form-section
       +form-set({ title: "Гости" })
-        +dropdown({ 
-          id: `${id}-dropdown-guests`, 
+        +dropdown({
+            name: "guests",
             value: options.guests ? options.guests : "Сколько гостей", 
             isExpanded: options.isGuestListExpanded,
             withControl: true,
@@ -62,11 +59,11 @@ mixin card-form-wishes-content(blockName, id, options = {})
     class=`${blockName}__section_last`
   )
     +form-section
-      +button({ id: `${id}-button-choose-number`, caption: "Подобрать номер" })
+      +button({ caption: "Подобрать номер" })
 
 //- 
 
-mixin card-form-check-in-content(blockName, id)
+mixin card-form-check-in-content(blockName)
   SECTION(
     class=`${blockName}__section`
     class=`${blockName}__section_first`
@@ -74,12 +71,11 @@ mixin card-form-check-in-content(blockName, id)
     +form-section
       +form-set({ isGrouped: true, isMarginNone: true })
         .form-set__element.form-set__element_margin_none
-          +text-field({ id: `${id}-text-field-firstname`, placeholder: "Имя" })
+          +text-field({ placeholder: "Имя" })
         .form-set__element.form-set__element_indent-mid
-          +text-field({ id: `${id}-text-field-lastname`, placeholder: "Фамилия" })
+          +text-field({ placeholder: "Фамилия" })
         .form-set__element.form-set__element_indent-mid
           +radio-group({
-            id: `${id}-radio-sex`,
             options: [
               {label: "Мужчина", isChecked: true},
               {label: "Женщина"},
@@ -92,7 +88,6 @@ mixin card-form-check-in-content(blockName, id)
     +form-section
       +form-set({ title: "Дата рождения" })
         +text-field({
-          id: `${id}-text-field-dob`,
           placeholder: "ДД.ММ.ГГГГ",
           isMasked: true,
         })
@@ -100,17 +95,17 @@ mixin card-form-check-in-content(blockName, id)
     +form-section
       +form-set({ title: "Данные для входа в сервис", isGrouped: true, isMarginNone: true })
         .form-set__element
-          +text-field({ id: `${id}-text-field-email`, placeholder: "Email" })
+          +text-field({ placeholder: "Email" })
         .form-set__element.form-set__element_indent-mid
-          +text-field({ id: `${id}-text-field-password`, placeholder: "Пароль" })
+          +text-field({ placeholder: "Пароль" })
         .form-set__element.form-set__element_indent-mid
-          +toggle({ id: `${id}-toggle-special`, label: "Получать спецпредложения" })
+          +toggle({ label: "Получать спецпредложения" })
   SECTION(
     class=`${blockName}__section`
     class=`${blockName}__section_rare_more`
   )
     +form-section
-      +button({ id: `${id}-button-reg`, caption: "Зарегистрироваться" })
+      +button({ caption: "Зарегистрироваться" })
   SECTION(
     class=`${blockName}__section`
     class=`${blockName}__section_last`
@@ -120,26 +115,33 @@ mixin card-form-check-in-content(blockName, id)
         .form-set__element.form-set__element_align-mid.form-set__element_growed
           DIV(class=`${blockName}__question`)="Уже есть аккаунт на Toxin"
         .form-set__element
-          +button({ id: `${id}-button-in`, caption: "Войти", isWithArrow: false, isBorderOnly: true })
+          +button({ caption: "Войти", isWithArrow: false, isBorderOnly: true })
 
 //- 
 
-mixin card-form-room-content(blockName, id)
+mixin card-form-room-content(blockName)
   SECTION(
     class=`${blockName}__section`
     class=`${blockName}__section_first`
   )
-    +form-section({ isPaired: true })
-      .form-section__set.form-section__set_first
-        +form-set({ title: "Прибытие" })
-          +dropdown({ id: `${id}-date-arrival-room`, type: "date", value: "2019-08-19" })
-      .form-section__set
-        +form-set({ title: "Выезд" })
-          +dropdown({ id: `${id}-date-departure-room`, type: "date", value: "2019-08-23" })
+    +date-section({
+      name: "dates",
+      dateFrom: "2019-08-19",
+      dateTo: "2019-08-23",
+    })
   SECTION(class=`${blockName}__section`)
     +form-section
       +form-set({ title: "Гости" })
-        +dropdown({ id: `${id}-dropdown-guests-room`, value: "3 гостя" })
+        +dropdown({ 
+          value: "3 гостя", 
+          name: "guests",
+          withControl: true,
+          list: [
+            { name: "взрослые", count: 2, category: "гость" },
+            { name: "дети", count: 1, category: "гость" },
+            { name: "младенцы", category: "младенец" }
+          ],
+        })
   SECTION(class=`${blockName}__section`)
     +form-section 
       +bill({
@@ -152,11 +154,11 @@ mixin card-form-room-content(blockName, id)
       })
   SECTION(class=`${blockName}__section`)
     +form-section
-      +button({ id: `${id}-button-book`, caption: "Забронировать" })
+      +button({ caption: "Забронировать" })
 
 //- 
 
-mixin card-form-log-in-content(blockName, id)
+mixin card-form-log-in-content(blockName)
   SECTION(
     class=`${blockName}__section`
     class=`${blockName}__section_first`
@@ -164,12 +166,12 @@ mixin card-form-log-in-content(blockName, id)
     +form-section
       +form-set({ isGrouped: true, isMarginNone: true })
         .form-set__element.form-set__element_margin_none
-          +text-field({ id: `${id}-text-field-email-in`, placeholder: "Email" })
+          +text-field({ placeholder: "Email" })
         .form-set__element.form-set__element_indent-mid
-          +text-field({ id: `${id}-text-field-password-in`, placeholder: "Пароль" })
+          +text-field({ placeholder: "Пароль" })
   SECTION(class=`${blockName}__section`)
     +form-section
-      +button({ id: `${id}-button-log-in`, caption: "Войти" })
+      +button({ caption: "Войти" })
   SECTION(
     class=`${blockName}__section`
     class=`${blockName}__section_last`
@@ -179,18 +181,16 @@ mixin card-form-log-in-content(blockName, id)
         .form-set__element.form-set__element_align-mid.form-set__element_growed
           DIV(class=`${blockName}__question`)="Нет аккаунта на Toxin?"
         .form-set__element
-          +button({ id: `${id}-button-reg`, caption: "Создать", isWithArrow: false, isBorderOnly: true })
+          +button({ caption: "Создать", isWithArrow: false, isBorderOnly: true })
 
 //- 
   options.rate
   options.reviews
 
-mixin card-form-room-rate-content(id, options)
-  if !options
-    - options = {}
+mixin card-form-room-rate-content(options = {})
   +form-section
     +form-set({ isGrouped: true, isInlined: true, withLine: true, isAligned: true })
       .form-set__element
-        +rate-button({ id: `${id}-card-form-rate`, value: options.rate })
+        +rate-button({ name: `${options.number}-rate`, value: options.rate })
       .form-set__element          
         +reviews-counter(options.reviews)

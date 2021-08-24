@@ -18,9 +18,8 @@ mixin widget(options = {})
       if options.text
         P(class=`${blockName}__text`)=options.text 
       if options.withSubscribe
-        FORM(class=`${blockName}__form`, id="subscribe-form")
+        FORM(class=`${blockName}__form`)
           +text-field({
-            id: "subscribe",
             placeholder: "Email",
             isDirected: true,
           })

@@ -10,20 +10,17 @@ mixin others(param)
       +form-set({ title: "Rich Checkbox Buttons", isGrouped: true })
         .form-set__element.form-set__element_indent-in_check-buttons
           +check-button({ 
-            id: "rich-check-btn-1", 
             label: "Широкий коридор",
             details: "Ширина коридоров в номере не менее 91 см.",
           })
         .form-set__element.form-set__element_indent-in_check-buttons
           +check-button({ 
-            id: "rich-check-btn-2", 
             label: "Помощник для инвалидов",
             details: "На 1 этаже вас встретит специалист и проводит до номера.",
           })
   else if (param === "comment")
     +form-section
       +comment({
-        id: "comment",
         username: "Мурад Сарафанов",
         avatar: "../images/murad.png",
         datetime: "5 дней назад",

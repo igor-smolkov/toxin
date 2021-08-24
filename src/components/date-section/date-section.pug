@@ -4,7 +4,6 @@ include ../card/card.pug
 include ../calendar/calendar.pug
 
 //- 
-  options.id
   options.dateFrom
   options.dateTo
   options.isCalendarArrivalExpanded
@@ -17,22 +16,20 @@ mixin date-section(options = {})
   DIV(
     class=blockName
     class=`js-${blockName}`
-    id=options.id
   )
     DIV(
       class=`${blockName}__set`
       class=`${blockName}__set_first`
     )
       +form-set({ title: "Прибытие" })
-        +dropdown({ 
-          id: `${options.id}-arrival`, 
+        +dropdown({  
+          name: "arrival",
           type: "date",
           value: options.dateFrom ? options.dateFrom : "",
           isExpanded: options.isCalendarArrivalExpanded,
         })
           +card({ isMedium: true, isEmpty: true })
             +calendar({ 
-              id: `${options.id}-arrival-calendar`,
               from: options.dateFrom ? options.dateFrom : "",
               to: options.dateTo ? options.dateTo : "",
               active: options.calendarArrivalDateActivate ? options.calendarArrivalDateActivate : "",
@@ -40,14 +37,13 @@ mixin date-section(options = {})
     DIV(class=`${blockName}__set`)
       +form-set({ title: "Выезд" })
         +dropdown({ 
-          id: `${options.id}-departure`, 
+          name: "departure",
           type: "date",
           value: options.dateTo ? options.dateTo : "",
           isExpanded: options.isCalendarDepartureExpanded,
         })
           +card({ isMedium: true, isEmpty: true })
             +calendar({ 
-              id: `${options.id}-departure-calendar`,
               from: options.dateFrom ? options.dateFrom : "",
               to: options.dateTo ? options.dateTo : "",
               active: options.calendarDepartureDateActivate ? options.calendarDepartureDateActivate : "",

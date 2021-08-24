@@ -34,7 +34,6 @@ block content
                   SECTION.room-info-section__subsection.room-info-section__subsection_first
                     +room-section({ title: "Сведения о номере" })
                       +extra-list({ 
-                        id: "room-details-list",
                         items: [
                           { title: "Комфорт", details: "Шумопоглощающие стены", icon: "insert_emoticon" },
                           { title: "Удобство", details: "Окно в каждой из спален", icon: "location_city" },
@@ -53,7 +52,6 @@ block content
                 +room-section({ title: "Отзывы посетителей номера", details: "2 отзыва", isEmpty: true })
                   .room-section__item.room-section__item_first
                     +comment({
-                      id: "comment-1",
                       username: "Мурад Сарафанов",
                       avatar: "../images/murad.png",
                       datetime: "5 дней назад",
@@ -63,7 +61,6 @@ block content
                     })
                   .room-section__item
                     +comment({
-                      id: "comment-2",
                       username: "Патрисия Стёклышкова",
                       avatar: "../images/patricia.png",
                       datetime: "Неделю назад",
@@ -75,7 +72,6 @@ block content
                   SECTION.room-info-section__subsection.room-info-section__subsection_first
                     +room-section({ title: "Правила", isShifted: true })
                       +bullet-list({ 
-                        id: "rules-list",
                         items: [
                           'Нельзя с питомцами',
                           'Без вечеринок и мероприятий',
@@ -92,6 +88,6 @@ block content
                 details: { first: "9 990₽", second: "в сутки" }
               }
             })
-              +card-form({ for: "room", id: "room-form" })
+              +card-form({ for: "room" })
   FOOTER.page__footer
     +footer

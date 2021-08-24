@@ -17,7 +17,6 @@ block content
     .search-room
       ASIDE.search-room__filter
         +filter({
-          id: "search-room-filter",
           dateFrom: "2019-08-19",
           dateTo: "2019-08-23",
           guests: { count: [3, 1] },
@@ -46,7 +45,6 @@ block content
         })
       ARTICLE.search-room__rooms
         +rooms({
-          id: "rooms",
           title: "Номера, которые мы для вас подобрали",
           lastPage: 15,
           numbers: [

@@ -2,10 +2,7 @@
   options.isPaired
   options.isShortened
 
-mixin form-section(options)
-  if !options
-    - options = {}
-
+mixin form-section(options = {})
   .form-section(
     class=options.isPaired ? "form-section_paired" : ""
     class=options.isShortened ? "form-section_shortened" : ""

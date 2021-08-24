@@ -1,21 +1,12 @@
 //-
-  options.id
   options.values
 
-mixin slider(options)
+mixin slider(options = {})
   - const blockName = "slider"
-  if !options
-    - options = {}
-
-  DIV(
-    class=blockName
-  )
-    DIV(
-      class=`${blockName}__slot`
-    )
+  DIV(class=blockName)
+    DIV(class=`${blockName}__slot`)
       DIV(
         class=`${blockName}__root`
         class=`js-${blockName}__root`
-        id=options.id
         data-values=options.values
       )

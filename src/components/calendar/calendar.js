@@ -7,10 +7,9 @@ import '../dropdown-control/dropdown-control';
 class Calendar {
   constructor($elem) {
     this._$elem = $elem;
-    this._id = this._$elem.attr('id');
     this.$pluginElem = this._$elem.find('.calendar__plugin');
-    this.$clearButton = $(`#${this._id}-control-clear`);
-    this._$applyButton = $(`#${this._id}-control-apply`);
+    this.$clearButton = this._$elem.find('.dropdown-control__clear').find('.button');
+    this._$applyButton = this._$elem.find('.dropdown-control__apply').find('.button');
     this._init();
   }
 

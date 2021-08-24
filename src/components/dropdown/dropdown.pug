@@ -3,7 +3,6 @@ include ../button/button.pug
 include ../dropdown-control/dropdown-control.pug
 
 //-
-  options.id
   options.value
   options.list [{name, count}]
   options.isExpanded
@@ -14,7 +13,6 @@ mixin dropdown(options)
   if !options
     - options = {}
   - fieldOptions = {
-  -   id: `${options.id}-field`,
   -   name: options.name,
   -   type: options.type,
   -   value: options.value,
@@ -30,19 +28,18 @@ mixin dropdown(options)
   DIV(
     class=blockName
     class=`js-${blockName}`
-    id=options.id
     class=options.isExpanded ? `${blockName}_expanded` : ""
   )
     +text-field(fieldOptions)
     INPUT(
       class=`${blockName}__check`
-      id=`${options.id}-check`
+      id=`${blockName}-${options.name}-check`
       type="checkbox"
       checked=options.isExpanded ? true : false
     )
     LABEL(
       class=`${blockName}__expand-more`
-      for=`${options.id}-check`
+      for=`${blockName}-${options.name}-check`
     )
     DIV(
       class=`${blockName}__panel`
@@ -50,7 +47,6 @@ mixin dropdown(options)
     )
       if options.list
         +dropdown-panel({ 
-          id: options.id, 
           list: options.list, 
           withControl: options.withControl,
         })
@@ -76,7 +72,6 @@ mixin dropdown-panel(options)
               - isClear = false
       DIV(class=`${blockName}__control`)
         +dropdown-control({ 
-          id: `${options.id}-control`, 
           isClear: isClear 
         })
 

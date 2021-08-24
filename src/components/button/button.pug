@@ -1,5 +1,4 @@
 //-
-  options.id
   options.caption
   options.isHovered
   options.isBorderOnly
@@ -16,7 +15,6 @@ mixin button(options)
     - options.isWithArrow = true
 
   BUTTON(
-    id=options.id
     class=blockName
     class=options.isHovered ? `${blockName}_hovered` : ""
     class=options.isBorderOnly ? `${blockName}_border_only` : ""
@@ -25,6 +23,4 @@ mixin button(options)
     class=options.isCompact ? `${blockName}_compacted` : ""
     class=options.isNone ? `${blockName}_none` : ""
   )
-    SPAN(
-      class=`${blockName}__caption`
-    )=options.caption
+    SPAN(class=`${blockName}__caption`)=options.caption

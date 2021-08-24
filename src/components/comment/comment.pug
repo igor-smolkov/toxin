@@ -1,7 +1,6 @@
 include ../like-button/like-button.pug
 
 //- 
-  options.id
   options.username
   options.avatar
   options.datetime
@@ -28,7 +27,6 @@ mixin comment(options)
         class=`${blockName}__like`
       )
         +like-button({
-          id: `${options.id}-like`,
           value: options.likeValue ? options.likeValue : 0,
           isChecked: options.isLiked,
         })

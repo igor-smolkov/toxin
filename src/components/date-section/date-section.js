@@ -10,12 +10,11 @@ import DepartureCalendar from '../calendar/DepartureCalendar';
 class DateSection {
   constructor($elem) {
     this._$elem = $elem;
-    this._id = this._$elem.attr('id');
 
-    this._$arrivalField = $(`#${this._id}-arrival-field`);
-    this._$departureField = $(`#${this._id}-departure-field`);
-    this._arrivalCalendar = new ArrivalCalendar($(`#${this._id}-arrival-calendar`));
-    this._departureCalendar = new DepartureCalendar($(`#${this._id}-departure-calendar`));
+    this._$arrivalField = $(this._$elem.find('.date-section__set')[0]).find('.text-field');
+    this._$departureField = $(this._$elem.find('.date-section__set')[1]).find('.text-field');
+    this._arrivalCalendar = new ArrivalCalendar($(this._$elem.find('.date-section__set')[0]).find('.calendar'));
+    this._departureCalendar = new DepartureCalendar($(this._$elem.find('.date-section__set')[1]).find('.calendar'));
     this._updateCalendars();
 
     this._listen();

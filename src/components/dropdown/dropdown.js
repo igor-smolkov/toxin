@@ -9,12 +9,11 @@ import Counter from './Counter';
 class Dropdown {
   constructor($elem) {
     this._$elem = $elem;
-    this._id = this._$elem.attr('id');
     this._counters = this._initCounters();
-    this._$field = $(`#${this._id}-field`);
-    this._$clearButton = $(`#${this._id}-control-clear`);
-    this._$applyButton = $(`#${this._id}-control-apply`);
-    this._$dropper = $(`#${this._id}-check`);
+    this._$field = this._$elem.find('.text-field');
+    this._$clearButton = this._$elem.find('.dropdown-control__clear').find('.button');
+    this._$applyButton = this._$elem.find('.dropdown-control__apply').find('.button');
+    this._$dropper = this._$elem.find('.dropdown__check');
     this._bindEventListeners();
     if (this._counters.length) this._updateField();
   }

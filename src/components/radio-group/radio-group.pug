@@ -1,5 +1,4 @@
 //-
-  options.id
   options.name
   options.options [{value, label, isChecked}]
   options.isRate
@@ -12,10 +11,7 @@ mixin radio-group(options)
     - blockName = "rate-button"
   - const set = ('options' in options) ? options.options : []
 
-  DIV(
-    class=blockName
-    id=options.id
-  )
+  DIV(class=blockName)
     each option, index in set
       if options.isRate
         +option(options, option, index, blockName)
@@ -32,13 +28,13 @@ mixin option(group, option, index, blockName)
   INPUT(
     class=`${blockName}__box`
     type="radio"
-    id=`${group.id}_${index}`
-    name=group.name ? group.name : group.id
+    id=`${blockName}-${group.name}-${index}`
+    name=group.name
     value=option.value ? option.value : index
     checked=option.isChecked ? true : false
   )
   LABEL(
-    for=`${group.id}_${index}`
+    for=`${blockName}-${group.name}-${index}`
     class=`${blockName}__label`
     class=option.isChecked ? `${blockName}__label_checked` : ""
     class=(index === 0) ? `${blockName}__label_first` : ""
