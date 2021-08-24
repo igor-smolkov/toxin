@@ -1,7 +1,7 @@
 import './others.scss';
 
-import '@comp/form-section/form-section'
-import '@comp/form-set/form-set'
+import '../../../../components/form-section/form-section';
+import '../../../../components/form-set/form-set';
 
-import '@comp/check-button/check-button'
-import '@comp/comment/comment';
+import '../../../../components/check-button/check-button';
+import '../../../../components/comment/comment';

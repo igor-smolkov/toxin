@@ -29,6 +29,7 @@ mixin dropdown(options)
 
   DIV(
     class=blockName
+    class=`js-${blockName}`
     id=options.id
     class=options.isExpanded ? `${blockName}_expanded` : ""
   )

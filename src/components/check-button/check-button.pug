@@ -24,6 +24,7 @@ mixin check-button(options)
   )
     INPUT(
       class=`${blockName}__box`
+      class=`js-${blockName}__box`
       class=options.isChecked ? `${blockName}__box_checked` : ""
       id=options.id
       name=options.name ? options.name : options.id

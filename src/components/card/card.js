@@ -1,3 +1,3 @@
 import './card.scss';
 
-import '@comp/card-title/card-title';
+import '../card-title/card-title';

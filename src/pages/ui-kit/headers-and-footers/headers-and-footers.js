@@ -1,6 +1,6 @@
 import './headers-and-footers.scss';
 
-import '@comp/logo/logo';
-import '@comp/header/header';
-import '@comp/menu/menu';
-import '@comp/footer/footer';
+import '../../../components/logo/logo';
+import '../../../components/header/header';
+import '../../../components/menu/menu';
+import '../../../components/footer/footer';

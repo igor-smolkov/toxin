@@ -1,4 +1,4 @@
 import './expandable-list.scss';
 
-import '@comp/form-set/form-set'
-import '@comp/check-button/check-button'
+import '../form-set/form-set';
+import '../check-button/check-button';

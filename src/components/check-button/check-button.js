@@ -1,1 +1,1 @@
-import './check-button.scss'
+import './check-button.scss';

@@ -13,6 +13,7 @@ mixin preview(options)
   
   DIV(
     class=blockName
+    class=`js-${blockName}`
     class=options.isHovered ? `${blockName}_hovered` : ""
     id=options.id
     data-selected=selected

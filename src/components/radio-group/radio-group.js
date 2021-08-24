@@ -1,1 +1,1 @@
-import './radio-group.scss'
+import './radio-group.scss';

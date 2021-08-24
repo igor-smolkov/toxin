@@ -1,4 +1,4 @@
 import './copyright-bar.scss';
 
-import '@comp/copyright/copyright';
-import '@comp/socials/socials';
+import '../copyright/copyright';
+import '../socials/socials';

@@ -1,12 +1,12 @@
 import './room-details.scss';
 
-import '@comp/header/header';
-import '@comp/footer/footer';
-import '@comp/room-photos/room-photos'
-import '@comp/room-section/room-section'
-import '@comp/extra-list/extra-list'
-import '@comp/chart/chart'
-import '@comp/comment/comment'
-import '@comp/bullet-list/bullet-list'
-import '@comp/card/card'
-import '@comp/card-form/card-form'
+import '../../../components/header/header';
+import '../../../components/footer/footer';
+import '../../../components/room-photos/room-photos';
+import '../../../components/room-section/room-section';
+import '../../../components/extra-list/extra-list';
+import '../../../components/chart/chart';
+import '../../../components/comment/comment';
+import '../../../components/bullet-list/bullet-list';
+import '../../../components/card/card';
+import '../../../components/card-form/card-form';

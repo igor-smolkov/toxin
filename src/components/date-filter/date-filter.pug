@@ -7,6 +7,7 @@ mixin date-filter(options = {})
   - const id = options.id ? options.id : blockName
   DIV(
     class=blockName 
+    class=`js-${blockName}`
     id=id
     data-from=options.dateFrom
     data-to=options.dateTo

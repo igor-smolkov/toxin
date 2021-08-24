@@ -1,7 +1,7 @@
 import './search-room.scss';
 
-import '@comp/header/header';
-import '@comp/footer/footer';
-import '@comp/filter/filter';
-import '@comp/rooms/rooms';
-import '@comp/room/room'
+import '../../../components/header/header';
+import '../../../components/footer/footer';
+import '../../../components/filter/filter';
+import '../../../components/rooms/rooms';
+import '../../../components/room/room';

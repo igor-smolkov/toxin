@@ -1,13 +1,13 @@
 import './card-form.scss';
 
-import '@comp/form-section/form-section'
-import '@comp/form-set/form-set'
-import '@comp/text-field/text-field'
-import '@comp/dropdown/dropdown'
-import '@comp/button/button'
-import '@comp/radio-group/radio-group'
-import '@comp/toggle/toggle'
-import '@comp/rate-button/rate-button'
-import '@comp/bill/bill'
-import '@comp/reviews-counter/reviews-counter'
-import '@comp/date-section/date-section'
+import '../form-section/form-section';
+import '../form-set/form-set';
+import '../text-field/text-field';
+import '../dropdown/dropdown';
+import '../button/button';
+import '../radio-group/radio-group';
+import '../toggle/toggle';
+import '../rate-button/rate-button';
+import '../bill/bill';
+import '../reviews-counter/reviews-counter';
+import '../date-section/date-section';

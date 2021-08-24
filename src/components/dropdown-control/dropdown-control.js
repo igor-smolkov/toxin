@@ -1,3 +1,3 @@
-import './dropdown-control.scss'
+import './dropdown-control.scss';
 
-import '@comp/button/button'
+import '../button/button';

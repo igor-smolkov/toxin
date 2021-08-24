@@ -1,8 +1,8 @@
 import './button-elements.scss';
 
-import '@comp/form-section/form-section'
-import '@comp/form-set/form-set'
+import '../../../../components/form-section/form-section';
+import '../../../../components/form-set/form-set';
 
-import '@comp/slider/slider'
-import '@comp/button/button'
-import '@comp/pagination/pagination'
+import '../../../../components/slider/slider';
+import '../../../../components/button/button';
+import '../../../../components/pagination/pagination';

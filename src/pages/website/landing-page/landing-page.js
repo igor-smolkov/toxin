@@ -1,7 +1,7 @@
 import './landing-page.scss';
 
-import '@comp/header/header';
-import '@comp/footer/footer';
-import '@comp/carousel/carousel';
-import '@comp/card/card';
-import '@comp/card-form/card-form';
+import '../../../components/header/header';
+import '../../../components/footer/footer';
+import '../../../components/carousel/carousel';
+import '../../../components/card/card';
+import '../../../components/card-form/card-form';

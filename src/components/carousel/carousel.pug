@@ -6,6 +6,7 @@ mixin carousel(options = {})
   - const blockName = "carousel"
   DIV(
     class=blockName
+    class=`js-${blockName}`
     data-delay=options.delaySec
   )
     DIV(

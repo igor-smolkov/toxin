@@ -1,8 +1,8 @@
 import './cards.scss';
 
-import '@comp/logo/logo';
-import '@comp/card/card';
-import '@comp/card-title/card-title';
-import '@comp/card-form/card-form';
-import '@comp/calendar/calendar'
-import '@comp/preview/preview'
+import '../../../components/logo/logo';
+import '../../../components/card/card';
+import '../../../components/card-title/card-title';
+import '../../../components/card-form/card-form';
+import '../../../components/calendar/calendar';
+import '../../../components/preview/preview';

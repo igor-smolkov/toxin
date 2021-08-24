@@ -1,5 +1,5 @@
 import './menu.scss';
 
-import '@comp/button/button';
-import '@comp/expandable-list/expandable-list';
-import '@comp/link/link';
+import '../button/button';
+import '../expandable-list/expandable-list';
+import '../link/link';

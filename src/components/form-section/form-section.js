@@ -1,1 +1,1 @@
-import './form-section.scss'
+import './form-section.scss';

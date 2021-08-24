@@ -1,6 +1,6 @@
 import './dropdowns.scss';
 
-import '@comp/form-section/form-section'
-import '@comp/form-set/form-set'
+import '../../../../components/form-section/form-section';
+import '../../../../components/form-set/form-set';
 
-import '@comp/dropdown/dropdown'
+import '../../../../components/dropdown/dropdown';

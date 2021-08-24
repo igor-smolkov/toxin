@@ -8,4 +8,4 @@ import './dropdowns/dropdowns';
 import './lists/lists';
 import './others/others';
 
-import '@comp/logo/logo'
+import '../../../components/logo/logo';
