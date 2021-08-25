@@ -9,4 +9,8 @@
     @include text('light_normal');
     @include text('bold');
   }
+  &:focus {
+    outline: none;
+    text-decoration: underline;
+  }
 }

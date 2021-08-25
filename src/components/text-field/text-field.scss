@@ -14,8 +14,10 @@
     cursor: pointer;
   }
   &__button_hover,
-  &__button:hover {
+  &__button:hover,
+  &__button:focus {
     color: $color-purple-end;
+    outline: none;
   }
 }
 
@@ -42,7 +44,7 @@
   &_focused,
   &:focus {
     border-color: $color-50per;
-        
+    outline: none;
     &::placeholder {
       color: $color-75per;
     }
@@ -69,5 +71,8 @@
     border: none;
     min-height: 42px;
     max-height: 42px;
+    &:focus {
+      box-shadow: 0 10px 15px $color-5per;
+    }
   }
 }

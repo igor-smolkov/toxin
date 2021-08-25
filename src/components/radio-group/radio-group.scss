@@ -43,6 +43,10 @@ $block: 'radio-group';
         display: none;
       }
     }
+    &:focus+.#{$block}__label::before {
+      box-shadow: 0 0 5px $color-50per;
+      outline: none;
+    }
   }
   &__label {
     display: flex;

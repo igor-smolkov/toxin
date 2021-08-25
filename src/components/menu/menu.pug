@@ -54,6 +54,6 @@ mixin user-panel(options = {})
         class=`${blockName}__item`
         class=`${blockName}__item_first`
       )
-        +button({ caption: "Войти", isBorderOnly: true, isWithArrow: false, isCompact: true })
+        +button({ caption: "Войти", isBorderOnly: true, isWithArrow: false, isCompact: true, link: "sign-in.html" })
       DIV(class=`${blockName}__item`)
-        +button({ caption: "Зарегистрироваться", isWithArrow: false, isCompact: true })
+        +button({ caption: "Зарегистрироваться", isWithArrow: false, isCompact: true, link: "registration.html" })

@@ -23,6 +23,9 @@ $block: 'expandable-list';
     &:not(:checked)~.#{$block}__expand-more {
       transform:  none;
     }
+    &:focus~.#{$block}__expand-more::before {
+      color: $color-75per;
+    }
   }
   &__expand-more {
     @include icon-type;

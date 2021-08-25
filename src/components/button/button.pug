@@ -6,14 +6,28 @@
   options.isWithArrow
   options.isCompact
   options.isNone
+  options.type
+  options.link
 
-mixin button(options)
+mixin button(options = {})
+  if options.link
+    +button-link(options.link)
+      +button-basic(options)
+  else
+    +button-basic(options)
+
+//- 
+
+mixin button-link(link)
+  A.button-link(href=link tabIndex="-1")
+    block
+
+//- 
+
+mixin button-basic(options = {})
   - const blockName = "button"
-  if !options
-    - options = {}
   if !("isWithArrow" in options)
     - options.isWithArrow = true
-
   BUTTON(
     class=blockName
     class=options.isHovered ? `${blockName}_hovered` : ""
@@ -22,5 +36,6 @@ mixin button(options)
     class=options.isWithArrow ? `${blockName}_with_arrow` : ""
     class=options.isCompact ? `${blockName}_compacted` : ""
     class=options.isNone ? `${blockName}_none` : ""
+    type=options.type ? options.type : "button"
   )
     SPAN(class=`${blockName}__caption`)=options.caption

@@ -41,6 +41,10 @@ $block: 'like-button';
       content: 'favorite_border';
       color: $color-25per;
     }
+    &:focus+.#{$block}__label::before {
+      box-shadow: 0 0 5px $color-25per;
+      outline: none;
+    }
   }
   &__label {
     height: 100%;

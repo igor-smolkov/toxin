@@ -20,6 +20,9 @@ $block: 'dropdown';
       display: none;
       box-shadow: none;
     }
+    &:focus~.#{$block}__expand-more::before {
+      color: $color-75per;
+    }
   }
   &__expand-more {
     @include icon-type;
@@ -132,7 +135,9 @@ $block: 'dropdown';
       opacity: 0.5;
     }
     &_hovered,
-    &:hover {
+    &:hover,
+    &:focus {
+      outline: none;
       border-color: $color-50per;
       color: $color-75per;
       &.dropdown-counter__button_disabled {

@@ -25,6 +25,7 @@
   display: flex;
   &__item {
     margin-left: 20px;
+    outline: none;
     &_first {
       margin-left: 0;
     }

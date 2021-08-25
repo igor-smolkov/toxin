@@ -19,8 +19,10 @@ $block: 'button';
     @include text('white');
   }
   &_hovered,
-  &:hover {
+  &:hover,
+  &:focus {
     opacity: 0.5;
+    outline: none;
   }
   &_border_only {
     min-width: 99px;

@@ -21,8 +21,10 @@ $block: 'pagination';
     background: none;
     border-radius: 20px;
     &_hovered,
-    &:hover {
+    &:hover,
+    &:focus {
       opacity: 0.5;
+      outline: none;
     }
     &_current {
       background: linear-gradient(180deg, $color-purple 0%, $color-purple-end 100%);

@@ -24,6 +24,11 @@ $block: 'rate-button';
     &:checked+.#{$block}__label::before {
       background-image: $star;
     }
+    &:focus+.#{$block}__label::before {
+      transform: scale(1.2);
+      transition: all 0.1s ease-out;
+      outline: none;
+    }
   }
   &__label {
     margin-left: 24px;

@@ -59,7 +59,7 @@ mixin card-form-wishes-content(blockName, options = {})
     class=`${blockName}__section_last`
   )
     +form-section
-      +button({ caption: "Подобрать номер" })
+      +button({ caption: "Подобрать номер", type: "submit" })
 
 //- 
 
@@ -71,11 +71,12 @@ mixin card-form-check-in-content(blockName)
     +form-section
       +form-set({ isGrouped: true, isMarginNone: true })
         .form-set__element.form-set__element_margin_none
-          +text-field({ placeholder: "Имя" })
+          +text-field({ name: "firstname", placeholder: "Имя" })
         .form-set__element.form-set__element_indent-mid
-          +text-field({ placeholder: "Фамилия" })
+          +text-field({ name: "lastname", placeholder: "Фамилия" })
         .form-set__element.form-set__element_indent-mid
           +radio-group({
+            name: "sex",
             options: [
               {label: "Мужчина", isChecked: true},
               {label: "Женщина"},
@@ -88,6 +89,7 @@ mixin card-form-check-in-content(blockName)
     +form-section
       +form-set({ title: "Дата рождения" })
         +text-field({
+          name: "dob",
           placeholder: "ДД.ММ.ГГГГ",
           isMasked: true,
         })
@@ -95,17 +97,17 @@ mixin card-form-check-in-content(blockName)
     +form-section
       +form-set({ title: "Данные для входа в сервис", isGrouped: true, isMarginNone: true })
         .form-set__element
-          +text-field({ placeholder: "Email" })
+          +text-field({ name: "email", placeholder: "Email", type: "email" })
         .form-set__element.form-set__element_indent-mid
-          +text-field({ placeholder: "Пароль" })
+          +text-field({ name: "password", placeholder: "Пароль", type: "password" })
         .form-set__element.form-set__element_indent-mid
-          +toggle({ label: "Получать спецпредложения" })
+          +toggle({ name: "sub", label: "Получать спецпредложения" })
   SECTION(
     class=`${blockName}__section`
     class=`${blockName}__section_rare_more`
   )
     +form-section
-      +button({ caption: "Зарегистрироваться" })
+      +button({ caption: "Зарегистрироваться", type: "submit" })
   SECTION(
     class=`${blockName}__section`
     class=`${blockName}__section_last`
@@ -115,7 +117,7 @@ mixin card-form-check-in-content(blockName)
         .form-set__element.form-set__element_align-mid.form-set__element_growed
           DIV(class=`${blockName}__question`)="Уже есть аккаунт на Toxin"
         .form-set__element
-          +button({ caption: "Войти", isWithArrow: false, isBorderOnly: true })
+          +button({ caption: "Войти", isWithArrow: false, isBorderOnly: true, link: "sign-in.html" })
 
 //- 
 
@@ -154,7 +156,7 @@ mixin card-form-room-content(blockName)
       })
   SECTION(class=`${blockName}__section`)
     +form-section
-      +button({ caption: "Забронировать" })
+      +button({ caption: "Забронировать", type: "submit" })
 
 //- 
 
@@ -166,12 +168,12 @@ mixin card-form-log-in-content(blockName)
     +form-section
       +form-set({ isGrouped: true, isMarginNone: true })
         .form-set__element.form-set__element_margin_none
-          +text-field({ placeholder: "Email" })
+          +text-field({ name: "email", placeholder: "Email", type: "email" })
         .form-set__element.form-set__element_indent-mid
-          +text-field({ placeholder: "Пароль" })
+          +text-field({ name: "password", placeholder: "Пароль", type: "password" })
   SECTION(class=`${blockName}__section`)
     +form-section
-      +button({ caption: "Войти" })
+      +button({ caption: "Войти", type: "submit" })
   SECTION(
     class=`${blockName}__section`
     class=`${blockName}__section_last`
@@ -181,7 +183,7 @@ mixin card-form-log-in-content(blockName)
         .form-set__element.form-set__element_align-mid.form-set__element_growed
           DIV(class=`${blockName}__question`)="Нет аккаунта на Toxin?"
         .form-set__element
-          +button({ caption: "Создать", isWithArrow: false, isBorderOnly: true })
+          +button({ caption: "Создать", isWithArrow: false, isBorderOnly: true, link: "registration.html" })
 
 //- 
   options.rate
