@@ -8,10 +8,8 @@ include ../dropdown-control/dropdown-control.pug
   options.isExpanded
   options.isFilter
 
-mixin dropdown(options)
+mixin dropdown(options = {})
   - const blockName = "dropdown"
-  if !options
-    - options = {}
   - fieldOptions = {
   -   name: options.name,
   -   type: options.type,
@@ -23,6 +21,7 @@ mixin dropdown(options)
   -   dateFrom: options.dateFrom,
   -   dateTo: options.dateTo,
   -   withBorder: false,
+  -   withRightSpace: true,
   - }
 
   DIV(

@@ -10,32 +10,30 @@
   options.link
 
 mixin button(options = {})
-  if options.link
-    +button-link(options.link)
-      +button-basic(options)
-  else
-    +button-basic(options)
-
-//- 
-
-mixin button-link(link)
-  A.button-link(href=link tabIndex="-1")
-    block
-
-//- 
-
-mixin button-basic(options = {})
   - const blockName = "button"
+
   if !("isWithArrow" in options)
     - options.isWithArrow = true
-  BUTTON(
-    class=blockName
-    class=options.isHovered ? `${blockName}_hovered` : ""
-    class=options.isBorderOnly ? `${blockName}_border_only` : ""
-    class=options.isTextOnly ? `${blockName}_text_only` : ""
-    class=options.isWithArrow ? `${blockName}_with_arrow` : ""
-    class=options.isCompact ? `${blockName}_compacted` : ""
-    class=options.isNone ? `${blockName}_none` : ""
-    type=options.type ? options.type : "button"
-  )
-    SPAN(class=`${blockName}__caption`)=options.caption
+
+  - const classList = [
+  -   blockName,
+  -   options.isHovered ? ` ${blockName}_hovered` : "",
+  -   options.isBorderOnly ? ` ${blockName}_border_only` : "",
+  -   options.isTextOnly ? ` ${blockName}_text_only` : "",
+  -   options.isWithArrow ? ` ${blockName}_with_arrow` : "",
+  -   options.isCompact ? ` ${blockName}_compacted` : "",
+  -   options.isNone ? ` ${blockName}_none` : "",
+  - ]
+
+  if options.link
+    A(
+      class=classList
+      href=options.link
+    )
+      SPAN(class=`${blockName}__caption`)=options.caption
+  else
+    BUTTON(
+      class=classList
+      type=options.type ? options.type : "button"
+    )
+      SPAN(class=`${blockName}__caption`)=options.caption

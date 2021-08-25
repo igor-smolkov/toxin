@@ -5,6 +5,9 @@ $block: 'button';
 
 .#{$block} {
   @include icon-type;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center; 
   position: relative;
   min-width: 61px;
   max-width: 320px;
@@ -14,7 +17,6 @@ $block: 'button';
   border-radius: 22px;
   cursor: pointer;
   &__caption {
-    display: block;
     @include h3-type;
     @include text('white');
   }
@@ -25,12 +27,13 @@ $block: 'button';
     outline: none;
   }
   &_border_only {
+    display: block;
     min-width: 99px;
     .#{$block}__caption {
       color: $color-purple;
-      display: flex;
-      flex-direction: column;
+      display: inline-flex;
       justify-content: center;
+      align-items: center;
 
       position: absolute;
       background-color: white;
