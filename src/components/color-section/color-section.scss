@@ -13,9 +13,11 @@
   &__name {
     min-width: 171px;
     line-height: 1.474;
+    display: inline-flex;
+    flex-direction: column;
   }
   &__details {
-    display: block;
+    display: inline-block;
     @include text('mod_details');
   }
 

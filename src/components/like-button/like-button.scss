@@ -4,7 +4,7 @@
 $block: 'like-button';
 
 .#{$block} {
-  display: block;
+  display: inline-block;
   max-width: 40px;
   min-width: 40px;
   width: 100%;
