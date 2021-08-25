@@ -2,13 +2,15 @@ include ../../../../components/form-section/form-section.pug
 include ../../../../components/form-set/form-set.pug
 include ../../../../components/text-field/text-field.pug
 include ../../../../components/dropdown/dropdown.pug
+include ../../../../components/date-section/date-section.pug
+include ../../../../components/date-filter/date-filter.pug
 
 mixin field-elements 
   .field-elements
     SECTION.field-elements__section.field-elements__section_first
       +form-section
         +form-set({ title: "Text Field", details: "Default" })
-          +text-field({ placeholder: "Email" })
+          +text-field({ placeholder: "Email", type: "email" })
     SECTION.field-elements__section
       +form-section
         +form-set({ title: "Text Field", details: "Hover / Focus" })
@@ -20,7 +22,14 @@ mixin field-elements
     SECTION.field-elements__section
       +form-section
         +form-set({ title: "Dropdown" })
-          +dropdown({ value: "Сколько гостей" })
+          +dropdown({
+            name: "guests-field",
+            list: [
+              { name: "Взрослые", category: "гость" },
+              { name: "Дети", category: "гость" },
+              { name: "Младенцы", category: "младенец" }
+            ],
+          })
     SECTION.field-elements__section
       +form-section
         +form-set({ title: "Masked Text Field" })
@@ -29,23 +38,19 @@ mixin field-elements
             isMasked: true,
           })
     SECTION.field-elements__section.field-elements__section_rarefied
-      +form-section({ isPaired: true })
-        .form-section__set.form-section__set_first
-          +form-set({ title: "Date Dropdown" })
-            +dropdown({ type: "date" })
-        .form-section__set
-          +form-set({ title: "Date Dropdown" })
-            +dropdown({
-              type: "date",
-              value: '2019-08-19',
-            })
+      +date-section({
+        name: "dates-fields",
+        dateTo: "2019-08-19",
+        dateFromTitle: "Date dropdown",
+        dateToTitle: "Date dropdown",
+      })
     SECTION.field-elements__section.field-elements__section_rarefied
       +form-section({ isShortened: true })
         +form-set({ title: "Filter Date Dropdown" })
-          +dropdown({
-            type: "date",
-            value: "19 авг - 23 авг",
-            isFilter: true,
+          +date-filter({
+            name: "dates-field",
+            dateFrom: "2019-08-19",
+            dateTo: "2019-08-23",
           })
     SECTION.field-elements__section.field-elements__section_rarefied
       +form-section({ isShortened: true })
@@ -53,4 +58,6 @@ mixin field-elements
           +text-field({
             placeholder: "Email",
             isDirected: true,
+            name: "email",
+            type: "email",
           })

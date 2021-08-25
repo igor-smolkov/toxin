@@ -10,6 +10,8 @@ include ../calendar/calendar.pug
   options.isCalendarDepartureExpanded
   options.calendarArrivalDateActivate
   options.calendarDepartureDateActivate
+  options.dateFromTitle
+  options.dateToTitle
 
 mixin date-section(options = {})
   - const blockName = "date-section"
@@ -21,9 +23,9 @@ mixin date-section(options = {})
       class=`${blockName}__set`
       class=`${blockName}__set_first`
     )
-      +form-set({ title: "Прибытие" })
+      +form-set({ title: options.dateFromTitle ? options.dateFromTitle : "Прибытие" })
         +dropdown({  
-          name: "arrival",
+          name: `${options.name}-arrival`,
           type: "date",
           value: options.dateFrom ? options.dateFrom : "",
           isExpanded: options.isCalendarArrivalExpanded,
@@ -35,9 +37,9 @@ mixin date-section(options = {})
               active: options.calendarArrivalDateActivate ? options.calendarArrivalDateActivate : "",
             })
     DIV(class=`${blockName}__set`)
-      +form-set({ title: "Выезд" })
+      +form-set({ title: options.dateToTitle ? options.dateToTitle : "Выезд" })
         +dropdown({ 
-          name: "departure",
+          name: `${options.name}-departure`,
           type: "date",
           value: options.dateTo ? options.dateTo : "",
           isExpanded: options.isCalendarDepartureExpanded,

@@ -2,6 +2,7 @@
 @import '../../types.scss';
 
 .field-submit {
+  // display: block;
   position: relative;
   &__button {
     @include icon-type;
@@ -77,6 +78,6 @@
   }
 
   &_with-right-space {
-    padding-right: 42px;
+    padding-right: 34px;
   }
 }

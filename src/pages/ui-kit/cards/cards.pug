@@ -5,7 +5,7 @@ include ../../../components/card/card.pug
 include ../../../components/card-title/card-title.pug
 include ../../../components/card-form/card-form.pug
 include ../../../components/calendar/calendar.pug
-include ../../../components/preview/preview.pug
+include ../../../components/room/room.pug
 
 block variables
   - const title = "TOXIN - UI kit"
@@ -35,7 +35,7 @@ block content
       ARTICLE.cards__unit
         +card({ title: "Войти" })
           +card-form({ for: "log-in" })
-      ARTICLE.cards__unit
+      ARTICLE.cards__unit.js-calendar-unit
         +card({ isMedium: true, isEmpty: true })
           +calendar({  
             from: "2019-08-19", 
@@ -43,45 +43,13 @@ block content
             active: "2019-08-08",
           })
       ARTICLE.cards__unit
-        +card({ isSmall: true, isEmpty: true })
-          HEADER.card__header
-            +preview({ 
-              imgs: [
-                "../images/room_888.png",
-                "../images/room_350.png",
-                "../images/room_352.png",
-                "../images/room_444.png",
-              ],
-              isHovered: true, 
-            })
-          SECTION.card__body
-            H2.card__title.card__title_margin_none
-              +card-title({
-                main: { prefix: "№", content: "888", postfix: "Люкс", isShiftedPostfix: true },
-                details: { first: "9 990₽", second: "в сутки" }
-              })
-            +card-form({ 
-              for: "room-rate", 
-              options: { rate: 5, reviews: 145 }
-            })
+        +room({
+          number: "888", isLux: true, price: 9990, rate: 5, reviews: 145, 
+          imgs: [ "../images/room-888.png", "../images/room-350.png", "../images/room-352.png", "../images/room-444.png" ],
+          isHovered: true,
+        })
       ARTICLE.cards__unit
-        +card({ isSmall: true, isEmpty: true })
-          HEADER.card__header
-            +preview({ 
-              imgs: [
-                "../images/room_840.png",
-                "../images/room_350.png",
-                "../images/room_352.png",
-                "../images/room_444.png",
-              ]
-            })
-          SECTION.card__body
-            H2.card__title.card__title_margin_none
-              +card-title({
-                main: { prefix: "№", content: "840" },
-                details: { first: "9 900₽", second: "в сутки" }
-              })
-            +card-form({ 
-              for: "room-rate", 
-              options: { rate: 4, reviews: 65 }
-            })
+        +room({
+          number: "840", price: 9900, rate: 4, reviews: 65, 
+          imgs: [ "../images/room-840.png", "../images/room-350.png", "../images/room-352.png", "../images/room-444.png" ]
+        })

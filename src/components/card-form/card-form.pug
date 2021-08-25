@@ -36,7 +36,7 @@ mixin card-form-wishes-content(blockName, options = {})
     class=`${blockName}__section_first`
   )
     +date-section({
-      name: "dates",
+      name: "wishes-dates",
       dateFrom: options.dateFrom,
       dateTo: options.dateTo,
       isCalendarArrivalExpanded: options.isCalendarArrivalExpanded,
@@ -48,12 +48,15 @@ mixin card-form-wishes-content(blockName, options = {})
     +form-section
       +form-set({ title: "Гости" })
         +dropdown({
-            name: "guests",
-            value: options.guests ? options.guests : "Сколько гостей", 
-            isExpanded: options.isGuestListExpanded,
-            withControl: true,
-            list: options.guestList,
-          })
+          name: "wishes-guests",
+          isExpanded: options.isGuestListExpanded,
+          withControl: true,
+          list: options.guestList ? options.guestList : [
+            { name: "взрослые", category: "гость" },
+            { name: "дети", category: "гость" },
+            { name: "младенцы", category: "младенец" }
+          ]
+        })
   SECTION(
     class=`${blockName}__section`
     class=`${blockName}__section_last`
@@ -127,7 +130,7 @@ mixin card-form-room-content(blockName)
     class=`${blockName}__section_first`
   )
     +date-section({
-      name: "dates",
+      name: "room-dates",
       dateFrom: "2019-08-19",
       dateTo: "2019-08-23",
     })
@@ -136,7 +139,7 @@ mixin card-form-room-content(blockName)
       +form-set({ title: "Гости" })
         +dropdown({ 
           value: "3 гостя", 
-          name: "guests",
+          name: "room-guests",
           withControl: true,
           list: [
             { name: "взрослые", count: 2, category: "гость" },
