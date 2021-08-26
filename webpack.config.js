@@ -13,6 +13,7 @@ const isProd = !isDev;
 
 // имена файлов
 const imagesDir = 'images';
+const faviconsDir = 'favicons';
 const fontsDir = 'fonts';
 const pagesDir = 'pages';
 const pages = [
@@ -75,13 +76,17 @@ const plugins = () => {
       collapseWhitespace: isProd,
     },
     chunks: ['main', chunk],
+    favicon: `${faviconsDir}/favicon.ico`,
   });
 
   const list = [
     packHTMLWebpackPlugin('index.pug', 'index.html'),
     new CleanWebpackPlugin(),
     new CopyWebpackPlugin({
-      patterns: [{ from: path.resolve(__dirname, `src/${imagesDir}/`), to: imagesDir }],
+      patterns: [
+        { from: path.resolve(__dirname, `src/${imagesDir}/`), to: imagesDir },
+        { from: path.resolve(__dirname, `src/${faviconsDir}/`) },
+      ],
     }),
     new webpack.ProvidePlugin({
       $: 'jquery',
@@ -136,7 +141,7 @@ module.exports = {
   },
   optimization: optimization(),
   devServer: {
-    port: 4200,
+    port: 5200,
     hot: isDev,
     open: true,
   },

@@ -33,6 +33,8 @@ ul li {
 html,
 body {
   min-width: 100%;
+  min-height: 100%;
+  height: 1px;
   background-color: #FFFFFF;
   @include base-type;
 }
@@ -51,6 +53,7 @@ h3 {
   background: #F4F4F6;
   min-width: 100%;
   min-height: 100%;
+  height: 100%;
   padding: 70px;
   display: flex;
   .pages {
