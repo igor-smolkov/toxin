@@ -13,7 +13,7 @@ include ../expandable-list/expandable-list.pug
   options.ruleChecks
   options.accessibleChecks
   options.amenities
-  options.additionals
+  options.additions
 
 mixin filter(options = {})
   - const blockName = "filter"
@@ -81,9 +81,9 @@ mixin filter(options = {})
     SECTION(class=`${blockName}__section`)
       +form-set({ title: "Дополнительные удобства", isMarginNone: true })
         +expandable-list({
-          name: "additionals",
+          name: "additions",
           withChecks: true,
-          list: options.additionals.checks,
-          isExpanded: options.additionals.isExpanded
+          list: options.additions.checks,
+          isExpanded: options.additions.isExpanded
         })
 

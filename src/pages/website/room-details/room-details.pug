@@ -13,7 +13,7 @@ include ../../../components/chart/chart.pug
 
 block variables
   - const title = "TOXIN - Room details"
-  - const descr = "Пример страницы с детальным описанием номера"
+  - const description = "Пример страницы с детальным описанием номера"
   - const keywords = "toxin, room, details"
 
 block content
@@ -23,7 +23,7 @@ block content
     .room-details
       ASIDE.room-details__photos
         +room-photos({
-          imgs: [ "../images/room-888-view-1.jpg", "../images/room-888-view-2.jpg", "../images/room-888-view-3.jpg" ]
+          images: [ "../images/room-888-view-1.jpg", "../images/room-888-view-2.jpg", "../images/room-888-view-3.jpg" ]
         })
       SECTION.room-details__content
         .room-content

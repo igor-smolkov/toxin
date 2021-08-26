@@ -72,7 +72,7 @@ class Dropdown {
           str += Dropdown._makeWordFormStr(count, ['гость', 'гостя', 'гостей']);
           break;
         case 'младенец':
-          str += Dropdown._makeWordFormStr(count, ['младенец', 'младенеца', 'младенецев']);
+          str += Dropdown._makeWordFormStr(count, ['младенец', 'младенца', 'младенцев']);
           break;
         case 'спальня':
           str += Dropdown._makeWordFormStr(count, ['спальня', 'спальни', 'спален']);

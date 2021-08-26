@@ -8,7 +8,7 @@ include ../preview/preview.pug
   options.price
   options.rate
   options.reviews
-  options.imgs
+  options.images
   options.isHovered
 
 mixin room(options = {})
@@ -17,7 +17,7 @@ mixin room(options = {})
     +card({ isSmall: true, isEmpty: true })
       HEADER.card__header
         +preview({ 
-          imgs: options.imgs,
+          images: options.images,
           isHovered: options.isHovered,
           number: options.number,
         })

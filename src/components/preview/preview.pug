@@ -1,5 +1,5 @@
 //- 
-  options.imgs
+  options.images
   options.selected
   options.isHovered
 
@@ -7,7 +7,7 @@ mixin preview(options)
   - const blockName = "preview"
   if !options
     - options = {}
-  - const imgs = options.imgs ? options.imgs : []
+  - const images = options.images ? options.images : []
   - const selected = options.selected ? options.selected : 0
   
   DIV(
@@ -18,11 +18,11 @@ mixin preview(options)
     data-number=options.number
   )
     DATALIST(class=`${blockName}__data`)
-      each img in imgs
+      each img in images
         OPTION(value=img)
     IMG(
       class=`${blockName}__img`
-      src=options.imgs[selected]
+      src=options.images[selected]
       alt="Превью номера"
     )
     DIV(class=`${blockName}__arrows`)
@@ -30,7 +30,7 @@ mixin preview(options)
     DIV(class=`${blockName}__points`)
       +carousel-points-control({
         name: `views-${options.number}`,
-        count: `${imgs.length}`,
+        count: `${images.length}`,
         selected: selected,
       })
 

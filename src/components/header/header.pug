@@ -3,7 +3,7 @@ include ../menu/menu.pug
 
 //-
   options.user
-  options.isCustomed
+  options.isCustom
 
 mixin header(options = {})
   - const blockName = "header"
@@ -11,7 +11,7 @@ mixin header(options = {})
     DIV(class=`${blockName}__logo`)
       +logo
     NAV(class=`${blockName}__menu`)
-      if (options.isCustomed)
+      if (options.isCustom)
         block
       else
         +menu({

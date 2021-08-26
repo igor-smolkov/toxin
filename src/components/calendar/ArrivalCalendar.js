@@ -12,8 +12,8 @@ class ArrivalCalendar extends Calendar {
 
   handleSelect(dateDMYDot) {
     const date = Calendar.createDateFromDMYDot(dateDMYDot);
-    const isResonableToSelect = +date <= +this.dateTo || !this.dateTo || !this.dateFrom;
-    if (isResonableToSelect) {
+    const isReasonableToSelect = +date <= +this.dateTo || !this.dateTo || !this.dateFrom;
+    if (isReasonableToSelect) {
       this.dateActive = date;
       this.dateFrom = date;
       this.$clearButton.removeClass('button_none');

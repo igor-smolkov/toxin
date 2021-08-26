@@ -3,7 +3,7 @@ include ../../../../components/form-set/form-set.pug
 include ../../../../components/dropdown/dropdown.pug
 
 mixin dropdowns(param)
-  if (param === "fullset")
+  if (param === "full-set")
     +form-section
       +form-set({ title: "Dropdown" })
         +dropdown({  
@@ -16,7 +16,7 @@ mixin dropdowns(param)
             { name: "младенцы", category: "младенец" }
           ],
         })
-  else if (param === "fullset-example")
+  else if (param === "full-set-example")
     +form-section
       +form-set({ title: "Dropdown" })
         +dropdown({  

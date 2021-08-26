@@ -37,8 +37,8 @@ class DateFilter {
       this._$field.attr('placeholder', 'Выберите диапазон дат...');
       return;
     }
-    const formatedDates = `${DateFilter._formatDateWithShortMonthName(this.dateFrom)} - ${DateFilter._formatDateWithShortMonthName(this.dateTo)}`;
-    this._$field.val(formatedDates);
+    const formattedDates = `${DateFilter._formatDateWithShortMonthName(this.dateFrom)} - ${DateFilter._formatDateWithShortMonthName(this.dateTo)}`;
+    this._$field.val(formattedDates);
   }
 
   _handleApply(dateFrom, dateTo) {

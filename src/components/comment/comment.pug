@@ -17,7 +17,7 @@ mixin comment(options)
     class=blockName
   )
     DIV(
-      class=`${blockName}__imgs`
+      class=`${blockName}__images`
     )
       DIV(
         class=`${blockName}__avatar`
@@ -37,7 +37,7 @@ mixin comment(options)
         class=`${blockName}__username`
       )=options.username
       P(
-        class=`${blockName}__datetime`
+        class=`${blockName}__date-time`
       )=options.datetime
       P(
         class=`${blockName}__message`

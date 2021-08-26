@@ -53,7 +53,7 @@ $block: 'form-set';
   &__element {
     margin-top: 5px;
     
-    &_growed {
+    &_increased {
       flex-grow: 1;
     }
     &_align-mid {
@@ -88,7 +88,7 @@ $block: 'form-set';
     &_first {
       margin-left: 0;
     }
-    &_wided {
+    &_widen {
       min-width: 99px;
     }
     &_margin_none {

@@ -7,7 +7,7 @@ include ../../../components/footer/footer.pug
 
 block variables
   - const title = "TOXIN - UI kit"
-  - const descr = "Шапка и подвал"
+  - const description = "Шапка и подвал"
   - const page = "page_gray"
   - const keywords = "toxin, ui-kit, headers, footers"
 
@@ -17,7 +17,7 @@ block content
   MAIN.page__main
     .headers-and-footers
       ARTICLE.headers-and-footers__unit.headers-and-footers__unit_first
-        +header({ isCustomed: true })
+        +header({ isCustom: true })
           +menu({
             navLinks: [
               { link: "/change-link", text: "О нас", isHovered: true },
@@ -28,7 +28,7 @@ block content
             ]
           })
       ARTICLE.headers-and-footers__unit
-        +header({ isCustomed: true })
+        +header({ isCustom: true })
           +menu({
             navLinks: [
               { link: "/change-link", text: "О нас", isHovered: true },
