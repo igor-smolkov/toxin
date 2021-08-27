@@ -1,4 +1,5 @@
 @import '../../colors.scss';
+@import '../../types.scss';
 
 $block: 'toggle';
 
@@ -42,6 +43,7 @@ $block: 'toggle';
     }
   }
   &__label {
+    @include text('rare_less');
     display:flex;
     align-items: baseline;
     max-width: 320px;

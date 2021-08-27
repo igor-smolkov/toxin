@@ -3,19 +3,10 @@
   options.name
   options.value
   options.label
-  options.isToggle
-  options.isLike
   options.details
 
-mixin check-button(options)
-  - let blockName = "check-button"
-  if !options
-    - options = {}
-  else if options.isToggle 
-    - blockName = "toggle"
-  else if options.isLike 
-    - blockName = "like-button"
-
+mixin check-button(options = {})
+  - const blockName = "check-button"
   LABEL(
     class=blockName
     class=options.isChecked ? `${blockName}_checked` : ""
@@ -33,11 +24,8 @@ mixin check-button(options)
     SPAN(
       class=`${blockName}__label`
       class=options.isChecked ? `${blockName}__label_checked` : ""
-      class=!(options.isToggle || options.isLike) ? "text_light_middle" : ""
-      class=!options.isLike ? "text_rare_less" : ""
     )=options.label ? options.label : options.value
       if options.details
         SPAN(
           class=`${blockName}__details`
         )=options.details
-    block

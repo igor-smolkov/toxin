@@ -19,12 +19,13 @@ $block: 'check-button';
         @include text('bold');
       }
       &__details {
-        display: inline-block;
-        max-width: 230px;
-        margin-top: 5px;
         @include text('light_middle');
         @include text('small');
         @include text('rare_less');
+        font-weight: normal;
+        display: inline-block;
+        max-width: 230px;
+        margin-top: 5px;
       }
     }
   }
@@ -51,6 +52,8 @@ $block: 'check-button';
     }
   }
   &__label {
+    @include text('light_middle');
+    @include text('rare_less');
     display: inline-block;
     max-width: 200px;
     &::before {

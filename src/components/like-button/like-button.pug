@@ -1,13 +1,26 @@
-include ../check-button/check-button.pug
-
 //-
   options.isChecked
   options.name
   options.value
+  options.label
 
-mixin like-button(options)
-  if !options
-    - options = {}
-  - options.isLike = true
-  +check-button(options)
-    SPAN.like-button__icon
+mixin like-button(options = {})
+  - const blockName = "like-button"
+  LABEL(
+    class=blockName
+    class=options.isChecked ? `${blockName}_checked` : ""
+  )
+    INPUT(
+      class=`${blockName}__box`
+      class=`js-${blockName}__box`
+      class=options.isChecked ? `${blockName}__box_checked` : ""
+      name=options.name
+      value=options.value ? options.value : options.name
+      type="checkbox"
+      checked=options.isChecked ? true : false
+    )
+    SPAN(
+      class=`${blockName}__label`
+      class=options.isChecked ? `${blockName}__label_checked` : ""
+    )=options.label ? options.label : options.value
+    SPAN(class=`${blockName}__icon`)
