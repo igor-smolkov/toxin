@@ -1,43 +1,29 @@
 //-
   options.name
   options.options [{value, label, isChecked}]
-  options.isRate
 
-mixin radio-group(options)
-  - let blockName = "radio-group"
-  if !options
-    - options = {}
-  if options.isRate
-    - blockName = "rate-button"
-  - const set = ('options' in options) ? options.options : []
+mixin radio-group(options = {})
+  - const blockName = "radio-group"
+  - const set = ("options" in options) ? options.options : []
 
   DIV(class=blockName)
     each option, index in set
-      if options.isRate
-        +option(options, option, index, blockName)
-      else
-        DIV(
-          class=`${blockName}__option`
-          class=(index === 0) ? `${blockName}__option_first` : ""
+      DIV(
+        class=`${blockName}__option`
+        class=(index === 0) ? `${blockName}__option_first` : ""
+      )
+        INPUT(
+          class=`${blockName}__box`
+          type="radio"
+          id=`${blockName}-${options.name}-${index}`
+          name=options.name
+          value=option.value ? option.value : index
+          checked=option.isChecked ? true : false
         )
-          +option(options, option, index, blockName)
-
-//- 
-
-mixin option(group, option, index, blockName)
-  INPUT(
-    class=`${blockName}__box`
-    type="radio"
-    id=`${blockName}-${group.name}-${index}`
-    name=group.name
-    value=option.value ? option.value : index
-    checked=option.isChecked ? true : false
-  )
-  LABEL(
-    for=`${blockName}-${group.name}-${index}`
-    class=`${blockName}__label`
-    class=option.isChecked ? `${blockName}__label_checked` : ""
-    class=(index === 0) ? `${blockName}__label_first` : ""
-    class=(index === 1 && group.isRate) ? `${blockName}__label_second` : ""
-    class=!group.isRate ? "text_rare_less" : ""
-  )=option.label
+        LABEL(
+          for=`${blockName}-${options.name}-${index}`
+          class=`${blockName}__label`
+          class=option.isChecked ? `${blockName}__label_checked` : ""
+          class=(index === 0) ? `${blockName}__label_first` : ""
+        )=option.label
+  

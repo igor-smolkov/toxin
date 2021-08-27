@@ -49,8 +49,9 @@ $block: 'radio-group';
     }
   }
   &__label {
-    display: flex;
+    @include text('rare_less');
     @include text('light_middle');
+    display: flex;
     cursor: pointer;
     &::before {
       content: '';
