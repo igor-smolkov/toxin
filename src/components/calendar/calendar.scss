@@ -17,6 +17,10 @@
   @if $color == 'purple' {
     background: linear-gradient(180deg, $color-purple 0%, $color-purple-end 100%);
   }
+  @media only screen and (max-width: 400px) {
+    min-width: 27px;
+    min-height: 27px;
+  }
 }
 
 .calendar {
@@ -64,6 +68,9 @@
     margin-top: 27px;
     margin-left: -2px;
     min-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     tr {
       display: flex;
       flex-wrap: nowrap;
@@ -80,6 +87,11 @@
       justify-content: center;
       align-items: center;
       @include text('mod_number');
+      @media only screen and (max-width: 400px) {
+        min-width: 27px;
+        max-width: 27px;
+        min-height: 27px;
+      }
     }
     th {
       @include text('capitalize');

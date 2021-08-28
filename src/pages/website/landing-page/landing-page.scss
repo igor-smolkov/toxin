@@ -13,8 +13,15 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    @media only screen and (max-width: 600px) {
+      padding: 40px 34px 21px 40px;
+    }
+    @media only screen and (max-width: 400px) {
+      padding: 20px 15px 21px 15px;
+    }
   }
   &__about {
+    margin-top: 20px;
     max-width: 297px;
     align-self: flex-end;
     text-align: right;

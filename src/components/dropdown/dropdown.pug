@@ -43,6 +43,7 @@ mixin dropdown(options = {})
     DIV(
       class=`${blockName}__panel`
       class=!options.list ? `${blockName}__panel_independent` : ""
+      class=options.alignPanelRight ? `${blockName}__panel_align_right` : ""
     )
       if options.list
         +dropdown-panel({ 

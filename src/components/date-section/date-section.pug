@@ -43,6 +43,7 @@ mixin date-section(options = {})
           type: "date",
           value: options.dateTo ? options.dateTo : "",
           isExpanded: options.isCalendarDepartureExpanded,
+          alignPanelRight: true,
         })
           +card({ isMedium: true, isEmpty: true })
             +calendar({ 

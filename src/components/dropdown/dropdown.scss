@@ -62,6 +62,16 @@ $block: 'dropdown';
       z-index: 2;
       border: none;
       top: 50px;
+      @media only screen and (max-width: 400px) {
+        position: static;
+        max-width: 300px;
+        min-width: 200px;
+        border-top: 1px solid $color-25per;
+      }
+    }
+    &_align_right {
+      left: auto;
+      right: -1px;
     }
   }
   &_expanded {
