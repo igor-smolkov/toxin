@@ -8,7 +8,23 @@
   padding: 30px 140px 70px;
   display: flex;
   border-bottom: 1px solid rgba(31, 32, 65, 0.25);
+  @media only screen and (max-width : 1180px) {
+    padding: 30px 40px 50px;
+  }
+  @media only screen and (max-width: 980px) {
+    padding: 20px 20px 40px;
+  }
+  @media only screen and (max-width: 600px) {
+    flex-direction: column;
+  }
   &__rooms {
     margin-left: 60px;
+    @media only screen and (max-width: 980px) {
+      margin-left: 20px;
+    }
+    @media only screen and (max-width: 600px) {
+      margin-left: 0;
+      margin-top: 40px;
+    }
   }
 }
