@@ -40,5 +40,6 @@
     @include base-type;
     @include text('small');
     @include text('light_middle');
+    white-space: nowrap;
   }
 }

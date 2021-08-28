@@ -9,10 +9,12 @@
     }
   }
   &__details {
+    margin-left: 20px;
     align-self: flex-end;
     @include base-type;
     @include text('light_middle');
     @include text('rare_less');
+    white-space: nowrap;
   }
   &__content {
     margin-top: 20px;
