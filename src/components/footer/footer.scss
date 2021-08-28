@@ -2,13 +2,13 @@
 
 $block: 'footer';
 .#{$block} {
+  width: 100%;
   &__copyright-bar {
     border-top: 1px solid $color-10per;
   }
   &_creative {
     max-width: 768px;
-    width: 100%;
-    padding: 120px 198px;
+    padding: 120px 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;

@@ -21,6 +21,9 @@
   flex-direction: column;
   &__unit {
     margin-top: 40px;
+    min-width: 100%;
+    display: flex;
+    justify-content: center;
     &_first {
       margin-top: 0;
     }
