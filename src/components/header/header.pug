@@ -1,27 +1,29 @@
 include ../logo/logo.pug
 include ../menu/menu.pug
+include ../burger/burger.pug
 
 //-
   options.user
   options.isCustom
+  options.name
 
 mixin header(options = {})
   - const blockName = "header"
   DIV(class=blockName)
     DIV(class=`${blockName}__logo`)
       +logo
-    NAV(class=`${blockName}__menu`)
-      if (options.isCustom)
-        block
-      else
-        +menu({
-          navLinks: [
-            { link: "/mock-address/change-me", text: "О нас" },
-            { link: "/mock-address/change-me", text: "Услуги", isDropdown: true, list: ["Элемент 1", "Элемент 2", "Элемент 3"], name: "services" },
-            { link: "/mock-address/change-me", text: "Вакансии" },
-            { link: "/mock-address/change-me", text: "Новости" },
-            { link: "/mock-address/change-me", text: "Соглашения", isDropdown: true, list: ["Элемент 1", "Элемент 2", "Элемент 3"], name: "agreements" },
-          ],
-          user: options.user ? { link: "/mock-address/change-me", text: options.user } : null
-        })
-    
+    DIV(class=`${blockName}__burger`)
+      +burger(options.name)
+        if (options.isCustom)
+          block
+        else
+          +menu({
+            navLinks: [
+              { link: "/mock-address/change-me", text: "О нас" },
+              { link: "/mock-address/change-me", text: "Услуги", isDropdown: true, list: ["Элемент 1", "Элемент 2", "Элемент 3"], name: "services" },
+              { link: "/mock-address/change-me", text: "Вакансии" },
+              { link: "/mock-address/change-me", text: "Новости" },
+              { link: "/mock-address/change-me", text: "Соглашения", isDropdown: true, list: ["Элемент 1", "Элемент 2", "Элемент 3"], name: "agreements" },
+            ],
+            user: options.user ? { link: "/mock-address/change-me", text: options.user } : null
+          })   

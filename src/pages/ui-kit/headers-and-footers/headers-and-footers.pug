@@ -17,7 +17,7 @@ block content
   MAIN.page__main
     .headers-and-footers
       ARTICLE.headers-and-footers__unit.headers-and-footers__unit_first
-        +header({ isCustom: true })
+        +header({ isCustom: true, name: "demo-1" })
           +menu({
             navLinks: [
               { link: "/change-link", text: "О нас", isHovered: true },
@@ -28,7 +28,7 @@ block content
             ]
           })
       ARTICLE.headers-and-footers__unit
-        +header({ isCustom: true })
+        +header({ isCustom: true, name: "demo-2" })
           +menu({
             navLinks: [
               { link: "/change-link", text: "О нас", isHovered: true },

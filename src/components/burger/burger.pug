@@ -1,0 +1,15 @@
+mixin burger(name = "burger-menu")
+  - const blockName = "burger"
+  DIV(class=blockName)
+    INPUT(
+      class=`${blockName}__check` 
+      type="checkbox"
+      id=name
+    )
+    LABEL(
+      class=`${blockName}__button`
+      for=name
+    )
+      SPAN
+    NAV(class=`${blockName}__menu`)
+      block     
