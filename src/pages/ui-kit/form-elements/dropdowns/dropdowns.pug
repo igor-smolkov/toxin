@@ -4,31 +4,35 @@ include ../../../../components/dropdown/dropdown.pug
 
 mixin dropdowns(param)
   if (param === "full-set")
-    +form-section
-      +form-set({ title: "Dropdown" })
-        +dropdown({  
-          name: "guests-1",
-          isExpanded: true,
-          withControl: true,
-          list: [
-            { name: "взрослые", category: "гость" },
-            { name: "дети", category: "гость" },
-            { name: "младенцы", category: "младенец" }
-          ],
-        })
+    .dropdowns
+      SECTION.dropdowns__section.dropdowns__section_first.dropdowns__section_greedy_2
+        +form-section
+          +form-set({ title: "Dropdown" })
+            +dropdown({  
+              name: "guests-1",
+              isExpanded: true,
+              withControl: true,
+              list: [
+                { name: "взрослые", category: "гость" },
+                { name: "дети", category: "гость" },
+                { name: "младенцы", category: "младенец" }
+              ],
+            })
   else if (param === "full-set-example")
-    +form-section
-      +form-set({ title: "Dropdown" })
-        +dropdown({  
-          name: "guests-2",
-          isExpanded: true,
-          withControl: true,
-          list: [
-            { name: "взрослые", count: 2, category: "гость" },
-            { name: "дети", count: 1, category: "гость" },
-            { name: "младенцы", category: "младенец"  }
-          ],
-        })
+    .dropdowns
+      SECTION.dropdowns__section.dropdowns__section_first.dropdowns__section_greedy_2
+        +form-section
+          +form-set({ title: "Dropdown" })
+            +dropdown({  
+              name: "guests-2",
+              isExpanded: true,
+              withControl: true,
+              list: [
+                { name: "взрослые", count: 2, category: "гость" },
+                { name: "дети", count: 1, category: "гость" },
+                { name: "младенцы", category: "младенец"  }
+              ],
+            })
   else
     .dropdowns
       SECTION.dropdowns__section.dropdowns__section_first
@@ -42,7 +46,7 @@ mixin dropdowns(param)
                 { name: "Ванные комнаты", category: "ванная" }
               ],
             })
-      SECTION.dropdowns__section
+      SECTION.dropdowns__section.dropdowns__section_greedy_1
         +form-section({ isShortened: true })
           +form-set({ title: "Dropdown", details: "Expanded"  })
             +dropdown({ 

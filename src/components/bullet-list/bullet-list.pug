@@ -1,12 +1,10 @@
 //- 
   options.items
 
-mixin bullet-list(options)
+mixin bullet-list(options = {})
   - const blockName = "bullet-list"
-  if !options
-    - options = {}
   if !options.items
-    - options = []
+    - options.items = []
 
   UL(class=blockName)
     each item, index in options.items

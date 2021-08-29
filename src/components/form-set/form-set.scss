@@ -17,7 +17,7 @@ $block: 'form-set';
     @include text('rare_less');
   }
   &__group {
-    margin-top: 17px;
+    margin-top: 16px;
     &_inlined {
       display: flex;
       .#{$block}__element {
@@ -51,6 +51,7 @@ $block: 'form-set';
     }
   }
   &__element {
+    line-height: 1;
     margin-top: 5px;
     
     &_increased {
