@@ -7,10 +7,11 @@
 .registration {
   position: relative;
   z-index: 0;
-  padding: 19px;
+  padding: 19px 10px;
   display: flex;
   &__card {
-    flex-basis: 380px;
-    margin: auto;
+    min-width: 100%;
+    display: flex;
+    justify-content: center;
   }
 }

@@ -119,7 +119,7 @@ mixin card-form-check-in-content(blockName)
       +form-set({ isInlined: true, isGrouped: true, isMarginNone: true })
         .form-set__element.form-set__element_align-mid.form-set__element_increased
           DIV(class=`${blockName}__question`)="Уже есть аккаунт на Toxin"
-        .form-set__element
+        .form-set__element.form-set__element_indent_left
           +button({ caption: "Войти", isWithArrow: false, isBorderOnly: true, link: "sign-in.html" })
 
 //- 
@@ -185,7 +185,7 @@ mixin card-form-log-in-content(blockName)
       +form-set({ isInlined: true, isGrouped: true, isMarginNone: true })
         .form-set__element.form-set__element_align-mid.form-set__element_increased
           DIV(class=`${blockName}__question`)="Нет аккаунта на Toxin?"
-        .form-set__element
+        .form-set__element.form-set__element_indent_left
           +button({ caption: "Создать", isWithArrow: false, isBorderOnly: true, link: "registration.html" })
 
 //- 
