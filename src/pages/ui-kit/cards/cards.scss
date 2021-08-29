@@ -10,6 +10,12 @@
   }
   &__main {
     padding: 42px 140px 131px;
+    @media only screen and (max-width : 1430px) {
+      padding: 42px 40px 131px;
+    }
+    @media only screen and (max-width : 600px) {
+      padding: 20px 10px 40px;
+    }
   }
   &_gray {
     background: #F4F4F6;
@@ -28,5 +34,26 @@
     margin-top: 40px;
     max-width: 380px;
     width: 100%;
+    @media only screen and (max-width : 1430px) {
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+    @media only screen and (max-width : 600px) {
+      margin: 0;
+      margin-top: 20px;
+    }
+  }
+  @media only screen and (max-width : 1430px) {
+    min-width: 100%;
+    height: fit-content;
+    flex-direction: row;
+    margin-left: 0;
+    justify-content: space-around;
+  }
+  @media only screen and (max-width : 600px) {
+    margin-top: -20px;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
   }
 }
