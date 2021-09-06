@@ -4,6 +4,7 @@
   padding: 6px 0;
   .my-jquery-slider {
     &__slot {
+      z-index: 0;
       border: 1px solid $color-25per;
       border-radius: 3px;
       background-color: white;
