@@ -2,47 +2,32 @@
 
 .slider {
   padding: 6px 0;
-  &__slot {
-    min-width: 100px;
-    width: 100%;
-    border: 1px solid $color-25per;
-    border-radius: 3px;
-    padding: 0 6px;
-  }
-  &__root,
-  .ui-slider {
-    position: relative;
-    width: 100%;
-    min-height: 4px;
-    cursor: pointer;
-    .ui-slider-range {
-      position: absolute;
+  .my-jquery-slider {
+    &__slot {
+      border: 1px solid $color-25per;
+      border-radius: 3px;
+      background-color: white;
       min-height: 6px;
-      top: -1px;
-      width: 100%;
-      background: linear-gradient(180deg, $color-green 0%, $color-green-end 100%);
-      border: none;
-      &::before {
-        content: '';
-        position: absolute;
-        width: 16px;
-        height: 16px;
-        top: -5.5px;
-        left: -8px;
+      height: 6px;
+    }
+    &__bar {
+      min-height: 5px;
+      height: 5px;
+      &_actual {
         background: linear-gradient(180deg, $color-green 0%, $color-green-end 100%);
-        border: 2px solid #FFFFFF;
-        border-radius: 8px;
       }
-      &::after {
-        content: '';
-        position: absolute;
-        width: 16px;
-        height: 16px;
-        top: -5.5px;
-        right: -8px;
-        background: linear-gradient(180deg, $color-green 0%, $color-green-end 100%);
-        border: 2px solid #FFFFFF;
-        border-radius: 8px;
+    }
+    &__thumb {
+      min-width: 16px;
+      min-height: 16px;
+      width: 16px;
+      height: 16px;
+      background: linear-gradient(180deg, $color-green 0%, $color-green-end 100%);
+      border-color: white;
+      top: -6px;
+      &:hover,
+      &:focus {
+        border-color: white;
       }
     }
   }
