@@ -10,5 +10,19 @@ https://igor-smolkov.github.io/toxin/
 git clone https://github.com/igor-smolkov/toxin.git  
 cd toxin  
 npm i  
-npm run start
+npm start
 ```
+  
+Сборка проекта:  
+```
+npm build
+```
+  
+Сборка проекта в режиме разработки:  
+```
+npm dev
+```
+  
+Используемые плагины:  
+* jquery-datepicker (https://www.npmjs.com/package/jquery-datepicker)  
+* my-jquery-slider (https://github.com/igor-smolkov/my-jquery-slider)  
