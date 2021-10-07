@@ -74,7 +74,7 @@ const plugins = () => {
   });
 
   const list = [
-    packHTMLWebpackPlugin('index.pug', 'index.html'),
+    packHTMLWebpackPlugin(`${pagesDir}/index/index.pug`, 'index.html'),
     new CleanWebpackPlugin(),
     new CopyWebpackPlugin({
       patterns: [
