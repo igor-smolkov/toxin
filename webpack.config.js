@@ -18,13 +18,7 @@ const fontsDir = 'fonts';
 const pagesDir = 'pages';
 const pages = [
   { 'ui-kit': ['colors-and-type', 'form-elements', 'cards', 'headers-and-footers'] },
-  {
-    website: [
-      'landing-page', 'landing-page-dates-dropdown', 'landing-page-guests-dropdown',
-      'search-room', 'search-room-dropdown', 'search-room-checks',
-      'room-details', 'registration', 'sign-in',
-    ],
-  },
+  { website: ['landing-page', 'search-room', 'room-details', 'registration', 'sign-in'] },
 ];
 
 // сборка имен
@@ -117,11 +111,7 @@ module.exports = {
   entry: {
     main: './script.js',
     'landing-page': './pages/website/landing-page/landing-page.js',
-    'landing-page-dates-dropdown': './pages/website/landing-page/landing-page.js',
-    'landing-page-guests-dropdown': './pages/website/landing-page/landing-page.js',
     'search-room': './pages/website/search-room/search-room.js',
-    'search-room-dropdown': './pages/website/search-room/search-room.js',
-    'search-room-checks': './pages/website/search-room/search-room.js',
     'room-details': './pages/website/room-details/room-details.js',
     registration: './pages/website/registration/registration',
     'sign-in': './pages/website/sign-in/sign-in',
