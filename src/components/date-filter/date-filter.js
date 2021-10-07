@@ -1,9 +1,6 @@
 import $ from 'jquery';
-import './date-filter.scss';
 
-import '../dropdown/dropdown';
-import '../card/card';
-import Calendar from '../calendar/calendar';
+import Calendar from '@comp/calendar/calendar';
 
 class DateFilter {
   constructor($elem) {

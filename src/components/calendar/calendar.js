@@ -1,8 +1,6 @@
-import './calendar.scss';
 import $ from 'jquery';
 import datepickerFactory from 'jquery-datepicker';
 import datepickerRUFactory from 'jquery-datepicker/i18n/jquery.ui.datepicker-ru';
-import '../dropdown-control/dropdown-control';
 
 class Calendar {
   constructor($elem) {

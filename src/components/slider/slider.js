@@ -1,6 +1,5 @@
 import $ from 'jquery';
-import myJQuerySliderFactory from '../../plugins/jquery.my-jquery-slider';
-import './slider.scss';
+import myJQuerySliderFactory from '@plug/jquery.my-jquery-slider';
 
 myJQuerySliderFactory($);
 

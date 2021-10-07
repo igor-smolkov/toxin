@@ -1,1 +1,0 @@
-import './extra-list.scss';

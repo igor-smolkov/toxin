@@ -1,11 +1,7 @@
 import $ from 'jquery';
-import './date-section.scss';
 
-import '../form-set/form-set';
-import '../dropdown/dropdown';
-import '../card/card';
-import ArrivalCalendar from '../calendar/ArrivalCalendar';
-import DepartureCalendar from '../calendar/DepartureCalendar';
+import ArrivalCalendar from '@comp/calendar/ArrivalCalendar';
+import DepartureCalendar from '@comp/calendar/DepartureCalendar';
 
 class DateSection {
   constructor($elem) {

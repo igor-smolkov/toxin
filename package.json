@@ -30,7 +30,6 @@
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-fsd": "^1.0.1",
-    "eslint-plugin-import": "^2.23.4",
     "file-loader": "^6.1.1",
     "html-webpack-plugin": "^4.5.0",
     "mini-css-extract-plugin": "^1.2.0",
@@ -43,7 +42,8 @@
     "terser-webpack-plugin": "^5.0.1",
     "webpack": "^5.10.2",
     "webpack-cli": "^4.2.0",
-    "webpack-dev-server": "^3.11.2"
+    "webpack-dev-server": "^3.11.2",
+    "webpack-import-glob-loader": "^1.6.3"
   },
   "dependencies": {
     "@babel/polyfill": "^7.12.1",

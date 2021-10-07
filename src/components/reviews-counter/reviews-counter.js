@@ -1,1 +1,0 @@
-import './reviews-counter.scss';

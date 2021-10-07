@@ -1,5 +1,4 @@
 import $ from 'jquery';
-import './preview.scss';
 
 class Preview {
   constructor($elem) {

@@ -1,5 +1,4 @@
 import $ from 'jquery';
-import './like-button.scss';
 
 function handleChange() {
   $(this).next().text($(this).prop('checked')

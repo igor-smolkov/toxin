@@ -1,1 +1,0 @@
-import './color-section.scss';

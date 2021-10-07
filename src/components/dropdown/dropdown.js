@@ -1,8 +1,4 @@
 import $ from 'jquery';
-import './dropdown.scss';
-
-import '../text-field/text-field';
-import '../dropdown-control/dropdown-control';
 
 import Counter from './Counter';
 

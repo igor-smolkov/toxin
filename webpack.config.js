@@ -127,6 +127,7 @@ module.exports = {
   resolve: {
     alias: {
       '@comp': path.resolve(__dirname, 'src/components'), // алиас на компоненты
+      '@plug': path.resolve(__dirname, 'src/plugins'),
     },
   },
   optimization: optimization(),
@@ -139,6 +140,14 @@ module.exports = {
   plugins: plugins(),
   module: {
     rules: [
+      {
+        test: /\.js$/,
+        use: 'webpack-import-glob-loader',
+      },
+      {
+        test: /\.scss$/,
+        use: 'webpack-import-glob-loader',
+      },
       {
         test: /\.css$/,
         use: cssLoaders(),

@@ -17,4 +17,7 @@ module.exports = {
     'no-underscore-dangle': 0,
     'linebreak-style': 0,
   },
+  settings: {
+    'import/extensions': { js: 'always' },
+  },
 };
