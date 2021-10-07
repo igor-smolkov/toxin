@@ -1,4 +1,5 @@
 import $ from 'jquery';
+
 import myJQuerySliderFactory from '@plug/jquery.my-jquery-slider';
 
 myJQuerySliderFactory($);
