@@ -23,6 +23,11 @@ npm build
 npm dev
 ```
   
+Запустить линтер:  
+```
+npm run lint
+```
+  
 Используемые плагины:  
 * jquery-datepicker (https://www.npmjs.com/package/jquery-datepicker)  
 * my-jquery-slider (https://github.com/igor-smolkov/my-jquery-slider)  

@@ -1,5 +1,5 @@
 module.exports = {
-  plugins: ['fsd'],
+  plugins: ['import', 'fsd'],
   env: {
     browser: true,
     es2021: true,
@@ -16,8 +16,7 @@ module.exports = {
   rules: {
     'no-underscore-dangle': 0,
     'linebreak-style': 0,
-  },
-  settings: {
-    'import/extensions': { js: 'always' },
+    'import/extensions': ['error', 'never', { js: 'ignorePackages', scss: 'always' }],
+    'import/no-unresolved': 0,
   },
 };
