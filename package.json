@@ -7,7 +7,7 @@
     "dev": "cross-env NODE_ENV=development webpack --mode development",
     "build": "cross-env NODE_ENV=production webpack --mode production",
     "start": "cross-env NODE_ENV=development webpack serve --mode development",
-    "lint": "eslint src/**/*.js --ignore-pattern src/plugins/"
+    "lint": "eslint **/*.js --ignore-pattern src/plugins/ --ignore-pattern node_modules/"
   },
   "browserslist": "> 0.25%, not dead",
   "repository": {
