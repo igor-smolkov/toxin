@@ -15,12 +15,12 @@ npm start
   
 Сборка проекта:  
 ```
-npm build
+npm run build
 ```
   
 Сборка проекта в режиме разработки:  
 ```
-npm dev
+npm run dev
 ```
   
 Запустить линтер:  
