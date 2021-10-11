@@ -140,6 +140,4 @@ class Calendar {
   }
 }
 
-// $('.calendar').each((_, elem) => new Calendar($(elem)));
-
 export default Calendar;
