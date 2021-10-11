@@ -32,7 +32,7 @@ mixin bill-item(options)
   SPAN(class=blockName)
     SPAN(
       class=`${blockName}__name`
-      class=options.withLine ? `${blockName}__name_with_line` : ""
+      class=options.withLine ? `${blockName}__name_with-line` : ""
     )=options.name
       if options.withInfo
         BUTTON(class=`${blockName}__info`)="i"

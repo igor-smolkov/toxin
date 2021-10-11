@@ -24,7 +24,7 @@
     display: flex;
     justify-content: space-between;
     @include text('rare_less');
-    &_with_line {
+    &_with-line {
       overflow: hidden;
       &::after {
         content: '';
