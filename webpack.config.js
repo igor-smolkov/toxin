@@ -12,9 +12,9 @@ const isDev = process.env.NODE_ENV === 'development';
 const isProd = !isDev;
 
 // имена файлов
-const imagesDir = 'images';
-const faviconsDir = 'favicons';
-const fontsDir = 'fonts';
+const imagesDir = 'assets/images';
+const faviconsDir = 'assets/favicons';
+const fontsDir = 'assets/fonts';
 const pagesDir = 'pages';
 const pages = [
   { 'ui-kit': ['colors-and-type', 'form-elements', 'cards', 'headers-and-footers'] },
@@ -79,7 +79,7 @@ const plugins = () => {
     new CopyWebpackPlugin({
       patterns: [
         { from: path.resolve(__dirname, `src/${imagesDir}/`), to: imagesDir },
-        { from: path.resolve(__dirname, `src/${faviconsDir}/`) },
+        { from: path.resolve(__dirname, `src/${faviconsDir}/`), to: faviconsDir },
       ],
     }),
     new webpack.ProvidePlugin({
@@ -132,7 +132,7 @@ module.exports = {
   },
   optimization: optimization(),
   devServer: {
-    port: 5200,
+    port: 5400,
     hot: isDev,
     open: true,
   },
