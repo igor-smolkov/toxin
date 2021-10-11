@@ -1,6 +1,6 @@
 include ../button/button.pug
-include ../expandable-list/expandable-list.pug
 include ../link/link.pug
+include ../nav-links/nav-links.pug
 
 //- 
   options.navLinks
@@ -14,46 +14,17 @@ mixin menu(options = {})
         navLinks: options.navLinks,
       })
     DIV(class=`${blockName}__user-panel`)
-      +user-panel({
-        user: options.user,
-      })
-
-//- 
-  options.navLinks [
-    { isDropdown, isHovered, link, text, list }
-  ]
-
-mixin nav-links(options = {})
-  - const blockName = "nav-links"
-  - const navLinks = options.navLinks ? options.navLinks : []
-  UL(class=blockName)
-    each item, index in navLinks
-      LI(
-        class=`${blockName}__item`
-        class=item.isDropdown ? `${blockName}__item_dropdown` : ""
-        class=(index === 0) ? `${blockName}__item_first` : ""
-      )
-        +link(item)
-        if item.isDropdown
-          +expandable-list({ list: item.list, name: item.name })
-
-//- 
-  options.user
-
-mixin user-panel(options = {})
-  - const blockName = "user-panel"
-  DIV(class=blockName)
-    if (options.user)
-      DIV(
-        class=`${blockName}__item`
-        class=`${blockName}__item_only`
-      )
-        +link(options.user)
-    else
-      DIV(
-        class=`${blockName}__item`
-        class=`${blockName}__item_first`
-      )
-        +button({ caption: "Войти", isBorderOnly: true, isWithArrow: false, isCompact: true, link: "sign-in.html" })
-      DIV(class=`${blockName}__item`)
-        +button({ caption: "Зарегистрироваться", isWithArrow: false, isCompact: true, link: "registration.html" })
+      if (options.user)
+        DIV(
+          class=`${blockName}__user-panel-item`
+          class=`${blockName}__user-panel-item_only`
+        )
+          +link(options.user)
+      else
+        DIV(
+          class=`${blockName}__user-panel-item`
+          class=`${blockName}__user-panel-item_first`
+        )
+          +button({ caption: "Войти", isBorderOnly: true, isWithArrow: false, isCompact: true, link: "sign-in.html" })
+        DIV(class=`${blockName}__user-panel-item`)
+          +button({ caption: "Зарегистрироваться", isWithArrow: false, isCompact: true, link: "registration.html" })

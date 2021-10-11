@@ -1,0 +1,25 @@
+$list-size: 900px;
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  &__item {
+    margin-left: 20px;
+    @media only screen and (max-width : $list-size) {
+      margin-left: 0;
+      margin-top: 10px;
+    }
+    &_first {
+      margin-left: 0;
+      @media only screen and (max-width : $list-size) {
+        margin-top: 0;
+      }
+    }
+    &_dropdown {
+      position: relative;
+    }
+  }
+  @media only screen and (max-width : $list-size) {
+    flex-direction: column;
+    min-width: 100%;
+  }
+}

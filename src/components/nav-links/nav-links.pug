@@ -1,0 +1,21 @@
+include ../expandable-list/expandable-list.pug
+include ../link/link.pug
+
+//- 
+  options.navLinks [
+    { isDropdown, isHovered, link, text, list }
+  ]
+
+mixin nav-links(options = {})
+  - const blockName = "nav-links"
+  - const navLinks = options.navLinks ? options.navLinks : []
+  UL(class=blockName)
+    each item, index in navLinks
+      LI(
+        class=`${blockName}__item`
+        class=item.isDropdown ? `${blockName}__item_dropdown` : ""
+        class=(index === 0) ? `${blockName}__item_first` : ""
+      )
+        +link(item)
+        if item.isDropdown
+          +expandable-list({ list: item.list, name: item.name })
