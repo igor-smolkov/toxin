@@ -4,7 +4,7 @@
 @mixin base-type {
   font-size: 14px;
   line-height: 1.714;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'montserrat', sans-serif;
   font-weight: normal;
   color: $color-75per;
 }
@@ -99,7 +99,7 @@
 }
 
 @mixin icon-type {
-  font-family: 'Conv_MaterialIcons-Regular';
+  font-family: 'material-icons';
   font-weight: normal;
   font-style: normal;
   font-size: 24px;  /* Preferred icon size */

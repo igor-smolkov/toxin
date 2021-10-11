@@ -1,4 +1,4 @@
-import Calendar from './calendar';
+import Calendar from './Calendar';
 
 class ArrivalCalendar extends Calendar {
   update(dateFrom, dateTo) {
