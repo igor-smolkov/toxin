@@ -1,27 +1,14 @@
 mixin socials
   - const blockName = "socials"
   UL(class=blockName)
-    LI(
-      class=`${blockName}__item`
-      class=`${blockName}__item_first`
-    )
-      A(
-        class=`${blockName}__link`
-        class=`${blockName}__link_twitter`
-        href="/mock-address/change-me"
-        target="_blank"
-      )="twitter"
-    LI(class=`${blockName}__item`)
-      A(
-        class=`${blockName}__link`
-        class=`${blockName}__link_facebook`
-        href="/mock-address/change-me"
-        target="_blank"
-      )="facebook"
-    LI(class=`${blockName}__item`)
-      A(
-        class=`${blockName}__link`
-        class=`${blockName}__link_instagram`
-        href="/mock-address/change-me"
-        target="_blank"
-      )="instagram"
+    each name, index in ["twitter", "facebook", "instagram"]
+      LI(
+        class=`${blockName}__item`
+        class=index===0 ? `${blockName}__item_first` : ""
+      )
+        A(
+          class=`${blockName}__link`
+          class=`${blockName}__link_${name}`
+          href="/mock-address/change-me"
+          target="_blank"
+        )=name
