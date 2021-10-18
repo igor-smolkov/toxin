@@ -1,0 +1,13 @@
+mixin total-rate(sum = 0)
+  - const blockName = "total-rate"
+  - const lastDigit = +sum.toString()[sum.toString().length - 1]
+  - const penultDigit = +sum.toString()[sum.toString().length - 2]
+  - let wordForm = "голосов"
+  if lastDigit == 1 && penultDigit != 1
+    - wordForm = "голос"
+  if (lastDigit == 2 || lastDigit == 3 || lastDigit == 4) && penultDigit != 1
+    - wordFrom = "голоса"
+
+  DIV(class=blockName)
+    SPAN(class=`${blockName}__number`)=sum
+    SPAN(class=`${blockName}__text`)=wordForm

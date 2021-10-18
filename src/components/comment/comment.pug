@@ -8,49 +8,23 @@ include ../like-button/like-button.pug
   options.likeValue
   options.isLiked
 
-mixin comment(options)
+mixin comment(options = {})
   - const blockName = "comment"
-  if !options
-    - options = {}
 
-  DIV(
-    class=blockName
-  )
-    DIV(
-      class=`${blockName}__images`
-    )
-      DIV(
-        class=`${blockName}__avatar`
-      )
-        +comment-avatar(options.avatar, options.username)
-      DIV(
-        class=`${blockName}__like`
-      )
+  DIV(class=blockName)
+    DIV(class=`${blockName}__images`)
+      DIV(class=`${blockName}__avatar`)
+        IMG(
+          class=`${blockName}__img`
+          src=options.avatar
+          alt=options.username
+        )
+      DIV(class=`${blockName}__like`)
         +like-button({
           value: options.likeValue ? options.likeValue : 0,
           isChecked: options.isLiked,
         })
-    DIV(
-      class=`${blockName}__texts`
-    )
-      P(
-        class=`${blockName}__username`
-      )=options.username
-      P(
-        class=`${blockName}__date-time`
-      )=options.datetime
-      P(
-        class=`${blockName}__message`
-      )=options.message
-
-mixin comment-avatar(src, alt)
-  - const blockName = "comment-avatar"
-
-  DIV(
-    class=blockName
-  )
-    IMG(
-      class=`${blockName}__img`
-      src=src
-      alt=alt
-    )
+    DIV(class=`${blockName}__texts`)
+      P(class=`${blockName}__username`)=options.username
+      P(class=`${blockName}__date-time`)=options.datetime
+      P(class=`${blockName}__message`)=options.message

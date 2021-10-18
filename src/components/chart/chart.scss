@@ -1,6 +1,3 @@
-@import '/assets/colors.scss';
-@import '/assets/types.scss';
-
 .chart {
   display: flex;
   position: relative;
@@ -12,72 +9,5 @@
   &__caption-list {
     margin-left: 30px;
     margin-top: 27px;
-  }
-}
-
-.chart-total {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  &__number {
-    @include h1-type;
-    color: $color-purple;
-  }
-  &__text {
-    @include h3-type;
-    color: $color-purple;
-  }
-}
-
-.chart-circle {
-  &__unit {
-    fill: none;
-    stroke-width: 1.1;
-  }
-  &__gradient {
-    &_yellow {
-      &_start { stop-color: $color-yellow }
-      &_end { stop-color: $color-yellow-end }
-    }
-    &_green {
-      &_start { stop-color: $color-green-end }
-      &_end { stop-color: $color-green }
-    }
-    &_purple {
-      &_start { stop-color: $color-purple }
-      &_end { stop-color: $color-purple-end }
-    }
-    &_gray {
-      &_start { stop-color: $color-gray }
-      &_end { stop-color: $color-gray-end }
-    }
-  }
-}
-
-.chart-caption-list {
-  padding-left: 15px;
-  &__item {
-    position: relative;
-    &::before {
-      content: '';
-      position: absolute;
-      min-width: 10px;
-      min-height: 10px;
-      left: -15px;
-      top: 7px;
-      border-radius: 5px;
-    }
-    &_yellow::before {
-        background: linear-gradient(180deg, $color-yellow 0%, $color-yellow-end 100%);
-    }
-    &_green::before {
-        background: linear-gradient(180deg, $color-green 0%, $color-green-end 100%);
-    }
-    &_purple::before {
-        background: linear-gradient(180deg, $color-purple 0%, $color-purple-end 100%);
-    }
-    &_gray::before {
-        background: linear-gradient(180deg, $color-gray 0%, $color-gray-end 100%);
-    }
   }
 }

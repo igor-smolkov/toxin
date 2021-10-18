@@ -1,3 +1,7 @@
+include ../total-rate/total-rate.pug
+include ../rate-circle/rate-circle.pug
+include ../caption-list/caption-list.pug
+
 //- 
   [
     item.label
@@ -20,79 +24,8 @@ mixin chart(items = [])
 
   DIV(class=blockName)
     DIV(class=`${blockName}__total`)
-      +chart-total(sum)
+      +total-rate(sum)
     DIV(class=`${blockName}__circle`)
-      +chart-circle(perValues)
+      +rate-circle(perValues)
     DIV(class=`${blockName}__caption-list`)
-      +chart-caption-list(items)
-
-//- 
-
-mixin chart-total(sum)
-  - const blockName = "chart-total"
-  - const lastDigit = +sum.toString()[sum.toString().length - 1]
-  - const penultDigit = +sum.toString()[sum.toString().length - 2]
-  - let wordForm = "голосов"
-  if lastDigit == 1 && penultDigit != 1
-    - wordForm = "голос"
-  if (lastDigit == 2 || lastDigit == 3 || lastDigit == 4) && penultDigit != 1
-    - wordFrom = "голоса"
-
-  DIV(class=blockName)
-    SPAN(class=`${blockName}__number`)=sum
-    SPAN(class=`${blockName}__text`)=wordForm
-
-//- 
-
-mixin chart-circle(perValues = [])
-  - const blockName = "chart-circle"
-  - const betweenUnitSpace = 0.75
-
-  SVG(
-    class = blockName
-    width = "120" 
-    height = "120" 
-    viewBox = "0 0 33 33"
-  )
-    - let acc = 0
-    each perValue, index in perValues
-      CIRCLE(
-        class = `${blockName}__unit`
-        r = "15.9" 
-        cx = "50%" 
-        cy = "50%" 
-        stroke = `url(#chart-gradient-${index})`
-        stroke-dasharray = (perValue != 0) ? `${perValue - betweenUnitSpace} 100` : "0 100"
-        stroke-dashoffset = (perValue != 0) ? `-${acc + betweenUnitSpace/2}` : "0"
-      )
-      - acc = (perValue != 0) ? acc + perValue : acc
-    DEFS
-      each color, index in ['green', 'yellow', 'purple', 'gray']
-        LINEARGRADIENT(
-          class = `${blockName}__gradient`
-          class = `${blockName}__gradient_${color}`
-          id = `chart-gradient-${index}`
-          x1 = "0"
-          x2 = "0"
-          y1 = "0"
-          y2 = "1"
-        )
-          STOP(
-            class = `${blockName}__gradient_${color}_start`
-            offset = "0%"
-          )
-          STOP.gradient_end(
-            class = `${blockName}__gradient_${color}_end`
-            offset = "100%"
-          )
-
-//- 
-
-mixin chart-caption-list(items = [])
-  - const blockName = "chart-caption-list"
-  UL(class=blockName)
-    each color, index in ['yellow', 'green', 'purple', 'gray']
-      LI(
-        class=`${blockName}__item`
-        class=`${blockName}__item_${color}`
-      )=items[index].label
+      +caption-list(items)

@@ -13,6 +13,19 @@
   }
   &__avatar {
     margin-top: 9px;
+    position: relative;
+    min-width: 48px;
+    min-height: 48px;
+    width: 48px;
+    height: 48px;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0px 10px 20px $color-10per;
+  }
+  &__img {
+    position: absolute;
+    top: -10px;
+    left: -20px;
   }
   &__like {
     margin-top: 12px;
@@ -28,21 +41,5 @@
   &__message {
     margin-top: 10px;
     @include text('rare_more');
-  }
-}
-
-.comment-avatar {
-  position: relative;
-  min-width: 48px;
-  min-height: 48px;
-  width: 48px;
-  height: 48px;
-  border-radius: 24px;
-  overflow: hidden;
-  box-shadow: 0px 10px 20px $color-10per;
-  &__img {
-    position: absolute;
-    top: -10px;
-    left: -20px;
   }
 }
