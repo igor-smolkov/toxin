@@ -1,0 +1,11 @@
+.dropdown-panel {
+  &__list {
+    display: flow-root;
+  }
+  &__countable-item {
+    margin: 6px 6px 7px 7px;
+  }
+  &__control {
+    padding: 13px 6px 12px 13px;
+  }
+}

@@ -1,6 +1,6 @@
 import $ from 'jquery';
 
-import Counter from './Counter';
+import Counter from '../counter/counter';
 
 class Dropdown {
   constructor($elem) {
@@ -29,7 +29,7 @@ class Dropdown {
 
   _initCounters() {
     const counters = [];
-    this._$elem.find('.dropdown-counter').each((_, counter) => {
+    this._$elem.find('.counter').each((_, counter) => {
       counters.push(new Counter($(counter)));
     });
     return counters;

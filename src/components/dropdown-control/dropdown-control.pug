@@ -3,10 +3,8 @@ include ../button/button.pug
 //-
   options.isClear
 
-mixin dropdown-control(options)
+mixin dropdown-control(options = {})
   - const blockName = "dropdown-control"
-  if !options
-    - options = {}
   - const isClear = options.isClear === false ? false : true
 
   DIV(class=blockName)

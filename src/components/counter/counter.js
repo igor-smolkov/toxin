@@ -40,23 +40,23 @@ class Counter {
 
   disabledMinusButton(isTrue = true) {
     if (isTrue) {
-      this._$minusButton.toggleClass('dropdown-counter__button_disabled');
+      this._$minusButton.toggleClass('counter__button_disabled');
     } else {
-      this._$minusButton.removeClass('dropdown-counter__button_disabled');
+      this._$minusButton.removeClass('counter__button_disabled');
     }
     this._$minusButton.prop('disabled', isTrue);
   }
 
   _findMinusButton() {
-    return $(this._$elem.find('.dropdown-counter__button')[0]);
+    return $(this._$elem.find('.counter__button')[0]);
   }
 
   _findPlusButton() {
-    return $(this._$elem.find('.dropdown-counter__button')[1]);
+    return $(this._$elem.find('.counter__button')[1]);
   }
 
   _findCountField() {
-    return $(this._$elem.find('.dropdown-counter__count'));
+    return $(this._$elem.find('.counter__count'));
   }
 
   _listenControls() {

@@ -1,0 +1,21 @@
+mixin counter(count = 0, category = "штука")
+  - const blockName = "counter"
+
+  DIV(
+    class=blockName
+    data-category=category
+  )
+    BUTTON(
+      class=`${blockName}__element`
+      class=`${blockName}__button`
+      class=!count ? `${blockName}__button_disabled` : ""
+      disabled=!count ? true : false
+    )="-"
+    P(
+      class=`${blockName}__element`
+      class=`${blockName}__count`
+    )=count ? count : "0"
+    BUTTON(
+      class=`${blockName}__element`
+      class=`${blockName}__button`
+    )="+"

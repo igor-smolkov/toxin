@@ -48,6 +48,21 @@ $block: 'expandable-list';
   &__expand-more:hover::before {
     color: $color-75per;
   }
+  &__list {
+    &_customary {
+      position: absolute;
+      z-index: 1;
+      top: 26px;
+      left: 0;
+      min-width: 100%;
+      max-width: 320px;
+      width: max-content;
+      background-color: white;
+      padding: 10px;
+      color: $color-50per;
+      box-shadow: 0px 10px 20px $color-5per;
+    }
+  }
   &_with-checks {
     float: none;
     max-height: max-content;
@@ -69,18 +84,4 @@ $block: 'expandable-list';
       padding-top: 18px;
     }
   }
-}
-
-.list {
-  position: absolute;
-  z-index: 1;
-  top: 26px;
-  left: 0;
-  min-width: 100%;
-  max-width: 320px;
-  width: max-content;
-  background-color: white;
-  padding: 10px;
-  color: $color-50per;
-  box-shadow: 0px 10px 20px $color-5per;
 }

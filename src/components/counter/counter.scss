@@ -1,0 +1,44 @@
+@import '/assets/colors.scss';
+@import '/assets/types.scss';
+
+$block: 'counter';
+.#{$block} {
+  display: flex;
+  &__element {
+    min-width: 30px;
+    min-height: 30px;
+    max-height: 30px;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 4px;
+  }
+  &__button {
+    border: 1px solid $color-25per;
+    border-radius: 22px;
+    @include base-h-type;
+    font-size: 1.22rem;
+    font-weight: normal;
+    color: $color-50per;
+    &_disabled,
+    &:disabled {
+      opacity: 0.5;
+    }
+    &_hovered,
+    &:hover,
+    &:focus {
+      outline: none;
+      border-color: $color-50per;
+      color: $color-75per;
+      &.#{$block}__button_disabled {
+        border-color: $color-25per;
+        color: $color-50per;
+      }
+    }
+  }
+  &__count {
+    min-width: 32px;
+    @include h3-type;
+  }
+}

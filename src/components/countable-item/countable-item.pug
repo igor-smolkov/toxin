@@ -1,0 +1,14 @@
+include ../counter/counter.pug
+
+//- 
+  options.name
+  options.count
+  options.category
+
+mixin countable-item(options = {})
+  - const blockName = "countable-item"
+  
+  DIV(class=blockName)
+    P(class=`${blockName}__name`)=options.name
+    DIV(class=`${blockName}__counter`)
+      +counter(options.count, options.category)

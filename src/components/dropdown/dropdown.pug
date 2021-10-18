@@ -1,6 +1,6 @@
 include ../text-field/text-field.pug
 include ../button/button.pug
-include ../dropdown-control/dropdown-control.pug
+include ../dropdown-panel/dropdown-panel.pug
 
 //-
   options.value
@@ -52,79 +52,3 @@ mixin dropdown(options = {})
         })
       else
         block
-
-//- 
-
-mixin dropdown-panel(options)
-  - const blockName = "dropdown-panel"
-  if !options
-    - options = {}
-
-  DIV(class=blockName)
-    DIV(class=`${blockName}__list`)
-      +dropdown-list(options.list)
-    if options.withControl
-      - let isClear = true
-      if options.list
-        each item in options.list
-          if item.count
-            if item.count !== 0
-              - isClear = false
-      DIV(class=`${blockName}__control`)
-        +dropdown-control({ 
-          isClear: isClear 
-        })
-
-//- 
-
-mixin dropdown-list(list)
-  - const blockName = "dropdown-list"
-  if !list
-    - list = []
-
-  UL(
-    class=blockName
-  )
-    each item, index in list
-      LI(
-        class=`${blockName}__item`
-      )
-        +dropdown-item(item)
-
-//- 
-
-mixin dropdown-item(options)
-  - const blockName = "dropdown-item"
-  DIV(
-    class=blockName
-  )
-    P(
-      class=`${blockName}__name`
-    )=options.name
-    DIV(
-      class=`${blockName}__counter`
-    )
-      +dropdown-counter(options.count, options.category)
-
-//- 
-
-mixin dropdown-counter(count, category)
-  - const blockName = "dropdown-counter"
-  DIV(
-    class=blockName
-    data-category=category
-  )
-    BUTTON(
-      class=`${blockName}__element`
-      class=`${blockName}__button`
-      class=!count ? "dropdown-counter__button_disabled" : ""
-      disabled=!count ? true : false
-    )="-"
-    P(
-      class=`${blockName}__element`
-      class=`${blockName}__count`
-    )=count ? count : "0"
-    BUTTON(
-      class=`${blockName}__element`
-      class=`${blockName}__button`
-    )="+"
