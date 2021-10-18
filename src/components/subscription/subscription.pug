@@ -1,0 +1,12 @@
+include ../text-field/text-field.pug
+
+mixin subscription
+  - const blockName = "subscription"
+
+  DIV(class=blockName)
+    block
+    INPUT(
+      class=`${blockName}__button`
+      type="submit" 
+      value="arrow_forward"
+    )

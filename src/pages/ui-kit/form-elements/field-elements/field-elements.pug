@@ -4,6 +4,7 @@ include ../../../../components/text-field/text-field.pug
 include ../../../../components/dropdown/dropdown.pug
 include ../../../../components/date-section/date-section.pug
 include ../../../../components/date-filter/date-filter.pug
+include ../../../../components/subscription/subscription.pug
 
 mixin field-elements 
   .field-elements
@@ -55,9 +56,10 @@ mixin field-elements
     SECTION.field-elements__section.field-elements__section_rarefied
       +form-section({ isShortened: true })
         +form-set({ title: "Subscription Text Field" })
-          +text-field({
-            placeholder: "Email",
-            isDirected: true,
-            name: "email",
-            type: "email",
-          })
+          +subscription
+            +text-field({
+              placeholder: "Email",
+              isDirected: true,
+              name: "email",
+              type: "email",
+            })

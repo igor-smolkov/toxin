@@ -1,4 +1,5 @@
 include ../link/link.pug
+include ../subscription/subscription.pug
 include ../text-field/text-field.pug
 
 //- 
@@ -19,12 +20,13 @@ mixin widget(options = {})
         P(class=`${blockName}__text`)=options.text 
       if options.withSubscribe
         FORM(class=`${blockName}__form`)
-          +text-field({
-            placeholder: "Email",
-            isDirected: true,
-            name: "email",
-            type: "email",
-          })
+          +subscription
+            +text-field({
+              placeholder: "Email",
+              isDirected: true,
+              name: "email",
+              type: "email",
+            })
 
 //- 
     
