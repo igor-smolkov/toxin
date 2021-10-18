@@ -51,7 +51,8 @@ $block: 'like-button';
     display:flex;
     align-items: center;
     justify-content: center;
-    @include text('mod_like');
+    @include base-type;
+    font-size: 0.65rem;
     padding-bottom: 2px;
     user-select: none;
     &::before {

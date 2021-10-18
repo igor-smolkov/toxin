@@ -44,7 +44,9 @@ $block: 'pagination';
   }
   &__value {
     width: 100%;
-    @include text('mod_pagination')
+    @include h3-type;
+    color: $color-50per;
+    font-weight: normal;
   }
   &__description {
     margin-top: 8px;

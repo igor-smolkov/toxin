@@ -7,6 +7,6 @@
   &__text {
     padding-left: 4px;
     @include base-type;
-    @include text('light_middle');
+    color: $color-50per;
   }
 }

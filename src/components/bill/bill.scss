@@ -47,7 +47,9 @@
     max-height: 20px;
     border: 1px solid $color-25per;
     border-radius: 10px;
-    @include text("mod_info-button");
+    @include h3-type;
+    text-transform: lowercase;
+    color: $color-25per;
     background-color: white;
     &:focus {
       outline: none;

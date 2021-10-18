@@ -12,8 +12,8 @@
     margin-left: 20px;
     align-self: flex-end;
     @include base-type;
-    @include text('light_middle');
     @include text('rare_less');
+    color: $color-50per;
     white-space: nowrap;
   }
   &__content {

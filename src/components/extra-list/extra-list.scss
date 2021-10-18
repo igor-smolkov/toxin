@@ -22,7 +22,7 @@
 .extra-list-item {
   position: relative;
   &__title {
-    @include text('bold');
+    font-weight: bold;
   }
   &__details {
     @include text('rare_more');

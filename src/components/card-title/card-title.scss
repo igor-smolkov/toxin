@@ -39,7 +39,7 @@
     padding-left: 4px;
     @include base-type;
     @include text('small');
-    @include text('light_middle');
+    color: $color-50per;
     white-space: nowrap;
   }
 }

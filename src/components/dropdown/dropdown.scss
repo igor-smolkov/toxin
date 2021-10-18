@@ -139,7 +139,10 @@ $block: 'dropdown';
   &__button {
     border: 1px solid $color-25per;
     border-radius: 22px;
-    @include text('mod_counter-button');
+    @include base-h-type;
+    font-size: 1.22rem;
+    font-weight: normal;
+    color: $color-50per;
     &_disabled,
     &:disabled {
       opacity: 0.5;

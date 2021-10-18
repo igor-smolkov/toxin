@@ -1,3 +1,4 @@
+@import '/assets/colors.scss';
 @import '/assets/types.scss';
 
 $block: 'form-set';
@@ -13,8 +14,8 @@ $block: 'form-set';
   &__description {
     margin-top: 8px;
     @include text('small');
-    @include text('light_middle');
     @include text('rare_less');
+    color: $color-50per;
   }
   &__group {
     margin-top: 16px;

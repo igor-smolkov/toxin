@@ -2,8 +2,8 @@
 @import '/assets/types.scss';
 
 @mixin dayCircle($color) {
-  @include text('bold');
   color: white;
+  font-weight: bold;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -86,7 +86,9 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      @include text('mod_number');
+      @include h3-type;
+      font-weight: normal;
+      color: $color-50per;
       @media only screen and (max-width: 400px) {
         min-width: 27px;
         max-width: 27px;
@@ -94,8 +96,8 @@
       }
     }
     th {
-      @include text('capitalize');
-      @include text('bold');
+      text-transform: capitalize;
+      font-weight: bold;
       color: $color-purple;
     }
     a {

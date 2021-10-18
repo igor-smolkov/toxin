@@ -15,13 +15,13 @@ $block: 'check-button';
     .#{$block} {
       &__label {
         max-width: 266px;
-        @include text('light_normal');
-        @include text('bold');
+        color: $color-75per;
+        font-weight: bold;
       }
       &__details {
-        @include text('light_middle');
         @include text('small');
         @include text('rare_less');
+        color: $color-50per;
         font-weight: normal;
         display: inline-block;
         max-width: 230px;
@@ -52,8 +52,8 @@ $block: 'check-button';
     }
   }
   &__label {
-    @include text('light_middle');
     @include text('rare_less');
+    color: $color-50per;
     display: inline-block;
     max-width: 200px;
     &::before {

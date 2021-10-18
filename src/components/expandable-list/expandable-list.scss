@@ -81,6 +81,6 @@ $block: 'expandable-list';
   width: max-content;
   background-color: white;
   padding: 10px;
-  @include text('light_middle');
+  color: $color-50per;
   box-shadow: 0px 10px 20px $color-5per;
 }

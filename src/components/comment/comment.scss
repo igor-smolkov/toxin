@@ -20,7 +20,7 @@
     justify-content: center;
   }
   &__username {
-    @include text('bold');
+    font-weight: bold;
   }
   &__date-time {
     @include text('rare_more');

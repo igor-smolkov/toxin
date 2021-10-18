@@ -65,7 +65,12 @@
   &::-webkit-datetime-edit {
     padding: 0;
     margin: 0;
-    @include text('mod_date');
+    @include base-type;
+    text-transform: uppercase;
+    font-size: 0.97857rem;
+    &-text {
+      letter-spacing: -1px;
+    }
   }
 
   &_border_none {
