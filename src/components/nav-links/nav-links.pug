@@ -2,14 +2,18 @@ include ../expandable-list/expandable-list.pug
 include ../link/link.pug
 
 //- 
+  options.isHead
   options.navLinks [
-    { isDropdown, isHovered, link, text, list }
+    { isDropdown, isHovered, link, text, name, list }
   ]
 
 mixin nav-links(options = {})
   - const blockName = "nav-links"
   - const navLinks = options.navLinks ? options.navLinks : []
-  UL(class=blockName)
+  UL(
+    class=blockName
+    class=options.isHead ? `${blockName}_head` : ""
+  )
     each item, index in navLinks
       LI(
         class=`${blockName}__item`

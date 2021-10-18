@@ -12,6 +12,7 @@ mixin menu(options = {})
     DIV(class=`${blockName}__nav-links`)
       +nav-links({
         navLinks: options.navLinks,
+        isHead: true,
       })
     DIV(class=`${blockName}__user-panel`)
       if (options.user)
