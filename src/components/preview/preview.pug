@@ -3,10 +3,8 @@
   options.selected
   options.isHovered
 
-mixin preview(options)
+mixin preview(options = {})
   - const blockName = "preview"
-  if !options
-    - options = {}
   - const images = options.images ? options.images : []
   - const selected = options.selected ? options.selected : 0
   
@@ -26,48 +24,28 @@ mixin preview(options)
       alt="Превью номера"
     )
     DIV(class=`${blockName}__arrows`)
-      +carousel-arrows-control
+      BUTTON(
+        class=`${blockName}__arrow`
+        class=`${blockName}__arrow_prev`
+      )
+      BUTTON(
+        class=`${blockName}__arrow`
+        class=`${blockName}__arrow_next`
+      )
     DIV(class=`${blockName}__points`)
-      +carousel-points-control({
-        name: `views-${options.number}`,
-        count: `${images.length}`,
-        selected: selected,
-      })
-
-//- 
-
-mixin carousel-arrows-control
-  - const blockName = "carousel-arrows-control"
-  DIV(class=blockName)
-    BUTTON(
-      class=`${blockName}__arrow`
-      class=`${blockName}__arrow_prev`
-    )
-    BUTTON(
-      class=`${blockName}__arrow`
-      class=`${blockName}__arrow_next`
-    )
-
-//- 
-  options.count
-  options.selected
-
-mixin carousel-points-control(options = {})
-  - const blockName = "carousel-points-control"
-  DIV(class=blockName)
-    - let i = 0
-    while i < options.count
-      INPUT(
-        class=`${blockName}__input`
-        type="radio"
-        name=options.name
-        id=`${options.name}-${i}`
-        value=i
-        checked=(i===options.selected) ? true : false
-      )
-      LABEL(
-        for=`${options.name}-${i}`
-        class=`${blockName}__label`
-        class=(i===options.selected) ? `${blockName}__label_checked` : ""
-      )
-      - i++
+      - let i = 0
+      while i < images.length
+        INPUT(
+          class=`${blockName}__point-input`
+          type="radio"
+          name=`views-${options.number}`
+          id=`views-${options.number}-${i}`
+          value=i
+          checked=(i===selected) ? true : false
+        )
+        LABEL(
+          for=`views-${options.number}-${i}`
+          class=`${blockName}__point-label`
+          class=(i===selected) ? `${blockName}__point-label_checked` : ""
+        )
+        - i++

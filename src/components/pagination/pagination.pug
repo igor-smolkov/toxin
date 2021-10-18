@@ -2,29 +2,19 @@
   options.lastPage
   options.description
 
-mixin pagination(options)
+mixin pagination(options = {})
   - const blockName = "pagination"
-  if !options
-    - options = {}
 
-  DIV(
-    class=blockName
-  )
-    DIV(
-      class=`${blockName}__items`
-    )
+  DIV(class=blockName)
+    DIV(class=`${blockName}__items`)
       each value, index in ["1", "2", "3", "...", options.lastPage]
         BUTTON(
           class=`${blockName}__item`
           class=(index===0) ? `${blockName}__item_current` : ""
         )
-          SPAN(
-            class=`${blockName}__value`
-          )=value
+          SPAN(class=`${blockName}__value`)=value
       BUTTON(
         class=`${blockName}__item`
         class=`${blockName}__item_next`
       )="arrow_forward"
-    P(
-      class=`${blockName}__description`
-    )= options.description
+    P(class=`${blockName}__description`)= options.description

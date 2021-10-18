@@ -7,9 +7,9 @@ class Preview {
     this._number = this._$elem.data().number;
     this._imgs = Array.from(this._$elem.find('.preview__data').children()).map((option) => option.value);
     this._$img = this._$elem.find('.preview__img');
-    this._$prevButton = this._$elem.find('.carousel-arrows-control__arrow_prev');
-    this._$nextButton = this._$elem.find('.carousel-arrows-control__arrow_next');
-    this._$pointsControl = this._$elem.find('.carousel-points-control');
+    this._$prevButton = this._$elem.find('.preview__arrow_prev');
+    this._$nextButton = this._$elem.find('.preview__arrow_next');
+    this._$pointsControl = this._$elem.find('.preview__points');
     this._bindEventListeners();
   }
 

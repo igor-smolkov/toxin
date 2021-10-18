@@ -1,29 +1,28 @@
 @import '/assets/types.scss';
 
+$block: 'preview';
 .preview {
   max-width: 270px;
   max-height: 151px;
   overflow: hidden;
   position: relative;
-  &__arrows {
-    display: none;
-  }
   &_hovered,
   &:hover {
     .preview__arrows {
-      display: block;
+      display: flex;
     }
   }
-}
+  &__arrows {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    display: flex;
+    justify-content: space-between;
 
-.carousel-arrows-control {
-  position: absolute;
-  top: 0;
-  left: 0;
-  min-width: 100%;
-  min-height: 100%;
-  display: flex;
-  justify-content: space-between;
+    display: none;
+  }
   &__arrow {
     @include icon-type;
     flex-grow: 1;
@@ -58,32 +57,30 @@
       }
     }
   }
-} 
-
-$block: 'carousel-points-control';
-.#{$block} {
-  position: absolute;
-  min-width: 41px;
-  min-height: 7px;
-  display: flex;
-  justify-content: space-between;
-  bottom: 15px;
-  right: 15px;
-  &__input {
+  &__points {
+    position: absolute;
+    min-width: 41px;
+    min-height: 7px;
+    display: flex;
+    justify-content: space-between;
+    bottom: 15px;
+    right: 15px;
+  }
+  &__point-input {
     position: absolute;
     z-index: -1;
     opacity: 0;
-    &:checked+.#{$block}__label {
+    &:checked+.#{$block}__point-label {
       background-color: white;
     }
-    &:not(:checked)+.#{$block}__label {
+    &:not(:checked)+.#{$block}__point-label {
       background: none;
     }
-    &:focus+.#{$block}__label {
+    &:focus+.#{$block}__point-label {
       outline: auto;
     }
   }
-  &__label {
+  &__point-label {
     display: inline-block;
     min-width: 7px;
     min-height: 7px;
