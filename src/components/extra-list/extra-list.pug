@@ -1,29 +1,19 @@
 //- 
-  options.items
+  options.items = [{ title, details, icon }]
 
 mixin extra-list(options = {})
   - const blockName = "extra-list"
-  if !options.items
-    - options = []
+  - const items = options.items ? options.items : []
 
-  UL.extra-list(class=blockName)
-    each item, index in options.items
+  UL(class=blockName)
+    each item, index in items
       LI(
         class=`${blockName}__item`
         class=(index===0) ? `${blockName}__item_first` :""
-        class=(index===options.items.length-1) ? `${blockName}__item_last` :""
+        class=(index===items.length-1) ? `${blockName}__item_last` :""
       )
-        +extra-list-item(item)
-
-//- 
-  options.title
-  options.details
-  options.icon
-
-mixin extra-list-item(options = {})
-  - const blockName = "extra-list-item"
-  DIV(class=blockName)
-    P(class=`${blockName}__title`)=options.title
-    P(class=`${blockName}__details`)=options.details
-    I(class=`${blockName}__icon`)=options.icon
+        DIV(class=`${blockName}__content`)
+          P(class=`${blockName}__title`)=item.title
+          P(class=`${blockName}__details`)=item.details
+          I(class=`${blockName}__icon`)=item.icon
 

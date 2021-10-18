@@ -17,10 +17,9 @@
       border-bottom: none;
     }
   }
-}
-
-.extra-list-item {
-  position: relative;
+  &__content {
+    position: relative;
+  }
   &__title {
     font-weight: bold;
   }
