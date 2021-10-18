@@ -1,6 +1,3 @@
-@import '/assets/colors.scss';
-@import '/assets/types.scss';
-
 .card-title {
   display: flex;
   align-items: baseline;
@@ -9,37 +6,5 @@
   }
   &__details {
     margin-left: 20px;
-  }
-}
-
-.card-title-main {
-  &__prefix {
-    @include base-h-type;
-  }
-  &__content {
-    padding-left: 4px;
-  }
-  &__postfix {
-    padding-left: 8px;
-    @include h3-type;
-    color: $color-purple;
-    &_shifted {
-      display: inline-block;
-      position: relative;
-      left: -7px;
-      bottom: -1px;
-    }
-  }
-}
-
-.card-title-details {
-  @include base-h-type;
-  color: $color-50per;
-  &__second {
-    padding-left: 4px;
-    @include base-type;
-    @include text('small');
-    color: $color-50per;
-    white-space: nowrap;
   }
 }

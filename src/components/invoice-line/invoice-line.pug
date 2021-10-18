@@ -1,0 +1,16 @@
+//- 
+  options.name
+  options.price
+  options.withLine
+
+mixin invoice-line(options = {})
+  - const blockName = "invoice-line"
+
+  SPAN(class=blockName)
+    SPAN(
+      class=`${blockName}__name`
+      class=options.withLine ? `${blockName}__name_with-line` : ""
+    )=options.name
+      if options.withInfo
+        BUTTON(class=`${blockName}__info`)="i"
+    SPAN(class=`${blockName}__price`)=options.price

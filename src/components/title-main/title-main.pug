@@ -1,0 +1,18 @@
+//- 
+  options.prefix
+  options.content
+  options.postfix
+  options.isShiftedPostfix
+
+mixin title-main(options = {})
+  - const blockName = "title-main"
+
+  SPAN(class=blockName)
+    if options.prefix
+      SPAN(class=`${blockName}__prefix`)=options.prefix
+    SPAN(class=`${blockName}__content`)=options.content
+    if options.postfix
+      SPAN(
+        class=`${blockName}__postfix`
+        class=options.isShiftedPostfix ? `${blockName}__postfix_shifted` : ""
+      )=options.postfix

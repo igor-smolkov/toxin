@@ -1,0 +1,11 @@
+//- 
+  options.first
+  options.second
+
+mixin title-details(options = {})
+  - const blockName = "title-details"
+
+  SPAN(class=blockName)
+    SPAN(class=`${blockName}__first`)=options.first
+    if options.second
+      SPAN(class=`${blockName}__second`)=options.second

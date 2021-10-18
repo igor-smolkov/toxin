@@ -1,53 +1,19 @@
+include ../title-main/title-main.pug
+include ../title-details/title-details.pug
+
 //- 
   options.main
   options.details
 
-mixin card-title(options)
+mixin card-title(options = {})
   - const blockName = "card-title"
-  if !options
-    - options = {}
   
   if (typeof options) === "string"
     SPAN(class=blockName)=options
   else
     SPAN(class=blockName)
       SPAN(class=`${blockName}__main`)
-        +card-title-main(options.main)
+        +title-main(options.main)
       if (options.details)
         SPAN(class=`${blockName}__details`)
-          +card-title-details(options.details)
-
-//- 
-  options.prefix
-  options.content
-  options.postfix
-  options.isShiftedPostfix
-
-mixin card-title-main(options)
-  - const blockName = "card-title-main"
-  if !options
-    - options = {}
-
-  SPAN(class=blockName)
-    if options.prefix
-      SPAN(class=`${blockName}__prefix`)=options.prefix
-    SPAN(class=`${blockName}__content`)=options.content
-    if options.postfix
-      SPAN(
-        class=`${blockName}__postfix`
-        class=options.isShiftedPostfix ? `${blockName}__postfix_shifted` : ""
-      )=options.postfix
-
-//- 
-  options.first
-  options.second
-
-mixin card-title-details(options)
-  - const blockName = "card-title-details"
-  if !options
-    - options = {}
-
-  SPAN(class=blockName)
-    SPAN(class=`${blockName}__first`)=options.first
-    if options.second
-      SPAN(class=`${blockName}__second`)=options.second
+          +title-details(options.details)
