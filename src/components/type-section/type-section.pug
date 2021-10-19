@@ -18,9 +18,6 @@ mixin type-section(options = {})
       when "H3"
         H3(class=`${blockName}__name`)=options.name
         H3(class=`${blockName}__example`)=options.example
-      when "Body"
-        DIV(class=`${blockName}__name`)=options.name
-        DIV(class=`${blockName}__example`)=options.example
       default
         DIV(class=`${blockName}__name`)=options.name
         DIV(class=`${blockName}__example`)=options.example

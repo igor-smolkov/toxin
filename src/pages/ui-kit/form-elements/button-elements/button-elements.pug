@@ -1,6 +1,4 @@
-include ../../../../components/form-section/form-section.pug
 include ../../../../components/form-set/form-set.pug
-
 include ../../../../components/slider/slider.pug
 include ../../../../components/button/button.pug
 include ../../../../components/pagination/pagination.pug
@@ -8,32 +6,29 @@ include ../../../../components/pagination/pagination.pug
 mixin button-elements
   .button-elements
     SECTION.button-elements__section.button-elements__section_first
-      +form-section
-        +form-set({ title: "Range Slider", details: "5 000₽ - 10 000₽", isIndented: true })
-          +slider({ values: [0, 30.4, 62.8, 100] })
+      +form-set({ title: "Range Slider", details: "5 000₽ - 10 000₽", isIndented: true })
+        +slider({ values: [0, 30.4, 62.8, 100] })
     SECTION.button-elements__section
-      +form-section
-        +form-set({ title: "Buttons", isEmpty: true })
-          .form-set__elements-container
-            .form-set__group.form-set__group_inlined
-              .form-set__element.form-set__element_widen
-                +button({ caption: "click me", isWithArrow: false })
-              .form-set__element.form-set__element_inlined.form-set__element_indent-in_buttons-left.form-set__element_widen
-                +button({ caption: "click me", isWithArrow: false, isHovered: true })
-            .form-set__group.form-set__group_inlined.form-set__group_indent-in_buttons
-              .form-set__element.form-set__element_widen
-                +button({ caption: "click me", isWithArrow: false, isBorderOnly: true })
-              .form-set__element.form-set__element_inlined.form-set__element_indent-in_buttons-left.form-set__element_widen
-                +button({ caption: "click me", isWithArrow: false, isBorderOnly: true, isHovered: true })
-            .form-set__group.form-set__group_inlined.form-set__group_indent-in_buttons
-              .form-set__element
-                +button({ caption: "click me", isWithArrow: false, isTextOnly: true })
-              .form-set__element.form-set__element_inlined.form-set__element_indent-in_buttons-left
-                +button({ caption: "click me", isWithArrow: false, isTextOnly: true, isHovered: true })
-            .form-set__element.form-set__element_indent-in_buttons-top
-              +button({ caption: "перейти к оплате" })
+      +form-set({ title: "Buttons", isEmpty: true })
+        .form-set__elements-container
+          .form-set__group.form-set__group_inlined
+            .form-set__element.form-set__element_widen
+              +button({ caption: "click me", isWithArrow: false })
+            .form-set__element.form-set__element_inlined.form-set__element_indent-in_buttons-left.form-set__element_widen
+              +button({ caption: "click me", isWithArrow: false, isHovered: true })
+          .form-set__group.form-set__group_inlined.form-set__group_indent-in_buttons
+            .form-set__element.form-set__element_widen
+              +button({ caption: "click me", isWithArrow: false, isBorderOnly: true })
+            .form-set__element.form-set__element_inlined.form-set__element_indent-in_buttons-left.form-set__element_widen
+              +button({ caption: "click me", isWithArrow: false, isBorderOnly: true, isHovered: true })
+          .form-set__group.form-set__group_inlined.form-set__group_indent-in_buttons
+            .form-set__element
+              +button({ caption: "click me", isWithArrow: false, isTextOnly: true })
+            .form-set__element.form-set__element_inlined.form-set__element_indent-in_buttons-left
+              +button({ caption: "click me", isWithArrow: false, isTextOnly: true, isHovered: true })
+          .form-set__element.form-set__element_indent-in_buttons-top
+            +button({ caption: "перейти к оплате" })
     SECTION.button-elements__section
-      +form-section
-        +form-set({ title: "Pagination", isIndented: true })
-          +pagination({ lastPage: 15, description: "1 – 12 из 100+ вариантов аренды" })
+      +form-set({ title: "Pagination", isIndented: true })
+        +pagination({ lastPage: 15, description: "1 – 12 из 100+ вариантов аренды" })
     

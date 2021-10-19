@@ -1,4 +1,3 @@
-include ../../../../components/form-section/form-section.pug
 include ../../../../components/form-set/form-set.pug
 include ../../../../components/text-field/text-field.pug
 include ../../../../components/dropdown/dropdown.pug
@@ -9,35 +8,31 @@ include ../../../../components/subscription/subscription.pug
 mixin field-elements 
   .field-elements
     SECTION.field-elements__section.field-elements__section_first
-      +form-section
-        +form-set({ title: "Text Field", details: "Default" })
-          +text-field({ placeholder: "Email", type: "email" })
+      +form-set({ title: "Text Field", details: "Default" })
+        +text-field({ placeholder: "Email", type: "email" })
     SECTION.field-elements__section
-      +form-section
-        +form-set({ title: "Text Field", details: "Hover / Focus" })
-          +text-field({
-            placeholder: "This is pretty awesome",
-            isHovered: true,
-            isFocused: true,
-          })
+      +form-set({ title: "Text Field", details: "Hover / Focus" })
+        +text-field({
+          placeholder: "This is pretty awesome",
+          isHovered: true,
+          isFocused: true,
+        })
     SECTION.field-elements__section
-      +form-section
-        +form-set({ title: "Dropdown" })
-          +dropdown({
-            name: "guests-field",
-            list: [
-              { name: "Взрослые", category: "гость" },
-              { name: "Дети", category: "гость" },
-              { name: "Младенцы", category: "младенец" }
-            ],
-          })
+      +form-set({ title: "Dropdown" })
+        +dropdown({
+          name: "guests-field",
+          list: [
+            { name: "Взрослые", category: "гость" },
+            { name: "Дети", category: "гость" },
+            { name: "Младенцы", category: "младенец" }
+          ],
+        })
     SECTION.field-elements__section
-      +form-section
-        +form-set({ title: "Masked Text Field" })
-          +text-field({
-            placeholder: "ДД.ММ.ГГГГ",
-            isMasked: true,
-          })
+      +form-set({ title: "Masked Text Field" })
+        +text-field({
+          placeholder: "ДД.ММ.ГГГГ",
+          isMasked: true,
+        })
     SECTION.field-elements__section.field-elements__section_rarefied
       +date-section({
         name: "dates-fields",
@@ -45,21 +40,19 @@ mixin field-elements
         dateFromTitle: "Date dropdown",
         dateToTitle: "Date dropdown",
       })
-    SECTION.field-elements__section.field-elements__section_rarefied
-      +form-section({ isShortened: true })
-        +form-set({ title: "Filter Date Dropdown" })
-          +date-filter({
-            name: "dates-field",
-            dateFrom: "2019-08-19",
-            dateTo: "2019-08-23",
+    SECTION.field-elements__section.field-elements__section_rarefied.field-elements__section_short
+      +form-set({ title: "Filter Date Dropdown" })
+        +date-filter({
+          name: "dates-field",
+          dateFrom: "2019-08-19",
+          dateTo: "2019-08-23",
+        })
+    SECTION.field-elements__section.field-elements__section_rarefied.field-elements__section_short
+      +form-set({ title: "Subscription Text Field" })
+        +subscription
+          +text-field({
+            placeholder: "Email",
+            isDirected: true,
+            name: "email",
+            type: "email",
           })
-    SECTION.field-elements__section.field-elements__section_rarefied
-      +form-section({ isShortened: true })
-        +form-set({ title: "Subscription Text Field" })
-          +subscription
-            +text-field({
-              placeholder: "Email",
-              isDirected: true,
-              name: "email",
-              type: "email",
-            })

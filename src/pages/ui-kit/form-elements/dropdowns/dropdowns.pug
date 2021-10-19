@@ -1,4 +1,3 @@
-include ../../../../components/form-section/form-section.pug
 include ../../../../components/form-set/form-set.pug
 include ../../../../components/dropdown/dropdown.pug
 
@@ -6,55 +5,51 @@ mixin dropdowns(param)
   if (param === "full-set")
     .dropdowns
       SECTION.dropdowns__section.dropdowns__section_first.dropdowns__section_greedy_2
-        +form-section
-          +form-set({ title: "Dropdown" })
-            +dropdown({  
-              name: "guests-1",
-              isExpanded: true,
-              withControl: true,
-              list: [
-                { name: "взрослые", category: "гость" },
-                { name: "дети", category: "гость" },
-                { name: "младенцы", category: "младенец" }
-              ],
-            })
+        +form-set({ title: "Dropdown" })
+          +dropdown({  
+            name: "guests-1",
+            isExpanded: true,
+            withControl: true,
+            list: [
+              { name: "взрослые", category: "гость" },
+              { name: "дети", category: "гость" },
+              { name: "младенцы", category: "младенец" }
+            ],
+          })
   else if (param === "full-set-example")
     .dropdowns
       SECTION.dropdowns__section.dropdowns__section_first.dropdowns__section_greedy_2
-        +form-section
-          +form-set({ title: "Dropdown" })
-            +dropdown({  
-              name: "guests-2",
-              isExpanded: true,
-              withControl: true,
-              list: [
-                { name: "взрослые", count: 2, category: "гость" },
-                { name: "дети", count: 1, category: "гость" },
-                { name: "младенцы", category: "младенец"  }
-              ],
-            })
+        +form-set({ title: "Dropdown" })
+          +dropdown({  
+            name: "guests-2",
+            isExpanded: true,
+            withControl: true,
+            list: [
+              { name: "взрослые", count: 2, category: "гость" },
+              { name: "дети", count: 1, category: "гость" },
+              { name: "младенцы", category: "младенец"  }
+            ],
+          })
   else
     .dropdowns
-      SECTION.dropdowns__section.dropdowns__section_first
-        +form-section({ isShortened: true })
-          +form-set({ title: "Dropdown", details: "Default" })
-            +dropdown({ 
-              name: "amenities-1",
-              list: [
-                { name: "Спальни", count: 2, category: "спальня" },
-                { name: "Кровати", count: 2, category: "кровать" },
-                { name: "Ванные комнаты", category: "ванная" }
-              ],
-            })
-      SECTION.dropdowns__section.dropdowns__section_greedy_1
-        +form-section({ isShortened: true })
-          +form-set({ title: "Dropdown", details: "Expanded"  })
-            +dropdown({ 
-              name: "amenities-2",
-              isExpanded: true,
-              list: [
-                { name: "Спальни", count: 2, category: "спальня" },
-                { name: "Кровати", count: 2, category: "кровать" },
-                { name: "Ванные комнаты", category: "ванная" }
-              ],
-            })
+      SECTION.dropdowns__section.dropdowns__section_first.dropdowns__section_short
+        +form-set({ title: "Dropdown", details: "Default" })
+          +dropdown({ 
+            name: "amenities-1",
+            list: [
+              { name: "Спальни", count: 2, category: "спальня" },
+              { name: "Кровати", count: 2, category: "кровать" },
+              { name: "Ванные комнаты", category: "ванная" }
+            ],
+          })
+      SECTION.dropdowns__section.dropdowns__section_greedy_1.dropdowns__section_short
+        +form-set({ title: "Dropdown", details: "Expanded"  })
+          +dropdown({ 
+            name: "amenities-2",
+            isExpanded: true,
+            list: [
+              { name: "Спальни", count: 2, category: "спальня" },
+              { name: "Кровати", count: 2, category: "кровать" },
+              { name: "Ванные комнаты", category: "ванная" }
+            ],
+          })

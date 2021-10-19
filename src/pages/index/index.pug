@@ -3,47 +3,35 @@ extends ../../components/layout/layout
 block variables
   - const title = "TOXIN"
   - const description = "Верстка макета TOXIN по второму заданию FSD"
+  - const keywords = "toxin"
+  - const websitePages = [
+  -  [ "Landing page", "website/landing-page.html" ],
+  -  [ "Search room/Filter", "website/search-room.html" ],
+  -  [ "Room details", "website/room-details" ],
+  -  [ "Registration", "website/registration.html" ],
+  -  [ "Sign in", "website/sign-in.html" ],
+  -]
+  - const uiKitPages = [
+  -  [ "Colors & Type", "ui-kit/colors-and-type.html" ],
+  -  [ "Form Elements", "ui-kit/form-elements.html" ],
+  -  [ "Cards", "ui-kit/cards.html" ],
+  -  [ "Headers & Footers", "ui-kit/headers-and-footers.html" ],
+  -]
 
 block content
   .demo-menu
     UL.pages
       LI.pages__website= "Website Pages"
         UL.link-list
-          LI.link-list__item
-            A.page-link(
-              href="website/landing-page.html"
-            )="Landing page"
-          LI.link-list__item
-            A.page-link(
-              href="website/search-room.html"
-            )="Search room/Filter"
-          LI.link-list__item
-            A.page-link(
-              href="website/room-details.html"
-            )="Room details"
-          LI.link-list__item
-            A.page-link(
-              href="website/registration.html"
-            )="Registration"
-          LI.link-list__item
-            A.page-link(
-              href="website/sign-in.html"
-            )="Sign in"
+          each page in websitePages
+            LI.link-list__item
+              A.page-link(
+                href=page[1]
+              )=page[0]
       LI.pages__ui-kit= "UI-KIT"
         UL.link-list
-          LI.link-list__item
-            A.page-link(
-              href="ui-kit/colors-and-type.html"
-            )="Colors & Type"
-          LI.link-list__item
-            A.page-link(
-              href="ui-kit/form-elements.html"
-            )="Form Elements"
-          LI.link-list__item
-            A.page-link(
-              href="ui-kit/cards.html"
-            )="Cards"
-          LI.link-list__item
-            A.page-link(
-              href="ui-kit/headers-and-footers.html"
-            )="Headers & Footers"
+          each page in uiKitPages
+            LI.link-list__item
+              A.page-link(
+                href=page[1]
+              )=page[0]
