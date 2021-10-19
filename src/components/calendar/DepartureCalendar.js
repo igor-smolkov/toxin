@@ -1,4 +1,4 @@
-import Calendar from './Calendar';
+import Calendar from './calendar';
 
 class DepartureCalendar extends Calendar {
   update(dateFrom, dateTo) {
@@ -16,12 +16,11 @@ class DepartureCalendar extends Calendar {
     if (+date >= +this.dateFrom || !this.dateFrom) {
       this.dateActive = date;
       this.dateTo = date;
-      this.$clearButton.removeClass('button_none');
+      this._dropdownControl.showClearButton();
     }
   }
 
-  handleApplyButtonClick(e) {
-    e.preventDefault();
+  handleApplyButtonClick() {
     this.$pluginElem.datepicker('setDate', this.dateTo);
     this.notify(this.dateTo);
   }

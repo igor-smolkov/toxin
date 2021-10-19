@@ -1,17 +1,14 @@
 import $ from 'jquery';
 
+import DropdownControl from '../dropdown-control/dropdown-control';
 import Counter from '../counter/counter';
+import TextField from '../text-field/text-field';
 
 class Dropdown {
   constructor($elem) {
     this._$elem = $elem;
-    this._counters = this._initCounters();
-    this._$field = this._$elem.find('.text-field');
-    this._$clearButton = this._$elem.find('.dropdown-control__clear').find('.button');
-    this._$applyButton = this._$elem.find('.dropdown-control__apply').find('.button');
-    this._$dropper = this._$elem.find('.dropdown__check');
+    this._init();
     this._bindEventListeners();
-    if (this._counters.length) this._updateField();
   }
 
   static _makeWordFormStr(count, forms) {
@@ -27,6 +24,14 @@ class Dropdown {
     return '';
   }
 
+  _init() {
+    this._counters = this._initCounters();
+    this._field = new TextField(this._$elem);
+    this._dropdownControl = new DropdownControl(this._$elem);
+    this._$dropper = this._$elem.find('.dropdown__check');
+    if (this._counters.length) this._updateField();
+  }
+
   _initCounters() {
     const counters = [];
     this._$elem.find('.counter').each((_, counter) => {
@@ -35,8 +40,7 @@ class Dropdown {
     return counters;
   }
 
-  _handleClearButtonClick(e) {
-    e.preventDefault();
+  _handleClearButtonClick() {
     this._resetCounters();
     this._updateField();
   }
@@ -47,13 +51,12 @@ class Dropdown {
     });
   }
 
-  _handleApplyButtonClick(e) {
-    e.preventDefault();
+  _handleApplyButtonClick() {
     this._updateField();
   }
 
   _updateField() {
-    this._$field.val(this._makeFiledStr());
+    this._field.setValue(this._makeFiledStr());
   }
 
   _makeFiledStr() {
@@ -85,7 +88,7 @@ class Dropdown {
     });
     const isGuests = this._counters.find((counter) => counter.category === 'гость');
     if (!str) { str = isGuests ? 'Сколько гостей' : 'Сколько нужно'; }
-    if (str.length > 19 && !this._$applyButton[0]) { str = `${str.substr(0, 20)}...`; }
+    if (str.length > 19 && !this._dropdownControl.hasApplyButton()) { str = `${str.substr(0, 20)}...`; }
     return str;
   }
 
@@ -118,18 +121,18 @@ class Dropdown {
 
   _handleCheckClear() {
     if (this._calcCountersSum() > 0) {
-      this._$clearButton.removeClass('button_none');
+      this._dropdownControl.showClearButton();
     } else {
-      this._$clearButton.addClass('button_none');
+      this._dropdownControl.hideClearButton();
     }
-    if (!this._$applyButton[0] && this._counters.length) {
+    if (!this._dropdownControl.hasApplyButton() && this._counters.length) {
       this._updateField();
     }
   }
 
   _bindEventListeners() {
-    this._$clearButton.on('click', this._handleClearButtonClick.bind(this));
-    this._$applyButton.on('click', this._handleApplyButtonClick.bind(this));
+    this._dropdownControl.onClear(this._handleClearButtonClick.bind(this));
+    this._dropdownControl.onApply(this._handleApplyButtonClick.bind(this));
     this._$dropper.on('change', this._handleDrop.bind(this));
     this._$elem.on('click', this._handleCheckClear.bind(this));
   }

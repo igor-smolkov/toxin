@@ -1,6 +1,6 @@
 import $ from 'jquery';
 
-import Calendar from '@comp/calendar/Calendar';
+import Calendar from '@comp/calendar/calendar';
 
 import '../../../components/**/*.scss';
 import '../../../components/**/*.js';

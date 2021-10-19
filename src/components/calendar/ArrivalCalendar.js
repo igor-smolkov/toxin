@@ -1,4 +1,4 @@
-import Calendar from './Calendar';
+import Calendar from './calendar';
 
 class ArrivalCalendar extends Calendar {
   update(dateFrom, dateTo) {
@@ -16,12 +16,11 @@ class ArrivalCalendar extends Calendar {
     if (isReasonableToSelect) {
       this.dateActive = date;
       this.dateFrom = date;
-      this.$clearButton.removeClass('button_none');
+      this._dropdownControl.showClearButton();
     }
   }
 
-  handleApplyButtonClick(e) {
-    e.preventDefault();
+  handleApplyButtonClick() {
     this.$pluginElem.datepicker('setDate', this.dateFrom);
     this.notify(this.dateFrom);
   }

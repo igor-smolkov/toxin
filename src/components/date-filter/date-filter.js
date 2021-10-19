@@ -1,12 +1,13 @@
 import $ from 'jquery';
 
-import Calendar from '@comp/calendar/Calendar';
+import Calendar from '../calendar/calendar';
+import TextField from '../text-field/text-field';
 
 class DateFilter {
   constructor($elem) {
     this._$elem = $elem;
 
-    this._$field = this._$elem.find('.dropdown').find('.text-field');
+    this._field = new TextField(this._$elem.find('.dropdown'));
     this._calendar = new Calendar(this._$elem.find('.dropdown__panel').find('.calendar'));
 
     this.dateFrom = DateFilter._createDate(this._$elem.data().from);
@@ -30,12 +31,12 @@ class DateFilter {
 
   _updateField() {
     if (!this.dateFrom && !this.dateTo) {
-      this._$field.val('');
-      this._$field.attr('placeholder', 'Выберите диапазон дат...');
+      this._field.setValue('');
+      this._field.setPlaceholder('Выберите диапазон дат...');
       return;
     }
     const formattedDates = `${DateFilter._formatDateWithShortMonthName(this.dateFrom)} - ${DateFilter._formatDateWithShortMonthName(this.dateTo)}`;
-    this._$field.val(formattedDates);
+    this._field.setValue(formattedDates);
   }
 
   _handleApply(dateFrom, dateTo) {

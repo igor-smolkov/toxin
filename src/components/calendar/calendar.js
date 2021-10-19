@@ -2,12 +2,11 @@ import $ from 'jquery';
 import datepickerFactory from 'jquery-datepicker';
 import datepickerRUFactory from 'jquery-datepicker/i18n/jquery.ui.datepicker-ru';
 
+import DropdownControl from '../dropdown-control/dropdown-control';
+
 class Calendar {
   constructor($elem) {
     this._$elem = $elem;
-    this.$pluginElem = this._$elem.find('.calendar__plugin');
-    this.$clearButton = this._$elem.find('.dropdown-control__clear').find('.button');
-    this._$applyButton = this._$elem.find('.dropdown-control__apply').find('.button');
     this._init();
   }
 
@@ -47,7 +46,7 @@ class Calendar {
       this.dateTo = date;
     }
     this.dateActive = date;
-    this.$clearButton.removeClass('button_none');
+    this._dropdownControl.showClearButton();
   }
 
   update(dateFrom, dateTo) {
@@ -65,12 +64,12 @@ class Calendar {
     this._callback = callback;
   }
 
-  handleApplyButtonClick(e) {
-    e.preventDefault();
+  handleApplyButtonClick() {
     this.notify();
   }
 
   _init() {
+    this.$pluginElem = this._$elem.find('.calendar__plugin');
     this.dateFrom = this._$elem.data().from ? Calendar._createDate(this._$elem.data().from) : null;
     this.dateTo = this._$elem.data().to ? Calendar._createDate(this._$elem.data().to) : null;
     this.dateActive = this._$elem.data().active
@@ -80,8 +79,9 @@ class Calendar {
   }
 
   _initControlButtons() {
+    this._dropdownControl = new DropdownControl(this._$elem);
     if (this.dateFrom || this.dateTo) {
-      this.$clearButton.removeClass('button_none');
+      this._dropdownControl.showClearButton();
     }
     this._bindEventListeners();
   }
@@ -117,8 +117,7 @@ class Calendar {
     return [true, className];
   }
 
-  _handleClearButtonClick(e) {
-    e.preventDefault();
+  _handleClearButtonClick() {
     this.dateFrom = null;
     this.dateTo = null;
     this.dateActive = Calendar._createDate();
@@ -128,15 +127,15 @@ class Calendar {
 
   _updateClearButton() {
     if (!this.dateFrom && !this.dateTo) {
-      this.$clearButton.addClass('button_none');
+      this._dropdownControl.hideClearButton();
     } else {
-      this.$clearButton.removeClass('button_none');
+      this._dropdownControl.showClearButton();
     }
   }
 
   _bindEventListeners() {
-    this.$clearButton.on('click', this._handleClearButtonClick.bind(this));
-    this._$applyButton.on('click', this.handleApplyButtonClick.bind(this));
+    this._dropdownControl.onClear(this._handleClearButtonClick.bind(this));
+    this._dropdownControl.onApply(this.handleApplyButtonClick.bind(this));
   }
 }
 
