@@ -3,14 +3,7 @@ import $ from 'jquery';
 class Counter {
   constructor($elem) {
     this._$elem = $elem;
-    this.category = this._$elem.data().category;
-
-    this._$minusButton = this._findMinusButton();
-    this._$plusButton = this._findPlusButton();
-    this._$countField = this._findCountField();
-
-    this._count = +this._$countField.text();
-
+    this._init();
     this._listenControls();
   }
 
@@ -45,6 +38,14 @@ class Counter {
       this._$minusButton.removeClass('counter__button_disabled');
     }
     this._$minusButton.prop('disabled', isTrue);
+  }
+
+  _init() {
+    this.category = this._$elem.data().category;
+    this._$minusButton = this._findMinusButton();
+    this._$plusButton = this._findPlusButton();
+    this._$countField = this._findCountField();
+    this._count = +this._$countField.text();
   }
 
   _findMinusButton() {

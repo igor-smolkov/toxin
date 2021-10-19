@@ -3,13 +3,7 @@ import $ from 'jquery';
 class Preview {
   constructor($elem) {
     this._$elem = $elem;
-    this._selected = this._$elem.data().selected;
-    this._number = this._$elem.data().number;
-    this._imgs = Array.from(this._$elem.find('.preview__data').children()).map((option) => option.value);
-    this._$img = this._$elem.find('.preview__img');
-    this._$prevButton = this._$elem.find('.preview__arrow_prev');
-    this._$nextButton = this._$elem.find('.preview__arrow_next');
-    this._$pointsControl = this._$elem.find('.preview__points');
+    this._init();
     this._bindEventListeners();
   }
 
@@ -32,6 +26,16 @@ class Preview {
     if (value < 0 || value > this._imgs.length - 1) return;
     this._selected = value;
     this.update();
+  }
+
+  _init() {
+    this._selected = this._$elem.data().selected;
+    this._number = this._$elem.data().number;
+    this._imgs = Array.from(this._$elem.find('.preview__data').children()).map((option) => option.value);
+    this._$img = this._$elem.find('.preview__img');
+    this._$prevButton = this._$elem.find('.preview__arrow_prev');
+    this._$nextButton = this._$elem.find('.preview__arrow_next');
+    this._$pointsControl = this._$elem.find('.preview__points');
   }
 
   _handlePrevButtonClick(e) {

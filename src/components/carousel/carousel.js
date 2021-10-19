@@ -3,13 +3,7 @@ import $ from 'jquery';
 class Carousel {
   constructor($elem) {
     this._$elem = $elem;
-    this._className = 'carousel';
-    this._$currentSlide = this._findCurrentSlide();
-    this._$nextSlide = this._findNextSlide();
-    this._slideLinks = this._makeArrOfSlidesLinks();
-    this._delay = this._initDelay();
-    this._currentIndex = 0;
-    this.startFrom(this._currentIndex);
+    this._init();
   }
 
   startFrom(from) {
@@ -18,6 +12,16 @@ class Carousel {
     this._currentIndex = from;
     this._isAnimationEnd = true;
     this.timer = setTimeout(this._looping.bind(this), this._delay);
+  }
+
+  _init() {
+    this._className = 'carousel';
+    this._$currentSlide = this._findCurrentSlide();
+    this._$nextSlide = this._findNextSlide();
+    this._slideLinks = this._makeArrOfSlidesLinks();
+    this._delay = this._initDelay();
+    this._currentIndex = 0;
+    this.startFrom(this._currentIndex);
   }
 
   _looping() {

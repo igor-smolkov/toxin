@@ -6,15 +6,7 @@ import TextField from '../text-field/text-field';
 class DateFilter {
   constructor($elem) {
     this._$elem = $elem;
-
-    this._field = new TextField(this._$elem.find('.dropdown'));
-    this._calendar = new Calendar(this._$elem.find('.dropdown__panel').find('.calendar'));
-
-    this.dateFrom = DateFilter._createDate(this._$elem.data().from);
-    this.dateTo = DateFilter._createDate(this._$elem.data().to);
-    this._updateField();
-
-    this._calendar.listen((dateFrom, dateTo) => this._handleApply(dateFrom, dateTo));
+    this._init();
   }
 
   static _createDate(dateStr) {
@@ -27,6 +19,17 @@ class DateFilter {
     const day = date.getDate();
     const month = date.toLocaleString('default', { month: 'long' });
     return `${day} ${month.substr(0, 3)}`;
+  }
+
+  _init() {
+    this._field = new TextField(this._$elem.find('.dropdown'));
+    this._calendar = new Calendar(this._$elem.find('.dropdown__panel').find('.calendar'));
+
+    this.dateFrom = DateFilter._createDate(this._$elem.data().from);
+    this.dateTo = DateFilter._createDate(this._$elem.data().to);
+    this._updateField();
+
+    this._calendar.listen((dateFrom, dateTo) => this._handleApply(dateFrom, dateTo));
   }
 
   _updateField() {
