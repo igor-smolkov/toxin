@@ -1,27 +1,6 @@
 @import '/assets/colors.scss';
 @import '/assets/types.scss';
 
-.field-submit {
-  // display: block;
-  position: relative;
-  &__button {
-    @include icon-type;
-    position: absolute;
-    min-width: 44px;
-    min-height: 44px;
-    right: 0;
-    background-color: transparent;
-    color: $color-purple;
-    cursor: pointer;
-  }
-  &__button_hover,
-  &__button:hover,
-  &__button:focus {
-    color: $color-purple-end;
-    outline: none;
-  }
-}
-
 .text-field {
   max-width: 100%;
   min-width: 133px;
