@@ -12,8 +12,7 @@ mixin extra-list(options = {})
         class=(index===0) ? `${blockName}__item_first` :""
         class=(index===items.length-1) ? `${blockName}__item_last` :""
       )
-        DIV(class=`${blockName}__content`)
-          P(class=`${blockName}__title`)=item.title
-          P(class=`${blockName}__details`)=item.details
-          I(class=`${blockName}__icon`)=item.icon
+        P(class=`${blockName}__title`)=item.title
+        P(class=`${blockName}__details`)=item.details
+        I(class=`${blockName}__icon`)=item.icon
 

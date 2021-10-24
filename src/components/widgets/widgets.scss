@@ -27,6 +27,13 @@
   &__widget {
     margin-left: 40px;
     margin-top: 40px;
+    @media only screen and (max-width : 900px) {
+      margin-left: 0;
+      margin-right: 40px;
+    }
+    @media only screen and (max-width : 375px) {
+      margin-right: 0;
+    }
   }
   @media only screen and (max-width : 900px) {
     padding: 40px 140px;

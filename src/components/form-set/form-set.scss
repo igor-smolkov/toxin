@@ -16,7 +16,8 @@ $block: 'form-set';
   }
   &__details {
     float: right;
-    @include text('mod_details');
+    font-weight: normal;
+    color: $color-50per;
   }
   &__description {
     margin-top: 8px;

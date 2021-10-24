@@ -44,10 +44,6 @@
   @if $mod == 'rare_more' {
     line-height: 1.75;
   }
-  @if $mod == 'mod_details' {
-    font-weight: normal;
-    color: $color-50per;
-  }
 }
 
 @mixin icon-type {
