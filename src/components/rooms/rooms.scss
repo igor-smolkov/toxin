@@ -4,16 +4,11 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    margin-left: -12px;
-
-    margin-top: 0.5px;
-  }
-  &__number {
-    margin-top: 20px;
-    margin-left: 12px;
+    gap: 20px 12px;
+    margin-top: 20.5px;
   }
   &__pagination {
-    max-width: fit-content;
+    max-width: min-content;
     margin: auto;
     margin-top: 41px;
   }
