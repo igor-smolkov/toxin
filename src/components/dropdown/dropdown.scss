@@ -25,7 +25,6 @@ $block: 'dropdown';
     }
   }
   &__expand-more {
-    @include icon-type;
     position: absolute;
     min-width: 42px;
     min-height: 42px;
@@ -33,6 +32,7 @@ $block: 'dropdown';
     cursor: pointer;
     &::before {
       content: 'expand_more';
+      @include icon-type;
       position: absolute;
       min-width: 42px;
       min-height: 42px;
