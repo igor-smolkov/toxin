@@ -35,4 +35,5 @@ mixin text-field(options)
     class=(options.isMasked || options.type === "date") ? `${blockName}_masked` : ""
     class=options.withBorder ? "" : `${blockName}_border_none`
     class=options.withRightSpace ? `${blockName}_with-right-space` : ""
+    required
   )

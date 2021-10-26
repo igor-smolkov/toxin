@@ -1,14 +1,8 @@
-$indent-top: 10px;
-$indent-left: 20px;
-
 .date-section {
   display: flex;
   flex-wrap: wrap;
-  margin-left: -$indent-left;
-  margin-top: -$indent-top;
+  gap: 10px 20px;
   &__set {
-    flex: 1 1 90px;
-    margin-top: $indent-top;
-    margin-left: $indent-left;
+    flex-grow: 1;
   }
 }

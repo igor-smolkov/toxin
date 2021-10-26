@@ -35,11 +35,16 @@
   }
 
   &_masked:invalid {
-    background-color: $color-5per;
+    color: $color-50per;
   }
 
   &::-webkit-calendar-picker-indicator {
     display: none;
+  }
+  &[type=date] {
+    padding: 9px 12px 11px;
+    text-transform: uppercase;
+    font-size: 0.97857rem;
   }
   &::-webkit-datetime-edit {
     padding: 0;

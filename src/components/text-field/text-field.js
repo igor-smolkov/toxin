@@ -21,12 +21,17 @@ class TextField {
     this._inputSubscribers.push(callback);
   }
 
+  static _handleClick(e) {
+    e.preventDefault();
+  }
+
   _init() {
     this._inputSubscribers = [];
   }
 
   _bindEventListeners() {
     this._$elem.on('input', this._handleInput.bind(this));
+    this._$elem.on('click', TextField._handleClick);
   }
 
   _handleInput() {
