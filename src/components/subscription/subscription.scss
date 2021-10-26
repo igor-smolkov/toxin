@@ -2,7 +2,6 @@
 @import '/assets/types.scss';
 
 .subscription {
-  // display: block;
   position: relative;
   &__button {
     @include icon-type;
@@ -10,7 +9,6 @@
     min-width: 44px;
     min-height: 44px;
     right: 0;
-    background-color: transparent;
     cursor: pointer;
     background: linear-gradient(180deg, $color-purple 0%, $color-purple-end 100%);
     -webkit-background-clip: text;

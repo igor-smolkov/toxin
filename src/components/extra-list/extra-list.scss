@@ -24,12 +24,6 @@ $block: 'extra-list';
       border-bottom: none;
     }
   }
-  &__content {
-    width: fit-content;
-    position: relative;
-    
-    border-bottom: 1px solid $color-10per;
-  }
   &__title {
     font-weight: bold;
   }
