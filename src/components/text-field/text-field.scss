@@ -70,4 +70,8 @@
   &_with-right-space {
     padding-right: 34px;
   }
+
+  &:read-only {
+    cursor: default;
+  }
 }
