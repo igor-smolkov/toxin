@@ -29,6 +29,8 @@ class DateSection {
     this._departureDropdownControl.onApply(this._closeDepartureCalendarDropdown.bind(this));
     this._arrivalCalendar.listen((date) => this._handleArrivalApply(date));
     this._departureCalendar.listen((date) => this._handleDepartureApply(date));
+    document.addEventListener('click', this._handleDocClick.bind(this));
+    document.addEventListener('keydown', this._handleDocKeyDown.bind(this));
   }
 
   _handleInput() {
@@ -64,6 +66,20 @@ class DateSection {
 
   _closeDepartureCalendarDropdown() {
     $(this._$elem.find('.date-section__set')[1]).find('.dropdown__check').prop('checked', false);
+  }
+
+  _close() {
+    this._closeArrivalCalendarDropdown();
+    this._closeDepartureCalendarDropdown();
+  }
+
+  _handleDocClick(e) {
+    const isOutOfDateSection = !this._$elem.is(e.target) && this._$elem.has(e.target).length === 0;
+    if (isOutOfDateSection) this._close();
+  }
+
+  _handleDocKeyDown(e) {
+    if (e.key === 'Escape') this._close();
   }
 }
 

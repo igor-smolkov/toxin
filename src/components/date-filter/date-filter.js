@@ -29,7 +29,7 @@ class DateFilter {
     this.dateTo = DateFilter._createDate(this._$elem.data().to);
     this._updateField();
 
-    this._calendar.listen((dateFrom, dateTo) => this._handleApply(dateFrom, dateTo));
+    this._bindEventListeners();
   }
 
   _updateField() {
@@ -46,6 +46,25 @@ class DateFilter {
     this.dateFrom = dateFrom;
     this.dateTo = dateTo;
     this._updateField();
+  }
+
+  _bindEventListeners() {
+    this._calendar.listen((dateFrom, dateTo) => this._handleApply(dateFrom, dateTo));
+    document.addEventListener('click', this._handleDocClick.bind(this));
+    document.addEventListener('keydown', this._handleDocKeyDown.bind(this));
+  }
+
+  _closeCalendarDropdown() {
+    this._$elem.find('.dropdown__check').prop('checked', false);
+  }
+
+  _handleDocClick(e) {
+    const isOutOfDateFilter = !this._$elem.is(e.target) && this._$elem.has(e.target).length === 0;
+    if (isOutOfDateFilter) this._closeCalendarDropdown();
+  }
+
+  _handleDocKeyDown(e) {
+    if (e.key === 'Escape') this._closeCalendarDropdown();
   }
 }
 

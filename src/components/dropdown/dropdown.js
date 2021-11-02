@@ -29,6 +29,7 @@ class Dropdown {
     this._field = new TextField(this._$elem);
     this._dropdownControl = new DropdownControl(this._$elem);
     this._$dropper = this._$elem.find('.dropdown__check');
+    this._isDropped = this._$dropper.is(':checked');
     if (this._counters.length) this._updateField();
   }
 
@@ -111,12 +112,21 @@ class Dropdown {
     return this._counters.reduce((sum, counter) => sum + counter.getCount(), 0);
   }
 
+  _show() {
+    this._isDropped = true;
+    this._$dropper.prop('checked', true);
+    this._$elem.addClass('dropdown_expanded');
+  }
+
+  _hide() {
+    this._isDropped = false;
+    this._$dropper.prop('checked', false);
+    this._$elem.removeClass('dropdown_expanded');
+  }
+
   _handleDrop(e) {
-    if (e.target.checked) {
-      this._$elem.addClass('dropdown_expanded');
-    } else {
-      this._$elem.removeClass('dropdown_expanded');
-    }
+    if (e.target.checked) this._show();
+    else this._hide();
   }
 
   _handleCheckClear() {
@@ -130,11 +140,22 @@ class Dropdown {
     }
   }
 
+  _handleDocClick(e) {
+    const isOutOfDropdown = !this._$elem.is(e.target) && this._$elem.has(e.target).length === 0;
+    if (isOutOfDropdown && this._isDropped) this._hide();
+  }
+
+  _handleDocKeyDown(e) {
+    if (e.key === 'Escape' && this._isDropped) this._hide();
+  }
+
   _bindEventListeners() {
     this._dropdownControl.onClear(this._handleClearButtonClick.bind(this));
     this._dropdownControl.onApply(this._handleApplyButtonClick.bind(this));
     this._$dropper.on('change', this._handleDrop.bind(this));
     this._$elem.on('click', this._handleCheckClear.bind(this));
+    document.addEventListener('click', this._handleDocClick.bind(this));
+    document.addEventListener('keydown', this._handleDocKeyDown.bind(this));
   }
 }
 

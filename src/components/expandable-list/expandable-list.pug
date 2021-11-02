@@ -11,6 +11,7 @@ mixin expandable-list(options = {})
   - const list = options.list ? options.list : []
   DIV(
     class=blockName
+    class=`js-${blockName}`
     class=options.withChecks ? `${blockName}_with-checks` : ""
   )
     INPUT(
