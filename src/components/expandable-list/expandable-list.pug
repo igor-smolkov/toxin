@@ -1,5 +1,6 @@
 include ../form-set/form-set.pug
 include ../check-button/check-button.pug
+include ../link/link.pug
 
 //- 
   options.isExpanded
@@ -36,4 +37,5 @@ mixin expandable-list(options = {})
         class=`${blockName}__list_customary`
       )
         each item in list
-          LI(class=`${blockName}__item`)=item
+          LI(class=`${blockName}__item`)
+            +link(item)

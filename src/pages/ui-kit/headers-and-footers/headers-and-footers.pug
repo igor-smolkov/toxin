@@ -21,10 +21,30 @@ block content
           +menu({
             navLinks: [
               { link: "/change-link", text: "О нас", isHovered: true },
-              { link: "/change-link", text: "Услуги", isDropdown: true, list: ['Элемент 1', 'Элемент 2', 'Элемент 3'], name: "services-1" },
+              { 
+                link: "/change-link", 
+                text: "Услуги", 
+                isDropdown: true, 
+                list: [
+                  { link: "/change-link", text: 'Прачечная' }, 
+                  { link: "/change-link", text: 'Трансфер' }, 
+                  { link: "/change-link", text: 'Триумф' },
+                ], 
+                name: "services-1" 
+              },
               { link: "/change-link", text: "Вакансии" },
               { link: "/change-link", text: "Новости" },
-              { link: "/change-link", text: "Соглашения", isDropdown: true, list: ['Элемент 1', 'Элемент 2', 'Элемент 3'], name: "agreements-1" },
+              { 
+                link: "/change-link", 
+                text: "Соглашения", 
+                isDropdown: true, 
+                list: [
+                  { link: "/change-link", text: 'Бронирование' }, 
+                  { link: "/change-link", text: 'Wi-Fi' }, 
+                  { link: "/change-link", text: 'Разоружение' },
+                ], 
+                name: "agreements-1" 
+              },
             ]
           })
       ARTICLE.headers-and-footers__unit
@@ -32,10 +52,30 @@ block content
           +menu({
             navLinks: [
               { link: "/change-link", text: "О нас", isHovered: true },
-              { link: "/change-link", text: "Услуги", isDropdown: true, list: ['Элемент 1', 'Элемент 2', 'Элемент 3'], name: "services-2" },
+              { 
+                link: "/change-link", 
+                text: "Услуги", 
+                isDropdown: true, 
+                list: [
+                  { link: "/change-link", text: 'Прачечная' }, 
+                  { link: "/change-link", text: 'Трансфер' }, 
+                  { link: "/change-link", text: 'Триумф' },
+                ],
+                name: "services-2" 
+              },
               { link: "/change-link", text: "Вакансии" },
               { link: "/change-link", text: "Новости" },
-              { link: "/change-link", text: "Соглашения", isDropdown: true, list: ['Элемент 1', 'Элемент 2', 'Элемент 3'], name: "agreements-2" },
+              { 
+                link: "/change-link", 
+                text: "Соглашения", 
+                isDropdown: true, 
+                list: [
+                  { link: "/change-link", text: 'Бронирование' }, 
+                  { link: "/change-link", text: 'Wi-Fi' }, 
+                  { link: "/change-link", text: 'Разоружение' },
+                ], 
+                name: "agreements-2"
+              },
             ],
             user: { link: "/change-link", text: "Юлий Цезарь" }
           })

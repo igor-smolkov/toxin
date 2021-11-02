@@ -1,5 +1,4 @@
-include ../expandable-list/expandable-list.pug
-include ../link/link.pug
+include ../nav-link/nav-link.pug
 
 //- 
   options.isHead
@@ -20,6 +19,4 @@ mixin nav-links(options = {})
         class=item.isDropdown ? `${blockName}__item_dropdown` : ""
         class=(index === 0) ? `${blockName}__item_first` : ""
       )
-        +link(item)
-        if item.isDropdown
-          +expandable-list({ list: item.list, name: item.name })
+        +nav-link(item)
