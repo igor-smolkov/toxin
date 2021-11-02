@@ -3,9 +3,10 @@
 
 mixin logo(options = {})
   - const blockName = "logo"
-  DIV(
+  A(
     class=blockName
     class=options.isSimplified ? `${blockName}_simplified` : ""
+    href="/website/landing-page.html"
   )
     DIV(class=`${blockName}__pic`)
     if (!options.isSimplified)
