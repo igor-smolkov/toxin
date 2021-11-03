@@ -14,7 +14,10 @@ include ../date-section/date-section.pug
 
 mixin card-form(options = {})
   - const blockName = "card-form"
-  FORM(class=blockName)
+  FORM(
+    class=blockName
+    class=`js-${blockName}`
+  )
     case options.for
       when "wishes"
         +card-form-wishes-content(blockName, options.options)

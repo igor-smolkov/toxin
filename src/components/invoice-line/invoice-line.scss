@@ -12,6 +12,7 @@
     justify-content: space-between;
     @include text('rare_less');
     &_with-line {
+      max-width: 100%;
       overflow: hidden;
       &::after {
         content: '';

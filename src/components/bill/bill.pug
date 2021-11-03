@@ -8,7 +8,10 @@ mixin bill(options = {})
   - const blockName = "bill"
   - const list = options.list ? options.list : []
 
-  DIV(class=blockName)
+  DIV(
+    class=blockName
+    class=`js-${blockName}`
+  )
     UL(class=`${blockName}__list`)
       each item, index in list
         LI(

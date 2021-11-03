@@ -10,6 +10,22 @@ class DateSection {
     this._init();
   }
 
+  on(callback) {
+    this._subscribers.add(callback);
+  }
+
+  getDaysLength() {
+    const dateFromStr = this._arrivalField.getValue();
+    const dateToStr = this._departureField.getValue();
+    if (!dateFromStr || !dateToStr) return 0;
+    const dateFrom = Calendar._createDate(dateFromStr);
+    const dateTo = Calendar._createDate(dateToStr);
+    if (dateTo < dateFrom) return 0;
+    const diff = dateTo - dateFrom;
+    if (!diff) return 0;
+    return diff / 1000 / 60 / 60 / 24;
+  }
+
   _init() {
     this._arrivalField = new TextField($(this._$elem.find('.date-section__set')[0]));
     this._departureField = new TextField($(this._$elem.find('.date-section__set')[1]));
@@ -17,6 +33,7 @@ class DateSection {
     this._departureDropdownControl = new DropdownControl($(this._$elem.find('.date-section__set')[1]));
     this._arrivalCalendar = new Calendar($(this._$elem.find('.date-section__set')[0]).find('.calendar'));
     this._departureCalendar = new Calendar($(this._$elem.find('.date-section__set')[1]).find('.calendar'));
+    this._subscribers = new Set();
     this._updateCalendars();
     this._listen();
   }
@@ -52,6 +69,7 @@ class DateSection {
   _updateCalendars() {
     this._arrivalCalendar.update(this._arrivalField.getValue(), this._departureField.getValue());
     this._departureCalendar.update(this._arrivalField.getValue(), this._departureField.getValue());
+    this._notify();
   }
 
   _closeCalendars() {
@@ -70,6 +88,11 @@ class DateSection {
   _handleDocKeyDown(e) {
     if (e.key === 'Escape') this._closeCalendars();
   }
+
+  _notify() {
+    if (this._subscribers.size === 0) return;
+    this._subscribers.forEach((s) => s());
+  }
 }
 
-$('.js-date-section').each((_, elem) => new DateSection($(elem)));
+export default DateSection;
