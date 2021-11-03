@@ -30,28 +30,26 @@ class Calendar {
 
   handleSelect(dateDMYDot) {
     const date = Calendar.createDateFromDMYDot(dateDMYDot);
-    if (+this.dateActive === +date) {
-      if (!this.dateFrom && !this.dateTo) {
-        this.dateFrom = this.dateActive;
-      } else {
-        const midDateValue = +this.dateFrom + ((+this.dateTo - +this.dateFrom) / 2);
-        this.dateFrom = +date <= midDateValue ? date : this.dateFrom;
-        this.dateTo = +date >= midDateValue ? date : this.dateTo;
+    if (this.dateFrom && this.dateTo) this._clear();
+    if (!this.dateFrom) {
+      this.dateFrom = date;
+    } else {
+      this.dateTo = date;
+      if (+this.dateTo < +this.dateFrom) {
+        [this.dateFrom, this.dateTo] = [this.dateTo, this.dateFrom];
       }
     }
-    if (+this.dateActive === +this.dateFrom && +date < +this.dateTo) {
-      this.dateFrom = date;
-    }
-    if (+this.dateActive === +this.dateTo && +date > +this.dateFrom) {
-      this.dateTo = date;
-    }
     this.dateActive = date;
-    this._dropdownControl.showClearButton();
+    this.$pluginElem.datepicker('setDate', date);
+    this.notify();
   }
 
   update(dateFrom, dateTo) {
     this.dateFrom = dateFrom ? Calendar._createDate(dateFrom) : null;
     this.dateTo = dateTo ? Calendar._createDate(dateTo) : null;
+    this.dateActive = this.dateFrom ?? this.dateTo;
+    if (this.dateFrom) this.$pluginElem.datepicker('setDate', this.dateFrom);
+    if (this.dateTo) this.$pluginElem.datepicker('setDate', this.dateTo);
     this._updateClearButton();
   }
 
@@ -62,10 +60,6 @@ class Calendar {
 
   listen(callback) {
     this._callback = callback;
-  }
-
-  handleApplyButtonClick() {
-    this.notify();
   }
 
   _init() {
@@ -117,7 +111,7 @@ class Calendar {
     return [true, className];
   }
 
-  _handleClearButtonClick() {
+  _clear() {
     this.dateFrom = null;
     this.dateTo = null;
     this.dateActive = Calendar._createDate();
@@ -134,8 +128,7 @@ class Calendar {
   }
 
   _bindEventListeners() {
-    this._dropdownControl.onClear(this._handleClearButtonClick.bind(this));
-    this._dropdownControl.onApply(this.handleApplyButtonClick.bind(this));
+    this._dropdownControl.onClear(this._clear.bind(this));
   }
 }
 

@@ -1,6 +1,7 @@
 import $ from 'jquery';
 
 import Calendar from '../calendar/calendar';
+import DropdownControl from '../dropdown-control/dropdown-control';
 import TextField from '../text-field/text-field';
 
 class DateFilter {
@@ -24,9 +25,14 @@ class DateFilter {
   _init() {
     this._field = new TextField(this._$elem.find('.dropdown'));
     this._calendar = new Calendar(this._$elem.find('.dropdown__panel').find('.calendar'));
+    this._dropdownControl = new DropdownControl(this._$elem.find('.dropdown'));
 
     this.dateFrom = DateFilter._createDate(this._$elem.data().from);
     this.dateTo = DateFilter._createDate(this._$elem.data().to);
+    this._calendar.update(
+      this.dateFrom ? Calendar.convertDateToYMDHyphen(this.dateFrom) : null,
+      this.dateTo ? Calendar.convertDateToYMDHyphen(this.dateTo) : null,
+    );
     this._updateField();
 
     this._bindEventListeners();
@@ -38,33 +44,39 @@ class DateFilter {
       this._field.setPlaceholder('Выберите диапазон дат...');
       return;
     }
-    const formattedDates = `${DateFilter._formatDateWithShortMonthName(this.dateFrom)} - ${DateFilter._formatDateWithShortMonthName(this.dateTo)}`;
+    let formattedDates;
+    if (!this.dateFrom || !this.dateTo) formattedDates = `${DateFilter._formatDateWithShortMonthName(this.dateFrom ?? this.dateTo)}`;
+    else formattedDates = `${DateFilter._formatDateWithShortMonthName(this.dateFrom)} - ${DateFilter._formatDateWithShortMonthName(this.dateTo)}`;
     this._field.setValue(formattedDates);
   }
 
-  _handleApply(dateFrom, dateTo) {
+  _handleCalendarChange(dateFrom, dateTo) {
     this.dateFrom = dateFrom;
     this.dateTo = dateTo;
     this._updateField();
   }
 
   _bindEventListeners() {
-    this._calendar.listen((dateFrom, dateTo) => this._handleApply(dateFrom, dateTo));
+    this._calendar.listen(this._handleCalendarChange.bind(this));
+    this._dropdownControl.onApply(this._closeCalendar.bind(this));
     document.addEventListener('click', this._handleDocClick.bind(this));
     document.addEventListener('keydown', this._handleDocKeyDown.bind(this));
   }
 
-  _closeCalendarDropdown() {
+  _closeCalendar() {
     this._$elem.find('.dropdown__check').prop('checked', false);
   }
 
   _handleDocClick(e) {
-    const isOutOfDateFilter = !this._$elem.is(e.target) && this._$elem.has(e.target).length === 0;
-    if (isOutOfDateFilter) this._closeCalendarDropdown();
+    const isOutOfDateFilter = !this._$elem.is(e.target)
+      && this._$elem.has(e.target).length === 0
+      && e.target.innerText !== '<Пред'
+      && e.target.innerText !== 'След>';
+    if (isOutOfDateFilter) this._closeCalendar();
   }
 
   _handleDocKeyDown(e) {
-    if (e.key === 'Escape') this._closeCalendarDropdown();
+    if (e.key === 'Escape') this._closeCalendar();
   }
 }
 

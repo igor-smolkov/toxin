@@ -1,7 +1,6 @@
 import $ from 'jquery';
 
-import ArrivalCalendar from '../calendar/ArrivalCalendar';
-import DepartureCalendar from '../calendar/DepartureCalendar';
+import Calendar from '../calendar/calendar';
 import DropdownControl from '../dropdown-control/dropdown-control';
 import TextField from '../text-field/text-field';
 
@@ -16,8 +15,8 @@ class DateSection {
     this._departureField = new TextField($(this._$elem.find('.date-section__set')[1]));
     this._arrivalDropdownControl = new DropdownControl($(this._$elem.find('.date-section__set')[0]));
     this._departureDropdownControl = new DropdownControl($(this._$elem.find('.date-section__set')[1]));
-    this._arrivalCalendar = new ArrivalCalendar($(this._$elem.find('.date-section__set')[0]).find('.calendar'));
-    this._departureCalendar = new DepartureCalendar($(this._$elem.find('.date-section__set')[1]).find('.calendar'));
+    this._arrivalCalendar = new Calendar($(this._$elem.find('.date-section__set')[0]).find('.calendar'));
+    this._departureCalendar = new Calendar($(this._$elem.find('.date-section__set')[1]).find('.calendar'));
     this._updateCalendars();
     this._listen();
   }
@@ -25,10 +24,10 @@ class DateSection {
   _listen() {
     this._arrivalField.onInput(this._handleInput.bind(this));
     this._departureField.onInput(this._handleInput.bind(this));
-    this._arrivalDropdownControl.onApply(this._closeArrivalCalendarDropdown.bind(this));
-    this._departureDropdownControl.onApply(this._closeDepartureCalendarDropdown.bind(this));
-    this._arrivalCalendar.listen((date) => this._handleArrivalApply(date));
-    this._departureCalendar.listen((date) => this._handleDepartureApply(date));
+    this._arrivalDropdownControl.onApply(this._closeCalendars.bind(this));
+    this._departureDropdownControl.onApply(this._closeCalendars.bind(this));
+    this._arrivalCalendar.listen(this._handleCalendarChange.bind(this));
+    this._departureCalendar.listen(this._handleCalendarChange.bind(this));
     document.addEventListener('click', this._handleDocClick.bind(this));
     document.addEventListener('keydown', this._handleDocKeyDown.bind(this));
   }
@@ -37,15 +36,10 @@ class DateSection {
     this._updateCalendars();
   }
 
-  _handleArrivalApply(date) {
-    if (!date) this._handleClear();
-    this._arrivalField.setValue(date);
-    this._updateCalendars();
-  }
-
-  _handleDepartureApply(date) {
-    if (!date) this._handleClear();
-    this._departureField.setValue(date);
+  _handleCalendarChange(dateFrom, dateTo) {
+    if (!dateFrom && !dateTo) this._handleClear();
+    if (dateFrom) this._arrivalField.setValue(Calendar.convertDateToYMDHyphen(dateFrom));
+    if (dateTo) this._departureField.setValue(Calendar.convertDateToYMDHyphen(dateTo));
     this._updateCalendars();
   }
 
@@ -60,26 +54,21 @@ class DateSection {
     this._departureCalendar.update(this._arrivalField.getValue(), this._departureField.getValue());
   }
 
-  _closeArrivalCalendarDropdown() {
+  _closeCalendars() {
     $(this._$elem.find('.date-section__set')[0]).find('.dropdown__check').prop('checked', false);
-  }
-
-  _closeDepartureCalendarDropdown() {
     $(this._$elem.find('.date-section__set')[1]).find('.dropdown__check').prop('checked', false);
   }
 
-  _close() {
-    this._closeArrivalCalendarDropdown();
-    this._closeDepartureCalendarDropdown();
-  }
-
   _handleDocClick(e) {
-    const isOutOfDateSection = !this._$elem.is(e.target) && this._$elem.has(e.target).length === 0;
-    if (isOutOfDateSection) this._close();
+    const isOutOfDateSection = !this._$elem.is(e.target)
+      && this._$elem.has(e.target).length === 0
+      && e.target.innerText !== '<Пред'
+      && e.target.innerText !== 'След>';
+    if (isOutOfDateSection) this._closeCalendars();
   }
 
   _handleDocKeyDown(e) {
-    if (e.key === 'Escape') this._close();
+    if (e.key === 'Escape') this._closeCalendars();
   }
 }
 
