@@ -53,7 +53,7 @@ class Dropdown {
   }
 
   _handleApplyButtonClick() {
-    this._updateField();
+    this._hide();
   }
 
   _updateField() {
@@ -130,14 +130,9 @@ class Dropdown {
   }
 
   _handleCheckClear() {
-    if (this._calcCountersSum() > 0) {
-      this._dropdownControl.showClearButton();
-    } else {
-      this._dropdownControl.hideClearButton();
-    }
-    if (!this._dropdownControl.hasApplyButton() && this._counters.length) {
-      this._updateField();
-    }
+    if (this._calcCountersSum() > 0) this._dropdownControl.showClearButton();
+    else this._dropdownControl.hideClearButton();
+    if (this._counters.length) this._updateField();
   }
 
   _handleDocClick(e) {
