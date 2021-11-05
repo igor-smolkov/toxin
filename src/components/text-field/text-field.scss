@@ -35,10 +35,6 @@
     padding-right: 40px;
   }
 
-  &_masked:invalid {
-    color: $color-50per;
-  }
-
   &::-webkit-calendar-picker-indicator {
     display: none;
   }
@@ -56,6 +52,20 @@
     font-size: 0.97857rem;
     &-text {
       letter-spacing: -1px;
+    }
+  }
+  &_masked {
+    &:invalid {
+      color: $color-25per;
+      &::-webkit-datetime-edit {
+        color: $color-25per;
+      }
+    }
+    &:focus {
+      color: $color-75per;
+      &::-webkit-datetime-edit {
+        color: $color-75per;
+      }
     }
   }
 
