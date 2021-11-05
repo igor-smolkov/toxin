@@ -28,6 +28,7 @@ $instagram-icon: url('data:image/svg+xml,%3Csvg width="22" height="22" viewBox="
     &_instagram {
       background-image: $instagram-icon;
     }
+    &:hover,
     &:focus {
       transform: scale(1.2);
       transition: all 0.1s ease-out;
