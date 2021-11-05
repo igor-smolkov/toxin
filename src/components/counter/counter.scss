@@ -24,6 +24,7 @@ $block: 'counter';
     &_disabled,
     &:disabled {
       opacity: 0.5;
+      cursor: default;
     }
     &_hovered,
     &:hover,
