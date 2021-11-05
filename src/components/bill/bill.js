@@ -9,14 +9,7 @@ class Bill {
   }
 
   static _makePriceFromNumber(number) {
-    const str = number.toString();
-    let price = '';
-    let j = 1;
-    for (let i = str.length - 1; i >= 0; i -= 1) {
-      price = j % 3 === 0 ? ` ${str[i]}${price}` : str[i] + price;
-      j += 1;
-    }
-    return `${price}₽`;
+    return `${number.toLocaleString('ru')}₽`;
   }
 
   static _chooseWordEnd(number) {

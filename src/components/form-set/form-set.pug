@@ -13,12 +13,18 @@
 mixin form-set(options = {})
   - const blockName = "form-set"
 
-  FIELDSET(class=blockName)
+  FIELDSET(
+    class=blockName
+    class=`js-${blockName}`
+  )
     if options.title 
       LEGEND(class=`${blockName}__legend`)
         H3(class=`${blockName}__title`)=options.title
           if options.details
-            SPAN(class=`${blockName}__details`)=options.details
+            SPAN(
+              class=`${blockName}__details`
+              class=`js-${blockName}__details`
+            )=options.details
     if options.isEmpty 
       block 
     else if options.isGrouped

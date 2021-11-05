@@ -49,7 +49,7 @@ mixin filter(options = {})
         description: "Стоимость за сутки пребывания в номере",
         isIndented: true
       })
-        +slider({ values: [0, 30.4, 62.5, 100] })
+        +slider({ values: [0, options.priceRange[0], options.priceRange[1], 16000] })
     SECTION(class=`${blockName}__section`)
       +form-set({ title: "Правила дома", isGrouped: true })
         each item, index in options.ruleChecks
