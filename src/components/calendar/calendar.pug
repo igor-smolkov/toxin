@@ -5,12 +5,14 @@ mixin calendar(options = {})
   
   DIV(
     class=blockName
+    class=`js-${blockName}`
     data-from=options.from
     data-to=options.to
     data-active=options.active
   )
     DIV(
       class=`${blockName}__plugin`
+      class=`js-${blockName}__plugin`
     )
     DIV(class=`${blockName}__control`)
       +dropdown-control({ isClear: (options.to || options.from || options.active) ? false : true })

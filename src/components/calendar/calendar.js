@@ -50,6 +50,7 @@ class Calendar {
     this.dateActive = this.dateFrom ?? this.dateTo;
     if (this.dateFrom) this.$pluginElem.datepicker('setDate', this.dateFrom);
     if (this.dateTo) this.$pluginElem.datepicker('setDate', this.dateTo);
+    if (!this.dateActive) this.$pluginElem.datepicker('setDate', null);
     this._updateClearButton();
   }
 
@@ -63,7 +64,7 @@ class Calendar {
   }
 
   _init() {
-    this.$pluginElem = this._$elem.find('.calendar__plugin');
+    this.$pluginElem = this._$elem.find('.js-calendar__plugin');
     this.dateFrom = this._$elem.data().from ? Calendar._createDate(this._$elem.data().from) : null;
     this.dateTo = this._$elem.data().to ? Calendar._createDate(this._$elem.data().to) : null;
     this.dateActive = this._$elem.data().active

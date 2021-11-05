@@ -27,12 +27,13 @@ mixin dropdown(options = {})
 
   DIV(
     class=blockName
-    class=options.list ? `js-${blockName}` : ""
+    class=`js-${blockName}`
     class=options.isExpanded ? `${blockName}_expanded` : ""
   )
     +text-field(fieldOptions)
     INPUT(
       class=`${blockName}__check`
+      class=`js-${blockName}__check`
       id=`${blockName}-${options.name}-check`
       type="checkbox"
       checked=options.isExpanded ? true : false

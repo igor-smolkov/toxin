@@ -27,12 +27,12 @@ class DateSection {
   }
 
   _init() {
-    this._arrivalField = new TextField($(this._$elem.find('.date-section__set')[0]));
-    this._departureField = new TextField($(this._$elem.find('.date-section__set')[1]));
-    this._arrivalDropdownControl = new DropdownControl($(this._$elem.find('.date-section__set')[0]));
-    this._departureDropdownControl = new DropdownControl($(this._$elem.find('.date-section__set')[1]));
-    this._arrivalCalendar = new Calendar($(this._$elem.find('.date-section__set')[0]).find('.calendar'));
-    this._departureCalendar = new Calendar($(this._$elem.find('.date-section__set')[1]).find('.calendar'));
+    this._arrivalField = new TextField($(this._$elem.find('.js-date-section__set')[0]));
+    this._departureField = new TextField($(this._$elem.find('.js-date-section__set')[1]));
+    this._arrivalDropdownControl = new DropdownControl($(this._$elem.find('.js-date-section__set')[0]));
+    this._departureDropdownControl = new DropdownControl($(this._$elem.find('.js-date-section__set')[1]));
+    this._arrivalCalendar = new Calendar($(this._$elem.find('.js-date-section__set')[0]).find('.js-calendar'));
+    this._departureCalendar = new Calendar($(this._$elem.find('.js-date-section__set')[1]).find('.js-calendar'));
     this._subscribers = new Set();
     this._updateCalendars();
     this._listen();
@@ -73,8 +73,8 @@ class DateSection {
   }
 
   _closeCalendars() {
-    $(this._$elem.find('.date-section__set')[0]).find('.dropdown__check').prop('checked', false);
-    $(this._$elem.find('.date-section__set')[1]).find('.dropdown__check').prop('checked', false);
+    $(this._$elem.find('.js-date-section__set')[0]).find('.js-dropdown__check').prop('checked', false);
+    $(this._$elem.find('.js-date-section__set')[1]).find('.js-dropdown__check').prop('checked', false);
   }
 
   _handleDocClick(e) {

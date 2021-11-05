@@ -7,15 +7,24 @@ mixin dropdown-control(options = {})
   - const blockName = "dropdown-control"
   - const isClear = options.isClear === false ? false : true
 
-  DIV(class=blockName)
-    DIV(class=`${blockName}__clear`)
+  DIV(
+    class=blockName
+    class=`js-${blockName}`
+  )
+    DIV(
+      class=`${blockName}__clear`
+      class=`js-${blockName}__clear`
+    )
       +button({
         caption: "Очистить", 
         isWithArrow: false, 
         isTextOnly: true,
         isNone: isClear,
       })
-    DIV(class=`${blockName}__apply`)
+    DIV(
+      class=`${blockName}__apply`
+      class=`js-${blockName}__apply`
+    )
       +button({
         caption: "Применить", 
         isWithArrow: false, 

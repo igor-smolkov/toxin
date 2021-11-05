@@ -17,6 +17,7 @@ mixin expandable-list(options = {})
   )
     INPUT(
       class=`${blockName}__check`
+      class=`js-${blockName}__check`
       id=`${blockName}-${options.name}-check`
       type="checkbox"
       checked=options.isExpanded ? true : false

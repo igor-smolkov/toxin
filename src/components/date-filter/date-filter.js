@@ -23,9 +23,9 @@ class DateFilter {
   }
 
   _init() {
-    this._field = new TextField(this._$elem.find('.dropdown'));
-    this._calendar = new Calendar(this._$elem.find('.dropdown__panel').find('.calendar'));
-    this._dropdownControl = new DropdownControl(this._$elem.find('.dropdown'));
+    this._field = new TextField(this._$elem.find('.js-dropdown'));
+    this._calendar = new Calendar(this._$elem.find('.js-calendar'));
+    this._dropdownControl = new DropdownControl(this._$elem.find('.js-dropdown'));
 
     this.dateFrom = DateFilter._createDate(this._$elem.data().from);
     this.dateTo = DateFilter._createDate(this._$elem.data().to);
@@ -64,7 +64,7 @@ class DateFilter {
   }
 
   _closeCalendar() {
-    this._$elem.find('.dropdown__check').prop('checked', false);
+    this._$elem.find('.js-dropdown__check').prop('checked', false);
   }
 
   _handleDocClick(e) {

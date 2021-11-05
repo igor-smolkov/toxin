@@ -1,6 +1,6 @@
 class Button {
   constructor($elem) {
-    this._$elem = $elem.find('.button');
+    this._$elem = $elem.find('.js-button');
     this._init();
     this._bindEventListeners();
   }

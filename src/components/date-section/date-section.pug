@@ -21,6 +21,7 @@ mixin date-section(options = {})
   )
     DIV(
       class=`${blockName}__set`
+      class=`js-${blockName}__set`
       class=`${blockName}__set_first`
     )
       +form-set({ title: options.dateFromTitle ? options.dateFromTitle : "Прибытие" })
@@ -36,7 +37,10 @@ mixin date-section(options = {})
               to: options.dateTo ? options.dateTo : "",
               active: options.calendarArrivalDateActivate ? options.calendarArrivalDateActivate : "",
             })
-    DIV(class=`${blockName}__set`)
+    DIV(
+      class=`${blockName}__set`
+      class=`js-${blockName}__set`
+    )
       +form-set({ title: options.dateToTitle ? options.dateToTitle : "Выезд" })
         +dropdown({ 
           name: `${options.name}-departure`,

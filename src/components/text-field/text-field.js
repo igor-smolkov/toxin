@@ -1,6 +1,6 @@
 class TextField {
   constructor($elem) {
-    this._$elem = $elem.find('.text-field');
+    this._$elem = $elem.find('.js-text-field');
     this._init();
     this._bindEventListeners();
   }

@@ -7,7 +7,7 @@ class NavLink {
   }
 
   _init() {
-    this._$expandableCheck = this._$elem.find('.expandable-list__check');
+    this._$expandableCheck = this._$elem.find('.js-expandable-list__check');
     this._isDropped = this._$expandableCheck.is(':checked');
     this._bindEventListeners();
   }

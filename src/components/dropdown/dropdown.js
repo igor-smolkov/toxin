@@ -8,7 +8,6 @@ class Dropdown {
   constructor($elem) {
     this._$elem = $elem;
     this._init();
-    this._bindEventListeners();
   }
 
   static _makeWordFormStr(count, forms) {
@@ -26,16 +25,18 @@ class Dropdown {
 
   _init() {
     this._counters = this._initCounters();
+    if (!this._counters.length) return;
     this._field = new TextField(this._$elem);
     this._dropdownControl = new DropdownControl(this._$elem);
-    this._$dropper = this._$elem.find('.dropdown__check');
+    this._$dropper = this._$elem.find('.js-dropdown__check');
     this._isDropped = this._$dropper.is(':checked');
-    if (this._counters.length) this._updateField();
+    this._updateField();
+    this._bindEventListeners();
   }
 
   _initCounters() {
     const counters = [];
-    this._$elem.find('.counter').each((_, counter) => {
+    this._$elem.find('.js-counter').each((_, counter) => {
       counters.push(new Counter($(counter)));
     });
     return counters;
