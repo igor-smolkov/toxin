@@ -27,7 +27,8 @@ mixin room(options = {})
             main: { 
               prefix: "№", 
               content: options.number, 
-              postfix: options.isLux ? "Люкс" : ""
+              postfix: options.isLux ? "Люкс" : "",
+              link: "room-details.html"
             },
             details: { 
               first: `${options.price.toLocaleString("ru")}₽`, 

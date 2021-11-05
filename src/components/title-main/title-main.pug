@@ -3,11 +3,15 @@
   options.content
   options.postfix
   options.isShiftedPostfix
+  options.link
 
 mixin title-main(options = {})
   - const blockName = "title-main"
 
-  SPAN(class=blockName)
+  A(
+    class=blockName
+    href=options.link
+  )
     if options.prefix
       SPAN(class=`${blockName}__prefix`)=options.prefix
     SPAN(class=`${blockName}__content`)=options.content

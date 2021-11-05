@@ -2,6 +2,7 @@
 @import '/assets/types.scss';
 
 .title-main {
+  @include h2-type;
   &__prefix {
     @include base-h-type;
   }
@@ -18,5 +19,12 @@
       left: -7px;
       bottom: -1px;
     }
+  }
+  &:hover *,
+  &:focus * {
+    color: $color-purple;
+  }
+  &:focus {
+    outline: none;
   }
 }
