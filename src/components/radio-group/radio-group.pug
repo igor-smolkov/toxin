@@ -6,7 +6,11 @@ mixin radio-group(options = {})
   - const blockName = "radio-group"
   - const set = ("options" in options) ? options.options : []
 
-  DIV(class=blockName)
+  DIV(
+    class=blockName
+    class=`js-${blockName}`
+    tabindex = "0"
+  )
     each option, index in set
       LABEL(
         class=`${blockName}__option`
@@ -14,6 +18,7 @@ mixin radio-group(options = {})
       )
         INPUT(
           class=`${blockName}__box`
+          class=`js-${blockName}__box`
           type="radio"
           name=options.name
           value=option.value ? option.value : index
