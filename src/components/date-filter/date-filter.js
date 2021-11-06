@@ -11,9 +11,10 @@ class DateFilter {
   }
 
   static _createDate(dateStr) {
+    const defaultTimePostfix = 'T00:00:00';
     return dateStr
-      ? new Date(`${dateStr}T00:00:00`)
-      : new Date(`${new Date().toISOString().substr(0, 10)}T00:00:00`);
+      ? new Date(`${dateStr}${defaultTimePostfix}`)
+      : new Date(`${new Date().toISOString().substr(0, 10)}${defaultTimePostfix}`);
   }
 
   static _formatDateWithShortMonthName(date) {

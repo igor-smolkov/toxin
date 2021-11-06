@@ -19,27 +19,27 @@ class Calendar {
 
   static createDateFromDMYDot(dateDMYDot) {
     const [day, month, year] = dateDMYDot.split('.');
-    return new Date(`${[year, month, day].join('-')}T00:00:00`);
+    return new Date(`${[year, month, day].join('-')}${Calendar._defaultTimePostfix()}`);
   }
 
   static _createDate(date) {
     return date
-      ? new Date(`${date}T00:00:00`)
-      : new Date(`${new Date().toISOString().substr(0, 10)}T00:00:00`);
+      ? new Date(`${date}${Calendar._defaultTimePostfix()}`)
+      : new Date(`${new Date().toISOString().substr(0, 10)}${Calendar._defaultTimePostfix()}`);
+  }
+
+  static _defaultTimePostfix() {
+    return 'T00:00:00';
   }
 
   handleSelect(dateDMYDot) {
     const date = Calendar.createDateFromDMYDot(dateDMYDot);
     const isBothDates = this.dateFrom && this.dateTo;
     if (isBothDates) this._clear();
-    if (!this.dateFrom) {
-      this.dateFrom = date;
-    } else {
-      this.dateTo = date;
-      if (+this.dateTo < +this.dateFrom) {
-        [this.dateFrom, this.dateTo] = [this.dateTo, this.dateFrom];
-      }
-    }
+    if (!this.dateFrom) this.dateFrom = date;
+    else this.dateTo = date;
+    const isReverse = this.dateFrom && this.dateTo && +this.dateTo < +this.dateFrom;
+    if (isReverse) [this.dateFrom, this.dateTo] = [this.dateTo, this.dateFrom];
     this.dateActive = date;
     this.$pluginElem.datepicker('setDate', date);
     this.notify();

@@ -11,18 +11,23 @@ class Dropdown {
   }
 
   static _makeWordFormStr(count, forms) {
-    if (count > 10) {
-      const lastTwoDigits = +count.toString().substring(count.toString().length - 2);
-      const isSecondTen = lastTwoDigits > 10 && lastTwoDigits <= 19;
-      if (isSecondTen) return `${count} ${forms[2]}`;
-    }
     const lastDigit = +count.toString()[count.toString().length - 1];
-    if (lastDigit === 1) return `${count} ${forms[0]}`;
-    const isTwoToFour = lastDigit > 1 && lastDigit <= 4;
-    if (isTwoToFour) return `${count} ${forms[1]}`;
-    const isGenitive = (lastDigit > 4 && lastDigit <= 9) || lastDigit === 0;
-    if (isGenitive) return `${count} ${forms[2]}`;
-    return '';
+    const nominativeBreak = 1;
+    const quantitativeBreak = 4;
+    const secondTenStart = 11;
+    const secondTenEnd = 19;
+    const isSecondTen = (count >= secondTenStart)
+      && (+Dropdown._getLastTwoDigits(count) >= secondTenStart)
+      && (+Dropdown._getLastTwoDigits(count) <= secondTenEnd);
+    const isGenitivePlural = (lastDigit > quantitativeBreak) || lastDigit === 0 || isSecondTen;
+    if (isGenitivePlural) return `${count} ${forms[2]}`;
+    const isGenitiveSingular = lastDigit > nominativeBreak && lastDigit <= quantitativeBreak;
+    if (isGenitiveSingular) return `${count} ${forms[1]}`;
+    return `${count} ${forms[0]}`;
+  }
+
+  static _getLastTwoDigits(number) {
+    return number.toString().substring(number.toString().length - 2);
   }
 
   _init() {
