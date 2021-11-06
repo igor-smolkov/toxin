@@ -16,7 +16,8 @@ class CardForm {
     if (this._$dateSection[0]) this.dateSection = new DateSection(this._$dateSection);
     if (this._$bill[0]) this.bill = new Bill(this._$bill);
 
-    if (this.dateSection && this.bill) this._bindRoomBookingListeners();
+    const isRoomBookingForm = this.dateSection && this.bill;
+    if (isRoomBookingForm) this._bindRoomBookingListeners();
   }
 
   _bindRoomBookingListeners() {

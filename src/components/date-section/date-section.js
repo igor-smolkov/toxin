@@ -17,7 +17,8 @@ class DateSection {
   getDaysLength() {
     const dateFromStr = this._arrivalField.getValue();
     const dateToStr = this._departureField.getValue();
-    if (!dateFromStr || !dateToStr) return 0;
+    const isWithoutDate = !dateFromStr || !dateToStr;
+    if (isWithoutDate) return 0;
     const dateFrom = Calendar._createDate(dateFromStr);
     const dateTo = Calendar._createDate(dateToStr);
     if (dateTo < dateFrom) return 0;
@@ -54,7 +55,8 @@ class DateSection {
   }
 
   _handleCalendarChange(dateFrom, dateTo) {
-    if (!dateFrom && !dateTo) this._handleClear();
+    const isClear = !dateFrom && !dateTo;
+    if (isClear) this._handleClear();
     if (dateFrom) this._arrivalField.setValue(Calendar.convertDateToYMDHyphen(dateFrom));
     if (dateTo) this._departureField.setValue(Calendar.convertDateToYMDHyphen(dateTo));
     this._updateCalendars();

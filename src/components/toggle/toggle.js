@@ -20,7 +20,8 @@ class Toggle {
   }
 
   _handleKeyDown(e) {
-    if (e.key !== 'Tab' && e.key !== ' ') e.preventDefault();
+    const isCustomControls = e.key !== 'Tab' && e.key !== ' ';
+    if (isCustomControls) e.preventDefault();
     if (e.key === 'Enter') this._toggle();
   }
 }

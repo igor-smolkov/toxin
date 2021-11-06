@@ -39,13 +39,15 @@ class DateFilter {
   }
 
   _updateField() {
-    if (!this.dateFrom && !this.dateTo) {
+    const isClear = !this.dateFrom && !this.dateTo;
+    if (isClear) {
       this._field.setValue('');
       this._field.setPlaceholder('Выберите диапазон дат...');
       return;
     }
     let formattedDates;
-    if (!this.dateFrom || !this.dateTo) formattedDates = `${DateFilter._formatDateWithShortMonthName(this.dateFrom ?? this.dateTo)}`;
+    const isOneDate = !this.dateFrom || !this.dateTo;
+    if (isOneDate) formattedDates = `${DateFilter._formatDateWithShortMonthName(this.dateFrom ?? this.dateTo)}`;
     else formattedDates = `${DateFilter._formatDateWithShortMonthName(this.dateFrom)} - ${DateFilter._formatDateWithShortMonthName(this.dateTo)}`;
     this._field.setValue(formattedDates);
   }

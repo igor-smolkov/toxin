@@ -30,7 +30,8 @@ class Calendar {
 
   handleSelect(dateDMYDot) {
     const date = Calendar.createDateFromDMYDot(dateDMYDot);
-    if (this.dateFrom && this.dateTo) this._clear();
+    const isBothDates = this.dateFrom && this.dateTo;
+    if (isBothDates) this._clear();
     if (!this.dateFrom) {
       this.dateFrom = date;
     } else {
@@ -75,9 +76,8 @@ class Calendar {
 
   _initControlButtons() {
     this._dropdownControl = new DropdownControl(this._$elem);
-    if (this.dateFrom || this.dateTo) {
-      this._dropdownControl.showClearButton();
-    }
+    const isOneOfDates = this.dateFrom || this.dateTo;
+    if (isOneOfDates) this._dropdownControl.showClearButton();
     this._bindEventListeners();
   }
 
@@ -100,7 +100,8 @@ class Calendar {
     if (+date === +this.dateActive) {
       className += 'ui-datepicker-active';
     }
-    if (+date >= +this.dateFrom && +date <= +this.dateTo) {
+    const isBetweenDates = +date >= +this.dateFrom && +date <= +this.dateTo;
+    if (isBetweenDates) {
       className += ' ui-datepicker-period';
     }
     if (+date === +this.dateFrom) {
@@ -121,11 +122,9 @@ class Calendar {
   }
 
   _updateClearButton() {
-    if (!this.dateFrom && !this.dateTo) {
-      this._dropdownControl.hideClearButton();
-    } else {
-      this._dropdownControl.showClearButton();
-    }
+    const isClear = !this.dateFrom && !this.dateTo;
+    if (isClear) this._dropdownControl.hideClearButton();
+    else this._dropdownControl.showClearButton();
   }
 
   _bindEventListeners() {

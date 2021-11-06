@@ -21,11 +21,13 @@ class ExpandableList {
 
   _handleDocClick(e) {
     const isOutOfList = !this._$elem.is(e.target) && this._$elem.has(e.target).length === 0;
-    if (isOutOfList && this._isDropped()) this._close();
+    const isNeedToClose = isOutOfList && this._isDropped();
+    if (isNeedToClose) this._close();
   }
 
   _handleDocKeyDown(e) {
-    if (e.key === 'Escape' && this._isDropped()) this._close();
+    const isNeedToClose = e.key === 'Escape' && this._isDropped();
+    if (isNeedToClose) this._close();
   }
 
   _bindEventListeners() {

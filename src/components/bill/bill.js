@@ -14,9 +14,9 @@ class Bill {
 
   static _chooseWordEnd(number) {
     const str = number.toString();
-    const isEndInOne = str[str.length - 1] === '1'
-      && (str.length < 2 ? str.substr(str.length - 2) !== '11' : true);
-    return isEndInOne ? 'ки' : 'ок';
+    const isEndOnEleven = str.length > 1 ? str.substr(str.length - 2) === '11' : false;
+    const isEndOnOne = str[str.length - 1] === '1' && !isEndOnEleven;
+    return isEndOnOne ? 'ки' : 'ок';
   }
 
   calc(daysLength) {

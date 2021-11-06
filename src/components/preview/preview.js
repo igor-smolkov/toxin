@@ -23,7 +23,8 @@ class Preview {
   }
 
   setSelected(value) {
-    if (value < 0 || value > this._imgs.length - 1) return;
+    const isInvalid = value < 0 || value > this._imgs.length - 1;
+    if (isInvalid) return;
     this._selected = value;
     this.update();
   }

@@ -13,11 +13,13 @@ class Dropdown {
   static _makeWordFormStr(count, forms) {
     if (count > 10) {
       const lastTwoDigits = +count.toString().substring(count.toString().length - 2);
-      if (lastTwoDigits > 10 && lastTwoDigits <= 19) return `${count} ${forms[2]}`;
+      const isSecondTen = lastTwoDigits > 10 && lastTwoDigits <= 19;
+      if (isSecondTen) return `${count} ${forms[2]}`;
     }
     const lastDigit = +count.toString()[count.toString().length - 1];
     if (lastDigit === 1) return `${count} ${forms[0]}`;
-    if (lastDigit > 1 && lastDigit <= 4) return `${count} ${forms[1]}`;
+    const isTwoToFour = lastDigit > 1 && lastDigit <= 4;
+    if (isTwoToFour) return `${count} ${forms[1]}`;
     const isGenitive = (lastDigit > 4 && lastDigit <= 9) || lastDigit === 0;
     if (isGenitive) return `${count} ${forms[2]}`;
     return '';
@@ -90,7 +92,8 @@ class Dropdown {
     });
     const isGuests = this._counters.find((counter) => counter.category === 'гость');
     if (!str) { str = isGuests ? 'Сколько гостей' : 'Сколько нужно'; }
-    if (str.length > 19 && !this._dropdownControl.hasApplyButton()) { str = `${str.substr(0, 20)}...`; }
+    const isClipping = str.length > 19 && !this._dropdownControl.hasApplyButton();
+    if (isClipping) { str = `${str.substr(0, 20)}...`; }
     return str;
   }
 
@@ -138,11 +141,13 @@ class Dropdown {
 
   _handleDocClick(e) {
     const isOutOfDropdown = !this._$elem.is(e.target) && this._$elem.has(e.target).length === 0;
-    if (isOutOfDropdown && this._isDropped) this._hide();
+    const isNeedToClose = isOutOfDropdown && this._isDropped;
+    if (isNeedToClose) this._hide();
   }
 
   _handleDocKeyDown(e) {
-    if (e.key === 'Escape' && this._isDropped) this._hide();
+    const isNeedToClose = e.key === 'Escape' && this._isDropped;
+    if (isNeedToClose) this._hide();
   }
 
   _bindEventListeners() {
