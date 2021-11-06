@@ -30,7 +30,17 @@ class ExpandableList {
     if (isNeedToClose) this._close();
   }
 
+  _handleDropperKey(e) {
+    const isCustomControls = e.key !== 'Tab' && e.key !== ' ';
+    if (isCustomControls) e.preventDefault();
+    const isNeedToShow = e.key === 'Enter' && !this._isDropped();
+    const isNeedToClose = e.key === 'Enter' && this._isDropped();
+    if (isNeedToShow) this._$check.prop('checked', true);
+    if (isNeedToClose) this._close();
+  }
+
   _bindEventListeners() {
+    this._$check.on('keydown', this._handleDropperKey.bind(this));
     document.addEventListener('click', this._handleDocClick.bind(this));
     document.addEventListener('keydown', this._handleDocKeyDown.bind(this));
   }

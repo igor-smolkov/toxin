@@ -8,6 +8,7 @@ mixin like-button(options = {})
   - const blockName = "like-button"
   LABEL(
     class=blockName
+    class=`js-${blockName}`
     class=options.isChecked ? `${blockName}_checked` : ""
   )
     INPUT(
@@ -21,6 +22,7 @@ mixin like-button(options = {})
     )
     SPAN(
       class=`${blockName}__label`
+      class=`js-${blockName}__label`
       class=options.isChecked ? `${blockName}__label_checked` : ""
     )=options.label ? options.label : options.value
     SPAN(class=`${blockName}__icon`)

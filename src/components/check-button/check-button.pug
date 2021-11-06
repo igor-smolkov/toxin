@@ -9,6 +9,7 @@ mixin check-button(options = {})
   - const blockName = "check-button"
   LABEL(
     class=blockName
+    class=`js-${blockName}`
     class=options.isChecked ? `${blockName}_checked` : ""
     class=options.details ? `${blockName}_rich` : ""
   )

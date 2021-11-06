@@ -155,10 +155,20 @@ class Dropdown {
     if (isNeedToClose) this._hide();
   }
 
+  _handleDropperKey(e) {
+    const isCustomControls = e.key !== 'Tab' && e.key !== ' ';
+    if (isCustomControls) e.preventDefault();
+    const isNeedToShow = e.key === 'Enter' && !this._isDropped;
+    const isNeedToClose = e.key === 'Enter' && this._isDropped;
+    if (isNeedToShow) this._show();
+    if (isNeedToClose) this._hide();
+  }
+
   _bindEventListeners() {
     this._dropdownControl.onClear(this._handleClearButtonClick.bind(this));
     this._dropdownControl.onApply(this._handleApplyButtonClick.bind(this));
     this._$dropper.on('change', this._handleDrop.bind(this));
+    this._$dropper.on('keydown', this._handleDropperKey.bind(this));
     this._$elem.on('click', this._handleCheckClear.bind(this));
     document.addEventListener('click', this._handleDocClick.bind(this));
     document.addEventListener('keydown', this._handleDocKeyDown.bind(this));

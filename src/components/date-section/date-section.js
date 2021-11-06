@@ -34,6 +34,8 @@ class DateSection {
     this._departureDropdownControl = new DropdownControl($(this._$elem.find('.js-date-section__set')[1]));
     this._arrivalCalendar = new Calendar($(this._$elem.find('.js-date-section__set')[0]).find('.js-calendar'));
     this._departureCalendar = new Calendar($(this._$elem.find('.js-date-section__set')[1]).find('.js-calendar'));
+    this._$arrivalDropper = $(this._$elem.find('.js-date-section__set')[0]).find('.js-dropdown__check');
+    this._$departureDropper = $(this._$elem.find('.js-date-section__set')[1]).find('.js-dropdown__check');
     this._subscribers = new Set();
     this._updateCalendars();
     this._listen();
@@ -46,6 +48,8 @@ class DateSection {
     this._departureDropdownControl.onApply(this._closeCalendars.bind(this));
     this._arrivalCalendar.listen(this._handleCalendarChange.bind(this));
     this._departureCalendar.listen(this._handleCalendarChange.bind(this));
+    this._$arrivalDropper.on('keydown', this._handleArrivalDropperKey.bind(this));
+    this._$departureDropper.on('keydown', this._handleDepartureDropperKey.bind(this));
     document.addEventListener('click', this._handleDocClick.bind(this));
     document.addEventListener('keydown', this._handleDocKeyDown.bind(this));
   }
@@ -75,8 +79,26 @@ class DateSection {
   }
 
   _closeCalendars() {
-    $(this._$elem.find('.js-date-section__set')[0]).find('.js-dropdown__check').prop('checked', false);
-    $(this._$elem.find('.js-date-section__set')[1]).find('.js-dropdown__check').prop('checked', false);
+    this._$arrivalDropper.prop('checked', false);
+    this._$departureDropper.prop('checked', false);
+  }
+
+  _handleArrivalDropperKey(e) {
+    const isCustomControls = e.key !== 'Tab' && e.key !== ' ';
+    if (isCustomControls) e.preventDefault();
+    const isNeedToShow = e.key === 'Enter' && !this._$arrivalDropper.is(':checked');
+    const isNeedToClose = e.key === 'Enter' && this._$arrivalDropper.is(':checked');
+    if (isNeedToShow) this._$arrivalDropper.prop('checked', true);
+    if (isNeedToClose) this._closeCalendars();
+  }
+
+  _handleDepartureDropperKey(e) {
+    const isCustomControls = e.key !== 'Tab' && e.key !== ' ';
+    if (isCustomControls) e.preventDefault();
+    const isNeedToShow = e.key === 'Enter' && !this._$departureDropper.is(':checked');
+    const isNeedToClose = e.key === 'Enter' && this._$departureDropper.is(':checked');
+    if (isNeedToShow) this._$departureDropper.prop('checked', true);
+    if (isNeedToClose) this._closeCalendars();
   }
 
   _handleDocClick(e) {

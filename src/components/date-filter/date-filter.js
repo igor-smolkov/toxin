@@ -24,6 +24,7 @@ class DateFilter {
   }
 
   _init() {
+    this._$dropper = this._$elem.find('.js-dropdown__check');
     this._field = new TextField(this._$elem.find('.js-dropdown'));
     this._calendar = new Calendar(this._$elem.find('.js-calendar'));
     this._dropdownControl = new DropdownControl(this._$elem.find('.js-dropdown'));
@@ -62,12 +63,22 @@ class DateFilter {
   _bindEventListeners() {
     this._calendar.listen(this._handleCalendarChange.bind(this));
     this._dropdownControl.onApply(this._closeCalendar.bind(this));
+    this._$dropper.on('keydown', this._handleDropperKey.bind(this));
     document.addEventListener('click', this._handleDocClick.bind(this));
     document.addEventListener('keydown', this._handleDocKeyDown.bind(this));
   }
 
   _closeCalendar() {
-    this._$elem.find('.js-dropdown__check').prop('checked', false);
+    this._$dropper.prop('checked', false);
+  }
+
+  _handleDropperKey(e) {
+    const isCustomControls = e.key !== 'Tab' && e.key !== ' ';
+    if (isCustomControls) e.preventDefault();
+    const isNeedToShow = e.key === 'Enter' && !this._$dropper.is(':checked');
+    const isNeedToClose = e.key === 'Enter' && this._$dropper.is(':checked');
+    if (isNeedToShow) this._$dropper.prop('checked', true);
+    if (isNeedToClose) this._closeCalendar();
   }
 
   _handleDocClick(e) {
