@@ -62,7 +62,7 @@ mixin card-form-wishes-content(blockName, options = {})
     class=`${blockName}__section`
     class=`${blockName}__section_last`
   )
-    +button({ caption: "Подобрать номер", type: "submit" })
+    +button({ caption: "Подобрать номер", type: "submit", withArrow: true })
 
 //- 
 
@@ -106,7 +106,7 @@ mixin card-form-check-in-content(blockName)
     class=`${blockName}__section`
     class=`${blockName}__section_rare_more`
   )
-    +button({ caption: "Зарегистрироваться", type: "submit" })
+    +button({ caption: "Зарегистрироваться", type: "submit", withArrow: true })
   SECTION(
     class=`${blockName}__section`
     class=`${blockName}__section_last`
@@ -115,7 +115,7 @@ mixin card-form-check-in-content(blockName)
       .form-set__element.form-set__element_align-mid.form-set__element_increased
         DIV(class=`${blockName}__question`)="Уже есть аккаунт на Toxin"
       .form-set__element.form-set__element_indent_left
-        +button({ caption: "Войти", isWithArrow: false, isBorderOnly: true, link: "sign-in.html" })
+        +button({ caption: "Войти", isBorderOnly: true, link: "sign-in.html" })
 
 //- 
 
@@ -151,7 +151,7 @@ mixin card-form-room-content(blockName)
       total: "38 081₽",
     })
   SECTION(class=`${blockName}__section`)
-    +button({ caption: "Забронировать", type: "submit" })
+    +button({ caption: "Забронировать", type: "submit", withArrow: true })
 
 //- 
 
@@ -166,7 +166,7 @@ mixin card-form-log-in-content(blockName)
       .form-set__element.form-set__element_indent-mid
         +text-field({ name: "password", placeholder: "Пароль", type: "password" })
   SECTION(class=`${blockName}__section`)
-    +button({ caption: "Войти", type: "submit" })
+    +button({ caption: "Войти", type: "submit", withArrow: true })
   SECTION(
     class=`${blockName}__section`
     class=`${blockName}__section_last`
@@ -175,7 +175,7 @@ mixin card-form-log-in-content(blockName)
       .form-set__element.form-set__element_align-mid.form-set__element_increased
         DIV(class=`${blockName}__question`)="Нет аккаунта на Toxin?"
       .form-set__element.form-set__element_indent_left
-        +button({ caption: "Создать", isWithArrow: false, isBorderOnly: true, link: "registration.html" })
+        +button({ caption: "Создать", isBorderOnly: true, link: "registration.html" })
 
 //- 
   options.rate

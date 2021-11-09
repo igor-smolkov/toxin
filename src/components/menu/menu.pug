@@ -26,6 +26,6 @@ mixin menu(options = {})
           class=`${blockName}__user-panel-item`
           class=`${blockName}__user-panel-item_first`
         )
-          +button({ caption: "Войти", isBorderOnly: true, isWithArrow: false, isCompact: true, link: "sign-in.html" })
+          +button({ caption: "Войти", isBorderOnly: true, isCompact: true, link: "sign-in.html" })
         DIV(class=`${blockName}__user-panel-item`)
-          +button({ caption: "Зарегистрироваться", isWithArrow: false, isCompact: true, link: "registration.html" })
+          +button({ caption: "Зарегистрироваться", isCompact: true, link: "registration.html" })

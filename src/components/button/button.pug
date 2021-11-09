@@ -3,7 +3,7 @@
   options.isHovered
   options.isBorderOnly
   options.isTextOnly
-  options.isWithArrow
+  options.withArrow
   options.isCompact
   options.isNone
   options.type
@@ -12,16 +12,13 @@
 mixin button(options = {})
   - const blockName = "button"
 
-  if !("isWithArrow" in options)
-    - options.isWithArrow = true
-
   - const classList = [
   -   blockName,
   -   `js-${blockName}`,
   -   options.isHovered ? ` ${blockName}_hovered` : "",
   -   options.isBorderOnly ? ` ${blockName}_border-only` : "",
   -   options.isTextOnly ? ` ${blockName}_text-only` : "",
-  -   options.isWithArrow ? ` ${blockName}_with-arrow` : "",
+  -   options.withArrow ? ` ${blockName}_with-arrow` : "",
   -   options.isCompact ? ` ${blockName}_compacted` : "",
   -   options.isNone ? ` ${blockName}_none` : "",
   - ]

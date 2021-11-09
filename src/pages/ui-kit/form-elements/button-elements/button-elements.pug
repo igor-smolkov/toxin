@@ -13,21 +13,21 @@ mixin button-elements
         .form-set__elements-container
           .form-set__group.form-set__group_inlined
             .form-set__element.form-set__element_widen
-              +button({ caption: "click me", isWithArrow: false })
+              +button({ caption: "click me" })
             .form-set__element.form-set__element_inlined.form-set__element_indent-in_buttons-left.form-set__element_widen
-              +button({ caption: "click me", isWithArrow: false, isHovered: true })
+              +button({ caption: "click me", isHovered: true })
           .form-set__group.form-set__group_inlined.form-set__group_indent-in_buttons
             .form-set__element.form-set__element_widen
-              +button({ caption: "click me", isWithArrow: false, isBorderOnly: true })
+              +button({ caption: "click me", isBorderOnly: true })
             .form-set__element.form-set__element_inlined.form-set__element_indent-in_buttons-left.form-set__element_widen
-              +button({ caption: "click me", isWithArrow: false, isBorderOnly: true, isHovered: true })
+              +button({ caption: "click me", isBorderOnly: true, isHovered: true })
           .form-set__group.form-set__group_inlined.form-set__group_indent-in_buttons
             .form-set__element
-              +button({ caption: "click me", isWithArrow: false, isTextOnly: true })
+              +button({ caption: "click me", isTextOnly: true })
             .form-set__element.form-set__element_inlined.form-set__element_indent-in_buttons-left
-              +button({ caption: "click me", isWithArrow: false, isTextOnly: true, isHovered: true })
+              +button({ caption: "click me", isTextOnly: true, isHovered: true })
           .form-set__element.form-set__element_indent-in_buttons-top
-            +button({ caption: "перейти к оплате" })
+            +button({ caption: "перейти к оплате", withArrow: true })
     SECTION.button-elements__section
       +form-set({ title: "Pagination", isIndented: true })
         +pagination({ lastPage: 15, description: "1 – 12 из 100+ вариантов аренды" })
