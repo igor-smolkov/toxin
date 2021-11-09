@@ -7,26 +7,28 @@
 
 mixin check-button(options = {})
   - const blockName = "check-button"
+  - const { isChecked, details, name, value, label } = options
+
   LABEL(
     class=blockName
     class=`js-${blockName}`
-    class=options.isChecked ? `${blockName}_checked` : ""
-    class=options.details ? `${blockName}_rich` : ""
+    class=isChecked ? `${blockName}_checked` : ""
+    class=details ? `${blockName}_rich` : ""
   )
     INPUT(
       class=`${blockName}__box`
       class=`js-${blockName}__box`
-      class=options.isChecked ? `${blockName}__box_checked` : ""
-      name=options.name
-      value=options.value ? options.value : options.name
+      class=isChecked ? `${blockName}__box_checked` : ""
+      name=name
+      value=value ? value : name
       type="checkbox"
-      checked=options.isChecked
+      checked=isChecked
     )
     SPAN(
       class=`${blockName}__label`
-      class=options.isChecked ? `${blockName}__label_checked` : ""
-    )=options.label ? options.label : options.value
-      if options.details
+      class=isChecked ? `${blockName}__label_checked` : ""
+    )=label ? label : value
+      if details
         SPAN(
           class=`${blockName}__details`
-        )=options.details
+        )=details

@@ -9,11 +9,12 @@ include ../socials/socials.pug
 
 mixin footer(options = {})
   - const blockName = "footer"
+  - const { asCard } = options
   DIV(
     class=blockName
-    class=options.asCard ? `${blockName}_creative` : ""
+    class=asCard ? `${blockName}_creative` : ""
   )
-    if !options.asCard
+    if !asCard
       SECTION(class=`${blockName}__widgets`)
         +widgets
       SECTION(class=`${blockName}__copyright-bar`)

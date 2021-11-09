@@ -1,10 +1,6 @@
-//- 
-  options.name
-  options.price
-  options.withLine
-
 mixin invoice-line(options = {})
   - const blockName = "invoice-line"
+  - const { withLine, name, withInfo, price } = options
 
   SPAN(
     class=blockName
@@ -13,11 +9,11 @@ mixin invoice-line(options = {})
     SPAN(
       class=`${blockName}__name`
       class=`js-${blockName}__name`
-      class=options.withLine ? `${blockName}__name_with-line` : ""
-    )=options.name
-      if options.withInfo
+      class=withLine ? `${blockName}__name_with-line` : ""
+    )=name
+      if withInfo
         BUTTON(class=`${blockName}__info`)="i"
     SPAN(
       class=`${blockName}__price`
       class=`js-${blockName}__price`
-    )=options.price
+    )=price

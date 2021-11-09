@@ -4,20 +4,22 @@
 
 mixin type-section(options = {})
   - const blockName = "type-section"
+  - const { name, example } = options
+
   SECTION(
     class=blockName
-    class=(options.name === "H1") ? `${blockName}_first` : ""
+    class=(name === "H1") ? `${blockName}_first` : ""
   )
-    case options.name
+    case name
       when "H1"
-        H1(class=`${blockName}__name`)=options.name
-        H1(class=`${blockName}__example`)=options.example
+        H1(class=`${blockName}__name`)=name
+        H1(class=`${blockName}__example`)=example
       when "H2"
-        H2(class=`${blockName}__name`)=options.name
-        H2(class=`${blockName}__example`)=options.example
+        H2(class=`${blockName}__name`)=name
+        H2(class=`${blockName}__example`)=example
       when "H3"
-        H3(class=`${blockName}__name`)=options.name
-        H3(class=`${blockName}__example`)=options.example
+        H3(class=`${blockName}__name`)=name
+        H3(class=`${blockName}__example`)=example
       default
-        DIV(class=`${blockName}__name`)=options.name
-        DIV(class=`${blockName}__example`)=options.example
+        DIV(class=`${blockName}__name`)=name
+        DIV(class=`${blockName}__example`)=example

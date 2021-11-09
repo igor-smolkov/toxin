@@ -3,7 +3,7 @@
 
 mixin extra-list(options = {})
   - const blockName = "extra-list"
-  - const items = options.items ? options.items : []
+  - const { items = [] } = options
 
   UL(class=blockName)
     each item, index in items

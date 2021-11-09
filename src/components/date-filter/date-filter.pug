@@ -4,21 +4,22 @@ include ../calendar/calendar.pug
 
 mixin date-filter(options = {})
   - const blockName = "date-filter"
+  - const { dateFrom, dateTo, name } = options
   DIV(
     class=blockName 
     class=`js-${blockName}`
-    data-from=options.dateFrom
-    data-to=options.dateTo
+    data-from=dateFrom
+    data-to=dateTo
   )
     +dropdown({
-      name: options.name,
+      name,
       type: "date",
-      dateFrom: options.dateFrom,
-      dateTo: options.dateTo,
+      dateFrom,
+      dateTo,
       isFilter: true,
     })
       +card({ isMedium: true, isEmpty: true })
         +calendar({
-          from: options.dateFrom ? options.dateFrom : "",
-          to: options.dateTo ? options.dateTo : "",
+          from: dateFrom ? dateFrom : "",
+          to: dateTo ? dateTo : "",
         })

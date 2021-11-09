@@ -2,17 +2,18 @@ include ../dropdown-control/dropdown-control.pug
 
 mixin calendar(options = {})
   - const blockName = "calendar"
+  - const { from, to, active } = options
   
   DIV(
     class=blockName
     class=`js-${blockName}`
-    data-from=options.from
-    data-to=options.to
-    data-active=options.active
+    data-from=from
+    data-to=to
+    data-active=active
   )
     DIV(
       class=`${blockName}__plugin`
       class=`js-${blockName}__plugin`
     )
     DIV(class=`${blockName}__control`)
-      +dropdown-control({ isClear: !(options.to || options.from || options.active) })
+      +dropdown-control({ isClear: !(to || from || active) })

@@ -9,17 +9,12 @@ include ../dropdown-panel/dropdown-panel.pug
 
 mixin dropdown(options = {})
   - const blockName = "dropdown"
-  - fieldOptions = {
-  -   name: options.name,
-  -   type: options.type,
-  -   value: options.value,
-  -   placeholder: options.placeholder,
-  -   isHovered: options.isHovered,
-  -   isFocused: options.isFocused,
-  -   isFilter: options.isFilter,
-  -   dateFrom: options.dateFrom,
-  -   dateTo: options.dateTo,
-  -   isReadonly: options.type !== 'date',
+  - const { name, type, value, placeholder, isHovered, 
+  -   isFocused, isFilter, dateFrom, dateTo, isExpanded, 
+  -   list, alignPanelRight, withControl } = options
+  - const fieldOptions = { name, type, value, placeholder,
+  -   isHovered, isFocused, isFilter, dateFrom, dateTo,
+  -   isReadonly: type !== 'date',
   -   withBorder: false,
   -   withRightSpace: true,
   - }
@@ -27,29 +22,26 @@ mixin dropdown(options = {})
   DIV(
     class=blockName
     class=`js-${blockName}`
-    class=options.isExpanded ? `${blockName}_expanded` : ""
+    class=isExpanded ? `${blockName}_expanded` : ""
   )
     +text-field(fieldOptions)
     INPUT(
       class=`${blockName}__check`
       class=`js-${blockName}__check`
-      id=`${blockName}-${options.name}-check`
+      id=`${blockName}-${name}-check`
       type="checkbox"
-      checked=options.isExpanded
+      checked=isExpanded
     )
     LABEL(
       class=`${blockName}__expand-more`
-      for=`${blockName}-${options.name}-check`
+      for=`${blockName}-${name}-check`
     )
     DIV(
       class=`${blockName}__panel`
-      class=!options.list ? `${blockName}__panel_independent` : ""
-      class=options.alignPanelRight ? `${blockName}__panel_align_right` : ""
+      class=!list ? `${blockName}__panel_independent` : ""
+      class=alignPanelRight ? `${blockName}__panel_align_right` : ""
     )
-      if options.list
-        +dropdown-panel({ 
-          list: options.list, 
-          withControl: options.withControl,
-        })
+      if list
+        +dropdown-panel({ list, withControl })
       else
         block

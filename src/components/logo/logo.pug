@@ -3,8 +3,9 @@
 
 mixin logo(options = {})
   - const blockName = "logo"
+  - const { isSimplified } = options
 
-  if options.isSimplified
+  if isSimplified
     DIV(
       class=blockName
       class=`${blockName}_simplified`

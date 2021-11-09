@@ -4,10 +4,11 @@
 
 mixin carousel(options = {})
   - const blockName = "carousel"
+  - const { delaySec, slides } = options
   DIV(
     class=blockName
     class=`js-${blockName}`
-    data-delay=options.delaySec
+    data-delay=delaySec
   )
     DIV(
       class=`${blockName}__slide`
@@ -20,7 +21,7 @@ mixin carousel(options = {})
       class=`js-${blockName}__slide-next`
     )
     DATALIST(class=`${blockName}__links`)
-      each slide, index in options.slides
+      each slide, index in slides
         OPTION(
           class=`${blockName}__link`
           class=`js-${blockName}__link`

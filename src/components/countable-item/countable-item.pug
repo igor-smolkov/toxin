@@ -7,8 +7,9 @@ include ../counter/counter.pug
 
 mixin countable-item(options = {})
   - const blockName = "countable-item"
+  - const { name, count, category } = options
   
   DIV(class=blockName)
-    P(class=`${blockName}__name`)=options.name
+    P(class=`${blockName}__name`)=name
     DIV(class=`${blockName}__counter`)
-      +counter(options.count, options.category)
+      +counter(count, category)

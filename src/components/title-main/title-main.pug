@@ -7,16 +7,17 @@
 
 mixin title-main(options = {})
   - const blockName = "title-main"
+  - const { link, prefix, content, postfix, isShiftedPostfix } = options
 
   A(
     class=blockName
-    href=options.link
+    href=link
   )
-    if options.prefix
-      SPAN(class=`${blockName}__prefix`)=options.prefix
-    SPAN(class=`${blockName}__content`)=options.content
-    if options.postfix
+    if prefix
+      SPAN(class=`${blockName}__prefix`)=prefix
+    SPAN(class=`${blockName}__content`)=content
+    if postfix
       SPAN(
         class=`${blockName}__postfix`
-        class=options.isShiftedPostfix ? `${blockName}__postfix_shifted` : ""
-      )=options.postfix
+        class=isShiftedPostfix ? `${blockName}__postfix_shifted` : ""
+      )=postfix

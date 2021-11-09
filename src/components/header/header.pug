@@ -9,12 +9,14 @@ include ../burger/burger.pug
 
 mixin header(options = {})
   - const blockName = "header"
+  - const { name, isCustom, user } = options
+
   DIV(class=blockName)
     DIV(class=`${blockName}__logo`)
       +logo
     DIV(class=`${blockName}__burger`)
-      +burger(options.name)
-        if (options.isCustom)
+      +burger(name)
+        if (isCustom)
           block
         else
           +menu({
@@ -45,5 +47,5 @@ mixin header(options = {})
                 name: "agreements" 
               },
             ],
-            user: options.user ? { link: "/mock-address/change-me", text: options.user } : null
+            user: user ? { link: "/mock-address/change-me", text: user } : null
           })   

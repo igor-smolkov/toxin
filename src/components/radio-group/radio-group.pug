@@ -1,10 +1,10 @@
 //-
   options.name
-  options.options [{value, label, isChecked}]
+  options.set [{value, label, isChecked}]
 
 mixin radio-group(options = {})
   - const blockName = "radio-group"
-  - const set = ("options" in options) ? options.options : []
+  - const { set = [], name } = options
 
   DIV(
     class=blockName

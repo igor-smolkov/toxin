@@ -3,11 +3,10 @@
 
 mixin bullet-list(options = {})
   - const blockName = "bullet-list"
-  if !options.items
-    - options.items = []
+  - const { items = [] } = options
 
   UL(class=blockName)
-    each item, index in options.items
+    each item, index in items
       LI(
         class=`${blockName}__item`
         class=(index===0) ? `${blockName}__item_first` :""

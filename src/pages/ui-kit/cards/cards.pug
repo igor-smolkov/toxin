@@ -20,10 +20,10 @@ block content
     .cards
       ARTICLE.cards__unit
         +card({ title: "Найдём номера под ваши пожелания" })
-          +card-form({ for: "wishes" })
+          +card-form({ type: "wishes" })
       ARTICLE.cards__unit
         +card({ title: "Регистрация аккаунта" })
-          +card-form({ for: "check-in" })
+          +card-form({ type: "check-in" })
       ARTICLE.cards__unit
         +card({ 
           title: {
@@ -31,10 +31,10 @@ block content
             details: { first: "9 990₽", second: "в сутки" }
           }
         })
-          +card-form({ for: "room" })
+          +card-form({ type: "room" })
       ARTICLE.cards__unit
         +card({ title: "Войти" })
-          +card-form({ for: "log-in" })
+          +card-form({ type: "log-in" })
       ARTICLE.cards__unit.js-calendar-unit
         +card({ isMedium: true, isEmpty: true })
           +calendar({  

@@ -7,20 +7,19 @@ include ../card-title/card-title.pug
   options.isEmpty
 
 
-mixin card(options)
+mixin card(options = {})
   - const blockName = "card"
-  if !options
-    - options = {}
+  - const { title, isMedium, isSmall, isEmpty } = options
 
   DIV(
     class=blockName
-    class=options.isMedium ? `${blockName}_medium` : ""
-    class=options.isSmall ? `${blockName}_small` : ""
+    class=isMedium ? `${blockName}_medium` : ""
+    class=isSmall ? `${blockName}_small` : ""
   )
-    if options.title
+    if title
       H1(class=`${blockName}__title`)
-        +card-title(options.title)
-    if !options.isEmpty
+        +card-title(title)
+    if !isEmpty
       DIV(class=`${blockName}__form`)
         block
     else

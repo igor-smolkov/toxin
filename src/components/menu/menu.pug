@@ -8,19 +8,21 @@ include ../nav-links/nav-links.pug
 
 mixin menu(options = {})
   - const blockName = "menu"
+  - const { navLinks, user } = options
+
   DIV(class=blockName)
     DIV(class=`${blockName}__nav-links`)
       +nav-links({
-        navLinks: options.navLinks,
+        navLinks,
         isHead: true,
       })
     DIV(class=`${blockName}__user-panel`)
-      if (options.user)
+      if (user)
         DIV(
           class=`${blockName}__user-panel-item`
           class=`${blockName}__user-panel-item_only`
         )
-          +link(options.user)
+          +link(user)
       else
         DIV(
           class=`${blockName}__user-panel-item`

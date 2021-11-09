@@ -6,23 +6,25 @@
 
 mixin like-button(options = {})
   - const blockName = "like-button"
+  - const { isChecked, name, value, label } = options
+
   LABEL(
     class=blockName
     class=`js-${blockName}`
-    class=options.isChecked ? `${blockName}_checked` : ""
+    class=isChecked ? `${blockName}_checked` : ""
   )
     INPUT(
       class=`${blockName}__box`
       class=`js-${blockName}__box`
-      class=options.isChecked ? `${blockName}__box_checked` : ""
-      name=options.name
-      value=options.value ? options.value : options.name
+      class=isChecked ? `${blockName}__box_checked` : ""
+      name=name
+      value=value ? value : name
       type="checkbox"
-      checked=options.isChecked
+      checked=isChecked
     )
     SPAN(
       class=`${blockName}__label`
       class=`js-${blockName}__label`
-      class=options.isChecked ? `${blockName}__label_checked` : ""
-    )=options.label ? options.label : options.value
+      class=isChecked ? `${blockName}__label_checked` : ""
+    )=label ? label : value
     SPAN(class=`${blockName}__icon`)

@@ -6,7 +6,7 @@ include ../invoice-line/invoice-line.pug
 
 mixin bill(options = {})
   - const blockName = "bill"
-  - const list = options.list ? options.list : []
+  - const { list = [], total } = options
 
   DIV(
     class=blockName
@@ -20,4 +20,4 @@ mixin bill(options = {})
         )
           +invoice-line(item)
     H2(class=`${blockName}__total`)
-      +invoice-line({ name: "Итого", price: options.total, withLine: true })
+      +invoice-line({ name: "Итого", price: total, withLine: true })

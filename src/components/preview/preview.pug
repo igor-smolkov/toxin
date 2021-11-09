@@ -1,19 +1,13 @@
-//- 
-  options.images
-  options.selected
-  options.isHovered
-
 mixin preview(options = {})
   - const blockName = "preview"
-  - const images = options.images ? options.images : []
-  - const selected = options.selected ? options.selected : 0
+  - const { images = [], selected = 0, isHovered, number } = options
   
   DIV(
     class=blockName
     class=`js-${blockName}`
-    class=options.isHovered ? `${blockName}_hovered` : ""
+    class=isHovered ? `${blockName}_hovered` : ""
     data-selected=selected
-    data-number=options.number
+    data-number=number
   )
     DATALIST(
       class=`${blockName}__data`
@@ -24,7 +18,7 @@ mixin preview(options = {})
     IMG(
       class=`${blockName}__img`
       class=`js-${blockName}__img`
-      src=options.images[selected]
+      src=images[selected]
       alt="Превью номера"
     )
     DIV(class=`${blockName}__arrows`)
@@ -47,13 +41,13 @@ mixin preview(options = {})
         INPUT(
           class=`${blockName}__point-input`
           type="radio"
-          name=`views-${options.number}`
-          id=`views-${options.number}-${i}`
+          name=`views-${number}`
+          id=`views-${number}-${i}`
           value=i
           checked=(i===selected)
         )
         LABEL(
-          for=`views-${options.number}-${i}`
+          for=`views-${number}-${i}`
           class=`${blockName}__point-label`
           class=(i===selected) ? `${blockName}__point-label_checked` : ""
         )

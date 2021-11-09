@@ -9,18 +9,17 @@ include ../bill/bill.pug
 include ../reviews-counter/reviews-counter.pug
 include ../date-section/date-section.pug
 
-//- 
-  options.options
-
 mixin card-form(options = {})
   - const blockName = "card-form"
+  - const { type, custom } = options
+
   FORM(
     class=blockName
     class=`js-${blockName}`
   )
-    case options.for
+    case type
       when "wishes"
-        +card-form-wishes-content(blockName, options.options)
+        +card-form-wishes-content(blockName, custom)
       when "check-in"
         +card-form-check-in-content(blockName)
       when "room"
@@ -28,31 +27,34 @@ mixin card-form(options = {})
       when "log-in"
         +card-form-log-in-content(blockName)
       when "room-rate"
-        +card-form-room-rate-content(options.options)
+        +card-form-room-rate-content(custom)
 
 //- 
 
 mixin card-form-wishes-content(blockName, options = {})
+  - const { dateFrom, dateTo, isCalendarArrivalExpanded, 
+  -   isCalendarDepartureExpanded, calendarArrivalDateActivate, 
+  -   calendarDepartureDateActivate, isGuestListExpanded, guestList } = options
   SECTION(
     class=`${blockName}__section`
     class=`${blockName}__section_first`
   )
     +date-section({
       name: "wishes-dates",
-      dateFrom: options.dateFrom,
-      dateTo: options.dateTo,
-      isCalendarArrivalExpanded: options.isCalendarArrivalExpanded,
-      isCalendarDepartureExpanded: options.isCalendarDepartureExpanded,
-      calendarArrivalDateActivate: options.calendarArrivalDateActivate,
-      calendarDepartureDateActivate: options.calendarDepartureDateActivate,
+      dateFrom,
+      dateTo,
+      isCalendarArrivalExpanded,
+      isCalendarDepartureExpanded,
+      calendarArrivalDateActivate,
+      calendarDepartureDateActivate,
     })
   SECTION(class=`${blockName}__section`)
     +form-set({ title: "Гости" })
       +dropdown({
         name: "wishes-guests",
-        isExpanded: options.isGuestListExpanded,
+        isExpanded: isGuestListExpanded,
         withControl: true,
-        list: options.guestList ? options.guestList : [
+        list: guestList ? guestList : [
           { name: "взрослые", category: "гость" },
           { name: "дети", category: "гость" },
           { name: "младенцы", category: "младенец" }
@@ -79,7 +81,7 @@ mixin card-form-check-in-content(blockName)
       .form-set__element.form-set__element_indent-mid
         +radio-group({
           name: "sex",
-          options: [
+          set: [
             {label: "Мужчина", isChecked: true},
             {label: "Женщина"},
           ],
@@ -182,8 +184,9 @@ mixin card-form-log-in-content(blockName)
   options.reviews
 
 mixin card-form-room-rate-content(options = {})
+  - const { number, rate, reviews } = options
   +form-set({ isGrouped: true, isInlined: true, withLine: true, isAligned: true })
     .form-set__element
-      +rate-button({ name: `${options.number}-rate`, value: options.rate })
+      +rate-button({ name: `${number}-rate`, value: rate })
     .form-set__element          
-      +reviews-counter(options.reviews)
+      +reviews-counter(reviews)

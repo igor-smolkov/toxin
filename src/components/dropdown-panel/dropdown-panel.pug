@@ -7,20 +7,18 @@ include ../dropdown-control/dropdown-control.pug
 
 mixin dropdown-panel(options = {})
   - const blockName = "dropdown-panel"
-  - const list = options.list ? options.list : []
+  - const { list = [], withControl } = options
 
   DIV(class=blockName)
     UL(class=`${blockName}__list`)
       each item, index in list
         LI(class=`${blockName}__countable-item`)
           +countable-item(item)
-    if options.withControl
+    if withControl
       - let isClear = true
       each item in list
         if item.count
           if item.count !== 0
             - isClear = false
       DIV(class=`${blockName}__control`)
-        +dropdown-control({ 
-          isClear: isClear 
-        })
+        +dropdown-control({ isClear })

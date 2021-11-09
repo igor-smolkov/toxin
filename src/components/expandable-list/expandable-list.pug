@@ -9,24 +9,25 @@ include ../link/link.pug
 
 mixin expandable-list(options = {})
   - const blockName = "expandable-list"
-  - const list = options.list ? options.list : []
+  - const { list = [], withChecks, isExpanded, name } = options
+
   DIV(
     class=blockName
     class=`js-${blockName}`
-    class=options.withChecks ? `${blockName}_with-checks` : ""
+    class=withChecks ? `${blockName}_with-checks` : ""
   )
     INPUT(
       class=`${blockName}__check`
       class=`js-${blockName}__check`
-      id=`${blockName}-${options.name}-check`
+      id=`${blockName}-${name}-check`
       type="checkbox"
-      checked=options.isExpanded
+      checked=isExpanded
     )
     LABEL(
       class=`${blockName}__expand-more`
-      for=`${blockName}-${options.name}-check`
+      for=`${blockName}-${name}-check`
     )
-    if options.withChecks
+    if withChecks
       DIV(class=`${blockName}__list`)
         +form-set({ isGrouped: true, isMarginNone: true })
           each item, index in list

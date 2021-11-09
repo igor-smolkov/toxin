@@ -15,6 +15,9 @@ include ../calendar/calendar.pug
 
 mixin date-section(options = {})
   - const blockName = "date-section"
+  - const { dateFromTitle, dateToTitle, name, dateFrom, dateTo, 
+  -   isCalendarArrivalExpanded, isCalendarDepartureExpanded, 
+  -   calendarArrivalDateActivate, calendarDepartureDateActivate } = options
   DIV(
     class=blockName
     class=`js-${blockName}`
@@ -24,34 +27,34 @@ mixin date-section(options = {})
       class=`js-${blockName}__set`
       class=`${blockName}__set_first`
     )
-      +form-set({ title: options.dateFromTitle ? options.dateFromTitle : "Прибытие" })
+      +form-set({ title: dateFromTitle ? dateFromTitle : "Прибытие" })
         +dropdown({  
-          name: `${options.name}-arrival`,
+          name: `${name}-arrival`,
           type: "date",
-          value: options.dateFrom ? options.dateFrom : "",
-          isExpanded: options.isCalendarArrivalExpanded,
+          value: dateFrom ? dateFrom : "",
+          isExpanded: isCalendarArrivalExpanded,
         })
           +card({ isMedium: true, isEmpty: true })
             +calendar({ 
-              from: options.dateFrom ? options.dateFrom : "",
-              to: options.dateTo ? options.dateTo : "",
-              active: options.calendarArrivalDateActivate ? options.calendarArrivalDateActivate : "",
+              from: dateFrom ? dateFrom : "",
+              to: dateTo ? dateTo : "",
+              active: calendarArrivalDateActivate ? calendarArrivalDateActivate : "",
             })
     DIV(
       class=`${blockName}__set`
       class=`js-${blockName}__set`
     )
-      +form-set({ title: options.dateToTitle ? options.dateToTitle : "Выезд" })
+      +form-set({ title: dateToTitle ? dateToTitle : "Выезд" })
         +dropdown({ 
-          name: `${options.name}-departure`,
+          name: `${name}-departure`,
           type: "date",
-          value: options.dateTo ? options.dateTo : "",
-          isExpanded: options.isCalendarDepartureExpanded,
+          value: dateTo ? dateTo : "",
+          isExpanded: isCalendarDepartureExpanded,
           alignPanelRight: true,
         })
           +card({ isMedium: true, isEmpty: true })
             +calendar({ 
-              from: options.dateFrom ? options.dateFrom : "",
-              to: options.dateTo ? options.dateTo : "",
-              active: options.calendarDepartureDateActivate ? options.calendarDepartureDateActivate : "",
+              from: dateFrom ? dateFrom : "",
+              to: dateTo ? dateTo : "",
+              active: calendarDepartureDateActivate ? calendarDepartureDateActivate : "",
             })

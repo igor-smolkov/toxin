@@ -3,11 +3,13 @@
 
 mixin slider(options = {})
   - const blockName = "slider"
+  - const { values } = options
+
   DIV(
     class=blockName
     class=`js-${blockName}`
   )
     DIV(
       class=`js-${blockName}__root`
-      data-values=options.values
+      data-values=values
     )

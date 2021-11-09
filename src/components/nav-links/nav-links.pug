@@ -8,10 +8,11 @@ include ../nav-link/nav-link.pug
 
 mixin nav-links(options = {})
   - const blockName = "nav-links"
-  - const navLinks = options.navLinks ? options.navLinks : []
+  - const { navLinks = [], isHead } = options
+
   UL(
     class=blockName
-    class=options.isHead ? `${blockName}_head` : ""
+    class=isHead ? `${blockName}_head` : ""
   )
     each item, index in navLinks
       LI(

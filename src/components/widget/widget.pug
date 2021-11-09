@@ -10,15 +10,17 @@ include ../text-field/text-field.pug
 
 mixin widget(options = {})
   - const blockName = "widget"
+  - const { title, links, text, withSubscribe } = options
+
   DIV(class=blockName)
-    H3(class=`${blockName}__title`)=options.title
+    H3(class=`${blockName}__title`)=title
     SECTION(class=`${blockName}__content`)
-      if options.links
+      if links
         NAV(class=`${blockName}__nav`)
-          +nav-links({ navLinks: options.links })
-      if options.text
-        P(class=`${blockName}__text`)=options.text 
-      if options.withSubscribe
+          +nav-links({ navLinks: links })
+      if text
+        P(class=`${blockName}__text`)=text 
+      if withSubscribe
         FORM(class=`${blockName}__form`)
           +subscription
             +text-field({

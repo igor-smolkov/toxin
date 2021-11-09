@@ -10,21 +10,22 @@ include ../like-button/like-button.pug
 
 mixin comment(options = {})
   - const blockName = "comment"
+  - const { avatar, username, likeValue, isLiked, datetime, message } = options
 
   DIV(class=blockName)
     DIV(class=`${blockName}__images`)
       DIV(class=`${blockName}__avatar`)
         IMG(
           class=`${blockName}__img`
-          src=options.avatar
-          alt=options.username
+          src=avatar
+          alt=username
         )
       DIV(class=`${blockName}__like`)
         +like-button({
-          value: options.likeValue ? options.likeValue : 0,
-          isChecked: options.isLiked,
+          value: likeValue ? likeValue : 0,
+          isChecked: isLiked,
         })
     DIV(class=`${blockName}__texts`)
-      P(class=`${blockName}__username`)=options.username
-      P(class=`${blockName}__date-time`)=options.datetime
-      P(class=`${blockName}__message`)=options.message
+      P(class=`${blockName}__username`)=username
+      P(class=`${blockName}__date-time`)=datetime
+      P(class=`${blockName}__message`)=message

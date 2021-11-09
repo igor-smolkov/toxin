@@ -11,9 +11,10 @@ mixin card-title(options = {})
   if (typeof options) === "string"
     SPAN(class=blockName)=options
   else
+    - const { main, details } = options
     SPAN(class=blockName)
       SPAN(class=`${blockName}__main`)
-        +title-main(options.main)
-      if (options.details)
+        +title-main(main)
+      if (details)
         SPAN(class=`${blockName}__details`)
-          +title-details(options.details)
+          +title-details(details)

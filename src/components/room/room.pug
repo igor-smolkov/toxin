@@ -3,43 +3,29 @@ include ../card-title/card-title.pug
 include ../card-form/card-form.pug
 include ../preview/preview.pug
 
-//- 
-  options.isLux
-  options.price
-  options.rate
-  options.reviews
-  options.images
-  options.isHovered
-
 mixin room(options = {})
   - const blockName = "room"
+  - const { images, isHovered, number, isLux, price, rate, reviews } = options
+
   DIV(class=blockName)
     +card({ isSmall: true, isEmpty: true })
       HEADER.card__header
-        +preview({ 
-          images: options.images,
-          isHovered: options.isHovered,
-          number: options.number,
-        })
+        +preview({ images, isHovered, number })
       SECTION.card__body
         H2.card__title.card__title_margin_none
           +card-title({
             main: { 
               prefix: "№", 
-              content: options.number, 
-              postfix: options.isLux ? "Люкс" : "",
+              content: number, 
+              postfix: isLux ? "Люкс" : "",
               link: "room-details.html"
             },
             details: { 
-              first: `${options.price.toLocaleString("ru")}₽`, 
+              first: `${price.toLocaleString("ru")}₽`, 
               second: "в сутки" 
             }
           })
         +card-form({ 
-          for: "room-rate",
-          options: { 
-            number: options.number,
-            rate: options.rate, 
-            reviews: options.reviews 
-          }
+          type: "room-rate",
+          custom: { number, rate, reviews }
         })

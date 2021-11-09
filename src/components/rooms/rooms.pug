@@ -8,15 +8,16 @@ include ../room/room.pug
 
 mixin rooms(options = {})
   - const blockName = "rooms"
+  - const { title, numbers, lastPage } = options
 
   DIV(class=blockName)
-    H1(class=`${blockName}__title`)=options.title
+    H1(class=`${blockName}__title`)=title
     UL(class=`${blockName}__list`)
-      each number, index in options.numbers
+      each number, index in numbers
         LI(class=`${blockName}__number`)
           +room(number)
     DIV(class=`${blockName}__pagination`)
       +pagination({ 
-        lastPage: options.lastPage, 
-        description: `1 – ${options.numbers.length} из 100+ вариантов аренды` 
+        lastPage, 
+        description: `1 – ${numbers.length} из 100+ вариантов аренды` 
       })
