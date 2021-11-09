@@ -11,7 +11,7 @@ mixin counter(count = 0, category = "штука")
       class=`${blockName}__button`
       class=`js-${blockName}__button`
       class=!count ? `${blockName}__button_disabled` : ""
-      disabled=!count ? true : false
+      disabled=!count
     )="-"
     P(
       class=`${blockName}__element`

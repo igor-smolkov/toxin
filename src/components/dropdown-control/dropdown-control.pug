@@ -5,7 +5,7 @@ include ../button/button.pug
 
 mixin dropdown-control(options = {})
   - const blockName = "dropdown-control"
-  - const isClear = options.isClear === false ? false : true
+  - const isClear = !(options.isClear === false)
 
   DIV(
     class=blockName

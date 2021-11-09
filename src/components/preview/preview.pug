@@ -50,7 +50,7 @@ mixin preview(options = {})
           name=`views-${options.number}`
           id=`views-${options.number}-${i}`
           value=i
-          checked=(i===selected) ? true : false
+          checked=(i===selected)
         )
         LABEL(
           for=`views-${options.number}-${i}`

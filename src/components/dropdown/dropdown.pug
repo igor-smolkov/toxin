@@ -35,7 +35,7 @@ mixin dropdown(options = {})
       class=`js-${blockName}__check`
       id=`${blockName}-${options.name}-check`
       type="checkbox"
-      checked=options.isExpanded ? true : false
+      checked=options.isExpanded
     )
     LABEL(
       class=`${blockName}__expand-more`

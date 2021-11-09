@@ -22,7 +22,7 @@ mixin radio-group(options = {})
           type="radio"
           name=options.name
           value=option.value ? option.value : index
-          checked=option.isChecked ? true : false
+          checked=option.isChecked
         )
         DIV(
           class=`${blockName}__label`

@@ -20,7 +20,7 @@ mixin rate-button(options = {})
         id=`${blockName}-${options.name}-${index}`
         name=options.name
         value=option.value ? option.value : index
-        checked=option.isChecked ? true : false
+        checked=option.isChecked
       )
       LABEL(
         for=`${blockName}-${options.name}-${index}`

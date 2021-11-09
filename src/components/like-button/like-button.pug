@@ -18,7 +18,7 @@ mixin like-button(options = {})
       name=options.name
       value=options.value ? options.value : options.name
       type="checkbox"
-      checked=options.isChecked ? true : false
+      checked=options.isChecked
     )
     SPAN(
       class=`${blockName}__label`
