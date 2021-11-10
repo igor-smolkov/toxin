@@ -1,13 +1,10 @@
 include ../form-set/form-set.pug
-include ../text-field/text-field.pug
-include ../dropdown/dropdown.pug
-include ../button/button.pug
-include ../radio-group/radio-group.pug
-include ../toggle/toggle.pug
 include ../rate-button/rate-button.pug
-include ../bill/bill.pug
 include ../reviews-counter/reviews-counter.pug
-include ../date-section/date-section.pug
+include sections/wishes/wishes.pug
+include sections/check-in/check-in.pug
+include sections/room-booking/room-booking.pug
+include sections/log-in/log-in.pug
 
 mixin card-form(options = {})
   - const blockName = "card-form"
@@ -19,174 +16,16 @@ mixin card-form(options = {})
   )
     case type
       when "wishes"
-        +card-form-wishes-content(blockName, custom)
+        +wishes(custom)
       when "check-in"
-        +card-form-check-in-content(blockName)
+        +check-in
       when "room"
-        +card-form-room-content(blockName)
+        +room-booking
       when "log-in"
-        +card-form-log-in-content(blockName)
+        +log-in
       when "room-rate"
-        +card-form-room-rate-content(custom)
-
-//- 
-
-mixin card-form-wishes-content(blockName, options = {})
-  - const { dateFrom, dateTo, isCalendarArrivalExpanded, 
-  -   isCalendarDepartureExpanded, calendarArrivalDateActivate, 
-  -   calendarDepartureDateActivate, isGuestListExpanded, guestList } = options
-  SECTION(
-    class=`${blockName}__section`
-    class=`${blockName}__section_first`
-  )
-    +date-section({
-      name: "wishes-dates",
-      dateFrom,
-      dateTo,
-      isCalendarArrivalExpanded,
-      isCalendarDepartureExpanded,
-      calendarArrivalDateActivate,
-      calendarDepartureDateActivate,
-    })
-  SECTION(class=`${blockName}__section`)
-    +form-set({ title: "Гости" })
-      +dropdown({
-        name: "wishes-guests",
-        isExpanded: isGuestListExpanded,
-        withControl: true,
-        list: guestList ? guestList : [
-          { name: "взрослые", category: "гость" },
-          { name: "дети", category: "гость" },
-          { name: "младенцы", category: "младенец" }
-        ]
-      })
-  SECTION(
-    class=`${blockName}__section`
-    class=`${blockName}__section_last`
-  )
-    +button({ caption: "Подобрать номер", type: "submit", withArrow: true })
-
-//- 
-
-mixin card-form-check-in-content(blockName)
-  SECTION(
-    class=`${blockName}__section`
-    class=`${blockName}__section_first`
-  )
-    +form-set({ isGrouped: true, isMarginNone: true })
-      .form-set__element.form-set__element_margin_none
-        +text-field({ name: "name", placeholder: "Имя" })
-      .form-set__element.form-set__element_indent-mid
-        +text-field({ name: "surname", placeholder: "Фамилия" })
-      .form-set__element.form-set__element_indent-mid
-        +radio-group({
-          name: "sex",
-          set: [
-            {label: "Мужчина", isChecked: true},
-            {label: "Женщина"},
-          ],
-        })
-  SECTION(
-    class=`${blockName}__section`
-    class=`${blockName}__section_rare_more`
-  )
-    +form-set({ title: "Дата рождения" })
-      +text-field({
-        name: "dob",
-        placeholder: "ДД.ММ.ГГГГ",
-        isMasked: true,
-      })
-  SECTION(class=`${blockName}__section`)
-    +form-set({ title: "Данные для входа в сервис", isGrouped: true, isMarginNone: true })
-      .form-set__element
-        +text-field({ name: "email", placeholder: "Email", type: "email" })
-      .form-set__element.form-set__element_indent-mid
-        +text-field({ name: "password", placeholder: "Пароль", type: "password" })
-      .form-set__element.form-set__element_indent-mid
-        +toggle({ name: "sub", label: "Получать спецпредложения" })
-  SECTION(
-    class=`${blockName}__section`
-    class=`${blockName}__section_rare_more`
-  )
-    +button({ caption: "Зарегистрироваться", type: "submit", withArrow: true })
-  SECTION(
-    class=`${blockName}__section`
-    class=`${blockName}__section_last`
-  )
-    +form-set({ isInlined: true, isGrouped: true, isMarginNone: true })
-      .form-set__element.form-set__element_align-mid.form-set__element_increased
-        DIV(class=`${blockName}__question`)="Уже есть аккаунт на Toxin"
-      .form-set__element.form-set__element_indent_left
-        +button({ caption: "Войти", isBorderOnly: true, link: "sign-in.html" })
-
-//- 
-
-mixin card-form-room-content(blockName)
-  SECTION(
-    class=`${blockName}__section`
-    class=`${blockName}__section_first`
-  )
-    +date-section({
-      name: "room-dates",
-      dateFrom: "2019-08-19",
-      dateTo: "2019-08-23",
-    })
-  SECTION(class=`${blockName}__section`)
-    +form-set({ title: "Гости" })
-      +dropdown({ 
-        value: "3 гостя", 
-        name: "room-guests",
-        withControl: true,
-        list: [
-          { name: "взрослые", count: 2, category: "гость" },
-          { name: "дети", count: 1, category: "гость" },
-          { name: "младенцы", category: "младенец" }
-        ],
-      })
-  SECTION(class=`${blockName}__section`) 
-    +bill({
-      list: [
-        { name: "9 990₽ х 4 суток", price: "39 960₽" },
-        { name: "Сбор за услуги: скидка 2 179₽", price: "0₽", withInfo: true },
-        { name: "Сбор за дополнительные услуги", price: "300₽", withInfo: true },
-      ],
-      total: "38 081₽",
-    })
-  SECTION(class=`${blockName}__section`)
-    +button({ caption: "Забронировать", type: "submit", withArrow: true })
-
-//- 
-
-mixin card-form-log-in-content(blockName)
-  SECTION(
-    class=`${blockName}__section`
-    class=`${blockName}__section_first`
-  )
-    +form-set({ isGrouped: true, isMarginNone: true })
-      .form-set__element.form-set__element_margin_none
-        +text-field({ name: "email", placeholder: "Email", type: "email" })
-      .form-set__element.form-set__element_indent-mid
-        +text-field({ name: "password", placeholder: "Пароль", type: "password" })
-  SECTION(class=`${blockName}__section`)
-    +button({ caption: "Войти", type: "submit", withArrow: true })
-  SECTION(
-    class=`${blockName}__section`
-    class=`${blockName}__section_last`
-  )
-    +form-set({ isInlined: true, isGrouped: true, isMarginNone: true })
-      .form-set__element.form-set__element_align-mid.form-set__element_increased
-        DIV(class=`${blockName}__question`)="Нет аккаунта на Toxin?"
-      .form-set__element.form-set__element_indent_left
-        +button({ caption: "Создать", isBorderOnly: true, link: "registration.html" })
-
-//- 
-  options.rate
-  options.reviews
-
-mixin card-form-room-rate-content(options = {})
-  - const { number, rate, reviews } = options
-  +form-set({ isGrouped: true, isInlined: true, withLine: true, isAligned: true })
-    .form-set__element
-      +rate-button({ name: `${number}-rate`, value: rate })
-    .form-set__element          
-      +reviews-counter(reviews)
+        +form-set({ isGrouped: true, isInlined: true, withLine: true, isAligned: true })
+          .form-set__element
+            +rate-button({ name: `${custom.number}-rate`, value: custom.rate })
+          .form-set__element          
+            +reviews-counter(custom.reviews)

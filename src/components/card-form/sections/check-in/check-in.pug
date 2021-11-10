@@ -1,0 +1,59 @@
+include ../../../button/button.pug
+include ../../../form-set/form-set.pug
+include ../../../radio-group/radio-group.pug
+include ../../../text-field/text-field.pug
+include ../../../toggle/toggle.pug
+
+mixin check-in
+  - const blockName = "check-in"
+
+  ARTICLE(class=blockName)
+    SECTION(
+      class=`${blockName}__section`
+      class=`${blockName}__section_first`
+    )
+      +form-set({ isGrouped: true, isMarginNone: true })
+        .form-set__element.form-set__element_margin_none
+          +text-field({ name: "name", placeholder: "Имя" })
+        .form-set__element.form-set__element_indent-mid
+          +text-field({ name: "surname", placeholder: "Фамилия" })
+        .form-set__element.form-set__element_indent-mid
+          +radio-group({
+            name: "sex",
+            set: [
+              {label: "Мужчина", isChecked: true},
+              {label: "Женщина"},
+            ],
+          })
+    SECTION(
+      class=`${blockName}__section`
+      class=`${blockName}__section_rare_more`
+    )
+      +form-set({ title: "Дата рождения" })
+        +text-field({
+          name: "dob",
+          placeholder: "ДД.ММ.ГГГГ",
+          isMasked: true,
+        })
+    SECTION(class=`${blockName}__section`)
+      +form-set({ title: "Данные для входа в сервис", isGrouped: true, isMarginNone: true })
+        .form-set__element
+          +text-field({ name: "email", placeholder: "Email", type: "email" })
+        .form-set__element.form-set__element_indent-mid
+          +text-field({ name: "password", placeholder: "Пароль", type: "password" })
+        .form-set__element.form-set__element_indent-mid
+          +toggle({ name: "sub", label: "Получать спецпредложения" })
+    SECTION(
+      class=`${blockName}__section`
+      class=`${blockName}__section_rare_more`
+    )
+      +button({ caption: "Зарегистрироваться", type: "submit", withArrow: true })
+    SECTION(
+      class=`${blockName}__section`
+      class=`${blockName}__section_last`
+    )
+      +form-set({ isInlined: true, isGrouped: true, isMarginNone: true })
+        .form-set__element.form-set__element_align-mid.form-set__element_increased
+          DIV(class=`${blockName}__question`)="Уже есть аккаунт на Toxin"
+        .form-set__element.form-set__element_indent_left
+          +button({ caption: "Войти", isBorderOnly: true, link: "sign-in.html" })

@@ -1,0 +1,42 @@
+include ../../../date-section/date-section.pug
+include ../../../dropdown/dropdown.pug
+include ../../../button/button.pug
+include ../../../form-set/form-set.pug
+include ../../../bill/bill.pug
+
+mixin room-booking
+  - const blockName = "room-booking"
+
+  ARTICLE(class=blockName)
+    SECTION(
+      class=`${blockName}__section`
+      class=`${blockName}__section_first`
+    )
+      +date-section({
+        name: "room-dates",
+        dateFrom: "2019-08-19",
+        dateTo: "2019-08-23",
+      })
+    SECTION(class=`${blockName}__section`)
+      +form-set({ title: "Гости" })
+        +dropdown({ 
+          value: "3 гостя", 
+          name: "room-guests",
+          withControl: true,
+          list: [
+            { name: "взрослые", count: 2, category: "гость" },
+            { name: "дети", count: 1, category: "гость" },
+            { name: "младенцы", category: "младенец" }
+          ],
+        })
+    SECTION(class=`${blockName}__section`) 
+      +bill({
+        list: [
+          { name: "9 990₽ х 4 суток", price: "39 960₽" },
+          { name: "Сбор за услуги: скидка 2 179₽", price: "0₽", withInfo: true },
+          { name: "Сбор за дополнительные услуги", price: "300₽", withInfo: true },
+        ],
+        total: "38 081₽",
+      })
+    SECTION(class=`${blockName}__section`)
+      +button({ caption: "Забронировать", type: "submit", withArrow: true })

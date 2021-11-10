@@ -1,0 +1,11 @@
+.wishes {
+  &__section {
+    margin-top: 20px;
+    &_first {
+      margin-top: 0;
+    }
+    &_last {
+      margin-top: 30px;
+    }
+  }
+}

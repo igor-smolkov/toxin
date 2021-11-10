@@ -1,14 +1,14 @@
 extends ../../../components/layout/layout
 
-include ./field-elements/field-elements.pug
-include ./check-elements/check-elements.pug
-include ./button-elements/button-elements.pug
-
-include ./dropdowns/dropdowns.pug
-include ./lists/lists.pug
-include ./others/others.pug
-
 include ../../../components/logo/logo.pug
+
+include sections/field-elements/field-elements.pug
+include sections/check-elements/check-elements.pug
+include sections/button-elements/button-elements.pug
+
+include sections/dropdowns/dropdowns.pug
+include sections/lists/lists.pug
+include sections/others/others.pug
 
 block variables
   - const title = "TOXIN - UI kit"
