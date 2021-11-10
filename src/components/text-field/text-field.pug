@@ -26,8 +26,8 @@ mixin text-field(options = {})
     name=name
     type=type
     value=!isFilter ? value : `${dateFrom} - ${dateTo}`
-    placeholder=placeholder
-    pattern=isMasked ? "(0[1-9]|1[0-9]|2[0-9]|3[01]).(0[1-9]|1[012]).[0-9]{4}" : false
+    placeholder=(type !== "date") ? placeholder : false
+    pattern=(isMasked && (type !== "date")) ? "(0[1-9]|1[0-9]|2[0-9]|3[01]).(0[1-9]|1[012]).[0-9]{4}" : false
     readonly=(isReadonly || isFilter)
     class=blockName
     class=`js-${blockName}`

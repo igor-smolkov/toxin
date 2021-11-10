@@ -24,7 +24,7 @@ mixin radio-group(options = {})
           value=option.value ? option.value : index
           checked=option.isChecked
         )
-        DIV(
+        SPAN(
           class=`${blockName}__label`
           class=option.isChecked ? `${blockName}__label_checked` : ""
           class=(index === 0) ? `${blockName}__label_first` : ""

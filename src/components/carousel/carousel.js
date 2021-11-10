@@ -61,7 +61,7 @@ class Carousel {
 
   _animateEnd() {
     this._$nextSlide.removeClass(carouselClassNames.slideAnimateOverlay);
-    this._$currentSlide.removeClass(carouselClassNames.slideAnimateOverlay);
+    this._$currentSlide.removeClass(carouselClassNames.slideAnimateHiding);
     this._$nextSlide.finish();
     this._$currentSlide.finish();
   }
