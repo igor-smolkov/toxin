@@ -3,6 +3,7 @@ import datepickerFactory from 'jquery-datepicker';
 import datepickerRUFactory from 'jquery-datepicker/i18n/jquery.ui.datepicker-ru';
 
 import DropdownControl from '../dropdown-control/dropdown-control';
+import calendarClassNames from './utils/calendarClassNames';
 
 class Calendar {
   constructor($elem) {
@@ -98,17 +99,17 @@ class Calendar {
   _checkDayInPeriod(date) {
     let className = '';
     if (+date === +this.dateActive) {
-      className += 'ui-datepicker-active';
+      className += calendarClassNames.datepickerActive;
     }
     const isBetweenDates = +date >= +this.dateFrom && +date <= +this.dateTo;
     if (isBetweenDates) {
-      className += ' ui-datepicker-period';
+      className += ` ${calendarClassNames.datepickerPeriod}`;
     }
     if (+date === +this.dateFrom) {
-      className += ' ui-datepicker-period-from';
+      className += ` ${calendarClassNames.datepickerPeriodFrom}`;
     }
     if (+date === +this.dateTo) {
-      className += ' ui-datepicker-period-to';
+      className += ` ${calendarClassNames.datepickerPeriodTo}`;
     }
     return [true, className];
   }

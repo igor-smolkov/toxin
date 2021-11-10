@@ -1,5 +1,7 @@
 import $ from 'jquery';
 
+import carouselClassNames from './utils/carouselClassNames';
+
 class Carousel {
   constructor($elem) {
     this._$elem = $elem;
@@ -15,7 +17,6 @@ class Carousel {
   }
 
   _init() {
-    this._className = 'carousel';
     this._$currentSlide = this._findCurrentSlide();
     this._$nextSlide = this._findNextSlide();
     this._slideLinks = this._makeArrOfSlidesLinks();
@@ -54,27 +55,27 @@ class Carousel {
   }
 
   _animateBegin() {
-    this._$nextSlide.addClass(`${this._className}__slide_animate_overlay`);
-    this._$currentSlide.addClass(`${this._className}__slide_animate_hiding`);
+    this._$nextSlide.addClass(carouselClassNames.slideAnimateOverlay);
+    this._$currentSlide.addClass(carouselClassNames.slideAnimateHiding);
   }
 
   _animateEnd() {
-    this._$nextSlide.removeClass(`${this._className}__slide_animate_overlay`);
-    this._$currentSlide.removeClass(`${this._className}__slide_animate_hiding`);
+    this._$nextSlide.removeClass(carouselClassNames.slideAnimateOverlay);
+    this._$currentSlide.removeClass(carouselClassNames.slideAnimateOverlay);
     this._$nextSlide.finish();
     this._$currentSlide.finish();
   }
 
   _findCurrentSlide() {
-    return $(this._$elem.find(`.js-${this._className}__slide-current`));
+    return $(this._$elem.find('.js-carousel__slide-current'));
   }
 
   _findNextSlide() {
-    return $(this._$elem.find(`.js-${this._className}__slide-next`));
+    return $(this._$elem.find('.js-carousel__slide-next'));
   }
 
   _makeArrOfSlidesLinks() {
-    return Array.from(this._$elem.find(`.js-${this._className}__link`)).map((elem) => elem.value);
+    return Array.from(this._$elem.find('.js-carousel__link')).map((elem) => elem.value);
   }
 
   _initDelay() {

@@ -1,5 +1,7 @@
 import $ from 'jquery';
 
+import counterClassNames from './utils/counterClassNames';
+
 class Counter {
   constructor($elem) {
     this._$elem = $elem;
@@ -33,9 +35,9 @@ class Counter {
 
   disabledMinusButton(isTrue = true) {
     if (isTrue) {
-      this._$minusButton.toggleClass('counter__button_disabled');
+      this._$minusButton.toggleClass(counterClassNames.buttonDisabled);
     } else {
-      this._$minusButton.removeClass('counter__button_disabled');
+      this._$minusButton.removeClass(counterClassNames.buttonDisabled);
     }
     this._$minusButton.prop('disabled', isTrue);
   }

@@ -1,3 +1,5 @@
+import buttonClassNames from './utils/buttonClassNames';
+
 class Button {
   constructor($elem) {
     this._$elem = $elem.find('.js-button');
@@ -6,11 +8,11 @@ class Button {
   }
 
   show() {
-    this._$elem.removeClass('button_none');
+    this._$elem.removeClass(buttonClassNames.none);
   }
 
   hide() {
-    this._$elem.addClass('button_none');
+    this._$elem.addClass(buttonClassNames.none);
   }
 
   has() {

@@ -3,6 +3,7 @@ import $ from 'jquery';
 import DropdownControl from '../dropdown-control/dropdown-control';
 import Counter from '../counter/counter';
 import TextField from '../text-field/text-field';
+import dropdownClassNames from './utils/dropdownClassNames';
 
 class Dropdown {
   constructor($elem) {
@@ -124,13 +125,13 @@ class Dropdown {
   _show() {
     this._isDropped = true;
     this._$dropper.prop('checked', true);
-    this._$elem.addClass('dropdown_expanded');
+    this._$elem.addClass(dropdownClassNames.dropdownExpanded);
   }
 
   _hide() {
     this._isDropped = false;
     this._$dropper.prop('checked', false);
-    this._$elem.removeClass('dropdown_expanded');
+    this._$elem.removeClass(dropdownClassNames.dropdownExpanded);
   }
 
   _handleDrop(e) {
