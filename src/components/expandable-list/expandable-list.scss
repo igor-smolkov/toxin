@@ -72,6 +72,7 @@ $block: 'expandable-list';
   }
 
   &_with-checks {
+    position: relative;
     float: none;
     min-height: 29px;
     max-height: max-content;
@@ -79,10 +80,11 @@ $block: 'expandable-list';
       transform: scale(-1, -1);
     }
     .#{$block}__expand-more {
-      float: right;
+      position: absolute;
+      top: -29px;
+      right: 0;
       min-width: 44px;
       min-height: 44px;
-      margin-top: -29px;
 
       &::before {
         min-width: 44px;

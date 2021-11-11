@@ -11,21 +11,16 @@
 .room-content {
   display: flex;
   flex-wrap: wrap;
+  gap: 40px 70px;
   justify-content: center;
-  margin-top: -40px;
-  margin-left: -70px;
   padding: 70px 140px;
 
   &__info {
     max-width: 712px;
-    margin-top: 40px;
-    margin-left: 70px;
   }
 
   &__card {
     flex-basis: 380px;
-    margin-top: 40px;
-    margin-left: 70px;
 
     @media only screen and (max-width: 800px) {
       flex-basis: auto;

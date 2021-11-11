@@ -29,26 +29,13 @@
 .cards {
   display: flex;
   flex-flow: column wrap;
+  gap: 40px;
   align-content: flex-start;
   height: 1140px;
-  margin-top: -40px;
-  margin-left: -40px;
 
   &__unit {
     width: 100%;
     max-width: 380px;
-    margin-top: 40px;
-    margin-left: 40px;
-
-    @media only screen and (max-width: 1430px) {
-      margin-right: 10px;
-      margin-left: 10px;
-    }
-
-    @media only screen and (max-width: 600px) {
-      margin: 0;
-      margin-top: 20px;
-    }
   }
 
   @media only screen and (max-width: 1430px) {
@@ -56,13 +43,11 @@
     justify-content: space-around;
     min-width: 100%;
     height: max-content;
-    margin-left: 0;
   }
 
   @media only screen and (max-width: 600px) {
     flex-flow: column nowrap;
     align-items: center;
     justify-content: flex-start;
-    margin-top: -20px;
   }
 }
