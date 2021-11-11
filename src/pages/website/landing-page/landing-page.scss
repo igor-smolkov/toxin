@@ -1,29 +1,33 @@
 .page {
-  min-width: 320px;
   width: 100%;
+  min-width: 320px;
   height: max-content;
 }
 
 .landing {
   position: relative;
   z-index: 0;
+
   &__content {
-    padding: 70px 134px 21px 140px;
-    min-height: 830px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    min-height: 830px;
+    padding: 70px 134px 21px 140px;
+
     @media only screen and (max-width: 600px) {
       padding: 40px 34px 21px 40px;
     }
+
     @media only screen and (max-width: 400px) {
-      padding: 20px 15px 21px 15px;
+      padding: 20px 15px 21px;
     }
   }
+
   &__about {
-    margin-top: 20px;
-    max-width: 297px;
     align-self: flex-end;
+    max-width: 297px;
+    margin-top: 20px;
     text-align: right;
   }
 }

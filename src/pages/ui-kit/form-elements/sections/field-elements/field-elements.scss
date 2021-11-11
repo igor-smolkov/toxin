@@ -1,14 +1,18 @@
 .field-elements {
   display: flex;
   flex-direction: column;
+
   &__section {
     margin-top: 20px;
+
     &_first {
       margin-top: 0;
     }
+
     &_rarefied {
       margin-top: 40px;
     }
+
     &_short {
       max-width: 266px;
     }

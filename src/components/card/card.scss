@@ -1,51 +1,53 @@
-@import '/assets/colors.scss';
-@import '/assets/types.scss';
+@import '/assets/colors';
+@import '/assets/types';
 
 $block: 'card';
 
 .#{$block} {
-  min-height: 257px;
-  max-width: 380px;
   width: 100%;
-
-  padding-top: 39px;
+  max-width: 380px;
+  min-height: 257px;
   padding: 29px;
-
-  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
+  background-color: white;
   border: 1px solid rgba(0, 0, 0, 0.12);
   border-radius: 4px;
-
-  background-color: white;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
 
   &_medium {
     max-width: 320px;
     padding: 20px;
     padding-bottom: 15px;
-    box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
     border: 1px solid $color-25per;
+    box-shadow: 0 10px 20px rgba(31, 32, 65, 0.05);
+
     @media only screen and (max-width: 400px) {
       border: none;
       box-shadow: none;
     }
   }
+
   &_small {
     max-width: 270px;
-    box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
-    border: none;
     padding: 0;
     overflow: hidden;
+    border: none;
+    box-shadow: 0 10px 20px rgba(31, 32, 65, 0.05);
     .#{$block}__body {
       padding: 20px;
     }
   }
+
   &__title {
     margin-top: 10px;
+
     &_margin_none {
       margin: 0;
     }
   }
+
   &__form {
     margin-top: 21px;
+
     &_margin_none {
       margin: 0;
     }

@@ -1,24 +1,27 @@
-@import '/assets/colors.scss';
+@import '/assets/colors';
 
 .bullet-list {
   max-width: 260px;
+
   &__item {
-    line-height: 1.72;
+    position: relative;
     margin-top: 10px;
     padding-left: 21px;
-    position: relative;
+    line-height: 1.72;
+
     &_first {
       margin-top: 0;
     }
-    &::before{
-      content: '';
+
+    &::before {
       position: absolute;
-      min-width: 10px;
-      min-height: 10px;
       top: 7px;
       left: 0;
-      border-radius: 5px;
+      min-width: 10px;
+      min-height: 10px;
       background: $color_25per;
-    } 
+      border-radius: 5px;
+      content: '';
+    }
   }
 }

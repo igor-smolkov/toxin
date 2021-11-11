@@ -1,13 +1,15 @@
 .chart {
-  display: flex;
   position: relative;
+  display: flex;
+
   &__total {
     position: absolute;
     top: 36px;
     left: 29px;
   }
+
   &__caption-list {
-    margin-left: 30px;
     margin-top: 27px;
+    margin-left: 30px;
   }
 }

@@ -1,26 +1,30 @@
-@import '/assets/colors.scss';
+@import '/assets/colors';
 
 .rate-circle {
   &__unit {
     fill: none;
     stroke-width: 1.1;
   }
+
   &__gradient {
     &_yellow {
-      &_start { stop-color: $color-yellow }
-      &_end { stop-color: $color-yellow-end }
+      &_start { stop-color: $color-yellow; }
+      &_end { stop-color: $color-yellow-end; }
     }
+
     &_green {
-      &_start { stop-color: $color-green-end }
-      &_end { stop-color: $color-green }
+      &_start { stop-color: $color-green-end; }
+      &_end { stop-color: $color-green; }
     }
+
     &_purple {
-      &_start { stop-color: $color-purple }
-      &_end { stop-color: $color-purple-end }
+      &_start { stop-color: $color-purple; }
+      &_end { stop-color: $color-purple-end; }
     }
+
     &_gray {
-      &_start { stop-color: $color-gray }
-      &_end { stop-color: $color-gray-end }
+      &_start { stop-color: $color-gray; }
+      &_end { stop-color: $color-gray-end; }
     }
   }
 }

@@ -1,12 +1,16 @@
-@import '/assets/colors.scss';
-@import '/assets/types.scss';
+@import '/assets/colors';
+@import '/assets/types';
 
 .reviews-counter {
   @include base-h-type;
+
   color: $color-50per;
+
   &__text {
     padding-left: 4px;
+
     @include base-type;
+
     color: $color-50per;
   }
 }

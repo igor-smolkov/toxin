@@ -1,8 +1,9 @@
-@import '/assets/types.scss';
+@import '/assets/types';
 
 .copyright {
   @include text('rare_less');
-  @media only screen and (max-width : 400px) {
+
+  @media only screen and (max-width: 400px) {
     text-align: center;
   }
 }

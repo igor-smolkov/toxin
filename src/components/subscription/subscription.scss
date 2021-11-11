@@ -1,21 +1,24 @@
-@import '/assets/colors.scss';
-@import '/assets/types.scss';
+@import '/assets/colors';
+@import '/assets/types';
 
 .subscription {
   position: relative;
+
   &__button {
     @include icon-type;
+
     position: absolute;
+    right: 0;
     min-width: 44px;
     min-height: 44px;
-    right: 0;
-    cursor: pointer;
+    color: $color-purple;
     background: linear-gradient(180deg, $color-purple 0%, $color-purple-end 100%);
     -webkit-background-clip: text;
     background-clip: text;
+    cursor: pointer;
     -webkit-text-fill-color: transparent;
-    color: $color-purple;
   }
+
   &__button_hover,
   &__button:hover,
   &__button:focus {

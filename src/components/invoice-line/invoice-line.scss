@@ -1,47 +1,54 @@
-@import '/assets/colors.scss';
-@import '/assets/types.scss';
+@import '/assets/colors';
+@import '/assets/types';
 
 .invoice-line {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
+
   &__name {
-    flex-grow: 1;
-    max-width: 239px;
     display: flex;
+    flex-grow: 1;
     justify-content: space-between;
+    max-width: 239px;
+
     @include text('rare_less');
+
     &_with-line {
       max-width: 100%;
       overflow: hidden;
+
       &::after {
-        content: '';
         position: relative;
+        top: -5px;
+        left: 4px;
         min-width: 100%;
         min-height: 1px;
-        left: 4px;
-        top: -5px;
         border-bottom: 1px dotted $color-25per;
+        content: '';
       }
     }
   }
+
   &__info {
+    @include h3-type;
+
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     min-width: 20px;
-    min-height: 20px;
     max-width: 20px;
+    min-height: 20px;
     max-height: 20px;
+    color: $color-25per;
+    text-transform: lowercase;
+    background-color: white;
     border: 1px solid $color-25per;
     border-radius: 10px;
-    @include h3-type;
-    text-transform: lowercase;
-    color: $color-25per;
-    background-color: white;
+
     &:focus {
-      outline: none;
       border-color: $color-50per;
+      outline: none;
     }
   }
 }

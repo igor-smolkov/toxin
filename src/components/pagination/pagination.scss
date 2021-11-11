@@ -1,31 +1,33 @@
-@import '/assets/colors.scss';
-@import '/assets/types.scss';
+@import '/assets/colors';
+@import '/assets/types';
 
 $block: 'pagination';
 
 .#{$block} {
   &__items {
+    display: flex;
     min-width: 241px;
     max-width: 241px;
     min-height: 40px;
-    display: flex;
   }
+
   &__item {
     @include icon-type;
-    min-width: 40px;
-    min-height: 40px;
 
     display: flex;
     align-items: center;
-
+    min-width: 40px;
+    min-height: 40px;
     background: none;
     border-radius: 20px;
+
     &_hovered,
     &:hover,
     &:focus {
-      opacity: 0.5;
       outline: none;
+      opacity: 0.5;
     }
+
     &_current {
       background: linear-gradient(180deg, $color-purple 0%, $color-purple-end 100%);
       .#{$block}__value {
@@ -33,21 +35,26 @@ $block: 'pagination';
         font-weight: bold;
       }
     }
+
     &_next {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
       background: linear-gradient(180deg, $color-green 0%, $color-green-end 100%);
       border-radius: 20px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: white;
     }
   }
+
   &__value {
     width: 100%;
+
     @include h3-type;
+
     color: $color-50per;
     font-weight: normal;
   }
+
   &__description {
     margin-top: 8px;
     padding: 5px;

@@ -1,12 +1,13 @@
 .rooms {
   &__list {
-    max-width: 100%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
     gap: 20px 12px;
+    justify-content: space-around;
+    max-width: 100%;
     margin-top: 20.5px;
   }
+
   &__pagination {
     max-width: min-content;
     margin: auto;

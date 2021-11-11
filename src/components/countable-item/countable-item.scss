@@ -1,14 +1,17 @@
-@import '/assets/types.scss';
+@import '/assets/types';
 
 .countable-item {
   display: flex;
   align-items: center;
+
   &__name {
-    padding-left: 7px;
-    padding-bottom: 4px;
     flex-grow: 1;
+    padding-bottom: 4px;
+    padding-left: 7px;
+
     @include h3-type;
   }
+
   &__counter {
     flex-shrink: 0;
   }

@@ -1,37 +1,44 @@
 .carousel {
-  z-index: -1;
   position: absolute;
-  min-width: 100%;
-  min-height: 100%;
-  height: 1px;
   top: 0;
   left: 0;
+  z-index: -1;
+  min-width: 100%;
+  height: 1px;
+  min-height: 100%;
   overflow: hidden;
+
   &__slide {
     position: absolute;
     min-width: 100%;
     min-height: 100%;
     background: no-repeat center;
     background-size: cover;
+
     &_current {
-      z-index: 1;
       right: 0;
+      z-index: 1;
     }
+
     &_next {
-      z-index: 2;
       left: 100%;
+      z-index: 2;
     }
+
     &_animate {
       &_overlay {
         animation: shift-1 2s;
+
         @keyframes shift-1 {
           to {
             left: 0;
           }
         }
       }
+
       &_hiding {
         animation: shift 2s;
+
         @keyframes shift {
           to {
             right: 100%;

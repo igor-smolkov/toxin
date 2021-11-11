@@ -1,31 +1,36 @@
-@import '/assets/colors.scss';
+@import '/assets/colors';
 
 .slider {
   padding: 6px 0;
+
   .my-jquery-slider {
     &__slot {
       z-index: 0;
+      height: 6px;
+      min-height: 6px;
+      background-color: white;
       border: 1px solid $color-25per;
       border-radius: 3px;
-      background-color: white;
-      min-height: 6px;
-      height: 6px;
     }
+
     &__bar {
-      min-height: 5px;
       height: 5px;
+      min-height: 5px;
+
       &_actual {
         background: linear-gradient(180deg, $color-green 0%, $color-green-end 100%);
       }
     }
+
     &__thumb {
-      min-width: 16px;
-      min-height: 16px;
+      top: -6px;
       width: 16px;
+      min-width: 16px;
       height: 16px;
+      min-height: 16px;
       background: linear-gradient(180deg, $color-green 0%, $color-green-end 100%);
       border-color: white;
-      top: -6px;
+
       &:hover,
       &:focus {
         border-color: white;

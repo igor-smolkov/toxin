@@ -1,33 +1,40 @@
-@import '/assets/types.scss';
+@import '/assets/types';
 
 .demo-menu {
-  background: #F4F4F6;
-  min-width: 100%;
-  min-height: 100%;
-  height: max-content;
-  padding: 10px;
   display: flex;
+  min-width: 100%;
+  height: max-content;
+  min-height: 100%;
+  padding: 10px;
+  background: #f4f4f6;
+
   .pages {
-    background: white;
     margin: auto;
     padding: 70px;
+    background: white;
     border-radius: 10px;
-    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+
     @include h1-type;
+
     &__ui-kit {
       margin-top: 40px;
     }
   }
+
   .link-list {
-    max-width: 320px;
     width: 100%;
+    max-width: 320px;
+
     &__item {
       margin-top: 10px;
       margin-left: 20px;
       list-style: circle;
+
       @include h3-type;
     }
   }
+
   .page-link {
     text-decoration: underline;
   }

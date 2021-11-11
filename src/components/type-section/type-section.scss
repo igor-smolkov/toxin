@@ -1,17 +1,20 @@
-@import '/assets/colors.scss';
+@import '/assets/colors';
 
 .type-section {
   display: flex;
   margin-top: 50px;
+
   &_first {
     margin-top: 0;
   }
+
   &__name {
     min-width: 37px;
-    text-align: right;
     color: $color-25per;
     font-weight: normal;
+    text-align: right;
   }
+
   &__example {
     max-width: 369px;
     margin-left: 30px;

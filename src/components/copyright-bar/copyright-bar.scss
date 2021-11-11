@@ -1,23 +1,27 @@
-@import '/assets/colors.scss';
+@import '/assets/colors';
 
 .copyright-bar {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   padding: 23px 140px;
-  background-color: #FFFFFF;
-  box-shadow: 0px 10px 20px $color-5per;
+  background-color: #fff;
+  box-shadow: 0 10px 20px $color-5per;
+
   &__socials {
     margin-left: 20px;
-    @media only screen and (max-width : 400px) {
-      margin-left: 0;
+
+    @media only screen and (max-width: 400px) {
       margin-top: 20px;
+      margin-left: 0;
     }
   }
-  @media only screen and (max-width : 600px) {
+
+  @media only screen and (max-width: 600px) {
     padding: 23px 40px;
   }
-  @media only screen and (max-width : 400px) {
+
+  @media only screen and (max-width: 400px) {
     flex-direction: column;
   }
 }

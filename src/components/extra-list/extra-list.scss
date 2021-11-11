@@ -1,49 +1,55 @@
-@import '/assets/colors.scss';
-@import '/assets/types.scss';
+@import '/assets/colors';
+@import '/assets/types';
 
 $block: 'extra-list';
 .#{$block} {
-  min-width: 280px;
   width: 100%;
+  min-width: 280px;
   min-height: fit-content;
+
   &__item {
+    position: relative;
+    width: fit-content;
     padding: 21px 0;
     padding-left: 58px;
     border-bottom: 1px solid $color-10per;
 
-    position: relative;
-    width: fit-content;
     &_first {
       padding-top: 0;
       .#{$block}__icon {
         top: 0;
       }
     }
+
     &_last {
       padding-bottom: 0;
       border-bottom: none;
     }
   }
+
   &__title {
     font-weight: bold;
   }
+
   &__details {
     @include text('rare_more');
   }
+
   &__icon {
     @include icon-type;
+
     position: absolute;
+    top: 0;
+    top: 20px;
+    left: 0;
     min-width: 48px;
     min-height: 48px;
+    color: $color-purple;
     font-size: 48px;
     line-height: 1;
-    top: 0;
-    left: 0;
-    top: 20px;
     background: linear-gradient(180deg, $color-purple 0%, $color-purple-end 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    color: $color-purple;
   }
 }

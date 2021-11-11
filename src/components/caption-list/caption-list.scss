@@ -1,29 +1,35 @@
-@import '/assets/colors.scss';
+@import '/assets/colors';
 
 .caption-list {
   padding-left: 15px;
+
   &__item {
     position: relative;
+
     &::before {
-      content: '';
       position: absolute;
+      top: 7px;
+      left: -15px;
       min-width: 10px;
       min-height: 10px;
-      left: -15px;
-      top: 7px;
       border-radius: 5px;
+      content: '';
     }
+
     &_yellow::before {
-        background: linear-gradient(180deg, $color-yellow 0%, $color-yellow-end 100%);
+      background: linear-gradient(180deg, $color-yellow 0%, $color-yellow-end 100%);
     }
+
     &_green::before {
-        background: linear-gradient(180deg, $color-green 0%, $color-green-end 100%);
+      background: linear-gradient(180deg, $color-green 0%, $color-green-end 100%);
     }
+
     &_purple::before {
-        background: linear-gradient(180deg, $color-purple 0%, $color-purple-end 100%);
+      background: linear-gradient(180deg, $color-purple 0%, $color-purple-end 100%);
     }
+
     &_gray::before {
-        background: linear-gradient(180deg, $color-gray 0%, $color-gray-end 100%);
+      background: linear-gradient(180deg, $color-gray 0%, $color-gray-end 100%);
     }
   }
 }

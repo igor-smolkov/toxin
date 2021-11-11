@@ -1,16 +1,17 @@
-@import '/assets/colors.scss';
-@import '/assets/types.scss';
+@import '/assets/colors';
+@import '/assets/types';
 
 $block: 'dropdown';
 .#{$block} {
   position: relative;
   border: 1px solid $color-25per;
   border-radius: 4px;
+
   &__check {
     position: absolute;
+    z-index: -1;
     width: 1px;
     height: 1px;
-    z-index: -1;
     opacity: 0;
     &:checked~.#{$block}__panel {
       display: block;
@@ -24,71 +25,82 @@ $block: 'dropdown';
       color: $color-75per;
     }
   }
+
   &__expand-more {
     position: absolute;
+    right: 0;
     min-width: 42px;
     min-height: 42px;
-    right: 0;
     cursor: pointer;
+
     &::before {
-      content: 'expand_more';
       @include icon-type;
+
       position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       min-width: 42px;
       min-height: 42px;
-      background-color: transparent;
       color: $color-50per;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       font-size: -0.1px;
+      background-color: transparent;
+      content: 'expand_more';
     }
   }
+
   &__expand-more_hovered::before,
   &__expand-more:hover::before {
     color: $color-75per;
   }
+
   &__panel {
+    position: absolute;
+    left: -1px;
+    z-index: 1;
     display: none;
+    min-width: calc(100% + 2px);
+    background-color: white;
     border: 1px solid $color-25per;
     border-radius: 4px;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
-    min-width: calc(100% + 2px);
-    left: -1px;
-    background-color: white;
-    z-index: 1;
-    position: absolute;
+
     &_independent {
+      top: 50px;
       z-index: 2;
       border: none;
-      top: 50px;
+
       @media only screen and (max-width: 400px) {
         position: static;
         min-width: 200px;
         border-top: 1px solid $color-25per;
       }
     }
+
     &_align_right {
-      left: auto;
       right: -1px;
+      left: auto;
     }
   }
+
   &_expanded {
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
     border-color: $color-50per;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
     .#{$block}__panel {
       display: block;
       border-color: $color-50per;
     }
   }
+
   &_hovered,
   &:hover,
   &_focused,
   &:focus {
     border-color: $color-50per;
   }
+
   &:not(:hover) {
     border-color: $color-25per;
     .#{$block}__panel {

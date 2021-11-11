@@ -1,32 +1,37 @@
 .page {
-  max-width: 1440px;
-  min-width: 320px;
   width: 100%;
+  min-width: 320px;
+  max-width: 1440px;
   height: max-content;
   margin: 0 auto;
 
   &__header {
     padding: 30px;
   }
+
   &__main {
-    padding: 32px 0px 140px;
+    padding: 32px 0 140px;
   }
+
   &_gray {
-    background: #F4F4F6;
+    background: #f4f4f6;
   }
 }
 
 .headers-and-footers {
   display: flex;
   flex-direction: column;
+
   &__unit {
-    margin-top: 40px;
-    min-width: 100%;
     display: flex;
     justify-content: center;
+    min-width: 100%;
+    margin-top: 40px;
+
     &_first {
       margin-top: 0;
     }
+
     &_last {
       align-self: center;
     }

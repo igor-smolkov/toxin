@@ -1,20 +1,22 @@
-@import '/assets/colors.scss';
+@import '/assets/colors';
 
 $block: 'footer';
 .#{$block} {
   width: 100%;
+
   &__copyright-bar {
     border-top: 1px solid $color-10per;
   }
+
   &_creative {
-    max-width: 768px;
-    padding: 120px 10px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    background-color: #FFFFFF;
-    box-shadow: 0px 10px 20px $color-5per;
+    justify-content: center;
+    max-width: 768px;
+    padding: 120px 10px;
+    background-color: #fff;
+    box-shadow: 0 10px 20px $color-5per;
     .#{$block}__copyright {
       margin-top: 20px;
     }

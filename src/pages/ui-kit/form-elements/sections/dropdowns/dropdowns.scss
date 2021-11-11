@@ -1,19 +1,24 @@
 .dropdowns {
   display: flex;
   flex-direction: column;
+
   &__section {
     margin-top: 20px;
+
     &_first {
       margin-top: 0;
     }
+
     &_greedy {
       &_1 {
         min-height: 182px;
       }
+
       &_2 {
         min-height: 220px;
       }
     }
+
     &_short {
       max-width: 266px;
     }

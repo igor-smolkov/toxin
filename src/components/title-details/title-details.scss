@@ -1,13 +1,17 @@
-@import '/assets/colors.scss';
-@import '/assets/types.scss';
+@import '/assets/colors';
+@import '/assets/types';
 
 .title-details {
   @include base-h-type;
+
   color: $color-50per;
+
   &__second {
     padding-left: 4px;
+
     @include base-type;
     @include text('small');
+
     color: $color-50per;
     white-space: nowrap;
   }

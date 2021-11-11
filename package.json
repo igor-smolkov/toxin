@@ -7,7 +7,9 @@
     "dev": "cross-env NODE_ENV=development webpack --mode development",
     "build": "cross-env NODE_ENV=production webpack --mode production",
     "start": "cross-env NODE_ENV=development webpack serve --mode development",
-    "lint": "eslint **/*.js --ignore-pattern src/plugins/ --ignore-pattern node_modules/ --ignore-pattern dist/"
+    "lint": "eslint **/*.js --ignore-pattern src/plugins/ --ignore-pattern node_modules/ --ignore-pattern dist/",
+    "style": "stylelint src/**/*.scss",
+    "style:fix": "stylelint src/**/*.scss --fix"
   },
   "browserslist": "> 0.25%, not dead",
   "repository": {
@@ -41,6 +43,10 @@
     "pug-loader": "^2.4.0",
     "sass-loader": "^10.0.4",
     "style-loader": "^2.0.0",
+    "stylelint": "^14.0.1",
+    "stylelint-config-rational-order": "^0.1.2",
+    "stylelint-config-standard-scss": "^2.0.1",
+    "stylelint-order": "^5.0.0",
     "terser-webpack-plugin": "^5.0.1",
     "webpack": "^5.10.2",
     "webpack-cli": "^4.2.0",
@@ -51,6 +57,6 @@
     "@babel/polyfill": "^7.12.1",
     "jquery": "^3.5.1",
     "jquery-datepicker": "^1.12.3",
-    "jquery-ui": "^1.12.1"
+    "jquery-ui": "^1.13.0"
   }
 }

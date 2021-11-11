@@ -1,71 +1,81 @@
-@import '/assets/types.scss';
+@import '/assets/types';
 
 $block: 'preview';
-.preview {
+
+.#{$block} {
+  position: relative;
   max-width: 270px;
   max-height: 151px;
   overflow: hidden;
-  position: relative;
-  &_hovered,
-  &:hover {
-    .preview__arrows {
-      display: flex;
-    }
-  }
+
   &__arrows {
     position: absolute;
     top: 0;
     left: 0;
+    display: flex;
+    display: none;
+    justify-content: space-between;
     min-width: 100%;
     min-height: 100%;
-    display: flex;
-    justify-content: space-between;
-
-    display: none;
   }
+
+  &_hovered,
+  &:hover {
+    .#{$block}__arrows {
+      display: flex;
+    }
+  }
+
   &__arrow {
     @include icon-type;
+
+    position: relative;
     flex-grow: 1;
     max-width: 42px;
     background: transparent;
-    position: relative;
+
     &::before {
-      content: 'chevron_left';
       position: absolute;
       top: 0;
       left: 0;
-      max-width: 42px;
-      width: 100%;
-      min-height: 100%;
-      background: linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 99.99%, rgba(255, 255, 255, 0) 100%);
-      color: white;
       display: flex;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
+      width: 100%;
+      max-width: 42px;
+      min-height: 100%;
+      color: white;
       font-size: 22px;
+      background: linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 99.99%, rgba(255, 255, 255, 0) 100%);
+      content: 'chevron_left';
     }
+
     &_next::before {
-      content: 'chevron_right';
-      left: auto;
       right: 0;
+      left: auto;
       background: linear-gradient(-90deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 99.99%, rgba(255, 255, 255, 0) 100%);
+      content: 'chevron_right';
     }
+
     &:focus {
       outline: none;
+
       &::before {
         font-size: 26px;
       }
     }
   }
+
   &__points {
     position: absolute;
-    min-width: 41px;
-    min-height: 7px;
+    right: 15px;
+    bottom: 15px;
     display: flex;
     justify-content: space-between;
-    bottom: 15px;
-    right: 15px;
+    min-width: 41px;
+    min-height: 7px;
   }
+
   &__point-input {
     position: absolute;
     z-index: -1;
@@ -80,13 +90,15 @@ $block: 'preview';
       outline: auto;
     }
   }
+
   &__point-label {
     display: inline-block;
     min-width: 7px;
     min-height: 7px;
-    border-radius: 3.5px;
     border: 1px solid white;
+    border-radius: 3.5px;
     cursor: pointer;
+
     &_checked {
       background-color: white;
     }

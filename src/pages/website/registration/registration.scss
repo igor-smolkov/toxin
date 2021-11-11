@@ -1,17 +1,18 @@
 .page {
-  min-width: 320px;
   width: 100%;
+  min-width: 320px;
   height: max-content;
 }
 
 .registration {
   position: relative;
   z-index: 0;
-  padding: 19px 10px;
   display: flex;
+  padding: 19px 10px;
+
   &__card {
-    min-width: 100%;
     display: flex;
     justify-content: center;
+    min-width: 100%;
   }
 }

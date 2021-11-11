@@ -1,45 +1,54 @@
-@import '/assets/colors.scss';
-@import '/assets/types.scss';
+@import '/assets/colors';
+@import '/assets/types';
 
 .comment {
   display: flex;
+
   &__images {
     flex: 0 1 auto;
   }
+
   &__texts {
     flex: 1 1 auto;
     padding: 10px;
     padding-right: 0;
   }
+
   &__avatar {
-    margin-top: 9px;
     position: relative;
-    min-width: 48px;
-    min-height: 48px;
     width: 48px;
+    min-width: 48px;
     height: 48px;
-    border-radius: 24px;
+    min-height: 48px;
+    margin-top: 9px;
     overflow: hidden;
-    box-shadow: 0px 10px 20px $color-10per;
+    border-radius: 24px;
+    box-shadow: 0 10px 20px $color-10per;
   }
+
   &__img {
     position: absolute;
     top: -10px;
     left: -20px;
   }
+
   &__like {
-    margin-top: 12px;
     display: flex;
     justify-content: center;
+    margin-top: 12px;
   }
+
   &__username {
     font-weight: bold;
   }
+
   &__date-time {
     @include text('rare_more');
   }
+
   &__message {
     margin-top: 10px;
+
     @include text('rare_more');
   }
 }

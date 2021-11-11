@@ -1,11 +1,14 @@
 .bill {
   padding-left: 1px;
+
   &__item {
     margin-top: 11px;
+
     &_first {
       margin-top: 0;
     }
   }
+
   &__total {
     margin-top: 31px;
   }

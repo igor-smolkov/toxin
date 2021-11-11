@@ -1,17 +1,20 @@
-@import '/assets/colors.scss';
-@import '/assets/types.scss';
+@import '/assets/colors';
+@import '/assets/types';
 
 .link {
   @include base-type;
   @include text('rare_less');
+
   color: $color-50per;
+
   &_hovered,
   &:hover {
     color: $color-75per;
     font-weight: bold;
   }
+
   &:focus {
-    outline: none;
     text-decoration: underline;
+    outline: none;
   }
 }

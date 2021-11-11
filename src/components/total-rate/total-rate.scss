@@ -1,16 +1,20 @@
-@import '/assets/colors.scss';
-@import '/assets/types.scss';
+@import '/assets/colors';
+@import '/assets/types';
 
 .total-rate {
   display: flex;
   flex-direction: column;
   text-align: center;
+
   &__number {
     @include h1-type;
+
     color: $color-purple;
   }
+
   &__text {
     @include h3-type;
+
     color: $color-purple;
   }
 }

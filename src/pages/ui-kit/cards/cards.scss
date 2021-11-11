@@ -1,24 +1,28 @@
 .page {
-  max-width: 1440px;
-  min-width: 320px;
   width: 100%;
+  min-width: 320px;
+  max-width: 1440px;
   height: max-content;
   margin: 0 auto;
 
   &__header {
     padding: 30px;
   }
+
   &__main {
     padding: 42px 140px 131px;
-    @media only screen and (max-width : 1430px) {
+
+    @media only screen and (max-width: 1430px) {
       padding: 42px 40px 131px;
     }
-    @media only screen and (max-width : 600px) {
+
+    @media only screen and (max-width: 600px) {
       padding: 20px 10px 40px;
     }
   }
+
   &_gray {
-    background: #F4F4F6;
+    background: #f4f4f6;
   }
 }
 
@@ -27,33 +31,38 @@
   flex-flow: column wrap;
   align-content: flex-start;
   height: 1140px;
-  margin-left: -40px;
   margin-top: -40px;
+  margin-left: -40px;
+
   &__unit {
-    margin-left: 40px;
-    margin-top: 40px;
-    max-width: 380px;
     width: 100%;
-    @media only screen and (max-width : 1430px) {
-      margin-left: 10px;
+    max-width: 380px;
+    margin-top: 40px;
+    margin-left: 40px;
+
+    @media only screen and (max-width: 1430px) {
       margin-right: 10px;
+      margin-left: 10px;
     }
-    @media only screen and (max-width : 600px) {
+
+    @media only screen and (max-width: 600px) {
       margin: 0;
       margin-top: 20px;
     }
   }
-  @media only screen and (max-width : 1430px) {
+
+  @media only screen and (max-width: 1430px) {
+    flex-direction: row;
+    justify-content: space-around;
     min-width: 100%;
     height: max-content;
-    flex-direction: row;
     margin-left: 0;
-    justify-content: space-around;
   }
-  @media only screen and (max-width : 600px) {
-    margin-top: -20px;
+
+  @media only screen and (max-width: 600px) {
     flex-flow: column nowrap;
-    justify-content: flex-start;
     align-items: center;
+    justify-content: flex-start;
+    margin-top: -20px;
   }
 }

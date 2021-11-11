@@ -1,9 +1,11 @@
 .card-title {
   display: flex;
   align-items: baseline;
+
   &__main {
     flex-grow: 1;
   }
+
   &__details {
     margin-left: 20px;
   }
