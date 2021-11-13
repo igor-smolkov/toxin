@@ -1,8 +1,14 @@
 .bill {
   padding-left: 1px;
 
+  &__list {
+    margin: 0;
+    padding: 0;
+  }
+
   &__item {
     margin-top: 11px;
+    list-style: none;
 
     &_first {
       margin-top: 0;

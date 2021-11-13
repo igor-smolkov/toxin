@@ -10,13 +10,19 @@
 
   @include h1-type;
 
+  &__website {
+    list-style: none;
+  }
+
   &__ui-kit {
     margin-top: 40px;
+    list-style: none;
   }
 
   &__list {
     width: 100%;
     max-width: 320px;
+    padding: 0;
   }
 
   &__page {

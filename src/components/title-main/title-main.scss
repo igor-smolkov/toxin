@@ -32,6 +32,8 @@
   }
 
   &_linked {
+    text-decoration: none;
+
     &:hover *,
     &:focus * {
       color: $color-purple;
@@ -39,6 +41,11 @@
 
     &:focus {
       outline: none;
+    }
+
+    &:hover,
+    &:visited {
+      text-decoration: none;
     }
   }
 }

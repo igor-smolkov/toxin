@@ -6,12 +6,15 @@ $block: 'extra-list';
   width: 100%;
   min-width: 280px;
   min-height: fit-content;
+  margin: 0;
+  padding: 0;
 
   &__item {
     position: relative;
     width: fit-content;
     padding: 21px 0;
     padding-left: 58px;
+    list-style: none;
     border-bottom: 1px solid $color-10per;
 
     &_first {
@@ -28,10 +31,15 @@ $block: 'extra-list';
   }
 
   &__title {
+    margin: 0;
+    padding: 0;
     font-weight: bold;
   }
 
   &__details {
+    margin: 0;
+    padding: 0;
+
     @include text('rare_more');
   }
 

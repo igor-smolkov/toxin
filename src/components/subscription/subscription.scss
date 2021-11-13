@@ -11,10 +11,12 @@
     right: 0;
     min-width: 44px;
     min-height: 44px;
+    padding: 0;
     color: $color-purple;
     background: linear-gradient(180deg, $color-purple 0%, $color-purple-end 100%);
     -webkit-background-clip: text;
     background-clip: text;
+    border: 0;
     cursor: pointer;
     -webkit-text-fill-color: transparent;
   }

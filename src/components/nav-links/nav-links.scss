@@ -3,8 +3,12 @@
 $list-size: 900px;
 $block: 'nav-links';
 .#{$block} {
+  margin: 0;
+  padding: 0;
+
   &__item {
     margin-top: 20px;
+    list-style: none;
 
     @include text('rare_less');
 

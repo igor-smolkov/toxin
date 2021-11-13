@@ -10,6 +10,7 @@
 
   &__name {
     min-width: 37px;
+    margin: 0;
     color: $color-25per;
     font-weight: normal;
     text-align: right;
@@ -17,6 +18,7 @@
 
   &__example {
     max-width: 369px;
+    margin: 0;
     margin-left: 30px;
   }
 }

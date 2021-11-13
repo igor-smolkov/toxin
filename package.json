@@ -57,6 +57,7 @@
     "@babel/polyfill": "^7.12.1",
     "jquery": "^3.5.1",
     "jquery-datepicker": "^1.12.3",
-    "jquery-ui": "^1.13.0"
+    "jquery-ui": "^1.13.0",
+    "normalize.css": "^8.0.1"
   }
 }

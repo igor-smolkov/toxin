@@ -2,12 +2,15 @@
 
 .bullet-list {
   max-width: 260px;
+  margin: 0;
+  padding: 0;
 
   &__item {
     position: relative;
     margin-top: 10px;
     padding-left: 21px;
     line-height: 1.72;
+    list-style: none;
 
     &_first {
       margin-top: 0;

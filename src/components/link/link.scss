@@ -6,6 +6,7 @@
   @include text('rare_less');
 
   color: $color-50per;
+  text-decoration: none;
 
   &_hovered,
   &:hover {
@@ -16,5 +17,10 @@
   &:focus {
     text-decoration: underline;
     outline: none;
+  }
+
+  &:hover,
+  &:visited {
+    text-decoration: none;
   }
 }

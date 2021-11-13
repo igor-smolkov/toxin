@@ -12,6 +12,7 @@ $block: 'counter';
     min-width: 30px;
     min-height: 30px;
     max-height: 30px;
+    padding: 0;
     padding-bottom: 4px;
     background-color: transparent;
   }
@@ -24,6 +25,7 @@ $block: 'counter';
     font-size: 1.22rem;
     border: 1px solid $color-25per;
     border-radius: 22px;
+    cursor: pointer;
 
     &_disabled,
     &:disabled {
@@ -46,6 +48,7 @@ $block: 'counter';
 
   &__count {
     min-width: 32px;
+    margin: 0;
 
     @include h3-type;
   }

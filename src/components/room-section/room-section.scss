@@ -4,6 +4,7 @@
   &__title {
     display: flex;
     justify-content: space-between;
+    margin: 0;
 
     &_shifted {
       margin-left: 21px;
@@ -11,13 +12,13 @@
   }
 
   &__details {
+    @include base-type;
+    @include text('rare_less');
+
     align-self: flex-end;
     margin-left: 20px;
     color: $color-50per;
     white-space: nowrap;
-
-    @include base-type;
-    @include text('rare_less');
   }
 
   &__content {

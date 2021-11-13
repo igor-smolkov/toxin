@@ -63,12 +63,18 @@ $block: 'expandable-list';
       width: max-content;
       min-width: 100%;
       max-width: 320px;
+      margin: 0;
+      padding: 0;
       padding: 10px;
       padding-top: 16px;
       color: $color-50per;
       background-color: white;
       box-shadow: 0 10px 20px $color-5per;
     }
+  }
+
+  &__item {
+    list-style: none;
   }
 
   &_with-checks {

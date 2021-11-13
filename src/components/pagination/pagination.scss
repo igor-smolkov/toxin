@@ -18,8 +18,11 @@ $block: 'pagination';
     align-items: center;
     min-width: 40px;
     min-height: 40px;
+    padding: 0;
     background: none;
+    border: 0;
     border-radius: 20px;
+    cursor: pointer;
 
     &_hovered,
     &:hover,

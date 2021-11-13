@@ -1,6 +1,8 @@
 @import '/assets/types';
 
 .copyright {
+  margin: 0;
+
   @include text('rare_less');
 
   @media only screen and (max-width: 400px) {

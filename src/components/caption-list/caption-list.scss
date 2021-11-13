@@ -1,10 +1,13 @@
 @import '/assets/colors';
 
 .caption-list {
+  margin: 0;
+  padding: 0;
   padding-left: 15px;
 
   &__item {
     position: relative;
+    list-style: none;
 
     &::before {
       position: absolute;

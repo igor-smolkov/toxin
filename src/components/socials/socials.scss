@@ -4,6 +4,8 @@ $instagram-icon: url('data:image/svg+xml,%3Csvg width="22" height="22" viewBox="
 
 .socials {
   display: flex;
+  margin: 0;
+  padding: 0;
 
   &__item {
     display: flex;

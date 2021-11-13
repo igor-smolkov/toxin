@@ -14,7 +14,9 @@ $block: 'button';
   min-width: 61px;
   max-width: 320px;
   min-height: 44px;
+  padding: 0;
   background: linear-gradient(180deg, $color-purple 0%, $color-purple-end 100%);
+  border: 0;
   border-radius: 22px;
   cursor: pointer;
 
@@ -98,5 +100,13 @@ $block: 'button';
 
   &_none {
     display: none;
+  }
+
+  &_linked {
+    &,
+    &:hover,
+    &:visited {
+      text-decoration: none;
+    }
   }
 }

@@ -19,10 +19,16 @@
     flex-wrap: wrap;
     gap: 40px;
     justify-content: space-between;
+    margin: 0;
+    padding: 0;
 
     @media only screen and (max-width: 1100px) {
       justify-content: flex-start;
     }
+  }
+
+  &__widget {
+    list-style: none;
   }
 
   @media only screen and (max-width: 900px) {

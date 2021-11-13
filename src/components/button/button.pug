@@ -27,6 +27,7 @@ mixin button(options = {})
   if link
     A(
       class=classList
+      class=`${blockName}_linked`
       href=link
     )
       SPAN(class=`${blockName}__caption`)=caption

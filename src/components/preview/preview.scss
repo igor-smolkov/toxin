@@ -32,7 +32,10 @@ $block: 'preview';
     position: relative;
     flex-grow: 1;
     max-width: 42px;
+    padding: 0;
     background: transparent;
+    border: 0;
+    cursor: pointer;
 
     &::before {
       position: absolute;
