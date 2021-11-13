@@ -22,21 +22,20 @@ block variables
   -]
 
 block content
-  .demo-menu
-    UL.pages
-      LI.pages__website= "Website Pages"
-        UL.link-list
-          each page in websitePages
-            LI.link-list__item
-              A.page-link(
-                href=page[1]
-                target="_blank"
-              )=page[0]
-      LI.pages__ui-kit= "UI-KIT"
-        UL.link-list
-          each page in uiKitPages
-            LI.link-list__item
-              A.page-link(
-                href=page[1]
-                target="_blank"
-              )=page[0]
+  UL.pages
+    LI.pages__website= "Website Pages"
+      UL.pages__list
+        each page in websitePages
+          LI.pages__page
+            A.pages__link(
+              href=page[1]
+              target="_blank"
+            )=page[0]
+    LI.pages__ui-kit= "UI-KIT"
+      UL.pages__list
+        each page in uiKitPages
+          LI.pages__page
+            A.pages__link(
+              href=page[1]
+              target="_blank"
+            )=page[0]

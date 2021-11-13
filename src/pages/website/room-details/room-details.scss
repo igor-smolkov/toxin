@@ -1,9 +1,19 @@
-.room-content {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 40px 70px;
-  justify-content: center;
-  padding: 70px 140px;
+.room-details {
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px 70px;
+    justify-content: center;
+    padding: 70px 140px;
+
+    @media only screen and (max-width: 600px) {
+      padding: 40px;
+    }
+
+    @media only screen and (max-width: 400px) {
+      padding: 30px 2px;
+    }
+  }
 
   &__info {
     max-width: 712px;
@@ -14,59 +24,6 @@
 
     @media only screen and (max-width: 800px) {
       flex-basis: auto;
-    }
-  }
-
-  @media only screen and (max-width: 600px) {
-    padding: 40px;
-  }
-
-  @media only screen and (max-width: 400px) {
-    padding: 30px 2px;
-  }
-}
-
-.room-info {
-  &__section {
-    margin-top: 32px;
-
-    &_first {
-      margin-top: 0;
-    }
-
-    &_last {
-      margin-top: 23px;
-    }
-  }
-}
-
-.room-info-section {
-  &_grouped {
-    display: flex;
-
-    @media only screen and (max-width: 800px) {
-      flex-direction: column;
-    }
-  }
-
-  &__subsection {
-    flex-basis: 340px;
-    margin-left: 82px;
-
-    @media only screen and (max-width: 800px) {
-      flex-basis: auto;
-      margin-top: 40px;
-      margin-left: 0;
-    }
-
-    &_first {
-      flex-basis: 280px;
-      margin-left: 0;
-
-      @media only screen and (max-width: 800px) {
-        flex-basis: auto;
-        margin-top: 0;
-      }
     }
   }
 }

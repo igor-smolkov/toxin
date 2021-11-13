@@ -1,0 +1,42 @@
+.room-info {
+  &__section {
+    margin-top: 32px;
+
+    &_first {
+      margin-top: 0;
+    }
+
+    &_last {
+      margin-top: 23px;
+    }
+
+    &_grouped {
+      display: flex;
+
+      @media only screen and (max-width: 800px) {
+        flex-direction: column;
+      }
+    }
+  }
+
+  &__subsection {
+    flex-basis: 340px;
+    margin-left: 82px;
+
+    @media only screen and (max-width: 800px) {
+      flex-basis: auto;
+      margin-top: 40px;
+      margin-left: 0;
+    }
+
+    &_first {
+      flex-basis: 280px;
+      margin-left: 0;
+
+      @media only screen and (max-width: 800px) {
+        flex-basis: auto;
+        margin-top: 0;
+      }
+    }
+  }
+}

@@ -1,15 +1,9 @@
 extends ../../../layouts/website/website
 
-include ../../../components/header/header.pug
-include ../../../components/footer/footer.pug
-include ../../../components/room-photos/room-photos.pug
-include ../../../components/room-section/room-section.pug
-include ../../../components/extra-list/extra-list.pug
-include ../../../components/comment/comment.pug
-include ../../../components/bullet-list/bullet-list.pug
-include ../../../components/card/card.pug
-include ../../../components/card-form/card-form.pug
-include ../../../components/chart/chart.pug
+include ../../../components/room-photos/room-photos
+include ../../../components/card/card
+include ../../../components/card-form/card-form
+include sections/room-info/room-info
 
 block variables
   - const options = { 
@@ -26,66 +20,13 @@ block content
         images: [ "../assets/images/room-888-view-1.jpg", "../assets/images/room-888-view-2.jpg", "../assets/images/room-888-view-3.jpg" ]
       })
     SECTION.room-details__content
-      .room-content
-        SECTION.room-content__info
-          .room-info
-            SECTION.room-info__section.room-info__section_first
-              .room-info-section.room-info-section_grouped
-                SECTION.room-info-section__subsection.room-info-section__subsection_first
-                  +room-section({ title: "Сведения о номере" })
-                    +extra-list({ 
-                      items: [
-                        { title: "Комфорт", details: "Шумопоглощающие стены", icon: "insert_emoticon" },
-                        { title: "Удобство", details: "Окно в каждой из спален", icon: "location_city" },
-                        { title: "Уют", details: "Номер оснащён камином", icon: "whatshot" },
-                      ]
-                    })
-                SECTION.room-info-section__subsection
-                  +room-section({ title: "Впечатления от номера" })
-                    +chart([
-                      {label: 'Великолепно', value: 130},
-                      {label: 'Хорошо', value: 65},
-                      {label: 'Удовлетворительно', value: 65},
-                      {label: 'Разочарован'}
-                    ])
-            SECTION.room-info__section
-              +room-section({ title: "Отзывы посетителей номера", details: "2 отзыва", isEmpty: true })
-                .room-section__item.room-section__item_first
-                  +comment({
-                    username: "Мурад Сарафанов",
-                    avatar: "../assets/images/murad.jpg",
-                    datetime: "5 дней назад",
-                    message: "Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.",
-                    likeValue: 12,
-                    isLiked: true,
-                  })
-                .room-section__item
-                  +comment({
-                    username: "Патрисия Стёклышкова",
-                    avatar: "../assets/images/patricia.jpg",
-                    datetime: "Неделю назад",
-                    message: "Обслуживание на высоте! Всё аккуратно, чисто. Завтраки в номер советую заказать, каждый день новое блюдо и десерт как комплимент",
-                    likeValue: 2,
-                  })
-            SECTION.room-info__section.room-info__section_last
-              .room-info-section.room-info-section_grouped
-                SECTION.room-info-section__subsection.room-info-section__subsection_first
-                  +room-section({ title: "Правила", isShifted: true })
-                    +bullet-list({ 
-                      items: [
-                        'Нельзя с питомцами',
-                        'Без вечеринок и мероприятий',
-                        'Время прибытия — после 13:00, а выезд до 12:00',
-                      ]
-                    })
-                SECTION.room-info-section__subsection
-                  +room-section({ title: "Отмена" })
-                    P="Бесплатная отмена в течение 48 ч. После этого при отмене не позднее чем за 5 дн. до прибытия вы получите полный возврат за вычетом сбора за услуги."
-        SECTION.room-content__card
-          +card({ 
-            title: {
-              main: { prefix: "№", content: "888", postfix: "Люкс" },
-              details: { first: "9 990₽", second: "в сутки" }
-            }
-          })
-            +card-form({ type: "room" })
+      SECTION.room-details__info
+        +room-info
+      SECTION.room-details__card
+        +card({ 
+          title: {
+            main: { prefix: "№", content: "888", postfix: "Люкс" },
+            details: { first: "9 990₽", second: "в сутки" }
+          }
+        })
+          +card-form({ type: "room" })

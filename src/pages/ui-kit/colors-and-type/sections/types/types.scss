@@ -1,0 +1,7 @@
+.types {
+  min-width: 444px;
+
+  @media only screen and (max-width: 800px) {
+    min-width: 320px;
+  }
+}

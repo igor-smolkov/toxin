@@ -3,7 +3,6 @@ extends ../../../layouts/ui-kit/ui-kit
 include sections/field-elements/field-elements.pug
 include sections/check-elements/check-elements.pug
 include sections/button-elements/button-elements.pug
-
 include sections/dropdowns/dropdowns.pug
 include sections/lists/lists.pug
 include sections/others/others.pug
@@ -18,32 +17,28 @@ block variables
 block content
   .form-elements
     SECTION.form-elements__section.form-elements__section_first
-      .form-elements-section
-        ARTICLE.form-elements-section__column
-          +field-elements
-        ARTICLE.form-elements-section__column.form-elements-section__column_shifted
-          +check-elements
-        ARTICLE.form-elements-section__column
-          +button-elements
+      ARTICLE.form-elements__column
+        +field-elements
+      ARTICLE.form-elements__column.form-elements__column_shifted
+        +check-elements
+      ARTICLE.form-elements__column
+        +button-elements
     SECTION.form-elements__section
-      .form-elements-section
-        ARTICLE.form-elements-section__column
-          +dropdowns
-        ARTICLE.form-elements-section__column.form-elements-section__column_shifted
-          +dropdowns("full-set")
-        ARTICLE.form-elements-section__column
-          +dropdowns("full-set-example")
+      ARTICLE.form-elements__column
+        +dropdowns
+      ARTICLE.form-elements__column.form-elements__column_shifted
+        +dropdowns("full-set")
+      ARTICLE.form-elements__column
+        +dropdowns("full-set-example")
     SECTION.form-elements__section.form-elements__section_neared
-      .form-elements-section
-        ARTICLE.form-elements-section__column
-          +lists("expandable-checks")
-        ARTICLE.form-elements-section__column.form-elements-section__column_shifted
-          +others("rich-checks")
-        ARTICLE.form-elements-section__column
-          +lists("bullet")
+      ARTICLE.form-elements__column
+        +lists("expandable-checks")
+      ARTICLE.form-elements__column.form-elements__column_shifted
+        +others("rich-checks")
+      ARTICLE.form-elements__column
+        +lists("bullet")
     SECTION.form-elements__section
-      .form-elements-section
-        ARTICLE.form-elements-section__column.form-elements-section__column_shrunken
-          +lists("extra")
-        ARTICLE.form-elements-section__column.form-elements-section__column_wide
-          +others("comment")
+      ARTICLE.form-elements__column.form-elements__column_shrunken
+        +lists("extra")
+      ARTICLE.form-elements__column.form-elements__column_wide
+        +others("comment")
