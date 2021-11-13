@@ -2,6 +2,7 @@ import $ from 'jquery';
 
 import Calendar from '@comp/calendar/calendar';
 
+import '../../../layouts/ui-kit/*.scss';
 import '../../../components/**/*.scss';
 import '../../../components/**/*.js';
 import './*.scss';

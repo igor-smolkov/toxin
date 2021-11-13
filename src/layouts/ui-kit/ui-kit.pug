@@ -1,4 +1,8 @@
+include ../../components/logo/logo.pug
+
 block variables
+
+- const { isGray, description, keywords, title, page } = options ? options : {}
 
 doctype html
 HTML(lang="ru")
@@ -18,4 +22,8 @@ HTML(lang="ru")
 
     TITLE=title
   BODY.page(class=page)
-    block content
+    .ui-kit(class=isGray ? "ui-kit_gray" : "")
+      .ui-kit__header
+        +logo({ isSimplified: true })
+      .ui-kit__content
+        block content

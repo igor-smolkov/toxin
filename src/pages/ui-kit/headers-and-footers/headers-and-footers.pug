@@ -1,85 +1,83 @@
-extends ../../../components/layout/layout
+extends ../../../layouts/ui-kit/ui-kit
 
-include ../../../components/logo/logo.pug
 include ../../../components/header/header.pug
 include ../../../components/menu/menu.pug
 include ../../../components/footer/footer.pug
 
 block variables
-  - const title = "TOXIN - UI kit"
-  - const description = "Шапка и подвал"
-  - const page = "page_gray"
-  - const keywords = "toxin, ui-kit, headers, footers"
+  - const options = {
+  -   title: "TOXIN - UI kit",
+  -   description: "Шапка и подвал",
+  -   keywords: "toxin, ui-kit, headers, footers",
+  -   isGray: true,
+  - }
 
 block content
-  HEADER.page__header
-    +logo({ isSimplified: true })
-  MAIN.page__main
-    .headers-and-footers
-      ARTICLE.headers-and-footers__unit.headers-and-footers__unit_first
-        +header({ isCustom: true, name: "demo-1" })
-          +menu({
-            navLinks: [
-              { link: "/change-link", text: "О нас", isHovered: true },
-              { 
-                link: "/change-link", 
-                text: "Услуги", 
-                isDropdown: true, 
-                list: [
-                  { link: "/change-link", text: 'Прачечная' }, 
-                  { link: "/change-link", text: 'Трансфер' }, 
-                  { link: "/change-link", text: 'Триумф' },
-                ], 
-                name: "services-1" 
-              },
-              { link: "/change-link", text: "Вакансии" },
-              { link: "/change-link", text: "Новости" },
-              { 
-                link: "/change-link", 
-                text: "Соглашения", 
-                isDropdown: true, 
-                list: [
-                  { link: "/change-link", text: 'Бронирование' }, 
-                  { link: "/change-link", text: 'Wi-Fi' }, 
-                  { link: "/change-link", text: 'Разоружение' },
-                ], 
-                name: "agreements-1" 
-              },
-            ]
-          })
-      ARTICLE.headers-and-footers__unit
-        +header({ isCustom: true, name: "demo-2" })
-          +menu({
-            navLinks: [
-              { link: "/change-link", text: "О нас", isHovered: true },
-              { 
-                link: "/change-link", 
-                text: "Услуги", 
-                isDropdown: true, 
-                list: [
-                  { link: "/change-link", text: 'Прачечная' }, 
-                  { link: "/change-link", text: 'Трансфер' }, 
-                  { link: "/change-link", text: 'Триумф' },
-                ],
-                name: "services-2" 
-              },
-              { link: "/change-link", text: "Вакансии" },
-              { link: "/change-link", text: "Новости" },
-              { 
-                link: "/change-link", 
-                text: "Соглашения", 
-                isDropdown: true, 
-                list: [
-                  { link: "/change-link", text: 'Бронирование' }, 
-                  { link: "/change-link", text: 'Wi-Fi' }, 
-                  { link: "/change-link", text: 'Разоружение' },
-                ], 
-                name: "agreements-2"
-              },
-            ],
-            user: { link: "/change-link", text: "Юлий Цезарь" }
-          })
-      ARTICLE.headers-and-footers__unit
-        +footer
-      ARTICLE.headers-and-footers__unit.headers-and-footers__unit_last
-        +footer({ asCard: true })
+  .headers-and-footers
+    ARTICLE.headers-and-footers__unit.headers-and-footers__unit_first
+      +header({ isCustom: true, name: "demo-1" })
+        +menu({
+          navLinks: [
+            { link: "/change-link", text: "О нас", isHovered: true },
+            { 
+              link: "/change-link", 
+              text: "Услуги", 
+              isDropdown: true, 
+              list: [
+                { link: "/change-link", text: 'Прачечная' }, 
+                { link: "/change-link", text: 'Трансфер' }, 
+                { link: "/change-link", text: 'Триумф' },
+              ], 
+              name: "services-1" 
+            },
+            { link: "/change-link", text: "Вакансии" },
+            { link: "/change-link", text: "Новости" },
+            { 
+              link: "/change-link", 
+              text: "Соглашения", 
+              isDropdown: true, 
+              list: [
+                { link: "/change-link", text: 'Бронирование' }, 
+                { link: "/change-link", text: 'Wi-Fi' }, 
+                { link: "/change-link", text: 'Разоружение' },
+              ], 
+              name: "agreements-1" 
+            },
+          ]
+        })
+    ARTICLE.headers-and-footers__unit
+      +header({ isCustom: true, name: "demo-2" })
+        +menu({
+          navLinks: [
+            { link: "/change-link", text: "О нас", isHovered: true },
+            { 
+              link: "/change-link", 
+              text: "Услуги", 
+              isDropdown: true, 
+              list: [
+                { link: "/change-link", text: 'Прачечная' }, 
+                { link: "/change-link", text: 'Трансфер' }, 
+                { link: "/change-link", text: 'Триумф' },
+              ],
+              name: "services-2" 
+            },
+            { link: "/change-link", text: "Вакансии" },
+            { link: "/change-link", text: "Новости" },
+            { 
+              link: "/change-link", 
+              text: "Соглашения", 
+              isDropdown: true, 
+              list: [
+                { link: "/change-link", text: 'Бронирование' }, 
+                { link: "/change-link", text: 'Wi-Fi' }, 
+                { link: "/change-link", text: 'Разоружение' },
+              ], 
+              name: "agreements-2"
+            },
+          ],
+          user: { link: "/change-link", text: "Юлий Цезарь" }
+        })
+    ARTICLE.headers-and-footers__unit
+      +footer
+    ARTICLE.headers-and-footers__unit.headers-and-footers__unit_last
+      +footer({ asCard: true })

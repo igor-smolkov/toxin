@@ -1,37 +1,11 @@
-.page {
-  width: 100%;
-  min-width: 320px;
-  max-width: 1440px;
-  height: max-content;
-  margin: 0 auto;
-
-  &__header {
-    padding: 30px;
-  }
-
-  &__main {
-    padding: 42px 140px 131px;
-
-    @media only screen and (max-width: 1430px) {
-      padding: 42px 40px 131px;
-    }
-
-    @media only screen and (max-width: 600px) {
-      padding: 20px 10px 40px;
-    }
-  }
-
-  &_gray {
-    background: #f4f4f6;
-  }
-}
-
 .cards {
   display: flex;
   flex-flow: column wrap;
   gap: 40px;
   align-content: flex-start;
   height: 1140px;
+  padding: 0 140px;
+  padding-top: 42px;
 
   &__unit {
     width: 100%;
@@ -43,11 +17,17 @@
     justify-content: space-around;
     min-width: 100%;
     height: max-content;
+    padding: 42px 40px 131px;
+
+    &__unit {
+      width: max-content;
+    }
   }
 
   @media only screen and (max-width: 600px) {
     flex-flow: column nowrap;
     align-items: center;
     justify-content: flex-start;
+    padding: 20px 10px 40px;
   }
 }

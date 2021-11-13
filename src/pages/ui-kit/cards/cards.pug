@@ -1,6 +1,5 @@
-extends ../../../components/layout/layout
+extends ../../../layouts/ui-kit/ui-kit
 
-include ../../../components/logo/logo.pug
 include ../../../components/card/card.pug
 include ../../../components/card-title/card-title.pug
 include ../../../components/card-form/card-form.pug
@@ -8,48 +7,47 @@ include ../../../components/calendar/calendar.pug
 include ../../../components/room/room.pug
 
 block variables
-  - const title = "TOXIN - UI kit"
-  - const description = "Карточки"
-  - const page = "page_gray"
-  - const keywords = "toxin, ui-kit, cards"
+  - const options = { 
+  -   title: "TOXIN - UI kit",
+  -   description: "Карточки",
+  -   keywords: "toxin, ui-kit, cards",
+  -   isGray: true,
+  - }
 
 block content
-  HEADER.page__header
-    +logo({ isSimplified: true })
-  MAIN.page__main
-    .cards
-      ARTICLE.cards__unit
-        +card({ title: "Найдём номера под ваши пожелания" })
-          +card-form({ type: "wishes" })
-      ARTICLE.cards__unit
-        +card({ title: "Регистрация аккаунта" })
-          +card-form({ type: "check-in" })
-      ARTICLE.cards__unit
-        +card({ 
-          title: {
-            main: { prefix: "№", content: "888", postfix: "Люкс" },
-            details: { first: "9 990₽", second: "в сутки" }
-          }
+  .cards
+    ARTICLE.cards__unit
+      +card({ title: "Найдём номера под ваши пожелания" })
+        +card-form({ type: "wishes" })
+    ARTICLE.cards__unit
+      +card({ title: "Регистрация аккаунта" })
+        +card-form({ type: "check-in" })
+    ARTICLE.cards__unit
+      +card({ 
+        title: {
+          main: { prefix: "№", content: "888", postfix: "Люкс" },
+          details: { first: "9 990₽", second: "в сутки" }
+        }
+      })
+        +card-form({ type: "room" })
+    ARTICLE.cards__unit
+      +card({ title: "Войти" })
+        +card-form({ type: "log-in" })
+    ARTICLE.cards__unit.js-calendar-unit
+      +card({ isMedium: true, isEmpty: true })
+        +calendar({  
+          from: "2019-08-19", 
+          to: "2019-08-23",
+          active: "2019-08-08",
         })
-          +card-form({ type: "room" })
-      ARTICLE.cards__unit
-        +card({ title: "Войти" })
-          +card-form({ type: "log-in" })
-      ARTICLE.cards__unit.js-calendar-unit
-        +card({ isMedium: true, isEmpty: true })
-          +calendar({  
-            from: "2019-08-19", 
-            to: "2019-08-23",
-            active: "2019-08-08",
-          })
-      ARTICLE.cards__unit
-        +room({
-          number: "888", isLux: true, price: 9990, rate: 5, reviews: 145, 
-          images: [ "../assets/images/room-888.jpg", "../assets/images/room-350.jpg", "../assets/images/room-352.jpg", "../assets/images/room-444.jpg" ],
-          isHovered: true,
-        })
-      ARTICLE.cards__unit
-        +room({
-          number: "840", price: 9900, rate: 4, reviews: 65, 
-          images: [ "../assets/images/room-840.jpg", "../assets/images/room-350.jpg", "../assets/images/room-352.jpg", "../assets/images/room-444.jpg" ]
-        })
+    ARTICLE.cards__unit
+      +room({
+        number: "888", isLux: true, price: 9990, rate: 5, reviews: 145, 
+        images: [ "../assets/images/room-888.jpg", "../assets/images/room-350.jpg", "../assets/images/room-352.jpg", "../assets/images/room-444.jpg" ],
+        isHovered: true,
+      })
+    ARTICLE.cards__unit
+      +room({
+        number: "840", price: 9900, rate: 4, reviews: 65, 
+        images: [ "../assets/images/room-840.jpg", "../assets/images/room-350.jpg", "../assets/images/room-352.jpg", "../assets/images/room-444.jpg" ]
+      })

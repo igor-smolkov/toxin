@@ -1,9 +1,12 @@
-extends ../../components/layout/layout
+extends ../../layouts/ui-kit/ui-kit
 
 block variables
-  - const title = "TOXIN"
-  - const description = "Верстка макета TOXIN по второму заданию FSD"
-  - const keywords = "toxin"
+  - const options = {
+  -   title: "TOXIN",
+  -   description: "Верстка макета TOXIN по второму заданию FSD",
+  -   keywords: "toxin",
+  -   isGray: true,
+  - }
   - const websitePages = [
   -  [ "Landing page", "website/landing-page.html" ],
   -  [ "Search room/Filter", "website/search-room.html" ],

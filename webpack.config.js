@@ -74,7 +74,7 @@ const plugins = () => {
   });
 
   const list = [
-    packHTMLWebpackPlugin(`${pagesDir}/index/index.pug`, 'index.html'),
+    packHTMLWebpackPlugin(`${pagesDir}/index/index.pug`, 'index.html', 'index'),
     new CleanWebpackPlugin(),
     new CopyWebpackPlugin({
       patterns: [
@@ -109,7 +109,8 @@ const plugins = () => {
 module.exports = {
   context: path.resolve(__dirname, 'src'),
   entry: {
-    main: './script.js',
+    main: './main.js',
+    index: './pages/index/index.js',
     'landing-page': './pages/website/landing-page/landing-page.js',
     'search-room': './pages/website/search-room/search-room.js',
     'room-details': './pages/website/room-details/room-details.js',

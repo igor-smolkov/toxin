@@ -1,4 +1,4 @@
-extends ../../../components/layout/layout
+extends ../../../layouts/website/website
 
 include ../../../components/header/header.pug
 include ../../../components/footer/footer.pug
@@ -7,22 +7,19 @@ include ../../../components/card-form/card-form.pug
 include ../../../components/carousel/carousel.pug
 
 block variables
-  - const title = "TOXIN - Sign in"
-  - const description = "Пример страницы входа"
-  - const keywords = "toxin, sign-in"
+  - const options = { 
+  -   title: "TOXIN - Sign in",
+  -   description: "Пример страницы входа",
+  -   keywords: "toxin, sign-in",
+  - }
 
 block content
-  HEADER.page__header
-    +header
-  MAIN.page__main
-    .sign-in
-      .sign-in__background
-        +carousel({
-          slides: [ "../assets/images/log-room-2.jpg", "../assets/images/log-room-1.jpg" ],
-          delaySec: 10,
-        })
-      .sign-in__card
-        +card({ title: "Войти" })
-          +card-form({ type: "log-in" })
-  FOOTER.page__footer
-    +footer
+  .sign-in
+    .sign-in__background
+      +carousel({
+        slides: [ "../assets/images/log-room-2.jpg", "../assets/images/log-room-1.jpg" ],
+        delaySec: 10,
+      })
+    .sign-in__card
+      +card({ title: "Войти" })
+        +card-form({ type: "log-in" })

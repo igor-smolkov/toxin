@@ -1,13 +1,6 @@
-.page {
-  width: 100%;
-  min-width: 320px;
-  height: max-content;
-}
-
 .search-room {
   display: flex;
   padding: 30px 140px 70px;
-  border-bottom: 1px solid rgba(31, 32, 65, 0.25);
 
   @media only screen and (max-width: 1180px) {
     padding: 30px 40px 50px;

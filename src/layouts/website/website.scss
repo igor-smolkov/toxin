@@ -1,0 +1,17 @@
+.website {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+
+  &__content {
+    flex: 1 0 auto;
+
+    &_with-border {
+      border-bottom: 1px solid rgba(31, 32, 65, 0.25);
+    }
+  }
+
+  &__footer {
+    flex: 0 0 auto;
+  }
+}

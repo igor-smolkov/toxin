@@ -1,4 +1,4 @@
-extends ../../../components/layout/layout
+extends ../../../layouts/website/website
 
 include ../../../components/header/header.pug
 include ../../../components/footer/footer.pug
@@ -7,22 +7,19 @@ include ../../../components/card-form/card-form.pug
 include ../../../components/carousel/carousel.pug
 
 block variables
-  - const title = "TOXIN - Registration"
-  - const description = "Пример страницы регистрации"
-  - const keywords = "toxin, registration"
+  - const options = { 
+  -   title: "TOXIN - Registration",
+  -   description: "Пример страницы регистрации",
+  -   keywords: "toxin, registration",
+  - }
 
 block content
-  HEADER.page__header
-    +header
-  MAIN.page__main
-    .registration
-      .registration__background
-        +carousel({
-          slides: [ "../assets/images/log-room-2.jpg", "../assets/images/log-room-1.jpg" ],
-          delaySec: 10,
-        })
-      .registration__card
-        +card({ title: "Регистрация аккаунта" })
-          +card-form({ type: "check-in" })
-  FOOTER.page__footer
-    +footer
+  .registration
+    .registration__background
+      +carousel({
+        slides: [ "../assets/images/log-room-2.jpg", "../assets/images/log-room-1.jpg" ],
+        delaySec: 10,
+      })
+    .registration__card
+      +card({ title: "Регистрация аккаунта" })
+        +card-form({ type: "check-in" })

@@ -1,0 +1,13 @@
+.ui-kit {
+  max-width: 1440px;
+  min-height: 100%;
+  margin: 0 auto;
+
+  &_gray {
+    background-color: #f4f4f6;
+  }
+
+  &__header {
+    padding: 30px;
+  }
+}

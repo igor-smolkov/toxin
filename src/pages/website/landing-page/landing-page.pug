@@ -1,4 +1,4 @@
-extends ../../../components/layout/layout
+extends ../../../layouts/website/website
 
 include ../../../components/header/header.pug
 include ../../../components/footer/footer.pug
@@ -7,33 +7,30 @@ include ../../../components/card-form/card-form.pug
 include ../../../components/carousel/carousel.pug
 
 block variables
-  - const title = "TOXIN - Landing"
-  - const description = "Пример landing-страницы"
-  - const keywords = "toxin, landing"
+  - const options = { 
+  -   title: "TOXIN - Landing",
+  -   description: "Пример landing-страницы",
+  -   keywords: "toxin, landing",
+  - }
 
 block content
-  HEADER.page__header
-    +header
-  MAIN.page__main
-    .landing
-      .landing__background
-        +carousel({
-          slides: [ "../assets/images/landing-room-1.jpg", "../assets/images/landing-room-2.jpg", "../assets/images/landing-room-3.jpg"],
-          delaySec: 10,
-        })
-      .landing__content
-        .landing__card
-          +card({ title: "Найдём номера под ваши пожелания" })
-            +card-form({ 
-              type: "wishes", 
-              custom: {
-                guestList: [
-                  { name: "взрослые", category: "гость" },
-                  { name: "дети", category: "гость" },
-                  { name: "младенцы", category: "младенец" }
-                ]
-              }
-            })
-        P.landing__about="Лучшие номера для вашей работы, отдыха и просто вдохновения"
-  FOOTER.page__footer
-    +footer
+  .landing
+    .landing__background
+      +carousel({
+        slides: [ "../assets/images/landing-room-1.jpg", "../assets/images/landing-room-2.jpg", "../assets/images/landing-room-3.jpg"],
+        delaySec: 10,
+      })
+    .landing__content
+      .landing__card
+        +card({ title: "Найдём номера под ваши пожелания" })
+          +card-form({ 
+            type: "wishes", 
+            custom: {
+              guestList: [
+                { name: "взрослые", category: "гость" },
+                { name: "дети", category: "гость" },
+                { name: "младенцы", category: "младенец" }
+              ]
+            }
+          })
+      P.landing__about="Лучшие номера для вашей работы, отдыха и просто вдохновения"
