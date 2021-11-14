@@ -28,6 +28,12 @@ npm run dev
 npm run lint
 ```
   
+Запустить проверку или исправление стилей:  
+```
+npm run style
+npm run style:fix
+```
+  
 Используемые плагины:  
 * jquery-datepicker (https://www.npmjs.com/package/jquery-datepicker)  
 * my-jquery-slider (https://github.com/igor-smolkov/my-jquery-slider)  
