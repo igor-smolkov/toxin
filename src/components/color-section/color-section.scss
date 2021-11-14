@@ -1,4 +1,5 @@
 @import '/assets/colors';
+@import '/assets/types';
 
 .color-section {
   position: relative;
@@ -11,6 +12,8 @@
   padding-left: 110px;
 
   &__name {
+    @include h2-type;
+
     display: inline-flex;
     flex-direction: column;
     min-width: 171px;

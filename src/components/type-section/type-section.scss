@@ -1,4 +1,5 @@
 @import '/assets/colors';
+@import '/assets/types';
 
 .type-section {
   display: flex;
@@ -6,6 +7,21 @@
 
   &_first {
     margin-top: 0;
+  }
+
+  &__name,
+  &__example {
+    &_h1 {
+      @include h1-type;
+    }
+
+    &_h2 {
+      @include h2-type;
+    }
+
+    &_h3 {
+      @include h3-type;
+    }
   }
 
   &__name {

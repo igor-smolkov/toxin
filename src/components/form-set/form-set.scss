@@ -17,6 +17,8 @@ $block: 'form-set';
   }
 
   &__title {
+    @include h3-type;
+
     width: 100%;
     margin: 0;
   }
@@ -28,12 +30,12 @@ $block: 'form-set';
   }
 
   &__description {
+    @include text('small');
+    @include text('rare_less');
+
     margin: 0;
     margin-top: 8px;
     color: $color-50per;
-
-    @include text('small');
-    @include text('rare_less');
   }
 
   &__group {

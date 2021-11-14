@@ -1,5 +1,9 @@
+@import '/assets/types';
+
 .rooms {
   &__title {
+    @include h1-type;
+
     margin: 0;
   }
 

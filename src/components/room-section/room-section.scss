@@ -2,6 +2,8 @@
 
 .room-section {
   &__title {
+    @include h2-type;
+
     display: flex;
     justify-content: space-between;
     margin: 0;

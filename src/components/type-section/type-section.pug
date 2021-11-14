@@ -12,14 +12,32 @@ mixin type-section(options = {})
   )
     case name
       when "H1"
-        H1(class=`${blockName}__name`)=name
-        H1(class=`${blockName}__example`)=example
+        H1(
+          class=`${blockName}__name`
+          class=`${blockName}__name_h1`
+        )=name
+        H1(
+          class=`${blockName}__example`
+          class=`${blockName}__example_h1`
+        )=example
       when "H2"
-        H2(class=`${blockName}__name`)=name
-        H2(class=`${blockName}__example`)=example
+        H2(
+          class=`${blockName}__name`
+          class=`${blockName}__name_h2`
+        )=name
+        H2(
+          class=`${blockName}__example`
+          class=`${blockName}__example_h2`
+        )=example
       when "H3"
-        H3(class=`${blockName}__name`)=name
-        H3(class=`${blockName}__example`)=example
+        H3(
+          class=`${blockName}__name`
+          class=`${blockName}__name_h3`
+        )=name
+        H3(
+          class=`${blockName}__example`
+          class=`${blockName}__example_h3`
+        )=example
       default
         DIV(class=`${blockName}__name`)=name
         DIV(class=`${blockName}__example`)=example
