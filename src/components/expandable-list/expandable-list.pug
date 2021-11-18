@@ -2,11 +2,6 @@ include ../form-set/form-set.pug
 include ../check-button/check-button.pug
 include ../link/link.pug
 
-//- 
-  options.isExpanded
-  options.withChecks
-  options.list
-
 mixin expandable-list(options = {})
   - const blockName = "expandable-list"
   - const { list = [], withChecks, isExpanded, name } = options

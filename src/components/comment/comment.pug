@@ -1,13 +1,5 @@
 include ../like-button/like-button.pug
 
-//- 
-  options.username
-  options.avatar
-  options.datetime
-  options.message
-  options.likeValue
-  options.isLiked
-
 mixin comment(options = {})
   - const blockName = "comment"
   - const { avatar, username, likeValue, isLiked, datetime, message } = options

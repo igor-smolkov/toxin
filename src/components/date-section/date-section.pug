@@ -3,16 +3,6 @@ include ../dropdown/dropdown.pug
 include ../card/card.pug
 include ../calendar/calendar.pug
 
-//- 
-  options.dateFrom
-  options.dateTo
-  options.isCalendarArrivalExpanded
-  options.isCalendarDepartureExpanded
-  options.calendarArrivalDateActivate
-  options.calendarDepartureDateActivate
-  options.dateFromTitle
-  options.dateToTitle
-
 mixin date-section(options = {})
   - const blockName = "date-section"
   - const { dateFromTitle, dateToTitle, name, dateFrom, dateTo, 

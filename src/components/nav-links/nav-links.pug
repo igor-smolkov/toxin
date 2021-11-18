@@ -1,11 +1,5 @@
 include ../nav-link/nav-link.pug
 
-//- 
-  options.isHead
-  options.navLinks [
-    { isDropdown, isHovered, link, text, name, list }
-  ]
-
 mixin nav-links(options = {})
   - const blockName = "nav-links"
   - const { navLinks = [], isHead } = options

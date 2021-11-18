@@ -1,12 +1,6 @@
 include ../text-field/text-field.pug
 include ../dropdown-panel/dropdown-panel.pug
 
-//-
-  options.value
-  options.list [{name, count}]
-  options.isExpanded
-  options.isFilter
-
 mixin dropdown(options = {})
   - const blockName = "dropdown"
   - const { name, type, value, placeholder, isHovered, 

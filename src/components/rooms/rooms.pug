@@ -1,11 +1,6 @@
 include ../pagination/pagination.pug
 include ../room/room.pug
 
-//- 
-  options.title
-  options.numbers
-  options.lastPage
-
 mixin rooms(options = {})
   - const blockName = "rooms"
   - const { title, numbers, lastPage } = options

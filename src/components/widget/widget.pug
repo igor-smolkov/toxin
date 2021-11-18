@@ -2,12 +2,6 @@ include ../nav-links/nav-links.pug
 include ../subscription/subscription.pug
 include ../text-field/text-field.pug
 
-//- 
-  options.title
-  options.links
-  options.text
-  options.withSubscribe
-
 mixin widget(options = {})
   - const blockName = "widget"
   - const { title, links, text, withSubscribe } = options
