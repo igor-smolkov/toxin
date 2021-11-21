@@ -3,34 +3,37 @@ include ../check-button/check-button.pug
 include ../link/link.pug
 
 mixin expandable-list(options = {})
-  - const blockName = "expandable-list"
-  - const { list = [], withChecks, isExpanded, name } = options
+  - const blockName = "expandable-list";
+  - const { list = [], withChecks, isExpanded, name } = options;
 
   DIV(
-    class=blockName
-    class=`js-${blockName}`
+    class=blockName,
+    class=`js-${blockName}`,
     class=withChecks ? `${blockName}_with-checks` : ""
   )
     INPUT(
-      class=`${blockName}__check`
-      class=`js-${blockName}__check`
-      id=`${blockName}-${name}-check`
-      type="checkbox"
+      class=`${blockName}__check`,
+      class=`js-${blockName}__check`,
+      id=`${blockName}-${name}-check`,
+      type="checkbox",
       checked=isExpanded
     )
     LABEL(
-      class=`${blockName}__expand-more`
+      class=`${blockName}__expand-more`,
       for=`${blockName}-${name}-check`
     )
     if withChecks
       DIV(class=`${blockName}__list`)
         +form-set({ isGrouped: true, isMarginNone: true })
           each item, index in list
-            .form-set__element(class=index!==0 ? "form-set__element_indent-in_check-buttons" : "form-set__element_margin_none")
+            - const isFirst = index === 0;
+            .form-set__element(
+              class=!isFirst ? "form-set__element_indent-in_check-buttons" : "form-set__element_margin_none"
+            )
               +check-button(item)
     else
       UL(
-        class=`${blockName}__list`
+        class=`${blockName}__list`,
         class=`${blockName}__list_customary`
       )
         each item in list

@@ -1,39 +1,40 @@
 mixin type-section(options = {})
-  - const blockName = "type-section"
-  - const { name, example } = options
+  - const blockName = "type-section";
+  - const { name, example } = options;
 
+  - const isFirst = name === "H1";
   SECTION(
-    class=blockName
-    class=(name === "H1") ? `${blockName}_first` : ""
+    class=blockName,
+    class=isFirst ? `${blockName}_first` : ""
   )
     case name
       when "H1"
         H1(
-          class=`${blockName}__name`
+          class=`${blockName}__name`,
           class=`${blockName}__name_h1`
-        )=name
+        )= name
         H1(
-          class=`${blockName}__example`
+          class=`${blockName}__example`,
           class=`${blockName}__example_h1`
-        )=example
+        )= example
       when "H2"
         H2(
-          class=`${blockName}__name`
+          class=`${blockName}__name`,
           class=`${blockName}__name_h2`
-        )=name
+        )= name
         H2(
-          class=`${blockName}__example`
+          class=`${blockName}__example`,
           class=`${blockName}__example_h2`
-        )=example
+        )= example
       when "H3"
         H3(
-          class=`${blockName}__name`
+          class=`${blockName}__name`,
           class=`${blockName}__name_h3`
-        )=name
+        )= name
         H3(
-          class=`${blockName}__example`
+          class=`${blockName}__example`,
           class=`${blockName}__example_h3`
-        )=example
+        )= example
       default
-        DIV(class=`${blockName}__name`)=name
-        DIV(class=`${blockName}__example`)=example
+        DIV(class=`${blockName}__name`)= name
+        DIV(class=`${blockName}__example`)= example

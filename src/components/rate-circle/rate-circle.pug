@@ -1,41 +1,42 @@
 mixin rate-circle(perValues = [])
-  - const blockName = "rate-circle"
-  - const betweenUnitSpace = 0.75
+  - const blockName = "rate-circle";
+  - const betweenUnitSpace = 0.75;
 
   SVG(
-    class = blockName
-    width = "120" 
-    height = "120" 
-    viewBox = "0 0 33 33"
+    class=blockName,
+    width="120",
+    height="120",
+    viewBox="0 0 33 33"
   )
-    - let acc = 0
+    - let acc = 0;
     each perValue, index in perValues
+      - const isPerValue = perValue != 0;
       CIRCLE(
-        class = `${blockName}__unit`
-        r = "15.9" 
-        cx = "50%" 
-        cy = "50%" 
-        stroke = `url(#circle-gradient-${index})`
-        stroke-dasharray = (perValue != 0) ? `${perValue - betweenUnitSpace} 100` : "0 100"
-        stroke-dashoffset = (perValue != 0) ? `-${acc + betweenUnitSpace/2}` : "0"
+        class=`${blockName}__unit`,
+        r="15.9",
+        cx="50%",
+        cy="50%",
+        stroke=`url(#circle-gradient-${index})`,
+        stroke-dasharray=isPerValue ? `${perValue - betweenUnitSpace} 100` : "0 100",
+        stroke-dashoffset=isPerValue ? `-${acc + betweenUnitSpace / 2}` : "0"
       )
-      - acc = (perValue != 0) ? acc + perValue : acc
+      - acc = isPerValue ? acc + perValue : acc;
     DEFS
-      each color, index in ['green', 'yellow', 'purple', 'gray']
+      each color, index in ["green", "yellow", "purple", "gray"]
         LINEARGRADIENT(
-          class = `${blockName}__gradient`
-          class = `${blockName}__gradient_${color}`
-          id = `circle-gradient-${index}`
-          x1 = "0"
-          x2 = "0"
-          y1 = "0"
-          y2 = "1"
+          class=`${blockName}__gradient`,
+          class=`${blockName}__gradient_${color}`,
+          id=`circle-gradient-${index}`,
+          x1="0",
+          x2="0",
+          y1="0",
+          y2="1"
         )
           STOP(
-            class = `${blockName}__gradient_${color}_start`
-            offset = "0%"
+            class=`${blockName}__gradient_${color}_start`,
+            offset="0%"
           )
           STOP.gradient_end(
-            class = `${blockName}__gradient_${color}_end`
-            offset = "100%"
+            class=`${blockName}__gradient_${color}_end`,
+            offset="100%"
           )

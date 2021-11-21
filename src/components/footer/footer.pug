@@ -5,10 +5,11 @@ include ../copyright/copyright.pug
 include ../socials/socials.pug
 
 mixin footer(options = {})
-  - const blockName = "footer"
-  - const { asCard } = options
+  - const blockName = "footer";
+  - const { asCard } = options;
+
   DIV(
-    class=blockName
+    class=blockName,
     class=asCard ? `${blockName}_creative` : ""
   )
     if !asCard

@@ -3,8 +3,8 @@ include ../menu/menu.pug
 include ../burger/burger.pug
 
 mixin header(options = {})
-  - const blockName = "header"
-  - const { name, isCustom, user } = options
+  - const blockName = "header";
+  - const { name, isCustom, user } = options;
 
   DIV(class=blockName)
     DIV(class=`${blockName}__logo`)
@@ -14,33 +14,67 @@ mixin header(options = {})
         if (isCustom)
           block
         else
-          +menu({
-            navLinks: [
-              { link: "/mock-address/change-me", text: "О нас" },
-              { 
-                link: "/mock-address/change-me", 
-                text: "Услуги", 
-                isDropdown: true, 
-                list: [
-                  { link: "/change-link", text: 'Прачечная' }, 
-                  { link: "/change-link", text: 'Трансфер' }, 
-                  { link: "/change-link", text: 'Триумф' },
-                ],
-                name: "services" 
-              },
-              { link: "/mock-address/change-me", text: "Вакансии" },
-              { link: "/mock-address/change-me", text: "Новости" },
-              { 
-                link: "/mock-address/change-me", 
-                text: "Соглашения", 
-                isDropdown: true, 
-                list: [
-                  { link: "/change-link", text: 'Бронирование' }, 
-                  { link: "/change-link", text: 'Wi-Fi' }, 
-                  { link: "/change-link", text: 'Разоружение' },
-                ], 
-                name: "agreements" 
-              },
-            ],
-            user: user ? { link: "/mock-address/change-me", text: user } : null
-          })   
+          -
+            const menuOptions = {
+              navLinks: [
+                {
+                  link: "/mock-address/change-me",
+                  text: "О нас",
+                },
+                {
+                  link: "/mock-address/change-me",
+                  text: "Услуги",
+                  isDropdown: true,
+                  list: [
+                    {
+                      link: "/mock-address/change-me",
+                      text: "Прачечная",
+                    },
+                    {
+                      link: "/mock-address/change-me",
+                      text: "Трансфер",
+                    },
+                    {
+                      link: "/mock-address/change-me",
+                      text: "Триумф",
+                    },
+                  ],
+                  name: "services",
+                },
+                {
+                  link: "/mock-address/change-me",
+                  text: "Вакансии",
+                },
+                {
+                  link: "/mock-address/change-me",
+                  text: "Новости",
+                },
+                {
+                  link: "/mock-address/change-me",
+                  text: "Соглашения",
+                  isDropdown: true,
+                  list: [
+                    {
+                      link: "/mock-address/change-me",
+                      text: "Бронирование",
+                    },
+                    {
+                      link: "/mock-address/change-me",
+                      text: "Wi-Fi",
+                    },
+                    {
+                      link: "/mock-address/change-me",
+                      text: "Разоружение",
+                    },
+                  ],
+                  name: "agreements",
+                },
+              ],
+              user: user
+                ? {
+                    link: "/mock-address/change-me",
+                    text: user,
+                  }
+                : null,
+            }
+          +menu(menuOptions)

@@ -6,12 +6,13 @@ include ../../../components/calendar/calendar.pug
 include ../../../components/room/room.pug
 
 block variables
-  - const options = { 
-  -   title: "TOXIN - UI kit",
-  -   description: "Карточки",
-  -   keywords: "toxin, ui-kit, cards",
-  -   isGray: true,
-  - }
+  -
+    const options = { 
+      title: "TOXIN - UI kit",
+      description: "Карточки",
+      keywords: "toxin, ui-kit, cards",
+      isGray: true,
+    }
 
 block content
   .cards
@@ -22,31 +23,56 @@ block content
       +card({ title: "Регистрация аккаунта" })
         +card-form({ type: "check-in" })
     ARTICLE.cards__unit
-      +card({ 
-        title: {
-          main: { prefix: "№", content: "888", postfix: "Люкс" },
-          details: { first: "9 990₽", second: "в сутки" }
+      -
+        const cardOptions = {
+          title: {
+            main: { prefix: "№", content: "888", postfix: "Люкс" },
+            details: { first: "9 990₽", second: "в сутки" },
+          },
         }
-      })
+      +card(cardOptions)
         +card-form({ type: "room" })
     ARTICLE.cards__unit
       +card({ title: "Войти" })
         +card-form({ type: "log-in" })
     ARTICLE.cards__unit.js-calendar-unit
-      +card({ isMedium: true, isEmpty: true })
-        +calendar({  
+      -
+        const calendarOptions = {
           from: "2019-08-19", 
           to: "2019-08-23",
           active: "2019-08-08",
-        })
+        }
+      +card({ isMedium: true, isEmpty: true })
+        +calendar(calendarOptions)
     ARTICLE.cards__unit
-      +room({
-        number: "888", isLux: true, price: 9990, rate: 5, reviews: 145, 
-        images: [ "../assets/images/room-888.jpg", "../assets/images/room-350.jpg", "../assets/images/room-352.jpg", "../assets/images/room-444.jpg" ],
-        isHovered: true,
-      })
+      -
+        const hoveredRoomOptions = {
+          number: "888",
+          isLux: true,
+          price: 9990,
+          rate: 5,
+          reviews: 145,
+          images: [
+            "../assets/images/room-888.jpg",
+            "../assets/images/room-350.jpg",
+            "../assets/images/room-352.jpg",
+            "../assets/images/room-444.jpg",
+          ],
+          isHovered: true,
+        }
+      +room(hoveredRoomOptions)
     ARTICLE.cards__unit
-      +room({
-        number: "840", price: 9900, rate: 4, reviews: 65, 
-        images: [ "../assets/images/room-840.jpg", "../assets/images/room-350.jpg", "../assets/images/room-352.jpg", "../assets/images/room-444.jpg" ]
-      })
+      -
+        const defaultRoomOptions = {
+          number: "840",
+          price: 9900,
+          rate: 4,
+          reviews: 65,
+          images: [
+            "../assets/images/room-840.jpg",
+            "../assets/images/room-350.jpg",
+            "../assets/images/room-352.jpg",
+            "../assets/images/room-444.jpg",
+          ],
+        }
+      +room(defaultRoomOptions)

@@ -2,12 +2,12 @@ include ../title-main/title-main.pug
 include ../title-details/title-details.pug
 
 mixin card-title(options = {})
-  - const blockName = "card-title"
-  
+  - const blockName = "card-title";
+
   if (typeof options) === "string"
-    SPAN(class=blockName)=options
+    SPAN(class=blockName)= options
   else
-    - const { main, details } = options
+    - const { main, details } = options;
     SPAN(class=blockName)
       SPAN(class=`${blockName}__main`)
         +title-main(main)

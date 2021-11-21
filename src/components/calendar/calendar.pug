@@ -1,18 +1,18 @@
 include ../dropdown-control/dropdown-control.pug
 
 mixin calendar(options = {})
-  - const blockName = "calendar"
-  - const { from, to, active } = options
-  
+  - const blockName = "calendar";
+  - const { from, to, active } = options;
+
   DIV(
-    class=blockName
-    class=`js-${blockName}`
-    data-from=from
-    data-to=to
+    class=blockName,
+    class=`js-${blockName}`,
+    data-from=from,
+    data-to=to,
     data-active=active
   )
     DIV(
-      class=`${blockName}__plugin`
+      class=`${blockName}__plugin`,
       class=`js-${blockName}__plugin`
     )
     DIV(class=`${blockName}__control`)

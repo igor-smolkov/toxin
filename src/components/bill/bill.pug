@@ -1,18 +1,16 @@
 include ../invoice-line/invoice-line.pug
 
 mixin bill(options = {})
-  - const blockName = "bill"
-  - const { list = [], total } = options
+  - const blockName = "bill";
+  - const { list = [], total } = options;
 
-  DIV(
-    class=blockName
-    class=`js-${blockName}`
-  )
+  DIV(class=blockName, class=`js-${blockName}`)
     UL(class=`${blockName}__list`)
       each item, index in list
+        - const isFirst = index === 0;
         LI(
-          class=`${blockName}__item`
-          class=(index===0) ? `${blockName}__item_first` : ""
+          class=`${blockName}__item`,
+          class=isFirst ? `${blockName}__item_first` : ""
         )
           +invoice-line(item)
     H2(class=`${blockName}__total`)

@@ -2,13 +2,10 @@ include ../expandable-list/expandable-list.pug
 include ../link/link.pug
 
 mixin nav-link(options = {})
-  - const blockName = "nav-link"
-  - const { isDropdown, list, name } = options
+  - const blockName = "nav-link";
+  - const { isDropdown, list, name } = options;
 
-  DIV(
-    class=blockName
-    class=`js-${blockName}`
-  )
+  DIV(class=blockName, class=`js-${blockName}`)
     +link(options)
     if isDropdown
       +expandable-list({ list, name })

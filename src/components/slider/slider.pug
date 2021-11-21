@@ -1,12 +1,9 @@
 mixin slider(options = {})
-  - const blockName = "slider"
-  - const { values } = options
+  - const blockName = "slider";
+  - const { values } = options;
 
-  DIV(
-    class=blockName
-    class=`js-${blockName}`
-  )
+  DIV(class=blockName, class=`js-${blockName}`)
     DIV(
-      class=`js-${blockName}__root`
+      class=`js-${blockName}__root`,
       data-values=values
     )

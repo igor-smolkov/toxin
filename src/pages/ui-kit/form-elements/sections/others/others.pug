@@ -6,21 +6,27 @@ mixin others(param)
   if (param === "rich-checks")
     +form-set({ title: "Rich Checkbox Buttons", isGrouped: true })
       .form-set__element.form-set__element_indent-in_check-buttons
-        +check-button({ 
-          label: "Широкий коридор",
-          details: "Ширина коридоров в номере не менее 91 см.",
-        })
+        -
+          const corridorCheckButtonOptions = {
+            label: "Широкий коридор",
+            details: "Ширина коридоров в номере не менее 91 см.",
+          }
+        +check-button(corridorCheckButtonOptions)
       .form-set__element.form-set__element_indent-in_check-buttons
-        +check-button({ 
-          label: "Помощник для инвалидов",
-          details: "На 1 этаже вас встретит специалист и проводит до номера.",
-        })
+        -
+          const assistantCheckButtonOptions = {
+            label: "Помощник для инвалидов",
+            details: "На 1 этаже вас встретит специалист и проводит до номера.",
+          }
+        +check-button(assistantCheckButtonOptions)
   else if (param === "comment")
-    +comment({
-      username: "Мурад Сарафанов",
-      avatar: "../assets/images/murad.jpg",
-      datetime: "5 дней назад",
-      message: "Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.",
-      likeValue: 12,
-      isLiked: true,
-    })
+    -
+      const commentOptions = {
+        username: "Мурад Сарафанов",
+        avatar: "../assets/images/murad.jpg",
+        datetime: "5 дней назад",
+        message: "Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.",
+        likeValue: 12,
+        isLiked: true,
+      }
+    +comment(commentOptions)

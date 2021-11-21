@@ -1,25 +1,28 @@
 extends ../../layouts/ui-kit/ui-kit
 
 block variables
-  - const options = {
-  -   title: "TOXIN",
-  -   description: "Верстка макета TOXIN по второму заданию FSD",
-  -   keywords: "toxin",
-  -   isGray: true,
-  - }
-  - const websitePages = [
-  -  [ "Landing page", "website/landing-page.html" ],
-  -  [ "Search room/Filter", "website/search-room.html" ],
-  -  [ "Room details", "website/room-details.html" ],
-  -  [ "Registration", "website/registration.html" ],
-  -  [ "Sign in", "website/sign-in.html" ],
-  -]
-  - const uiKitPages = [
-  -  [ "Colors & Type", "ui-kit/colors-and-type.html" ],
-  -  [ "Form Elements", "ui-kit/form-elements.html" ],
-  -  [ "Cards", "ui-kit/cards.html" ],
-  -  [ "Headers & Footers", "ui-kit/headers-and-footers.html" ],
-  -]
+  -
+    const options = {
+      title: "TOXIN",
+      description: "Верстка макета TOXIN по второму заданию FSD",
+      keywords: "toxin",
+      isGray: true,
+    }
+  -
+    const websitePages = [
+      [ "Landing page", "website/landing-page.html" ],
+      [ "Search room/Filter", "website/search-room.html" ],
+      [ "Room details", "website/room-details.html" ],
+      [ "Registration", "website/registration.html" ],
+      [ "Sign in", "website/sign-in.html" ],
+    ]
+  -
+    const uiKitPages = [
+      [ "Colors & Type", "ui-kit/colors-and-type.html" ],
+      [ "Form Elements", "ui-kit/form-elements.html" ],
+      [ "Cards", "ui-kit/cards.html" ],
+      [ "Headers & Footers", "ui-kit/headers-and-footers.html" ],
+    ]
 
 block content
   UL.pages
@@ -28,14 +31,14 @@ block content
         each page in websitePages
           LI.pages__page
             A.pages__link(
-              href=page[1]
+              href=page[1],
               target="_blank"
-            )=page[0]
+            )= page[0]
     LI.pages__ui-kit= "UI-KIT"
       UL.pages__list
         each page in uiKitPages
           LI.pages__page
             A.pages__link(
-              href=page[1]
+              href=page[1],
               target="_blank"
-            )=page[0]
+            )= page[0]

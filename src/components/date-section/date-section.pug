@@ -4,47 +4,56 @@ include ../card/card.pug
 include ../calendar/calendar.pug
 
 mixin date-section(options = {})
-  - const blockName = "date-section"
-  - const { dateFromTitle, dateToTitle, name, dateFrom, dateTo, 
-  -   isCalendarArrivalExpanded, isCalendarDepartureExpanded, 
-  -   calendarArrivalDateActivate, calendarDepartureDateActivate } = options
-  DIV(
-    class=blockName
-    class=`js-${blockName}`
-  )
+  - const blockName = "date-section";
+  -
+    const { dateFromTitle, dateToTitle, name, dateFrom, dateTo, 
+      isCalendarArrivalExpanded, isCalendarDepartureExpanded, 
+      calendarArrivalDateActivate, 
+      calendarDepartureDateActivate } = options
+
+  DIV(class=blockName, class=`js-${blockName}`)
     DIV(
-      class=`${blockName}__set`
-      class=`js-${blockName}__set`
+      class=`${blockName}__set`,
+      class=`js-${blockName}__set`,
       class=`${blockName}__set_first`
     )
       +form-set({ title: dateFromTitle ? dateFromTitle : "Прибытие" })
-        +dropdown({  
-          name: `${name}-arrival`,
-          type: "date",
-          value: dateFrom ? dateFrom : "",
-          isExpanded: isCalendarArrivalExpanded,
-        })
+        -
+          const dropdownOptions = {
+            name: `${name}-arrival`,
+            type: "date",
+            value: dateFrom ? dateFrom : "",
+            isExpanded: isCalendarArrivalExpanded,
+          }
+        +dropdown(dropdownOptions)
           +card({ isMedium: true, isEmpty: true })
-            +calendar({ 
-              from: dateFrom ? dateFrom : "",
-              to: dateTo ? dateTo : "",
-              active: calendarArrivalDateActivate ? calendarArrivalDateActivate : "",
-            })
-    DIV(
-      class=`${blockName}__set`
-      class=`js-${blockName}__set`
-    )
+            -
+              const calendarOptions = {
+                from: dateFrom ? dateFrom : "",
+                to: dateTo ? dateTo : "",
+                active: calendarArrivalDateActivate
+                  ? calendarArrivalDateActivate
+                  : "",
+              }
+            +calendar(calendarOptions)
+    DIV(class=`${blockName}__set`, class=`js-${blockName}__set`)
       +form-set({ title: dateToTitle ? dateToTitle : "Выезд" })
-        +dropdown({ 
-          name: `${name}-departure`,
-          type: "date",
-          value: dateTo ? dateTo : "",
-          isExpanded: isCalendarDepartureExpanded,
-          alignPanelRight: true,
-        })
+        -
+          const dropdownOptions = {
+            name: `${name}-departure`,
+            type: "date",
+            value: dateTo ? dateTo : "",
+            isExpanded: isCalendarDepartureExpanded,
+            alignPanelRight: true,
+          }
+        +dropdown(dropdownOptions)
           +card({ isMedium: true, isEmpty: true })
-            +calendar({ 
-              from: dateFrom ? dateFrom : "",
-              to: dateTo ? dateTo : "",
-              active: calendarDepartureDateActivate ? calendarDepartureDateActivate : "",
-            })
+            -
+              const calendarOptions = {
+                from: dateFrom ? dateFrom : "",
+                to: dateTo ? dateTo : "",
+                active: calendarDepartureDateActivate
+                  ? calendarDepartureDateActivate
+                  : "",
+              }
+            +calendar(calendarOptions)

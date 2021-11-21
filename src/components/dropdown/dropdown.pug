@@ -2,37 +2,40 @@ include ../text-field/text-field.pug
 include ../dropdown-panel/dropdown-panel.pug
 
 mixin dropdown(options = {})
-  - const blockName = "dropdown"
-  - const { name, type, value, placeholder, isHovered, 
-  -   isFocused, isFilter, dateFrom, dateTo, isExpanded, 
-  -   list, alignPanelRight, withControl } = options
-  - const fieldOptions = { name, type, value, placeholder,
-  -   isHovered, isFocused, isFilter, dateFrom, dateTo,
-  -   isReadonly: type !== 'date',
-  -   withBorder: false,
-  -   withRightSpace: true,
-  - }
+  - const blockName = "dropdown";
+  -
+    const { name, type, value, placeholder, isHovered, 
+      isFocused, isFilter, dateFrom, dateTo, isExpanded, 
+      list, alignPanelRight, withControl } = options
+  -
+    const fieldOptions = { 
+      name, type, value, placeholder, isHovered, isFocused, 
+      isFilter, dateFrom, dateTo,
+      isReadonly: type !== "date",
+      withBorder: false,
+      withRightSpace: true,
+    }
 
   DIV(
-    class=blockName
-    class=`js-${blockName}`
+    class=blockName,
+    class=`js-${blockName}`,
     class=isExpanded ? `${blockName}_expanded` : ""
   )
     +text-field(fieldOptions)
     INPUT(
-      class=`${blockName}__check`
-      class=`js-${blockName}__check`
-      id=`${blockName}-${name}-check`
-      type="checkbox"
+      class=`${blockName}__check`,
+      class=`js-${blockName}__check`,
+      id=`${blockName}-${name}-check`,
+      type="checkbox",
       checked=isExpanded
     )
     LABEL(
-      class=`${blockName}__expand-more`
+      class=`${blockName}__expand-more`,
       for=`${blockName}-${name}-check`
     )
     DIV(
-      class=`${blockName}__panel`
-      class=!list ? `${blockName}__panel_independent` : ""
+      class=`${blockName}__panel`,
+      class=!list ? `${blockName}__panel_independent` : "",
       class=alignPanelRight ? `${blockName}__panel_align_right` : ""
     )
       if list

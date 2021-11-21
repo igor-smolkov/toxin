@@ -12,35 +12,61 @@ mixin check-elements
         .form-set__element.form-set__element_indent-in_check-buttons
           +check-button({ label: "Можно курить" })
         .form-set__element.form-set__element_indent-in_check-buttons
-          +check-button({ label: "Можно с питомцами", isChecked: true })
+          -
+            const petsCheckButtonOptions = {
+              label: "Можно с питомцами",
+              isChecked: true,
+            }
+          +check-button(petsCheckButtonOptions)
         .form-set__element.form-set__element_indent-in_check-buttons
-          +check-button({ label: "Можно пригласить гостей (до 10 человек)", isChecked: true })
+          -
+            const guestsCheckButtonOptions = {
+              label: "Можно пригласить гостей (до 10 человек)",
+              isChecked: true,
+            }
+          +check-button(guestsCheckButtonOptions)
     SECTION.check-elements__section
       +form-set({ title: "Radio Buttons", isIndented: true })
-        +radio-group({
-          name: "sex",
-          set: [
-            {label: "Мужчина", isChecked: true},
-            {label: "Женщина"},
-          ],
-        })
+        -
+          const radioGroupOptions = {
+            name: "sex",
+            set: [
+              { label: "Мужчина", isChecked: true },
+              { label: "Женщина" },
+            ],
+          }
+        +radio-group(radioGroupOptions)
     SECTION.check-elements__section
       +form-set({ title: "Toggle", isGrouped: true })
         .form-set__element
-          +toggle({
-            label: "Получать спецпредложения", 
-            isChecked: true
-          })
+          -
+            const toggleOptions = {
+              label: "Получать спецпредложения",
+              isChecked: true,
+            }
+          +toggle(toggleOptions)
         .form-set__element.form-set__element_indent-in_toggles
           +toggle({ label: "Получать спецпредложения" })
     SECTION.check-elements__section
-      +form-set({ title: "Like Button", isGrouped: true, isInlined: true })
+      -
+        const likeFormSetOptions = {
+          title: "Like Button",
+          isGrouped: true,
+          isInlined: true,
+        }
+      +form-set(likeFormSetOptions)
         .form-set__element
           +like-button({ value: 2 })
         .form-set__element.form-set__element_indent-in_like-buttons
           +like-button({ value: 12, isChecked: true })
     SECTION.check-elements__section
-      +form-set({ title: "Rate Button", isGrouped: true, isInlined: true })
+      -
+        const rateFormSetOptions = {
+          title: "Rate Button",
+          isGrouped: true,
+          isInlined: true,
+        }
+      +form-set(rateFormSetOptions)
         .form-set__element
           +rate-button({ name: "rate-1", value: 4 })
         .form-set__element.form-set__element_indent-in_rate-buttons

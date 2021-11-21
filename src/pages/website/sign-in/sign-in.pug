@@ -5,19 +5,25 @@ include ../../../components/card-form/card-form.pug
 include ../../../components/carousel/carousel.pug
 
 block variables
-  - const options = { 
-  -   title: "TOXIN - Sign in",
-  -   description: "Пример страницы входа",
-  -   keywords: "toxin, sign-in",
-  - }
+  -
+    const options = { 
+      title: "TOXIN - Sign in",
+      description: "Пример страницы входа",
+      keywords: "toxin, sign-in",
+    }
 
 block content
   .sign-in
     .sign-in__background
-      +carousel({
-        slides: [ "../assets/images/log-room-2.jpg", "../assets/images/log-room-1.jpg" ],
-        delaySec: 10,
-      })
+      -
+        const carouselOptions = {
+          slides: [
+            "../assets/images/log-room-2.jpg",
+            "../assets/images/log-room-1.jpg",
+          ],
+          delaySec: 10,
+        }
+      +carousel(carouselOptions)
     .sign-in__card
       +card({ title: "Войти" })
         +card-form({ type: "log-in" })

@@ -7,48 +7,73 @@ mixin lists(param)
   if (param === "expandable-checks")
     .lists
       SECTION.lists__section.lists__section_first.lists__section_short
-        +form-set({ title: "Expandable checkbox list", isMarginNone: true })
-          +expandable-list({ 
+        -
+          const defaultFormSetOptions = {
+            title: "Expandable checkbox list",
+            isMarginNone: true,
+          }
+        -
+          const defaultExpandableListOptions = {
             name: "additions-1",
             withChecks: true,
             list: [
-              {label: 'Завтрак'},
-              {label: 'Письменный стол'},
-              {label: 'Стул для кормления'},
-              {label: 'Кроватка'},
-              {label: 'Телевизор'},
-              {label: 'Шампунь'}
-            ]
-          })
+              { label: "Завтрак" },
+              { label: "Письменный стол" },
+              { label: "Стул для кормления" },
+              { label: "Кроватка" },
+              { label: "Телевизор" },
+              { label: "Шампунь" },
+            ],
+          }
+        +form-set(defaultFormSetOptions)
+          +expandable-list(defaultExpandableListOptions)
       SECTION.lists__section.lists__section_short
-        +form-set({ title: "Expandable checkbox list", isMarginNone: true })
-          +expandable-list({
+        -
+          const expandedFormSetOptions = {
+            title: "Expandable checkbox list",
+            isMarginNone: true,
+          }
+        -
+          const expandedExpandableListOptions = {
             name: "additions-2",
             isExpanded: true,
             withChecks: true,
             list: [
-              {label: 'Завтрак'},
-              {label: 'Письменный стол', isChecked: true},
-              {label: 'Стул для кормления', isChecked: true},
-              {label: 'Кроватка', isChecked: true},
-              {label: 'Телевизор'},
-              {label: 'Шампунь'}
-            ]
-          })
+              { label: "Завтрак" },
+              { label: "Письменный стол", isChecked: true },
+              { label: "Стул для кормления", isChecked: true },
+              { label: "Кроватка", isChecked: true },
+              { label: "Телевизор" },
+              { label: "Шампунь" },
+            ],
+          }
+        +form-set(expandedFormSetOptions)
+          +expandable-list(expandedExpandableListOptions)
   else if (param === "bullet")
-    +form-set({ title: "Bullet List", isIndented: true })
-      +bullet-list({ 
+    -
+      const bulletListOptions = {
         items: [
           'Нельзя с питомцами',
           'Без вечеринок и мероприятий',
           'Время прибытия — после 13:00, а выезд до 12:00',
-        ]
-      })
+        ],
+      }
+    +form-set({ title: "Bullet List", isIndented: true })
+      +bullet-list(bulletListOptions)
   else if (param === "extra")
-    +extra-list({ 
-      items: [
-        { title: "Комфорт", details: "Шумопоглощающие стены", icon: "insert_emoticon" },
-        { title: "Удобство", details: "Окно в каждой из спален", icon: "location_city" },
-      ]
-    })
-    
+    -
+      const extraListOptions = {
+        items: [
+          {
+            title: "Комфорт",
+            details: "Шумопоглощающие стены",
+            icon: "insert_emoticon",
+          },
+          {
+            title: "Удобство",
+            details: "Окно в каждой из спален",
+            icon: "location_city",
+          },
+        ],
+      }
+    +extra-list(extraListOptions)

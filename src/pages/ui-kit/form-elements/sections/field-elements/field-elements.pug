@@ -5,54 +5,66 @@ include ../../../../../components/date-section/date-section.pug
 include ../../../../../components/date-filter/date-filter.pug
 include ../../../../../components/subscription/subscription.pug
 
-mixin field-elements 
+mixin field-elements
   .field-elements
     SECTION.field-elements__section.field-elements__section_first
       +form-set({ title: "Text Field", details: "Default" })
         +text-field({ placeholder: "Email", type: "email" })
     SECTION.field-elements__section
-      +form-set({ title: "Text Field", details: "Hover / Focus" })
-        +text-field({
+      -
+        const hoveredTextFieldOptions = {
           placeholder: "This is pretty awesome",
           isHovered: true,
           isFocused: true,
-        })
+        }
+      +form-set({ title: "Text Field", details: "Hover / Focus" })
+        +text-field(hoveredTextFieldOptions)
     SECTION.field-elements__section
-      +form-set({ title: "Dropdown" })
-        +dropdown({
+      -
+        const dropdownOptions = {
           name: "guests-field",
           list: [
             { name: "Взрослые", category: "гость" },
             { name: "Дети", category: "гость" },
-            { name: "Младенцы", category: "младенец" }
+            { name: "Младенцы", category: "младенец" },
           ],
-        })
+        }
+      +form-set({ title: "Dropdown" })
+        +dropdown(dropdownOptions)
     SECTION.field-elements__section
-      +form-set({ title: "Masked Text Field" })
-        +text-field({
+      -
+        const maskedTextFieldOptions = {
           placeholder: "ДД.ММ.ГГГГ",
           isMasked: true,
-        })
+        }
+      +form-set({ title: "Masked Text Field" })
+        +text-field(maskedTextFieldOptions)
     SECTION.field-elements__section.field-elements__section_rarefied
-      +date-section({
-        name: "dates-fields",
-        dateTo: "2019-08-19",
-        dateFromTitle: "Date dropdown",
-        dateToTitle: "Date dropdown",
-      })
+      -
+        const dateSectionOptions = {
+          name: "dates-fields",
+          dateTo: "2019-08-19",
+          dateFromTitle: "Date dropdown",
+          dateToTitle: "Date dropdown",
+        }
+      +date-section(dateSectionOptions)
     SECTION.field-elements__section.field-elements__section_rarefied.field-elements__section_short
-      +form-set({ title: "Filter Date Dropdown" })
-        +date-filter({
+      -
+        const dateFilterOptions = {
           name: "dates-field",
           dateFrom: "2019-08-19",
           dateTo: "2019-08-23",
-        })
+        }
+      +form-set({ title: "Filter Date Dropdown" })
+        +date-filter(dateFilterOptions)
     SECTION.field-elements__section.field-elements__section_rarefied.field-elements__section_short
+      -
+        const subscriptionTextFieldOptions = {
+          placeholder: "Email",
+          isDirected: true,
+          name: "email",
+          type: "email",
+        }
       +form-set({ title: "Subscription Text Field" })
         +subscription
-          +text-field({
-            placeholder: "Email",
-            isDirected: true,
-            name: "email",
-            type: "email",
-          })
+          +text-field(subscriptionTextFieldOptions)

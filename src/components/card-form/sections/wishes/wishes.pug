@@ -4,39 +4,56 @@ include ../../../button/button.pug
 include ../../../form-set/form-set.pug
 
 mixin wishes(options = {})
-  - const blockName = "wishes"
-  - const { dateFrom, dateTo, isCalendarArrivalExpanded, 
-  -   isCalendarDepartureExpanded, calendarArrivalDateActivate, 
-  -   calendarDepartureDateActivate, isGuestListExpanded, guestList } = options
+  - const blockName = "wishes";
+  -
+    const { dateFrom, dateTo, isCalendarArrivalExpanded, 
+      isCalendarDepartureExpanded, calendarArrivalDateActivate, 
+      calendarDepartureDateActivate, isGuestListExpanded, 
+      guestList } = options
 
   ARTICLE(class=blockName)
     SECTION(
-      class=`${blockName}__section`
+      class=`${blockName}__section`,
       class=`${blockName}__section_first`
     )
-      +date-section({
-        name: "wishes-dates",
-        dateFrom,
-        dateTo,
-        isCalendarArrivalExpanded,
-        isCalendarDepartureExpanded,
-        calendarArrivalDateActivate,
-        calendarDepartureDateActivate,
-      })
+      -
+        const dateSectionOptions = {
+          name: "wishes-dates",
+          dateFrom,
+          dateTo,
+          isCalendarArrivalExpanded,
+          isCalendarDepartureExpanded,
+          calendarArrivalDateActivate,
+          calendarDepartureDateActivate,
+        }
+      +date-section(dateSectionOptions)
     SECTION(class=`${blockName}__section`)
       +form-set({ title: "Гости" })
-        +dropdown({
-          name: "wishes-guests",
-          isExpanded: isGuestListExpanded,
-          withControl: true,
-          list: guestList ? guestList : [
-            { name: "взрослые", category: "гость" },
-            { name: "дети", category: "гость" },
-            { name: "младенцы", category: "младенец" }
-          ]
-        })
+        -
+          const dropdownOptions = {
+            name: "wishes-guests",
+            isExpanded: isGuestListExpanded,
+            withControl: true,
+            list: guestList
+              ? guestList
+              : [
+                  { name: "взрослые", category: "гость" },
+                  { name: "дети", category: "гость" },
+                  {
+                    name: "младенцы",
+                    category: "младенец",
+                  },
+                ],
+          }
+        +dropdown(dropdownOptions)
     SECTION(
-      class=`${blockName}__section`
+      class=`${blockName}__section`,
       class=`${blockName}__section_last`
     )
-      +button({ caption: "Подобрать номер", type: "submit", withArrow: true })
+      -
+        const buttonOptions = {
+          caption: "Подобрать номер",
+          type: "submit",
+          withArrow: true,
+        }
+      +button(buttonOptions)

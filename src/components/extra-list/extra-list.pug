@@ -1,15 +1,16 @@
 mixin extra-list(options = {})
-  - const blockName = "extra-list"
-  - const { items = [] } = options
+  - const blockName = "extra-list";
+  - const { items = [] } = options;
 
   UL(class=blockName)
     each item, index in items
+      - const isFirst = index === 0;
+      - const isLast = index === items.length - 1;
       LI(
-        class=`${blockName}__item`
-        class=(index===0) ? `${blockName}__item_first` :""
-        class=(index===items.length-1) ? `${blockName}__item_last` :""
+        class=`${blockName}__item`,
+        class=isFirst ? `${blockName}__item_first` : "",
+        class=isLast ? `${blockName}__item_last` : ""
       )
-        P(class=`${blockName}__title`)=item.title
-        P(class=`${blockName}__details`)=item.details
-        I(class=`${blockName}__icon`)=item.icon
-
+        P(class=`${blockName}__title`)= item.title
+        P(class=`${blockName}__details`)= item.details
+        I(class=`${blockName}__icon`)= item.icon

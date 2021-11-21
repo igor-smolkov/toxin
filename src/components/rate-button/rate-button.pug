@@ -1,26 +1,28 @@
 mixin rate-button(options = {})
-  - const { value = 0, name } = options
-  - const set = []
-  - let i = 0
+  - const { value = 0, name } = options;
+  - const set = [];
+  - let i = 0;
   while i <= 5
-    - set[i] = i <= value ? { isChecked: true } : { isChecked: false }
-    - i = i + 1
+    - set[i] = i <= value ? { isChecked: true } : { isChecked: false };
+    - i = i + 1;
 
-  - const blockName = "rate-button"
+  - const blockName = "rate-button";
   DIV(class=blockName)
     each option, index in set
+      - const isFirst = index === 0;
+      - const isSecond = index === 1;
       INPUT(
-        class=`${blockName}__box`
-        type="radio"
-        id=`${blockName}-${name}-${index}`
-        name=name
-        value=option.value ? option.value : index
+        class=`${blockName}__box`,
+        type='radio',
+        id=`${blockName}-${name}-${index}`,
+        name=name,
+        value=option.value ? option.value : index,
         checked=option.isChecked
       )
       LABEL(
-        for=`${blockName}-${name}-${index}`
-        class=`${blockName}__label`
-        class=option.isChecked ? `${blockName}__label_checked` : ""
-        class=(index === 0) ? `${blockName}__label_first` : ""
-        class=(index === 1) ? `${blockName}__label_second` : ""
-      )=option.label
+        for=`${blockName}-${name}-${index}`,
+        class=`${blockName}__label`,
+        class=option.isChecked ? `${blockName}__label_checked` : "",
+        class=isFirst ? `${blockName}__label_first` : "",
+        class=isSecond ? `${blockName}__label_second` : ""
+      )= option.label

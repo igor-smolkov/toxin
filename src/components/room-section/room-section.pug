@@ -1,14 +1,14 @@
 mixin room-section(options = {})
-  - const blockName = "room-section"
-  - const { isShifted, title, details, isEmpty } = options
+  - const blockName = "room-section";
+  - const { isShifted, title, details, isEmpty } = options;
 
   DIV(class=blockName)
     H2(
-      class=`${blockName}__title`
+      class=`${blockName}__title`,
       class=isShifted ? `${blockName}__title_shifted` : ""
-    )=title
+    )= title
       if details
-        SPAN(class=`${blockName}__details`)=details
+        SPAN(class=`${blockName}__details`)= details
     if isEmpty
       block
     else

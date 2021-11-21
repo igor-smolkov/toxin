@@ -3,18 +3,18 @@ include ../rate-circle/rate-circle.pug
 include ../caption-list/caption-list.pug
 
 mixin chart(items = [])
-  - const blockName = "chart"
+  - const blockName = "chart";
 
-  - let sum = 0
+  - let sum = 0;
   each item in items
-    - sum += item.value ? item.value : 0
+    - sum += item.value ? item.value : 0;
 
-  - let perValues = []
+  - let perValues = [];
   each item, index in items
-    - perValues[index] = item.value ? item.value / sum * 100 : 0
-  - const firstSecondSwap = perValues[0]
-  - perValues[0] = perValues[1]
-  - perValues[1] = firstSecondSwap
+    - perValues[index] = item.value ? (item.value / sum) * 100 : 0;
+  - const firstSecondSwap = perValues[0];
+  - perValues[0] = perValues[1];
+  - perValues[1] = firstSecondSwap;
 
   DIV(class=blockName)
     DIV(class=`${blockName}__total`)

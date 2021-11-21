@@ -1,12 +1,12 @@
 include ../card-title/card-title.pug
 
 mixin card(options = {})
-  - const blockName = "card"
-  - const { title, isMedium, isSmall, isEmpty } = options
+  - const blockName = "card";
+  - const { title, isMedium, isSmall, isEmpty } = options;
 
   DIV(
-    class=blockName
-    class=isMedium ? `${blockName}_medium` : ""
+    class=blockName,
+    class=isMedium ? `${blockName}_medium` : "",
     class=isSmall ? `${blockName}_small` : ""
   )
     if title

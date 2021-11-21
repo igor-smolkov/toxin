@@ -1,54 +1,55 @@
 mixin preview(options = {})
-  - const blockName = "preview"
-  - const { images = [], selected = 0, isHovered, number } = options
-  
+  - const blockName = "preview";
+  - const { images = [], selected = 0, isHovered, number } = options;
+
   DIV(
-    class=blockName
-    class=`js-${blockName}`
-    class=isHovered ? `${blockName}_hovered` : ""
-    data-selected=selected
+    class=blockName,
+    class=`js-${blockName}`,
+    class=isHovered ? `${blockName}_hovered` : "",
+    data-selected=selected,
     data-number=number
   )
     DATALIST(
-      class=`${blockName}__data`
+      class=`${blockName}__data`,
       class=`js-${blockName}__data`
     )
       each img in images
         OPTION(value=img)
     IMG(
-      class=`${blockName}__img`
-      class=`js-${blockName}__img`
-      src=images[selected]
-      alt="Превью номера"
+      class=`${blockName}__img`,
+      class=`js-${blockName}__img`,
+      src=images[selected],
+      alt='Превью номера'
     )
     DIV(class=`${blockName}__arrows`)
       BUTTON(
-        class=`${blockName}__arrow`
-        class=`${blockName}__arrow_prev`
+        class=`${blockName}__arrow`,
+        class=`${blockName}__arrow_prev`,
         class=`js-${blockName}__arrow-prev`
       )
       BUTTON(
-        class=`${blockName}__arrow`
-        class=`${blockName}__arrow_next`
+        class=`${blockName}__arrow`,
+        class=`${blockName}__arrow_next`,
         class=`js-${blockName}__arrow-next`
       )
     DIV(
-      class=`${blockName}__points`
+      class=`${blockName}__points`,
       class=`js-${blockName}__points`
     )
-      - let i = 0
+      - let i = 0;
       while i < images.length
+        - const isSelected = i === selected;
         INPUT(
-          class=`${blockName}__point-input`
-          type="radio"
-          name=`views-${number}`
-          id=`views-${number}-${i}`
-          value=i
-          checked=(i===selected)
+          class=`${blockName}__point-input`,
+          type='radio',
+          name=`views-${number}`,
+          id=`views-${number}-${i}`,
+          value=i,
+          checked=isSelected
         )
         LABEL(
-          for=`views-${number}-${i}`
-          class=`${blockName}__point-label`
-          class=(i===selected) ? `${blockName}__point-label_checked` : ""
+          for=`views-${number}-${i}`,
+          class=`${blockName}__point-label`,
+          class=isSelected ? `${blockName}__point-label_checked` : ""
         )
-        - i++
+        - i++;

@@ -1,31 +1,29 @@
 mixin title-main(options = {})
-  - const blockName = "title-main"
-  - const { link, prefix, content, postfix, isShiftedPostfix } = options
+  - const blockName = "title-main";
+  -
+    const { link, prefix, content, postfix, 
+      isShiftedPostfix } = options
 
   if link
-    A(
-      class=blockName
-      class=`${blockName}_linked`
-      href=link
-    )
+    A(class=blockName, class=`${blockName}_linked`, href=link)
       if prefix
-        SPAN(class=`${blockName}__prefix`)=prefix
-      SPAN(class=`${blockName}__content`)=content
+        SPAN(class=`${blockName}__prefix`)= prefix
+      SPAN(class=`${blockName}__content`)= content
       if postfix
         SPAN(
-          class=`${blockName}__postfix`
+          class=`${blockName}__postfix`,
           class=isShiftedPostfix ? `${blockName}__postfix_shifted` : ""
-        )=postfix
+        )= postfix
   else
     SPAN(class=blockName)
       if prefix
-        SPAN(class=`${blockName}__prefix`)=prefix
+        SPAN(class=`${blockName}__prefix`)= prefix
       SPAN(
-        class=`${blockName}__content`
+        class=`${blockName}__content`,
         class=`${blockName}__content_large`
-      )=content
+      )= content
       if postfix
         SPAN(
-          class=`${blockName}__postfix`
+          class=`${blockName}__postfix`,
           class=isShiftedPostfix ? `${blockName}__postfix_shifted` : ""
-        )=postfix
+        )= postfix

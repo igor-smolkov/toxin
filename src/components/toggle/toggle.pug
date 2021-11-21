@@ -1,22 +1,22 @@
 mixin toggle(options = {})
-  - const blockName = "toggle"
-  - const { isChecked, name, value, label } = options
+  - const blockName = "toggle";
+  - const { isChecked, name, value, label } = options;
 
   LABEL(
-    class=blockName
-    class=`js-${blockName}`
+    class=blockName,
+    class=`js-${blockName}`,
     class=isChecked ? `${blockName}_checked` : ""
   )
     INPUT(
-      class=`${blockName}__box`
-      class=`js-${blockName}__box`
-      class=isChecked ? `${blockName}__box_checked` : ""
-      name=name
-      value=value ? value : name
-      type="checkbox"
+      class=`${blockName}__box`,
+      class=`js-${blockName}__box`,
+      class=isChecked ? `${blockName}__box_checked` : "",
+      name=name,
+      value=value ? value : name,
+      type="checkbox",
       checked=isChecked
     )
     SPAN(
-      class=`${blockName}__label`
+      class=`${blockName}__label`,
       class=isChecked ? `${blockName}__label_checked` : ""
-    )=label ? label : value
+    )= label ? label : value

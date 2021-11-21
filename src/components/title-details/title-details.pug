@@ -1,8 +1,8 @@
 mixin title-details(options = {})
-  - const blockName = "title-details"
-  - const { first, second } = options
+  - const blockName = "title-details";
+  - const { first, second } = options;
 
   SPAN(class=blockName)
-    SPAN(class=`${blockName}__first`)=first
+    SPAN(class=`${blockName}__first`)= first
     if second
-      SPAN(class=`${blockName}__second`)=second
+      SPAN(class=`${blockName}__second`)= second

@@ -7,13 +7,10 @@ include sections/room-booking/room-booking.pug
 include sections/log-in/log-in.pug
 
 mixin card-form(options = {})
-  - const blockName = "card-form"
-  - const { type, custom } = options
+  - const blockName = "card-form";
+  - const { type, custom } = options;
 
-  FORM(
-    class=blockName
-    class=`js-${blockName}`
-  )
+  FORM(class=blockName, class=`js-${blockName}`)
     case type
       when "wishes"
         +wishes(custom)
@@ -24,8 +21,20 @@ mixin card-form(options = {})
       when "log-in"
         +log-in
       when "room-rate"
-        +form-set({ isGrouped: true, isInlined: true, withLine: true, isAligned: true })
+        -
+          const formSetOptions = {
+            isGrouped: true, 
+            isInlined: true, 
+            withLine: true, 
+            isAligned: true,
+          }
+        +form-set(formSetOptions)
           .form-set__element
-            +rate-button({ name: `${custom.number}-rate`, value: custom.rate })
-          .form-set__element          
+            -
+              const rateButtonOptions = {
+                name: `${custom.number}-rate`, 
+                value: custom.rate,
+              }
+            +rate-button(rateButtonOptions)
+          .form-set__element 
             +reviews-counter(custom.reviews)

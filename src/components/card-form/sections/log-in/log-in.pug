@@ -3,26 +3,50 @@ include ../../../form-set/form-set.pug
 include ../../../text-field/text-field.pug
 
 mixin log-in
-  - const blockName = "log-in"
+  - const blockName = "log-in";
 
   ARTICLE(class=blockName)
     SECTION(
-      class=`${blockName}__section`
+      class=`${blockName}__section`,
       class=`${blockName}__section_first`
     )
       +form-set({ isGrouped: true, isMarginNone: true })
         .form-set__element.form-set__element_margin_none
-          +text-field({ name: "email", placeholder: "Email", type: "email" })
+          -
+            const emailTextFieldOptions = {
+              name: "email",
+              placeholder: "Email",
+              type: "email",
+            }
+          +text-field(emailTextFieldOptions)
         .form-set__element.form-set__element_indent-mid
-          +text-field({ name: "password", placeholder: "Пароль", type: "password" })
+          -
+            const passwordTextFieldOptions = {
+              name: "password",
+              placeholder: "Пароль",
+              type: "password",
+            }
+          +text-field(passwordTextFieldOptions)
     SECTION(class=`${blockName}__section`)
       +button({ caption: "Войти", type: "submit", withArrow: true })
     SECTION(
-      class=`${blockName}__section`
+      class=`${blockName}__section`,
       class=`${blockName}__section_last`
     )
-      +form-set({ isInlined: true, isGrouped: true, isMarginNone: true })
+      -
+        const formSetOptions = {
+          isInlined: true,
+          isGrouped: true,
+          isMarginNone: true,
+        }
+      +form-set(formSetOptions)
         .form-set__element.form-set__element_align-mid.form-set__element_increased
-          DIV(class=`${blockName}__question`)="Нет аккаунта на Toxin?"
+          DIV(class=`${blockName}__question`)= "Нет аккаунта на Toxin?"
         .form-set__element.form-set__element_indent_left
-          +button({ caption: "Создать", isBorderOnly: true, link: "registration.html" })
+          -
+            const buttonOptions = {
+              caption: "Создать",
+              isBorderOnly: true,
+              link: "registration.html",
+            }
+          +button(buttonOptions)

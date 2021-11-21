@@ -6,27 +6,36 @@ include ../../../components/card-form/card-form
 include sections/room-info/room-info
 
 block variables
-  - const options = { 
-  -   title: "TOXIN - Room details",
-  -   description: "Пример страницы с детальным описанием номера",
-  -   keywords: "toxin, room, details",
-  -   withBorder: true,
-  - }
+  -
+    const options = { 
+      title: "TOXIN - Room details",
+      description: "Пример страницы с детальным описанием номера",
+      keywords: "toxin, room, details",
+      withBorder: true,
+    }
 
 block content
   .room-details
     ASIDE.room-details__photos
-      +room-photos({
-        images: [ "../assets/images/room-888-view-1.jpg", "../assets/images/room-888-view-2.jpg", "../assets/images/room-888-view-3.jpg" ]
-      })
+      -
+        const roomPhotosOptions = {
+          images: [
+            "../assets/images/room-888-view-1.jpg",
+            "../assets/images/room-888-view-2.jpg",
+            "../assets/images/room-888-view-3.jpg",
+          ],
+        }
+      +room-photos(roomPhotosOptions)
     SECTION.room-details__content
       SECTION.room-details__info
         +room-info
       SECTION.room-details__card
-        +card({ 
-          title: {
-            main: { prefix: "№", content: "888", postfix: "Люкс" },
-            details: { first: "9 990₽", second: "в сутки" }
+        -
+          const cardOptions = {
+            title: {
+              main: { prefix: "№", content: "888", postfix: "Люкс" },
+              details: { first: "9 990₽", second: "в сутки" },
+            },
           }
-        })
+        +card(cardOptions)
           +card-form({ type: "room" })

@@ -1,17 +1,11 @@
 mixin logo(options = {})
-  - const blockName = "logo"
-  - const { isSimplified } = options
+  - const blockName = "logo";
+  - const { isSimplified } = options;
 
   if isSimplified
-    DIV(
-      class=blockName
-      class=`${blockName}_simplified`
-    )
+    DIV(class=blockName, class=`${blockName}_simplified`)
       DIV(class=`${blockName}__pic`)
   else
-    A(
-      class=blockName
-      href="landing-page.html"
-    )
+    A(class=blockName, href='landing-page.html')
       DIV(class=`${blockName}__pic`)
       DIV(class=`${blockName}__text`)

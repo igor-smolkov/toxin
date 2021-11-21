@@ -1,9 +1,9 @@
 mixin caption-list(items = [])
-  - const blockName = "caption-list"
+  - const blockName = "caption-list";
 
   UL(class=blockName)
-    each color, index in ['yellow', 'green', 'purple', 'gray']
+    each color, index in ["yellow", "green", "purple", "gray"]
       LI(
-        class=`${blockName}__item`
+        class=`${blockName}__item`,
         class=`${blockName}__item_${color}`
-      )=items[index].label
+      )= items[index].label

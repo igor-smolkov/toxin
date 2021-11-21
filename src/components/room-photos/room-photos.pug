@@ -1,25 +1,25 @@
 mixin room-photos(options = {})
-  - const blockName = "room-photos"
-  - const { images } = options
+  - const blockName = "room-photos";
+  - const { images } = options;
 
   DIV(class=blockName)
     DIV(class=`${blockName}__main`)
       DIV(class=`${blockName}__photo-container`)
         IMG(
-          class=`${blockName}__photo`, 
+          class=`${blockName}__photo`,
           src=images[0],
           alt="Вид номера - 1"
         )
     DIV(class=`${blockName}__aside`)
       DIV(class=`${blockName}__photo-container`)
         IMG(
-          class=`${blockName}__photo`, 
+          class=`${blockName}__photo`,
           src=images[1],
           alt="Вид номера - 2"
         )
       DIV(class=`${blockName}__photo-container`)
         IMG(
-          class=`${blockName}__photo`, 
+          class=`${blockName}__photo`,
           src=images[2],
           alt="Вид номера - 3"
         )

@@ -3,23 +3,25 @@ include ../subscription/subscription.pug
 include ../text-field/text-field.pug
 
 mixin widget(options = {})
-  - const blockName = "widget"
-  - const { title, links, text, withSubscribe } = options
+  - const blockName = "widget";
+  - const { title, links, text, withSubscribe } = options;
 
   DIV(class=blockName)
-    H3(class=`${blockName}__title`)=title
+    H3(class=`${blockName}__title`)= title
     SECTION(class=`${blockName}__content`)
       if links
         NAV(class=`${blockName}__nav`)
           +nav-links({ navLinks: links })
       if text
-        P(class=`${blockName}__text`)=text 
+        P(class=`${blockName}__text`)= text
       if withSubscribe
         FORM(class=`${blockName}__form`)
-          +subscription
-            +text-field({
+          -
+            const textFieldOptions = {
               placeholder: "Email",
               isDirected: true,
               name: "email",
               type: "email",
-            })
+            }
+          +subscription
+            +text-field(textFieldOptions)

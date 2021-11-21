@@ -1,28 +1,24 @@
 mixin radio-group(options = {})
-  - const blockName = "radio-group"
-  - const { set = [], name } = options
+  - const blockName = "radio-group";
+  - const { set = [], name } = options;
 
-  DIV(
-    class=blockName
-    class=`js-${blockName}`
-    tabindex = "0"
-  )
+  DIV(class=blockName, class=`js-${blockName}`, tabindex='0')
     each option, index in set
+      - const isFirst = index === 0;
       LABEL(
-        class=`${blockName}__option`
-        class=(index === 0) ? `${blockName}__option_first` : ""
+        class=`${blockName}__option`,
+        class=isFirst ? `${blockName}__option_first` : ""
       )
         INPUT(
-          class=`${blockName}__box`
-          class=`js-${blockName}__box`
-          type="radio"
-          name=options.name
-          value=option.value ? option.value : index
+          class=`${blockName}__box`,
+          class=`js-${blockName}__box`,
+          type='radio',
+          name=options.name,
+          value=option.value ? option.value : index,
           checked=option.isChecked
         )
         SPAN(
-          class=`${blockName}__label`
-          class=option.isChecked ? `${blockName}__label_checked` : ""
-          class=(index === 0) ? `${blockName}__label_first` : ""
-        )=option.label
-  
+          class=`${blockName}__label`,
+          class=option.isChecked ? `${blockName}__label_checked` : "",
+          class=isFirst ? `${blockName}__label_first` : ""
+        )= option.label
