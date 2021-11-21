@@ -6,6 +6,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserWebpackPlugin = require('terser-webpack-plugin');
+const LiveReloadPlugin = require('webpack-livereload-plugin');
 
 // определение режима сборки
 const isDev = process.env.NODE_ENV === 'development';
@@ -74,6 +75,7 @@ const plugins = () => {
   });
 
   const list = [
+    new LiveReloadPlugin({ appendScriptTag: true }),
     packHTMLWebpackPlugin(`${pagesDir}/index/index.pug`, 'index.html', 'index'),
     new CleanWebpackPlugin(),
     new CopyWebpackPlugin({
@@ -132,9 +134,10 @@ module.exports = {
     },
   },
   optimization: optimization(),
+  mode: isDev ? 'development' : 'production',
   devServer: {
     port: 5400,
-    hot: isDev,
+    hot: true,
     open: true,
   },
   devtool: isDev ? 'source-map' : false,
