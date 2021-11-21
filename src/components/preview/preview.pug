@@ -19,7 +19,7 @@ mixin preview(options = {})
       class=`${blockName}__img`,
       class=`js-${blockName}__img`,
       src=images[selected],
-      alt='Превью номера'
+      alt="Превью номера"
     )
     DIV(class=`${blockName}__arrows`)
       BUTTON(
@@ -41,7 +41,7 @@ mixin preview(options = {})
         - const isSelected = i === selected;
         INPUT(
           class=`${blockName}__point-input`,
-          type='radio',
+          type="radio",
           name=`views-${number}`,
           id=`views-${number}-${i}`,
           value=i,

@@ -2,7 +2,7 @@ mixin radio-group(options = {})
   - const blockName = "radio-group";
   - const { set = [], name } = options;
 
-  DIV(class=blockName, class=`js-${blockName}`, tabindex='0')
+  DIV(class=blockName, class=`js-${blockName}`, tabindex="0")
     each option, index in set
       - const isFirst = index === 0;
       LABEL(
@@ -12,7 +12,7 @@ mixin radio-group(options = {})
         INPUT(
           class=`${blockName}__box`,
           class=`js-${blockName}__box`,
-          type='radio',
+          type="radio",
           name=options.name,
           value=option.value ? option.value : index,
           checked=option.isChecked
