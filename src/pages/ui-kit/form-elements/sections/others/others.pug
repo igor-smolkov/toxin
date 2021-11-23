@@ -4,20 +4,19 @@ include ../../../../../components/comment/comment.pug
 
 mixin others(param)
   if (param === "rich-checks")
+    -
+      const corridorCheckButtonOptions = {
+        label: "Широкий коридор",
+        details: "Ширина коридоров в номере не менее 91 см.",
+      }
+      const assistantCheckButtonOptions = {
+        label: "Помощник для инвалидов",
+        details: "На 1 этаже вас встретит специалист и проводит до номера.",
+      }
     +form-set({ title: "Rich Checkbox Buttons", isGrouped: true })
       .form-set__element.form-set__element_indent-in_check-buttons
-        -
-          const corridorCheckButtonOptions = {
-            label: "Широкий коридор",
-            details: "Ширина коридоров в номере не менее 91 см.",
-          }
         +check-button(corridorCheckButtonOptions)
       .form-set__element.form-set__element_indent-in_check-buttons
-        -
-          const assistantCheckButtonOptions = {
-            label: "Помощник для инвалидов",
-            details: "На 1 этаже вас встретит специалист и проводит до номера.",
-          }
         +check-button(assistantCheckButtonOptions)
   else if (param === "comment")
     -

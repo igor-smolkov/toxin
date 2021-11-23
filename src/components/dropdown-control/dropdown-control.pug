@@ -3,19 +3,19 @@ include ../button/button.pug
 mixin dropdown-control(options = {})
   - const blockName = "dropdown-control";
   - const isClear = !(options.isClear === false);
+  -
+    const clearButtonOptions = {
+      caption: "Очистить",
+      isTextOnly: true,
+      isNone: isClear,
+    }
 
   DIV(class=blockName, class=`js-${blockName}`)
     DIV(
       class=`${blockName}__clear`,
       class=`js-${blockName}__clear`
     )
-      -
-        const buttonOptions = {
-          caption: "Очистить",
-          isTextOnly: true,
-          isNone: isClear,
-        }
-      +button(buttonOptions)
+      +button(clearButtonOptions)
     DIV(
       class=`${blockName}__apply`,
       class=`js-${blockName}__apply`

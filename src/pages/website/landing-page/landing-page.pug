@@ -11,33 +11,32 @@ block variables
       description: "Пример landing-страницы",
       keywords: "toxin, landing",
     }
+  -
+    const carouselOptions = {
+      slides: [
+        "../assets/images/landing-room-1.jpg",
+        "../assets/images/landing-room-2.jpg",
+        "../assets/images/landing-room-3.jpg",
+      ],
+      delaySec: 10,
+    }
+    const cardFormOptions = {
+      type: "wishes",
+      custom: {
+        guestList: [
+          { name: "взрослые", category: "гость" },
+          { name: "дети", category: "гость" },
+          { name: "младенцы", category: "младенец" },
+        ],
+      },
+    }
 
 block content
   .landing
     .landing__background
-      -
-        const carouselOptions = {
-          slides: [
-            "../assets/images/landing-room-1.jpg",
-            "../assets/images/landing-room-2.jpg",
-            "../assets/images/landing-room-3.jpg",
-          ],
-          delaySec: 10,
-        }
       +carousel(carouselOptions)
     .landing__content
       .landing__card
-        -
-          const cardFormOptions = {
-            type: "wishes",
-            custom: {
-              guestList: [
-                { name: "взрослые", category: "гость" },
-                { name: "дети", category: "гость" },
-                { name: "младенцы", category: "младенец" },
-              ],
-            },
-          }
         +card({ title: "Найдём номера под ваши пожелания" })
           +card-form(cardFormOptions)
       P.landing__about= "Лучшие номера для вашей работы, отдыха и просто вдохновения"

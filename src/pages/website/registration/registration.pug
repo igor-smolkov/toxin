@@ -11,18 +11,18 @@ block variables
       description: "Пример страницы регистрации",
       keywords: "toxin, registration",
     }
+  -
+    const carouselOptions = {
+      slides: [
+        "../assets/images/log-room-2.jpg",
+        "../assets/images/log-room-1.jpg",
+      ],
+      delaySec: 10,
+    }
 
 block content
   .registration
     .registration__background
-      -
-        const carouselOptions = {
-          slides: [
-            "../assets/images/log-room-2.jpg",
-            "../assets/images/log-room-1.jpg",
-          ],
-          delaySec: 10,
-        }
       +carousel(carouselOptions)
     .registration__card
       +card({ title: "Регистрация аккаунта" })

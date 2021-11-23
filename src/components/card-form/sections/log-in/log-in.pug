@@ -4,6 +4,27 @@ include ../../../text-field/text-field.pug
 
 mixin log-in
   - const blockName = "log-in";
+  -
+    const emailTextFieldOptions = {
+      name: "email",
+      placeholder: "Email",
+      type: "email",
+    }
+    const passwordTextFieldOptions = {
+      name: "password",
+      placeholder: "Пароль",
+      type: "password",
+    }
+    const regFormSetOptions = {
+      isInlined: true,
+      isGrouped: true,
+      isMarginNone: true,
+    }
+    const regButtonOptions = {
+      caption: "Создать",
+      isBorderOnly: true,
+      link: "registration.html",
+    }
 
   ARTICLE(class=blockName)
     SECTION(
@@ -12,20 +33,8 @@ mixin log-in
     )
       +form-set({ isGrouped: true, isMarginNone: true })
         .form-set__element.form-set__element_margin_none
-          -
-            const emailTextFieldOptions = {
-              name: "email",
-              placeholder: "Email",
-              type: "email",
-            }
           +text-field(emailTextFieldOptions)
         .form-set__element.form-set__element_indent-mid
-          -
-            const passwordTextFieldOptions = {
-              name: "password",
-              placeholder: "Пароль",
-              type: "password",
-            }
           +text-field(passwordTextFieldOptions)
     SECTION(class=`${blockName}__section`)
       +button({ caption: "Войти", type: "submit", withArrow: true })
@@ -33,20 +42,8 @@ mixin log-in
       class=`${blockName}__section`,
       class=`${blockName}__section_last`
     )
-      -
-        const formSetOptions = {
-          isInlined: true,
-          isGrouped: true,
-          isMarginNone: true,
-        }
-      +form-set(formSetOptions)
+      +form-set(regFormSetOptions)
         .form-set__element.form-set__element_align-mid.form-set__element_increased
           DIV(class=`${blockName}__question`)= "Нет аккаунта на Toxin?"
         .form-set__element.form-set__element_indent_left
-          -
-            const buttonOptions = {
-              caption: "Создать",
-              isBorderOnly: true,
-              link: "registration.html",
-            }
-          +button(buttonOptions)
+          +button(regButtonOptions)

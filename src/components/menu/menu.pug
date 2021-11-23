@@ -5,6 +5,18 @@ include ../nav-links/nav-links.pug
 mixin menu(options = {})
   - const blockName = "menu";
   - const { navLinks, user } = options;
+  -
+    const signInButtonOptions = {
+      caption: "Войти",
+      isBorderOnly: true,
+      isCompact: true,
+      link: "sign-in.html",
+    }
+    const regButtonOptions = {
+      caption: "Зарегистрироваться",
+      isCompact: true,
+      link: "registration.html",
+    }
 
   DIV(class=blockName)
     DIV(class=`${blockName}__nav-links`)
@@ -21,19 +33,6 @@ mixin menu(options = {})
           class=`${blockName}__user-panel-item`,
           class=`${blockName}__user-panel-item_first`
         )
-          -
-            const signInButtonOptions = {
-              caption: "Войти",
-              isBorderOnly: true,
-              isCompact: true,
-              link: "sign-in.html",
-            }
           +button(signInButtonOptions)
         DIV(class=`${blockName}__user-panel-item`)
-          -
-            const regButtonOptions = {
-              caption: "Зарегистрироваться",
-              isCompact: true,
-              link: "registration.html",
-            }
           +button(regButtonOptions)

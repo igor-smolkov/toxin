@@ -10,6 +10,59 @@ mixin filter(options = {})
   -
     const { dateFrom, dateTo, guests, priceRange, ruleChecks, 
       accessibleChecks, amenities, additions } = options
+  -
+    const guestsDropdownOptions = {
+      name: "guests",
+      list: [
+        {
+          name: "Взрослые",
+          count: guests.count[0],
+          category: "гость",
+        },
+        { name: "Дети", category: "гость" },
+        {
+          name: "Младенцы",
+          count: guests.count[1],
+          category: "младенец",
+        },
+      ],
+      isExpanded: guests.isExpanded,
+    }
+    const priceFrom = priceRange[0].toLocaleString("ru");
+    const priceTo = priceRange[1].toLocaleString("ru");
+    const rangeFormSetOptions = {
+      title: "Диапазон цены",
+      details: `${priceFrom}₽ - ${priceTo}₽`,
+      description: "Стоимость за сутки пребывания в номере",
+      isIndented: true,
+    }
+    const amenitiesDropdownOptions = {
+      name: "amenities",
+      list: [
+        {
+          name: "Спальни",
+          count: amenities.count[0],
+          category: "спальня",
+        },
+        {
+          name: "Кровати",
+          count: amenities.count[1],
+          category: "кровать",
+        },
+        {
+          name: "Ванные комнаты",
+          count: amenities.count[2],
+          category: "ванная",
+        },
+      ],
+      isExpanded: amenities.isExpanded,
+    }
+    const expandableListOptions = {
+      name: "additions",
+      withChecks: true,
+      list: additions.checks,
+      isExpanded: additions.isExpanded,
+    }
 
   FORM(class=blockName)
     SECTION(
@@ -23,36 +76,9 @@ mixin filter(options = {})
       class=`${blockName}__section_second`
     )
       +form-set({ title: "Гости" })
-        -
-          const dropdownOptions = {
-            name: "guests",
-            list: [
-              {
-                name: "Взрослые",
-                count: guests.count[0],
-                category: "гость",
-              },
-              { name: "Дети", category: "гость" },
-              {
-                name: "Младенцы",
-                count: guests.count[1],
-                category: "младенец",
-              },
-            ],
-            isExpanded: guests.isExpanded,
-          }
-        +dropdown(dropdownOptions)
+        +dropdown(guestsDropdownOptions)
     SECTION(class=`${blockName}__section`)
-      - const priceFrom = priceRange[0].toLocaleString("ru");
-      - const priceTo = priceRange[1].toLocaleString("ru");
-      -
-        const formSetOptions = {
-          title: "Диапазон цены",
-          details: `${priceFrom}₽ - ${priceTo}₽`,
-          description: "Стоимость за сутки пребывания в номере",
-          isIndented: true,
-        }
-      +form-set(formSetOptions)
+      +form-set(rangeFormSetOptions)
         +slider({ values: [0, priceRange[0], priceRange[1], 16000] })
     SECTION(class=`${blockName}__section`)
       +form-set({ title: "Правила дома", isGrouped: true })
@@ -77,36 +103,7 @@ mixin filter(options = {})
             +check-button(checkButtonOptions)
     SECTION(class=`${blockName}__section`)
       +form-set({ title: "Удобства номера" })
-        -
-          const dropdownOptions = {
-            name: "amenities",
-            list: [
-              {
-                name: "Спальни",
-                count: amenities.count[0],
-                category: "спальня",
-              },
-              {
-                name: "Кровати",
-                count: amenities.count[1],
-                category: "кровать",
-              },
-              {
-                name: "Ванные комнаты",
-                count: amenities.count[2],
-                category: "ванная",
-              },
-            ],
-            isExpanded: amenities.isExpanded,
-          }
-        +dropdown(dropdownOptions)
+        +dropdown(amenitiesDropdownOptions)
     SECTION(class=`${blockName}__section`)
       +form-set({ title: "Дополнительные удобства", isMarginNone: true })
-        -
-          const expandableListOptions = {
-            name: "additions",
-            withChecks: true,
-            list: additions.checks,
-            isExpanded: additions.isExpanded,
-          }
         +expandable-list(expandableListOptions)

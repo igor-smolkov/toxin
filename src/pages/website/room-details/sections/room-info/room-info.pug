@@ -5,80 +5,76 @@ include ../../../../../components/bullet-list/bullet-list
 include ../../../../../components/chart/chart
 
 mixin room-info
+  -
+    const extraListOptions = {
+      items: [
+        {
+          title: "Комфорт",
+          details: "Шумопоглощающие стены",
+          icon: "insert_emoticon",
+        },
+        {
+          title: "Удобство",
+          details: "Окно в каждой из спален",
+          icon: "location_city",
+        },
+        {
+          title: "Уют",
+          details: "Номер оснащён камином",
+          icon: "whatshot",
+        },
+      ],
+    }
+    const chartOptions = [
+      { label: "Великолепно", value: 130 },
+      { label: "Хорошо", value: 65 },
+      { label: "Удовлетворительно", value: 65 },
+      { label: "Разочарован" },
+    ]
+    const reviewRoomSectionOptions = {
+      title: "Отзывы посетителей номера",
+      details: "2 отзыва",
+      isEmpty: true,
+    }
+    const likedCommentOptions = {
+      username: "Мурад Сарафанов",
+      avatar: "../assets/images/murad.jpg",
+      datetime: "5 дней назад",
+      message: "Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.",
+      likeValue: 12,
+      isLiked: true,
+    }
+    const commentOptions = {
+      username: "Патрисия Стёклышкова",
+      avatar: "../assets/images/patricia.jpg",
+      datetime: "Неделю назад",
+      message: "Обслуживание на высоте! Всё аккуратно, чисто. Завтраки в номер советую заказать, каждый день новое блюдо и десерт как комплимент",
+      likeValue: 2,
+    }
+    const bulletListOptions = {
+      items: [
+        "Нельзя с питомцами",
+        "Без вечеринок и мероприятий",
+        "Время прибытия — после 13:00, а выезд до 12:00",
+      ],
+    }
+
   .room-info
     SECTION.room-info__section.room-info__section_first.room-info__section_grouped
       SECTION.room-info__subsection.room-info__subsection_first
-        -
-          const extraListOptions = {
-            items: [
-              {
-                title: "Комфорт",
-                details: "Шумопоглощающие стены",
-                icon: "insert_emoticon",
-              },
-              {
-                title: "Удобство",
-                details: "Окно в каждой из спален",
-                icon: "location_city",
-              },
-              {
-                title: "Уют",
-                details: "Номер оснащён камином",
-                icon: "whatshot",
-              },
-            ],
-          }
         +room-section({ title: "Сведения о номере" })
           +extra-list(extraListOptions)
       SECTION.room-info__subsection
-        -
-          const chartOptions = [
-            { label: "Великолепно", value: 130 },
-            { label: "Хорошо", value: 65 },
-            { label: "Удовлетворительно", value: 65 },
-            { label: "Разочарован" },
-          ]
         +room-section({ title: "Впечатления от номера" })
           +chart(chartOptions)
     SECTION.room-info__section
-      -
-        const roomSectionOptions = {
-          title: "Отзывы посетителей номера",
-          details: "2 отзыва",
-          isEmpty: true,
-        }
-      +room-section(roomSectionOptions)
+      +room-section(reviewRoomSectionOptions)
         .room-section__item.room-section__item_first
-          -
-            const likedCommentOptions = {
-              username: "Мурад Сарафанов",
-              avatar: "../assets/images/murad.jpg",
-              datetime: "5 дней назад",
-              message: "Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.",
-              likeValue: 12,
-              isLiked: true,
-            }
           +comment(likedCommentOptions)
         .room-section__item
-          -
-            const commentOptions = {
-              username: "Патрисия Стёклышкова",
-              avatar: "../assets/images/patricia.jpg",
-              datetime: "Неделю назад",
-              message: "Обслуживание на высоте! Всё аккуратно, чисто. Завтраки в номер советую заказать, каждый день новое блюдо и десерт как комплимент",
-              likeValue: 2,
-            }
           +comment(commentOptions)
     SECTION.room-info__section.room-info__section_last.room-info__section_grouped
       SECTION.room-info__subsection.room-info__subsection_first
-        -
-          const bulletListOptions = {
-            items: [
-              "Нельзя с питомцами",
-              "Без вечеринок и мероприятий",
-              "Время прибытия — после 13:00, а выезд до 12:00",
-            ],
-          }
         +room-section({ title: "Правила", isShifted: true })
           +bullet-list(bulletListOptions)
       SECTION.room-info__subsection

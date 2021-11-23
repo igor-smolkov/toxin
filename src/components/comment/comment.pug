@@ -5,6 +5,11 @@ mixin comment(options = {})
   -
     const { avatar, username, likeValue, isLiked, datetime, 
       message } = options
+  -
+    const likeButtonOptions = {
+      value: likeValue ? likeValue : 0,
+      isChecked: isLiked,
+    }
 
   DIV(class=blockName)
     DIV(class=`${blockName}__images`)
@@ -15,11 +20,6 @@ mixin comment(options = {})
           alt=username
         )
       DIV(class=`${blockName}__like`)
-        -
-          const likeButtonOptions = {
-            value: likeValue ? likeValue : 0,
-            isChecked: isLiked,
-          }
         +like-button(likeButtonOptions)
     DIV(class=`${blockName}__texts`)
       P(class=`${blockName}__username`)= username

@@ -10,6 +10,34 @@ mixin date-section(options = {})
       isCalendarArrivalExpanded, isCalendarDepartureExpanded, 
       calendarArrivalDateActivate, 
       calendarDepartureDateActivate } = options
+  -
+    const arrivalDropdownOptions = {
+      name: `${name}-arrival`,
+      type: "date",
+      value: dateFrom ? dateFrom : "",
+      isExpanded: isCalendarArrivalExpanded,
+    }
+    const arrivalCalendarOptions = {
+      from: dateFrom ? dateFrom : "",
+      to: dateTo ? dateTo : "",
+      active: calendarArrivalDateActivate
+        ? calendarArrivalDateActivate
+        : "",
+    }
+    const departureDropdownOptions = {
+      name: `${name}-departure`,
+      type: "date",
+      value: dateTo ? dateTo : "",
+      isExpanded: isCalendarDepartureExpanded,
+      alignPanelRight: true,
+    }
+    const departureCalendarOptions = {
+      from: dateFrom ? dateFrom : "",
+      to: dateTo ? dateTo : "",
+      active: calendarDepartureDateActivate
+        ? calendarDepartureDateActivate
+        : "",
+    }
 
   DIV(class=blockName, class=`js-${blockName}`)
     DIV(
@@ -18,42 +46,11 @@ mixin date-section(options = {})
       class=`${blockName}__set_first`
     )
       +form-set({ title: dateFromTitle ? dateFromTitle : "Прибытие" })
-        -
-          const dropdownOptions = {
-            name: `${name}-arrival`,
-            type: "date",
-            value: dateFrom ? dateFrom : "",
-            isExpanded: isCalendarArrivalExpanded,
-          }
-        +dropdown(dropdownOptions)
+        +dropdown(arrivalDropdownOptions)
           +card({ isMedium: true, isEmpty: true })
-            -
-              const calendarOptions = {
-                from: dateFrom ? dateFrom : "",
-                to: dateTo ? dateTo : "",
-                active: calendarArrivalDateActivate
-                  ? calendarArrivalDateActivate
-                  : "",
-              }
-            +calendar(calendarOptions)
+            +calendar(arrivalCalendarOptions)
     DIV(class=`${blockName}__set`, class=`js-${blockName}__set`)
       +form-set({ title: dateToTitle ? dateToTitle : "Выезд" })
-        -
-          const dropdownOptions = {
-            name: `${name}-departure`,
-            type: "date",
-            value: dateTo ? dateTo : "",
-            isExpanded: isCalendarDepartureExpanded,
-            alignPanelRight: true,
-          }
-        +dropdown(dropdownOptions)
+        +dropdown(departureDropdownOptions)
           +card({ isMedium: true, isEmpty: true })
-            -
-              const calendarOptions = {
-                from: dateFrom ? dateFrom : "",
-                to: dateTo ? dateTo : "",
-                active: calendarDepartureDateActivate
-                  ? calendarDepartureDateActivate
-                  : "",
-              }
-            +calendar(calendarOptions)
+            +calendar(departureCalendarOptions)

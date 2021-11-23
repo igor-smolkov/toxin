@@ -3,61 +3,60 @@ include ../../../../../components/dropdown/dropdown.pug
 
 mixin dropdowns(param)
   if (param === "full-set")
+    -
+      const dropdownOptions = {
+        name: "guests-1",
+        isExpanded: true,
+        withControl: true,
+        list: [
+          { name: "взрослые", category: "гость" },
+          { name: "дети", category: "гость" },
+          { name: "младенцы", category: "младенец" },
+        ],
+      }
     .dropdowns
       SECTION.dropdowns__section.dropdowns__section_first.dropdowns__section_greedy_2
-        -
-          const dropdownOptions = {
-            name: "guests-1",
-            isExpanded: true,
-            withControl: true,
-            list: [
-              { name: "взрослые", category: "гость" },
-              { name: "дети", category: "гость" },
-              { name: "младенцы", category: "младенец" },
-            ],
-          }
         +form-set({ title: "Dropdown" })
           +dropdown(dropdownOptions)
   else if (param === "full-set-example")
+    -
+      const dropdownOptions = {
+        name: "guests-2",
+        isExpanded: true,
+        withControl: true,
+        list: [
+          { name: "взрослые", count: 2, category: "гость" },
+          { name: "дети", count: 1, category: "гость" },
+          { name: "младенцы", category: "младенец" },
+        ],
+      }
     .dropdowns
       SECTION.dropdowns__section.dropdowns__section_first.dropdowns__section_greedy_2
-        -
-          const dropdownOptions = {
-            name: "guests-2",
-            isExpanded: true,
-            withControl: true,
-            list: [
-              { name: "взрослые", count: 2, category: "гость" },
-              { name: "дети", count: 1, category: "гость" },
-              { name: "младенцы", category: "младенец" },
-            ],
-          }
         +form-set({ title: "Dropdown" })
           +dropdown(dropdownOptions)
   else
+    -
+      const defaultDropdownOptions = {
+        name: "amenities-1",
+        list: [
+          { name: "Спальни", count: 2, category: "спальня" },
+          { name: "Кровати", count: 2, category: "кровать" },
+          { name: "Ванные комнаты", category: "ванная" },
+        ],
+      }
+      const expandedDropdownOptions = {
+        name: "amenities-2",
+        isExpanded: true,
+        list: [
+          { name: "Спальни", count: 2, category: "спальня" },
+          { name: "Кровати", count: 2, category: "кровать" },
+          { name: "Ванные комнаты", category: "ванная" },
+        ],
+      }
     .dropdowns
       SECTION.dropdowns__section.dropdowns__section_first.dropdowns__section_short
-        -
-          const defaultDropdownOptions = {
-            name: "amenities-1",
-            list: [
-              { name: "Спальни", count: 2, category: "спальня" },
-              { name: "Кровати", count: 2, category: "кровать" },
-              { name: "Ванные комнаты", category: "ванная" },
-            ],
-          }
         +form-set({ title: "Dropdown", details: "Default" })
           +dropdown(defaultDropdownOptions)
       SECTION.dropdowns__section.dropdowns__section_greedy_1.dropdowns__section_short
-        -
-          const expandedDropdownOptions = {
-            name: "amenities-2",
-            isExpanded: true,
-            list: [
-              { name: "Спальни", count: 2, category: "спальня" },
-              { name: "Кровати", count: 2, category: "кровать" },
-              { name: "Ванные комнаты", category: "ванная" },
-            ],
-          }
         +form-set({ title: "Dropdown", details: "Expanded" })
           +dropdown(expandedDropdownOptions)

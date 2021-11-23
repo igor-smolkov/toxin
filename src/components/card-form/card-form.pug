@@ -28,13 +28,12 @@ mixin card-form(options = {})
             withLine: true, 
             isAligned: true,
           }
+          const rateButtonOptions = {
+            name: `${custom.number}-rate`, 
+            value: custom.rate,
+          }
         +form-set(formSetOptions)
           .form-set__element
-            -
-              const rateButtonOptions = {
-                name: `${custom.number}-rate`, 
-                value: custom.rate,
-              }
             +rate-button(rateButtonOptions)
           .form-set__element 
             +reviews-counter(custom.reviews)

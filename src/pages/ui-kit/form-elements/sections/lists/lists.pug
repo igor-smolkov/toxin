@@ -5,48 +5,45 @@ include ../../../../../components/extra-list/extra-list.pug
 
 mixin lists(param)
   if (param === "expandable-checks")
+    -
+      const defaultFormSetOptions = {
+        title: "Expandable checkbox list",
+        isMarginNone: true,
+      }
+      const defaultExpandableListOptions = {
+        name: "additions-1",
+        withChecks: true,
+        list: [
+          { label: "Завтрак" },
+          { label: "Письменный стол" },
+          { label: "Стул для кормления" },
+          { label: "Кроватка" },
+          { label: "Телевизор" },
+          { label: "Шампунь" },
+        ],
+      }
+      const expandedFormSetOptions = {
+        title: "Expandable checkbox list",
+        isMarginNone: true,
+      }
+      const expandedExpandableListOptions = {
+        name: "additions-2",
+        isExpanded: true,
+        withChecks: true,
+        list: [
+          { label: "Завтрак" },
+          { label: "Письменный стол", isChecked: true },
+          { label: "Стул для кормления", isChecked: true },
+          { label: "Кроватка", isChecked: true },
+          { label: "Телевизор" },
+          { label: "Шампунь" },
+        ],
+      }
     .lists
       SECTION.lists__section.lists__section_first.lists__section_short
-        -
-          const defaultFormSetOptions = {
-            title: "Expandable checkbox list",
-            isMarginNone: true,
-          }
-        -
-          const defaultExpandableListOptions = {
-            name: "additions-1",
-            withChecks: true,
-            list: [
-              { label: "Завтрак" },
-              { label: "Письменный стол" },
-              { label: "Стул для кормления" },
-              { label: "Кроватка" },
-              { label: "Телевизор" },
-              { label: "Шампунь" },
-            ],
-          }
         +form-set(defaultFormSetOptions)
           +expandable-list(defaultExpandableListOptions)
       SECTION.lists__section.lists__section_short
-        -
-          const expandedFormSetOptions = {
-            title: "Expandable checkbox list",
-            isMarginNone: true,
-          }
-        -
-          const expandedExpandableListOptions = {
-            name: "additions-2",
-            isExpanded: true,
-            withChecks: true,
-            list: [
-              { label: "Завтрак" },
-              { label: "Письменный стол", isChecked: true },
-              { label: "Стул для кормления", isChecked: true },
-              { label: "Кроватка", isChecked: true },
-              { label: "Телевизор" },
-              { label: "Шампунь" },
-            ],
-          }
         +form-set(expandedFormSetOptions)
           +expandable-list(expandedExpandableListOptions)
   else if (param === "bullet")

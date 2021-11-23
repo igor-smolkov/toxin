@@ -6,60 +6,57 @@ include ../../../bill/bill.pug
 
 mixin room-booking
   - const blockName = "room-booking";
+  -
+    const dateSectionOptions = {
+      name: "room-dates",
+      dateFrom: "2019-08-19",
+      dateTo: "2019-08-23",
+    }
+    const dropdownOptions = {
+      value: "3 гостя",
+      name: "room-guests",
+      withControl: true,
+      list: [
+        { name: "взрослые", count: 2, category: "гость" },
+        { name: "дети", count: 1, category: "гость" },
+        { name: "младенцы", category: "младенец" },
+      ],
+    }
+    const billOptions = {
+      list: [
+        {
+          name: "9 990₽ х 4 суток",
+          price: "39 960₽",
+        },
+        {
+          name: "Сбор за услуги: скидка 2 179₽",
+          price: "0₽",
+          withInfo: true,
+        },
+        {
+          name: "Сбор за дополнительные услуги",
+          price: "300₽",
+          withInfo: true,
+        },
+      ],
+      total: "38 081₽",
+    }
+    const buttonOptions = {
+      caption: "Забронировать",
+      type: "submit",
+      withArrow: true,
+    }
 
   ARTICLE(class=blockName)
     SECTION(
       class=`${blockName}__section`,
       class=`${blockName}__section_first`
     )
-      -
-        const dateSectionOptions = {
-          name: "room-dates",
-          dateFrom: "2019-08-19",
-          dateTo: "2019-08-23",
-        }
       +date-section(dateSectionOptions)
     SECTION(class=`${blockName}__section`)
       +form-set({ title: "Гости" })
-        -
-          const dropdownOptions = {
-            value: "3 гостя",
-            name: "room-guests",
-            withControl: true,
-            list: [
-              { name: "взрослые", count: 2, category: "гость" },
-              { name: "дети", count: 1, category: "гость" },
-              { name: "младенцы", category: "младенец" },
-            ],
-          }
         +dropdown(dropdownOptions)
-    SECTION(class=`${blockName}__section`)
-      -
-        const billOptions = {
-          list: [
-            {
-              name: "9 990₽ х 4 суток",
-              price: "39 960₽",
-            },
-            {
-              name: "Сбор за услуги: скидка 2 179₽",
-              price: "0₽",
-              withInfo: true,
-            },
-            {
-              name: "Сбор за дополнительные услуги",
-              price: "300₽",
-              withInfo: true,
-            },
-          ],
-          total: "38 081₽",
-        } 
+    SECTION(class=`${blockName}__section`) 
       +bill(billOptions)
     SECTION(class=`${blockName}__section`)
-      -
-        const buttonOptions = {
-          caption: "Забронировать",
-          type: "submit",
-          withArrow: true,
-        }
       +button(buttonOptions)

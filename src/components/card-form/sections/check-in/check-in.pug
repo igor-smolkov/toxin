@@ -6,6 +6,49 @@ include ../../../toggle/toggle.pug
 
 mixin check-in
   - const blockName = "check-in";
+  -
+    const radioGroupOptions = {
+      name: "sex",
+      set: [
+        { label: "Мужчина", isChecked: true },
+        { label: "Женщина" },
+      ],
+    }
+    const dobTextFieldOptions = {
+      name: "dob",
+      placeholder: "ДД.ММ.ГГГГ",
+      isMasked: true,
+    }
+    const logInFormSetOptions = {
+      title: "Данные для входа в сервис",
+      isGrouped: true,
+      isMarginNone: true,
+    }
+    const emailTextFieldOptions = {
+      name: "email",
+      placeholder: "Email",
+      type: "email",
+    }
+    const passwordTextFieldOptions = {
+      name: "password",
+      placeholder: "Пароль",
+      type: "password",
+    }
+    const regButtonOptions = {
+      caption: "Зарегистрироваться",
+      type: "submit",
+      withArrow: true,
+    }
+    const signInFormSetOptions = {
+      isInlined: true,
+      isGrouped: true,
+      isMarginNone: true,
+    }
+    const signInButtonOptions = {
+      caption: "Войти",
+      isBorderOnly: true,
+      link: "sign-in.html",
+    }
 
   ARTICLE(class=blockName)
     SECTION(
@@ -18,50 +61,18 @@ mixin check-in
         .form-set__element.form-set__element_indent-mid
           +text-field({ name: "surname", placeholder: "Фамилия" })
         .form-set__element.form-set__element_indent-mid
-          -
-            const radioGroupOptions = {
-              name: "sex",
-              set: [
-                { label: "Мужчина", isChecked: true },
-                { label: "Женщина" },
-              ],
-            }
           +radio-group(radioGroupOptions)
     SECTION(
       class=`${blockName}__section`,
       class=`${blockName}__section_rare_more`
     )
       +form-set({ title: "Дата рождения" })
-        -
-          const textFieldOptions = {
-            name: "dob",
-            placeholder: "ДД.ММ.ГГГГ",
-            isMasked: true,
-          }
-        +text-field(textFieldOptions)
+        +text-field(dobTextFieldOptions)
     SECTION(class=`${blockName}__section`)
-      -
-        const logInFormSetOptions = {
-          title: "Данные для входа в сервис",
-          isGrouped: true,
-          isMarginNone: true,
-        }
       +form-set(logInFormSetOptions)
         .form-set__element
-          -
-            const emailTextFieldOptions = {
-              name: "email",
-              placeholder: "Email",
-              type: "email",
-            }
           +text-field(emailTextFieldOptions)
         .form-set__element.form-set__element_indent-mid
-          -
-            const passwordTextFieldOptions = {
-              name: "password",
-              placeholder: "Пароль",
-              type: "password",
-            }
           +text-field(passwordTextFieldOptions)
         .form-set__element.form-set__element_indent-mid
           +toggle({ name: "sub", label: "Получать спецпредложения" })
@@ -69,31 +80,13 @@ mixin check-in
       class=`${blockName}__section`,
       class=`${blockName}__section_rare_more`
     )
-      -
-        const buttonOptions = {
-          caption: "Зарегистрироваться",
-          type: "submit",
-          withArrow: true,
-        }
-      +button(buttonOptions)
+      +button(regButtonOptions)
     SECTION(
       class=`${blockName}__section`,
       class=`${blockName}__section_last`
     )
-      -
-        const signInFormSetOptions = {
-          isInlined: true,
-          isGrouped: true,
-          isMarginNone: true,
-        }
       +form-set(signInFormSetOptions)
         .form-set__element.form-set__element_align-mid.form-set__element_increased
           DIV(class=`${blockName}__question`)= "Уже есть аккаунт на Toxin"
         .form-set__element.form-set__element_indent_left
-          -
-            const buttonOptions = {
-              caption: "Войти",
-              isBorderOnly: true,
-              link: "sign-in.html",
-            }
-          +button(buttonOptions)
+          +button(signInButtonOptions)

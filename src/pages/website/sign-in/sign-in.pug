@@ -11,18 +11,18 @@ block variables
       description: "Пример страницы входа",
       keywords: "toxin, sign-in",
     }
+  -
+    const carouselOptions = {
+      slides: [
+        "../assets/images/log-room-2.jpg",
+        "../assets/images/log-room-1.jpg",
+      ],
+      delaySec: 10,
+    }
 
 block content
   .sign-in
     .sign-in__background
-      -
-        const carouselOptions = {
-          slides: [
-            "../assets/images/log-room-2.jpg",
-            "../assets/images/log-room-1.jpg",
-          ],
-          delaySec: 10,
-        }
       +carousel(carouselOptions)
     .sign-in__card
       +card({ title: "Войти" })
