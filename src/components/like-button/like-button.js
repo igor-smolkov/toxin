@@ -12,8 +12,9 @@ class LikeButton {
   }
 
   _changeLabel() {
-    if (this._isChecked()) this._$label.text(+this._$label.text() + 1);
-    else this._$label.text(+this._$label.text() - 1);
+    if (this._isChecked()) {
+      this._$label.text(+this._$label.text() + 1);
+    } else this._$label.text(+this._$label.text() - 1);
   }
 
   _isChecked() {

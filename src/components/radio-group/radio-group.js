@@ -13,7 +13,10 @@ class RadioGroup {
 
   _bindEventListeners() {
     this._$elem.on('focus', this._handleGroupFocus.bind(this));
-    this._$radios.each((_, radio) => radio.addEventListener('keydown', this._handleRadioKeyDown.bind(this)));
+    this._$radios.each((_, radio) => radio.addEventListener(
+      'keydown',
+      this._handleRadioKeyDown.bind(this),
+    ));
   }
 
   _handleGroupFocus() {
@@ -22,7 +25,9 @@ class RadioGroup {
 
   _handleRadioKeyDown(e) {
     if (e.key === 'Tab') {
-      const index = Array.from(this._$radios).findIndex((radio) => radio === e.target);
+      const index = Array.from(this._$radios).findIndex(
+        (radio) => radio === e.target,
+      );
       const next = this._nextRadio(index);
       if (!next) return;
       next.focus();
@@ -35,7 +40,9 @@ class RadioGroup {
   }
 
   _nextRadio(index) {
-    return index < this._$radios.length - 1 ? this._$radios[index + 1] : null;
+    return index < this._$radios.length - 1
+      ? this._$radios[index + 1]
+      : null;
   }
 }
 

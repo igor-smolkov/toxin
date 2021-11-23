@@ -17,7 +17,13 @@ class Slider {
   }
 
   getPriceRange() {
-    return `${Slider._makePriceFromNumber(this._$root.data().minInterval)} - ${Slider._makePriceFromNumber(this._$root.data().maxInterval)}`;
+    const min = Slider._makePriceFromNumber(
+      this._$root.data().minInterval,
+    );
+    const max = Slider._makePriceFromNumber(
+      this._$root.data().maxInterval,
+    );
+    return `${min} - ${max}`;
   }
 
   _init() {
@@ -32,13 +38,22 @@ class Slider {
       .substring(1, this._$root[0].dataset.values.length - 1)
       .split(',')
       .map((v) => +v);
-    this._$root.myJQuerySlider({ limits: limits ?? [0, 5000, 10000, 16000], withIndent: false });
+    this._$root.myJQuerySlider({
+      limits: limits ?? [0, 5000, 10000, 16000],
+      withIndent: false,
+    });
     this._bindPluginListeners();
   }
 
   _bindPluginListeners() {
-    this._$root.on('my-jquery-slider-init', this._handleChange.bind(this));
-    this._$root.on('my-jquery-slider-update', this._handleChange.bind(this));
+    this._$root.on(
+      'my-jquery-slider-init',
+      this._handleChange.bind(this),
+    );
+    this._$root.on(
+      'my-jquery-slider-update',
+      this._handleChange.bind(this),
+    );
   }
 
   _handleChange() {

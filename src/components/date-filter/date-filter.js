@@ -11,10 +11,12 @@ class DateFilter {
   }
 
   static _createDate(dateStr) {
-    const defaultTimePostfix = 'T00:00:00';
+    const postfix = 'T00:00:00';
     return dateStr
-      ? new Date(`${dateStr}${defaultTimePostfix}`)
-      : new Date(`${new Date().toISOString().substr(0, 10)}${defaultTimePostfix}`);
+      ? new Date(`${dateStr}${postfix}`)
+      : new Date(
+        `${new Date().toISOString().substr(0, 10)}${postfix}`,
+      );
   }
 
   static _formatDateWithShortMonthName(date) {
@@ -27,13 +29,19 @@ class DateFilter {
     this._$dropper = this._$elem.find('.js-dropdown__check');
     this._field = new TextField(this._$elem.find('.js-dropdown'));
     this._calendar = new Calendar(this._$elem.find('.js-calendar'));
-    this._dropdownControl = new DropdownControl(this._$elem.find('.js-dropdown'));
+    this._dropdownControl = new DropdownControl(
+      this._$elem.find('.js-dropdown'),
+    );
 
     this.dateFrom = DateFilter._createDate(this._$elem.data().from);
     this.dateTo = DateFilter._createDate(this._$elem.data().to);
     this._calendar.update(
-      this.dateFrom ? Calendar.convertDateToYMDHyphen(this.dateFrom) : null,
-      this.dateTo ? Calendar.convertDateToYMDHyphen(this.dateTo) : null,
+      this.dateFrom
+        ? Calendar.convertDateToYMDHyphen(this.dateFrom)
+        : null,
+      this.dateTo
+        ? Calendar.convertDateToYMDHyphen(this.dateTo)
+        : null,
     );
     this._updateField();
 
@@ -49,8 +57,20 @@ class DateFilter {
     }
     let formattedDates;
     const isOneDate = !this.dateFrom || !this.dateTo;
-    if (isOneDate) formattedDates = `${DateFilter._formatDateWithShortMonthName(this.dateFrom ?? this.dateTo)}`;
-    else formattedDates = `${DateFilter._formatDateWithShortMonthName(this.dateFrom)} - ${DateFilter._formatDateWithShortMonthName(this.dateTo)}`;
+    if (isOneDate) {
+      const date = this.dateFrom ?? this.dateTo;
+      formattedDates = `${DateFilter._formatDateWithShortMonthName(
+        date,
+      )}`;
+    } else {
+      const dateFrom = DateFilter._formatDateWithShortMonthName(
+        this.dateFrom,
+      );
+      const dateTo = DateFilter._formatDateWithShortMonthName(
+        this.dateTo,
+      );
+      formattedDates = `${dateFrom} - ${dateTo}`;
+    }
     this._field.setValue(formattedDates);
   }
 
@@ -64,8 +84,14 @@ class DateFilter {
     this._calendar.listen(this._handleCalendarChange.bind(this));
     this._dropdownControl.onApply(this._closeCalendar.bind(this));
     this._$dropper.on('keydown', this._handleDropperKey.bind(this));
-    document.addEventListener('click', this._handleDocClick.bind(this));
-    document.addEventListener('keydown', this._handleDocKeyDown.bind(this));
+    document.addEventListener(
+      'click',
+      this._handleDocClick.bind(this),
+    );
+    document.addEventListener(
+      'keydown',
+      this._handleDocKeyDown.bind(this),
+    );
   }
 
   _closeCalendar() {
@@ -75,8 +101,10 @@ class DateFilter {
   _handleDropperKey(e) {
     const isCustomControls = e.key !== 'Tab' && e.key !== ' ';
     if (isCustomControls) e.preventDefault();
-    const isNeedToShow = e.key === 'Enter' && !this._$dropper.is(':checked');
-    const isNeedToClose = e.key === 'Enter' && this._$dropper.is(':checked');
+    const isNeedToShow = e.key === 'Enter'
+      && !this._$dropper.is(':checked');
+    const isNeedToClose = e.key === 'Enter'
+      && this._$dropper.is(':checked');
     if (isNeedToShow) this._$dropper.prop('checked', true);
     if (isNeedToClose) this._closeCalendar();
   }

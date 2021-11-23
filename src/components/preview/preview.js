@@ -9,7 +9,9 @@ class Preview {
 
   update() {
     this._$img.attr('src', this._imgs[this._selected]);
-    $(`input[name="views-${this._number}"][value=${this._selected}]`).prop('checked', true);
+    $(
+      `input[name="views-${this._number}"][value=${this._selected}]`,
+    ).prop('checked', true);
   }
 
   prev() {
@@ -32,7 +34,9 @@ class Preview {
   _init() {
     this._selected = this._$elem.data().selected;
     this._number = this._$elem.data().number;
-    this._imgs = Array.from(this._$elem.find('.js-preview__data').children()).map((option) => option.value);
+    this._imgs = Array.from(
+      this._$elem.find('.js-preview__data').children(),
+    ).map((option) => option.value);
     this._$img = this._$elem.find('.js-preview__img');
     this._$prevButton = this._$elem.find('.js-preview__arrow-prev');
     this._$nextButton = this._$elem.find('.js-preview__arrow-next');
@@ -51,13 +55,24 @@ class Preview {
 
   _handlePointsControlChange(e) {
     e.preventDefault();
-    this.setSelected(+$(`input[name="views-${this._number}"]:checked`).val());
+    this.setSelected(
+      +$(`input[name="views-${this._number}"]:checked`).val(),
+    );
   }
 
   _bindEventListeners() {
-    this._$prevButton.on('click', this._handlePrevButtonClick.bind(this));
-    this._$nextButton.on('click', this._handleNextButtonClick.bind(this));
-    this._$pointsControl.on('change', this._handlePointsControlChange.bind(this));
+    this._$prevButton.on(
+      'click',
+      this._handlePrevButtonClick.bind(this),
+    );
+    this._$nextButton.on(
+      'click',
+      this._handleNextButtonClick.bind(this),
+    );
+    this._$pointsControl.on(
+      'change',
+      this._handlePointsControlChange.bind(this),
+    );
   }
 }
 

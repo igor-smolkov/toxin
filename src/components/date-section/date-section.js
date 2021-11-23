@@ -28,14 +28,34 @@ class DateSection {
   }
 
   _init() {
-    this._arrivalField = new TextField($(this._$elem.find('.js-date-section__set')[0]));
-    this._departureField = new TextField($(this._$elem.find('.js-date-section__set')[1]));
-    this._arrivalDropdownControl = new DropdownControl($(this._$elem.find('.js-date-section__set')[0]));
-    this._departureDropdownControl = new DropdownControl($(this._$elem.find('.js-date-section__set')[1]));
-    this._arrivalCalendar = new Calendar($(this._$elem.find('.js-date-section__set')[0]).find('.js-calendar'));
-    this._departureCalendar = new Calendar($(this._$elem.find('.js-date-section__set')[1]).find('.js-calendar'));
-    this._$arrivalDropper = $(this._$elem.find('.js-date-section__set')[0]).find('.js-dropdown__check');
-    this._$departureDropper = $(this._$elem.find('.js-date-section__set')[1]).find('.js-dropdown__check');
+    this._arrivalField = new TextField(
+      $(this._$elem.find('.js-date-section__set')[0]),
+    );
+    this._departureField = new TextField(
+      $(this._$elem.find('.js-date-section__set')[1]),
+    );
+    this._arrivalDropdownControl = new DropdownControl(
+      $(this._$elem.find('.js-date-section__set')[0]),
+    );
+    this._departureDropdownControl = new DropdownControl(
+      $(this._$elem.find('.js-date-section__set')[1]),
+    );
+    this._arrivalCalendar = new Calendar(
+      $(this._$elem.find('.js-date-section__set')[0]).find(
+        '.js-calendar',
+      ),
+    );
+    this._departureCalendar = new Calendar(
+      $(this._$elem.find('.js-date-section__set')[1]).find(
+        '.js-calendar',
+      ),
+    );
+    this._$arrivalDropper = $(
+      this._$elem.find('.js-date-section__set')[0],
+    ).find('.js-dropdown__check');
+    this._$departureDropper = $(
+      this._$elem.find('.js-date-section__set')[1],
+    ).find('.js-dropdown__check');
     this._subscribers = new Set();
     this._updateCalendars();
     this._listen();
@@ -44,14 +64,34 @@ class DateSection {
   _listen() {
     this._arrivalField.onInput(this._handleInput.bind(this));
     this._departureField.onInput(this._handleInput.bind(this));
-    this._arrivalDropdownControl.onApply(this._closeCalendars.bind(this));
-    this._departureDropdownControl.onApply(this._closeCalendars.bind(this));
-    this._arrivalCalendar.listen(this._handleCalendarChange.bind(this));
-    this._departureCalendar.listen(this._handleCalendarChange.bind(this));
-    this._$arrivalDropper.on('keydown', this._handleArrivalDropperKey.bind(this));
-    this._$departureDropper.on('keydown', this._handleDepartureDropperKey.bind(this));
-    document.addEventListener('click', this._handleDocClick.bind(this));
-    document.addEventListener('keydown', this._handleDocKeyDown.bind(this));
+    this._arrivalDropdownControl.onApply(
+      this._closeCalendars.bind(this),
+    );
+    this._departureDropdownControl.onApply(
+      this._closeCalendars.bind(this),
+    );
+    this._arrivalCalendar.listen(
+      this._handleCalendarChange.bind(this),
+    );
+    this._departureCalendar.listen(
+      this._handleCalendarChange.bind(this),
+    );
+    this._$arrivalDropper.on(
+      'keydown',
+      this._handleArrivalDropperKey.bind(this),
+    );
+    this._$departureDropper.on(
+      'keydown',
+      this._handleDepartureDropperKey.bind(this),
+    );
+    document.addEventListener(
+      'click',
+      this._handleDocClick.bind(this),
+    );
+    document.addEventListener(
+      'keydown',
+      this._handleDocKeyDown.bind(this),
+    );
   }
 
   _handleInput() {
@@ -61,8 +101,16 @@ class DateSection {
   _handleCalendarChange(dateFrom, dateTo) {
     const isClear = !dateFrom && !dateTo;
     if (isClear) this._handleClear();
-    if (dateFrom) this._arrivalField.setValue(Calendar.convertDateToYMDHyphen(dateFrom));
-    if (dateTo) this._departureField.setValue(Calendar.convertDateToYMDHyphen(dateTo));
+    if (dateFrom) {
+      this._arrivalField.setValue(
+        Calendar.convertDateToYMDHyphen(dateFrom),
+      );
+    }
+    if (dateTo) {
+      this._departureField.setValue(
+        Calendar.convertDateToYMDHyphen(dateTo),
+      );
+    }
     this._updateCalendars();
   }
 
@@ -73,8 +121,14 @@ class DateSection {
   }
 
   _updateCalendars() {
-    this._arrivalCalendar.update(this._arrivalField.getValue(), this._departureField.getValue());
-    this._departureCalendar.update(this._arrivalField.getValue(), this._departureField.getValue());
+    this._arrivalCalendar.update(
+      this._arrivalField.getValue(),
+      this._departureField.getValue(),
+    );
+    this._departureCalendar.update(
+      this._arrivalField.getValue(),
+      this._departureField.getValue(),
+    );
     this._notify();
   }
 
@@ -86,8 +140,10 @@ class DateSection {
   _handleArrivalDropperKey(e) {
     const isCustomControls = e.key !== 'Tab' && e.key !== ' ';
     if (isCustomControls) e.preventDefault();
-    const isNeedToShow = e.key === 'Enter' && !this._$arrivalDropper.is(':checked');
-    const isNeedToClose = e.key === 'Enter' && this._$arrivalDropper.is(':checked');
+    const isNeedToShow = e.key === 'Enter'
+      && !this._$arrivalDropper.is(':checked');
+    const isNeedToClose = e.key === 'Enter'
+      && this._$arrivalDropper.is(':checked');
     if (isNeedToShow) this._$arrivalDropper.prop('checked', true);
     if (isNeedToClose) this._closeCalendars();
   }
@@ -95,8 +151,10 @@ class DateSection {
   _handleDepartureDropperKey(e) {
     const isCustomControls = e.key !== 'Tab' && e.key !== ' ';
     if (isCustomControls) e.preventDefault();
-    const isNeedToShow = e.key === 'Enter' && !this._$departureDropper.is(':checked');
-    const isNeedToClose = e.key === 'Enter' && this._$departureDropper.is(':checked');
+    const isNeedToShow = e.key === 'Enter'
+      && !this._$departureDropper.is(':checked');
+    const isNeedToClose = e.key === 'Enter'
+      && this._$departureDropper.is(':checked');
     if (isNeedToShow) this._$departureDropper.prop('checked', true);
     if (isNeedToClose) this._closeCalendars();
   }

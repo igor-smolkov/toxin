@@ -16,11 +16,28 @@ const faviconsDir = 'assets/favicons';
 const fontsDir = 'assets/fonts';
 const pagesDir = 'pages';
 const pages = [
-  { 'ui-kit': ['colors-and-type', 'form-elements', 'cards', 'headers-and-footers'] },
-  { website: ['landing-page', 'search-room', 'room-details', 'registration', 'sign-in'] },
+  {
+    'ui-kit': [
+      'colors-and-type',
+      'form-elements',
+      'cards',
+      'headers-and-footers',
+    ],
+  },
+  {
+    website: [
+      'landing-page',
+      'search-room',
+      'room-details',
+      'registration',
+      'sign-in',
+    ],
+  },
 ];
 
-const filename = (ext) => (isDev ? `[name].${ext}` : `[name].[hash].${ext}`);
+const filename = (ext) => (
+  isDev ? `[name].${ext}` : `[name].[hash].${ext}`
+);
 
 const optimization = () => {
   const config = {
@@ -70,12 +87,22 @@ const plugins = () => {
 
   const list = [
     new LiveReloadPlugin({ appendScriptTag: true }),
-    packHTMLWebpackPlugin(`${pagesDir}/index/index.pug`, 'index.html', 'index'),
+    packHTMLWebpackPlugin(
+      `${pagesDir}/index/index.pug`,
+      'index.html',
+      'index',
+    ),
     new CleanWebpackPlugin(),
     new CopyWebpackPlugin({
       patterns: [
-        { from: path.resolve(__dirname, `src/${imagesDir}/`), to: imagesDir },
-        { from: path.resolve(__dirname, `src/${faviconsDir}/`), to: faviconsDir },
+        {
+          from: path.resolve(__dirname, `src/${imagesDir}/`),
+          to: imagesDir,
+        },
+        {
+          from: path.resolve(__dirname, `src/${faviconsDir}/`),
+          to: faviconsDir,
+        },
       ],
     }),
     new webpack.ProvidePlugin({
@@ -112,10 +139,12 @@ module.exports = {
     'room-details': './pages/website/room-details/room-details.js',
     registration: './pages/website/registration/registration',
     'sign-in': './pages/website/sign-in/sign-in',
-    'colors-and-type': './pages/ui-kit/colors-and-type/colors-and-type.js',
+    'colors-and-type':
+      './pages/ui-kit/colors-and-type/colors-and-type.js',
     'form-elements': './pages/ui-kit/form-elements/form-elements.js',
     cards: './pages/ui-kit/cards/cards.js',
-    'headers-and-footers': './pages/ui-kit/headers-and-footers/headers-and-footers.js',
+    'headers-and-footers':
+      './pages/ui-kit/headers-and-footers/headers-and-footers.js',
   },
   output: {
     filename: filename('js'),
@@ -175,9 +204,7 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: [
-              '@babel/preset-env',
-            ],
+            presets: ['@babel/preset-env'],
           },
         },
       },

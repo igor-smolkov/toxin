@@ -20,7 +20,8 @@ class ExpandableList {
   }
 
   _handleDocClick(e) {
-    const isOutOfList = !this._$elem.is(e.target) && this._$elem.has(e.target).length === 0;
+    const isOutOfList = !this._$elem.is(e.target)
+      && this._$elem.has(e.target).length === 0;
     const isNeedToClose = isOutOfList && this._isDropped();
     if (isNeedToClose) this._close();
   }
@@ -41,9 +42,17 @@ class ExpandableList {
 
   _bindEventListeners() {
     this._$check.on('keydown', this._handleDropperKey.bind(this));
-    document.addEventListener('click', this._handleDocClick.bind(this));
-    document.addEventListener('keydown', this._handleDocKeyDown.bind(this));
+    document.addEventListener(
+      'click',
+      this._handleDocClick.bind(this),
+    );
+    document.addEventListener(
+      'keydown',
+      this._handleDocKeyDown.bind(this),
+    );
   }
 }
 
-$('.js-expandable-list').each((_, elem) => new ExpandableList($(elem)));
+$('.js-expandable-list').each(
+  (_, elem) => new ExpandableList($(elem)),
+);

@@ -35,9 +35,13 @@ class Counter {
 
   disabledMinusButton(isTrue = true) {
     if (isTrue) {
-      this._$minusButton.toggleClass(counterClassNames.buttonDisabled);
+      this._$minusButton.toggleClass(
+        counterClassNames.buttonDisabled,
+      );
     } else {
-      this._$minusButton.removeClass(counterClassNames.buttonDisabled);
+      this._$minusButton.removeClass(
+        counterClassNames.buttonDisabled,
+      );
     }
     this._$minusButton.prop('disabled', isTrue);
   }
@@ -63,8 +67,14 @@ class Counter {
   }
 
   _listenControls() {
-    this._$minusButton.on('click', this._handleMinusButtonClick.bind(this));
-    this._$plusButton.on('click', this._handlePlusButtonClick.bind(this));
+    this._$minusButton.on(
+      'click',
+      this._handleMinusButtonClick.bind(this),
+    );
+    this._$plusButton.on(
+      'click',
+      this._handlePlusButtonClick.bind(this),
+    );
   }
 
   _handleMinusButtonClick(e) {

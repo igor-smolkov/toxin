@@ -13,20 +13,28 @@ class Calendar {
 
   static convertDateToYMDHyphen(date) {
     if (!date) return null;
-    const month = date.getMonth() + 1 < 10 ? `0${date.getMonth() + 1}` : date.getMonth() + 1;
-    const day = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate();
+    const month = date.getMonth() + 1 < 10
+      ? `0${date.getMonth() + 1}`
+      : date.getMonth() + 1;
+    const day = date.getDate() < 10
+      ? `0${date.getDate()}`
+      : date.getDate();
     return `${date.getFullYear()}-${month}-${day}`;
   }
 
   static createDateFromDMYDot(dateDMYDot) {
     const [day, month, year] = dateDMYDot.split('.');
-    return new Date(`${[year, month, day].join('-')}${Calendar._defaultTimePostfix()}`);
+    const postfix = Calendar._defaultTimePostfix();
+    return new Date(`${[year, month, day].join('-')}${postfix}`);
   }
 
   static _createDate(date) {
+    const postfix = Calendar._defaultTimePostfix();
     return date
       ? new Date(`${date}${Calendar._defaultTimePostfix()}`)
-      : new Date(`${new Date().toISOString().substr(0, 10)}${Calendar._defaultTimePostfix()}`);
+      : new Date(
+        `${new Date().toISOString().substr(0, 10)}${postfix}`,
+      );
   }
 
   static _defaultTimePostfix() {
@@ -39,8 +47,11 @@ class Calendar {
     if (isBothDates) this._clear();
     if (!this.dateFrom) this.dateFrom = date;
     else this.dateTo = date;
-    const isReverse = this.dateFrom && this.dateTo && +this.dateTo < +this.dateFrom;
-    if (isReverse) [this.dateFrom, this.dateTo] = [this.dateTo, this.dateFrom];
+    const isReverse = this.dateFrom && this.dateTo
+      && +this.dateTo < +this.dateFrom;
+    if (isReverse) {
+      [this.dateFrom, this.dateTo] = [this.dateTo, this.dateFrom];
+    }
     this.dateActive = date;
     this.$pluginElem.datepicker('setDate', date);
     this.notify();
@@ -50,9 +61,15 @@ class Calendar {
     this.dateFrom = dateFrom ? Calendar._createDate(dateFrom) : null;
     this.dateTo = dateTo ? Calendar._createDate(dateTo) : null;
     this.dateActive = this.dateFrom ?? this.dateTo;
-    if (this.dateFrom) this.$pluginElem.datepicker('setDate', this.dateFrom);
-    if (this.dateTo) this.$pluginElem.datepicker('setDate', this.dateTo);
-    if (!this.dateActive) this.$pluginElem.datepicker('setDate', null);
+    if (this.dateFrom) {
+      this.$pluginElem.datepicker('setDate', this.dateFrom);
+    }
+    if (this.dateTo) {
+      this.$pluginElem.datepicker('setDate', this.dateTo);
+    }
+    if (!this.dateActive) {
+      this.$pluginElem.datepicker('setDate', null);
+    }
     this._updateClearButton();
   }
 
@@ -67,10 +84,15 @@ class Calendar {
 
   _init() {
     this.$pluginElem = this._$elem.find('.js-calendar__plugin');
-    this.dateFrom = this._$elem.data().from ? Calendar._createDate(this._$elem.data().from) : null;
-    this.dateTo = this._$elem.data().to ? Calendar._createDate(this._$elem.data().to) : null;
+    this.dateFrom = this._$elem.data().from
+      ? Calendar._createDate(this._$elem.data().from)
+      : null;
+    this.dateTo = this._$elem.data().to
+      ? Calendar._createDate(this._$elem.data().to)
+      : null;
     this.dateActive = this._$elem.data().active
-      ? Calendar._createDate(this._$elem.data().active) : null;
+      ? Calendar._createDate(this._$elem.data().active)
+      : null;
     this._initPlugin();
     this._initControlButtons();
   }
@@ -101,7 +123,8 @@ class Calendar {
     if (+date === +this.dateActive) {
       className += calendarClassNames.datepickerActive;
     }
-    const isBetweenDates = +date >= +this.dateFrom && +date <= +this.dateTo;
+    const isBetweenDates = +date >= +this.dateFrom
+      && +date <= +this.dateTo;
     if (isBetweenDates) {
       className += ` ${calendarClassNames.datepickerPeriod}`;
     }

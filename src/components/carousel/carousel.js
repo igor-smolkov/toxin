@@ -26,14 +26,18 @@ class Carousel {
   }
 
   _looping() {
-    if (!this._isAnimationEnd) { this._stepEnd(); }
+    if (!this._isAnimationEnd) {
+      this._stepEnd();
+    }
     this._stepStart(this._currentIndex + 1);
     this.timer = setTimeout(this._looping.bind(this), this._delay);
   }
 
   _stepStart(index) {
     this._currentIndex = index;
-    if (this._currentIndex >= this._slideLinks.length) { this._currentIndex = 0; }
+    if (this._currentIndex >= this._slideLinks.length) {
+      this._currentIndex = 0;
+    }
     this._setNextImage(this._currentIndex);
     this._animateBegin();
     this._isAnimationEnd = false;
@@ -47,21 +51,33 @@ class Carousel {
   }
 
   _setCurrentImage(index) {
-    this._$currentSlide.css('backgroundImage', `url('${this._slideLinks[index]}'`);
+    this._$currentSlide.css(
+      'backgroundImage',
+      `url('${this._slideLinks[index]}'`,
+    );
   }
 
   _setNextImage(index) {
-    this._$nextSlide.css('backgroundImage', `url('${this._slideLinks[index]}'`);
+    this._$nextSlide.css(
+      'backgroundImage',
+      `url('${this._slideLinks[index]}'`,
+    );
   }
 
   _animateBegin() {
     this._$nextSlide.addClass(carouselClassNames.slideAnimateOverlay);
-    this._$currentSlide.addClass(carouselClassNames.slideAnimateHiding);
+    this._$currentSlide.addClass(
+      carouselClassNames.slideAnimateHiding,
+    );
   }
 
   _animateEnd() {
-    this._$nextSlide.removeClass(carouselClassNames.slideAnimateOverlay);
-    this._$currentSlide.removeClass(carouselClassNames.slideAnimateHiding);
+    this._$nextSlide.removeClass(
+      carouselClassNames.slideAnimateOverlay,
+    );
+    this._$currentSlide.removeClass(
+      carouselClassNames.slideAnimateHiding,
+    );
     this._$nextSlide.finish();
     this._$currentSlide.finish();
   }
@@ -75,7 +91,9 @@ class Carousel {
   }
 
   _makeArrOfSlidesLinks() {
-    return Array.from(this._$elem.find('.js-carousel__link')).map((elem) => elem.value);
+    return Array.from(this._$elem.find('.js-carousel__link')).map(
+      (elem) => elem.value,
+    );
   }
 
   _initDelay() {

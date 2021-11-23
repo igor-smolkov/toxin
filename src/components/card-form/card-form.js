@@ -13,7 +13,9 @@ class CardForm {
     this._$dateSection = this._$elem.find('.js-date-section');
     this._$bill = this._$elem.find('.js-bill');
 
-    if (this._$dateSection[0]) this.dateSection = new DateSection(this._$dateSection);
+    if (this._$dateSection[0]) {
+      this.dateSection = new DateSection(this._$dateSection);
+    }
     if (this._$bill[0]) this.bill = new Bill(this._$bill);
 
     const isRoomBookingForm = this.dateSection && this.bill;

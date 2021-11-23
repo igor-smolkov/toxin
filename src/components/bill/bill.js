@@ -14,7 +14,8 @@ class Bill {
 
   static _chooseWordEnd(number) {
     const str = number.toString();
-    const isEndOnEleven = str.length > 1 ? str.substr(str.length - 2) === '11' : false;
+    const isEndOnEleven = str.length > 1
+      ? str.substr(str.length - 2) === '11' : false;
     const isEndOnOne = str[str.length - 1] === '1' && !isEndOnEleven;
     return isEndOnOne ? 'ки' : 'ок';
   }
@@ -27,13 +28,21 @@ class Bill {
     const daysPrice = dayPrice * daysLength;
     const total = daysPrice - discount + additional;
 
-    this._lines[0].setName(`${Bill._makePriceFromNumber(dayPrice)} х ${daysLength} сут${Bill._chooseWordEnd(daysLength)}`);
+    const onePrice = Bill._makePriceFromNumber(dayPrice);
+    const dayForm = `сут${Bill._chooseWordEnd(daysLength)}`;
+    const totalPrice = Bill._makePriceFromNumber(
+      total < 0 ? 0 : total,
+    );
+
+    this._lines[0].setName(`${onePrice} х ${daysLength} ${dayForm}`);
     this._lines[0].setPrice(Bill._makePriceFromNumber(daysPrice));
-    this._lines[this._lines.length - 1].setPrice(Bill._makePriceFromNumber(total < 0 ? 0 : total));
+    this._lines[this._lines.length - 1].setPrice(totalPrice);
   }
 
   _init() {
-    this._lines = this._$elem.find('.js-invoice-line').map((_, lineElem) => new InvoiceLine($(lineElem)));
+    this._lines = this._$elem
+      .find('.js-invoice-line')
+      .map((_, lineElem) => new InvoiceLine($(lineElem)));
   }
 }
 

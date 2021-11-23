@@ -30,8 +30,12 @@ class DropdownControl {
   _init() {
     this._clearSubscribers = [];
     this._applySubscribers = [];
-    this._clearButton = new Button(this._$elem.find('.js-dropdown-control__clear'));
-    this._applyButton = new Button(this._$elem.find('.js-dropdown-control__apply'));
+    this._clearButton = new Button(
+      this._$elem.find('.js-dropdown-control__clear'),
+    );
+    this._applyButton = new Button(
+      this._$elem.find('.js-dropdown-control__apply'),
+    );
   }
 
   _bindEventListeners() {

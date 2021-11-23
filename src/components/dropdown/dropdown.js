@@ -17,12 +17,15 @@ class Dropdown {
     const quantitativeBreak = 4;
     const secondTenStart = 11;
     const secondTenEnd = 19;
-    const isSecondTen = (count >= secondTenStart)
-      && (+Dropdown._getLastTwoDigits(count) >= secondTenStart)
-      && (+Dropdown._getLastTwoDigits(count) <= secondTenEnd);
-    const isGenitivePlural = (lastDigit > quantitativeBreak) || lastDigit === 0 || isSecondTen;
+    const isSecondTen = count >= secondTenStart
+      && +Dropdown._getLastTwoDigits(count) >= secondTenStart
+      && +Dropdown._getLastTwoDigits(count) <= secondTenEnd;
+    const isGenitivePlural = lastDigit > quantitativeBreak
+      || lastDigit === 0
+      || isSecondTen;
     if (isGenitivePlural) return `${count} ${forms[2]}`;
-    const isGenitiveSingular = lastDigit > nominativeBreak && lastDigit <= quantitativeBreak;
+    const isGenitiveSingular = lastDigit > nominativeBreak
+      && lastDigit <= quantitativeBreak;
     if (isGenitiveSingular) return `${count} ${forms[1]}`;
     return `${count} ${forms[0]}`;
   }
@@ -78,40 +81,78 @@ class Dropdown {
       i += 1;
       switch (category) {
         case 'гость':
-          str += Dropdown._makeWordFormStr(count, ['гость', 'гостя', 'гостей']);
+          str += Dropdown._makeWordFormStr(count, [
+            'гость',
+            'гостя',
+            'гостей',
+          ]);
           break;
         case 'младенец':
-          str += Dropdown._makeWordFormStr(count, ['младенец', 'младенца', 'младенцев']);
+          str += Dropdown._makeWordFormStr(count, [
+            'младенец',
+            'младенца',
+            'младенцев',
+          ]);
           break;
         case 'спальня':
-          str += Dropdown._makeWordFormStr(count, ['спальня', 'спальни', 'спален']);
+          str += Dropdown._makeWordFormStr(count, [
+            'спальня',
+            'спальни',
+            'спален',
+          ]);
           break;
         case 'кровать':
-          str += Dropdown._makeWordFormStr(count, ['кровать', 'кровати', 'кроватей']);
+          str += Dropdown._makeWordFormStr(count, [
+            'кровать',
+            'кровати',
+            'кроватей',
+          ]);
           break;
         case 'ванная':
-          str += Dropdown._makeWordFormStr(count, ['ванная', 'ванные', 'ванных']);
+          str += Dropdown._makeWordFormStr(count, [
+            'ванная',
+            'ванные',
+            'ванных',
+          ]);
           break;
         default:
-          str += Dropdown._makeWordFormStr(count, ['штука', 'штуки', 'штук']);
+          str += Dropdown._makeWordFormStr(count, [
+            'штука',
+            'штуки',
+            'штук',
+          ]);
       }
     });
-    const isGuests = this._counters.find((counter) => counter.category === 'гость');
-    if (!str) { str = isGuests ? 'Сколько гостей' : 'Сколько нужно'; }
-    const isClipping = str.length > 19 && !this._dropdownControl.hasApplyButton();
-    if (isClipping) { str = `${str.substr(0, 20)}...`; }
+    const isGuests = this._counters.find(
+      (counter) => counter.category === 'гость',
+    );
+    if (!str) {
+      str = isGuests ? 'Сколько гостей' : 'Сколько нужно';
+    }
+    const isClipping = str.length > 19
+      && !this._dropdownControl.hasApplyButton();
+    if (isClipping) {
+      str = `${str.substr(0, 20)}...`;
+    }
     return str;
   }
 
   _calcCountersSums() {
     const categories = new Set();
-    this._counters.forEach((counter) => categories.add(counter.category));
+    this._counters.forEach((counter) => {
+      categories.add(counter.category);
+    });
     const sums = new Map();
     categories.forEach((category) => {
       sums.set(
         category,
         this._counters.reduce(
-          (sum, counter) => (counter.category === category ? sum + counter.getCount() : sum), 0,
+          (sum, counter) => (
+            counter.category === category
+              ? sum + counter.getCount()
+              : sum
+          ),
+          0,
         ),
       );
     });
@@ -119,7 +160,10 @@ class Dropdown {
   }
 
   _calcCountersSum() {
-    return this._counters.reduce((sum, counter) => sum + counter.getCount(), 0);
+    return this._counters.reduce(
+      (sum, counter) => sum + counter.getCount(),
+      0,
+    );
   }
 
   _show() {
@@ -140,13 +184,15 @@ class Dropdown {
   }
 
   _handleCheckClear() {
-    if (this._calcCountersSum() > 0) this._dropdownControl.showClearButton();
-    else this._dropdownControl.hideClearButton();
+    if (this._calcCountersSum() > 0) {
+      this._dropdownControl.showClearButton();
+    } else this._dropdownControl.hideClearButton();
     if (this._counters.length) this._updateField();
   }
 
   _handleDocClick(e) {
-    const isOutOfDropdown = !this._$elem.is(e.target) && this._$elem.has(e.target).length === 0;
+    const isOutOfDropdown = !this._$elem.is(e.target)
+      && this._$elem.has(e.target).length === 0;
     const isNeedToClose = isOutOfDropdown && this._isDropped;
     if (isNeedToClose) this._hide();
   }
@@ -166,13 +212,23 @@ class Dropdown {
   }
 
   _bindEventListeners() {
-    this._dropdownControl.onClear(this._handleClearButtonClick.bind(this));
-    this._dropdownControl.onApply(this._handleApplyButtonClick.bind(this));
+    this._dropdownControl.onClear(
+      this._handleClearButtonClick.bind(this),
+    );
+    this._dropdownControl.onApply(
+      this._handleApplyButtonClick.bind(this),
+    );
     this._$dropper.on('change', this._handleDrop.bind(this));
     this._$dropper.on('keydown', this._handleDropperKey.bind(this));
     this._$elem.on('click', this._handleCheckClear.bind(this));
-    document.addEventListener('click', this._handleDocClick.bind(this));
-    document.addEventListener('keydown', this._handleDocKeyDown.bind(this));
+    document.addEventListener(
+      'click',
+      this._handleDocClick.bind(this),
+    );
+    document.addEventListener(
+      'keydown',
+      this._handleDocKeyDown.bind(this),
+    );
   }
 }
 
