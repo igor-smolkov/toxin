@@ -1,6 +1,6 @@
 import $ from 'jquery';
 
-import Slider from '../slider/slider';
+import Slider from '../slider/Slider';
 
 class FormSet {
   constructor($elem) {

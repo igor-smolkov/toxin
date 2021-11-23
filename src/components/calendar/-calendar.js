@@ -2,7 +2,7 @@ import $ from 'jquery';
 import datepickerFactory from 'jquery-datepicker';
 import datepickerRUFactory from 'jquery-datepicker/i18n/jquery.ui.datepicker-ru';
 
-import DropdownControl from '../dropdown-control/dropdown-control';
+import DropdownControl from '../dropdown-control/DropdownControl';
 import calendarClassNames from './utils/calendarClassNames';
 
 class Calendar {

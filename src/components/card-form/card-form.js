@@ -1,7 +1,7 @@
 import $ from 'jquery';
-import Bill from '../bill/bill';
 
-import DateSection from '../date-section/date-section';
+import Bill from '../bill/Bill';
+import DateSection from '../date-section/DateSection';
 
 class CardForm {
   constructor($elem) {

@@ -1,8 +1,8 @@
 import $ from 'jquery';
 
-import DropdownControl from '../dropdown-control/dropdown-control';
-import Counter from '../counter/counter';
-import TextField from '../text-field/text-field';
+import DropdownControl from '../dropdown-control/DropdownControl';
+import Counter from '../counter/Counter';
+import TextField from '../text-field/TextField';
 import dropdownClassNames from './utils/dropdownClassNames';
 
 class Dropdown {

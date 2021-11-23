@@ -1,6 +1,6 @@
 import $ from 'jquery';
 
-import InvoiceLine from '../invoice-line/invoice-line';
+import InvoiceLine from '../invoice-line/InvoiceLine';
 
 class Bill {
   constructor($elem) {

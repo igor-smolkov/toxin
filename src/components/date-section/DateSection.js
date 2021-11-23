@@ -1,8 +1,8 @@
 import $ from 'jquery';
 
-import Calendar from '../calendar/calendar';
-import DropdownControl from '../dropdown-control/dropdown-control';
-import TextField from '../text-field/text-field';
+import Calendar from '../calendar/Calendar';
+import DropdownControl from '../dropdown-control/DropdownControl';
+import TextField from '../text-field/TextField';
 
 class DateSection {
   constructor($elem) {
