@@ -8,11 +8,9 @@ const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plug
 const TerserWebpackPlugin = require('terser-webpack-plugin');
 const LiveReloadPlugin = require('webpack-livereload-plugin');
 
-// определение режима сборки
 const isDev = process.env.NODE_ENV === 'development';
 const isProd = !isDev;
 
-// имена файлов
 const imagesDir = 'assets/images';
 const faviconsDir = 'assets/favicons';
 const fontsDir = 'assets/fonts';
@@ -22,10 +20,8 @@ const pages = [
   { website: ['landing-page', 'search-room', 'room-details', 'registration', 'sign-in'] },
 ];
 
-// сборка имен
 const filename = (ext) => (isDev ? `[name].${ext}` : `[name].[hash].${ext}`);
 
-// оптимизация
 const optimization = () => {
   const config = {
     splitChunks: {
@@ -43,7 +39,6 @@ const optimization = () => {
   return config;
 };
 
-// добавление лоадеров css и его препроцессоров
 const cssLoaders = (extra) => {
   const loaders = [
     {
@@ -62,7 +57,6 @@ const cssLoaders = (extra) => {
   return loaders;
 };
 
-// формирование списка плагинов
 const plugins = () => {
   const packHTMLWebpackPlugin = (input, output, chunk) => new HTMLWebpackPlugin({
     template: `./${input}`,
@@ -129,7 +123,7 @@ module.exports = {
   },
   resolve: {
     alias: {
-      '@comp': path.resolve(__dirname, 'src/components'), // алиас на компоненты
+      '@comp': path.resolve(__dirname, 'src/components'),
       '@plug': path.resolve(__dirname, 'src/plugins'),
     },
   },
