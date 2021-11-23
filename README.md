@@ -37,3 +37,7 @@ npm run style:fix
 Используемые плагины:  
 * jquery-datepicker (https://www.npmjs.com/package/jquery-datepicker)  
 * my-jquery-slider (https://github.com/igor-smolkov/my-jquery-slider)  
+  
+  
+Версия Node.js: 14.17.3  
+Версия npm: 6.14.13  
