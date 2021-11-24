@@ -13,8 +13,8 @@ class InvoiceLine {
   }
 
   _init() {
-    this._$name = this._$elem.find('.js-invoice-line__name');
-    this._$price = this._$elem.find('.js-invoice-line__price');
+    this._$name = this._$elem.find('.js-invoice-line-name');
+    this._$price = this._$elem.find('.js-invoice-line-price');
   }
 }
 

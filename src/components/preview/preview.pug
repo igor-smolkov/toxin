@@ -11,13 +11,13 @@ mixin preview(options = {})
   )
     DATALIST(
       class=`${blockName}__data`,
-      class=`js-${blockName}__data`
+      class=`js-${blockName}-data`
     )
       each img in images
         OPTION(value=img)
     IMG(
       class=`${blockName}__img`,
-      class=`js-${blockName}__img`,
+      class=`js-${blockName}-img`,
       src=images[selected],
       alt="Превью номера"
     )
@@ -25,16 +25,16 @@ mixin preview(options = {})
       BUTTON(
         class=`${blockName}__arrow`,
         class=`${blockName}__arrow_prev`,
-        class=`js-${blockName}__arrow-prev`
+        class=`js-${blockName}-arrow-prev`
       )
       BUTTON(
         class=`${blockName}__arrow`,
         class=`${blockName}__arrow_next`,
-        class=`js-${blockName}__arrow-next`
+        class=`js-${blockName}-arrow-next`
       )
     DIV(
       class=`${blockName}__points`,
-      class=`js-${blockName}__points`
+      class=`js-${blockName}-points`
     )
       - let i = 0;
       while i < images.length

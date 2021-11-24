@@ -11,7 +11,7 @@ class CheckButton {
   }
 
   _init() {
-    this._$check = this._$elem.find('.js-check-button__box');
+    this._$check = this._$elem.find('.js-check-button-box');
     this._bindEventListeners();
   }
 

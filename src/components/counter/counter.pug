@@ -9,17 +9,17 @@ mixin counter(count = 0, category = "штука")
     BUTTON(
       class=`${blockName}__element`,
       class=`${blockName}__button`,
-      class=`js-${blockName}__button`,
+      class=`js-${blockName}-button`,
       class=!count ? `${blockName}__button_disabled` : "",
       disabled=!count
     )= "-"
     P(
       class=`${blockName}__element`,
       class=`${blockName}__count`,
-      class=`js-${blockName}__count`
+      class=`js-${blockName}-count`
     )= count ? count : "0"
     BUTTON(
       class=`${blockName}__element`,
       class=`${blockName}__button`,
-      class=`js-${blockName}__button`
+      class=`js-${blockName}-button`
     )= "+"

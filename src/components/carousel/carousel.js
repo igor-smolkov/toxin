@@ -83,15 +83,15 @@ class Carousel {
   }
 
   _findCurrentSlide() {
-    return $(this._$elem.find('.js-carousel__slide-current'));
+    return $(this._$elem.find('.js-carousel-slide-current'));
   }
 
   _findNextSlide() {
-    return $(this._$elem.find('.js-carousel__slide-next'));
+    return $(this._$elem.find('.js-carousel-slide-next'));
   }
 
   _makeArrOfSlidesLinks() {
-    return Array.from(this._$elem.find('.js-carousel__link')).map(
+    return Array.from(this._$elem.find('.js-carousel-link')).map(
       (elem) => elem.value,
     );
   }

@@ -5,12 +5,12 @@ mixin invoice-line(options = {})
   SPAN(class=blockName, class=`js-${blockName}`)
     SPAN(
       class=`${blockName}__name`,
-      class=`js-${blockName}__name`,
+      class=`js-${blockName}-name`,
       class=withLine ? `${blockName}__name_with-line` : ""
     )= name
       if withInfo
         BUTTON(class=`${blockName}__info`)= "i"
     SPAN(
       class=`${blockName}__price`,
-      class=`js-${blockName}__price`
+      class=`js-${blockName}-price`
     )= price

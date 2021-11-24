@@ -9,7 +9,7 @@ class FormSet {
   }
 
   _init() {
-    this._$details = this._$elem.find('.js-form-set__details');
+    this._$details = this._$elem.find('.js-form-set-details');
     this._$slider = this._$elem.find('.js-slider');
     if (this._$slider[0]) this._initSlider();
   }

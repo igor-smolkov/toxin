@@ -55,15 +55,15 @@ class Counter {
   }
 
   _findMinusButton() {
-    return $(this._$elem.find('.js-counter__button')[0]);
+    return $(this._$elem.find('.js-counter-button')[0]);
   }
 
   _findPlusButton() {
-    return $(this._$elem.find('.js-counter__button')[1]);
+    return $(this._$elem.find('.js-counter-button')[1]);
   }
 
   _findCountField() {
-    return $(this._$elem.find('.js-counter__count'));
+    return $(this._$elem.find('.js-counter-count'));
   }
 
   _listenControls() {

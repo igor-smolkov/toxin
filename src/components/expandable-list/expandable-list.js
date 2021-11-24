@@ -7,7 +7,7 @@ class ExpandableList {
   }
 
   _init() {
-    this._$check = this._$elem.find('.js-expandable-list__check');
+    this._$check = this._$elem.find('.js-expandable-list-check');
     this._bindEventListeners();
   }
 

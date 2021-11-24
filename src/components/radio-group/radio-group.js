@@ -7,7 +7,7 @@ class RadioGroup {
   }
 
   _init() {
-    this._$radios = this._$elem.find('.js-radio-group__box');
+    this._$radios = this._$elem.find('.js-radio-group-box');
     this._bindEventListeners();
   }
 

@@ -22,8 +22,8 @@ class LikeButton {
   }
 
   _init() {
-    this._$check = this._$elem.find('.js-like-button__box');
-    this._$label = this._$elem.find('.js-like-button__label');
+    this._$check = this._$elem.find('.js-like-button-box');
+    this._$label = this._$elem.find('.js-like-button-label');
     this._bindEventListeners();
   }
 

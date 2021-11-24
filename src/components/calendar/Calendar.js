@@ -83,7 +83,7 @@ class Calendar {
   }
 
   _init() {
-    this.$pluginElem = this._$elem.find('.js-calendar__plugin');
+    this.$pluginElem = this._$elem.find('.js-calendar-plugin');
     this.dateFrom = this._$elem.data().from
       ? Calendar._createDate(this._$elem.data().from)
       : null;

@@ -11,7 +11,7 @@ class Toggle {
   }
 
   _init() {
-    this._$check = this._$elem.find('.js-toggle__box');
+    this._$check = this._$elem.find('.js-toggle-box');
     this._bindEventListeners();
   }
 

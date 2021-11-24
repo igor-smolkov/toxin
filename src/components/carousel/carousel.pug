@@ -9,17 +9,17 @@ mixin carousel(options = {})
     DIV(
       class=`${blockName}__slide`,
       class=`${blockName}__slide_current`,
-      class=`js-${blockName}__slide-current`
+      class=`js-${blockName}-slide-current`
     )
     DIV(
       class=`${blockName}__slide`,
       class=`${blockName}__slide_next`,
-      class=`js-${blockName}__slide-next`
+      class=`js-${blockName}-slide-next`
     )
     DATALIST(class=`${blockName}__links`)
       each slide, index in slides
         OPTION(
           class=`${blockName}__link`,
-          class=`js-${blockName}__link`,
+          class=`js-${blockName}-link`,
           value=slide
         )

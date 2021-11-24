@@ -35,12 +35,12 @@ class Preview {
     this._selected = this._$elem.data().selected;
     this._number = this._$elem.data().number;
     this._imgs = Array.from(
-      this._$elem.find('.js-preview__data').children(),
+      this._$elem.find('.js-preview-data').children(),
     ).map((option) => option.value);
-    this._$img = this._$elem.find('.js-preview__img');
-    this._$prevButton = this._$elem.find('.js-preview__arrow-prev');
-    this._$nextButton = this._$elem.find('.js-preview__arrow-next');
-    this._$pointsControl = this._$elem.find('.js-preview__points');
+    this._$img = this._$elem.find('.js-preview-img');
+    this._$prevButton = this._$elem.find('.js-preview-arrow-prev');
+    this._$nextButton = this._$elem.find('.js-preview-arrow-next');
+    this._$pointsControl = this._$elem.find('.js-preview-points');
   }
 
   _handlePrevButtonClick(e) {

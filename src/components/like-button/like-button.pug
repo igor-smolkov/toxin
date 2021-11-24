@@ -9,7 +9,7 @@ mixin like-button(options = {})
   )
     INPUT(
       class=`${blockName}__box`,
-      class=`js-${blockName}__box`,
+      class=`js-${blockName}-box`,
       class=isChecked ? `${blockName}__box_checked` : "",
       name=name,
       value=value ? value : name,
@@ -18,7 +18,7 @@ mixin like-button(options = {})
     )
     SPAN(
       class=`${blockName}__label`,
-      class=`js-${blockName}__label`,
+      class=`js-${blockName}-label`,
       class=isChecked ? `${blockName}__label_checked` : ""
     )= label ? label : value
     SPAN(class=`${blockName}__icon`)

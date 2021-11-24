@@ -26,7 +26,7 @@ class DateFilter {
   }
 
   _init() {
-    this._$dropper = this._$elem.find('.js-dropdown__check');
+    this._$dropper = this._$elem.find('.js-dropdown-check');
     this._field = new TextField(this._$elem.find('.js-dropdown'));
     this._calendar = new Calendar(this._$elem.find('.js-calendar'));
     this._dropdownControl = new DropdownControl(

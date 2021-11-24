@@ -10,7 +10,7 @@ mixin check-button(options = {})
   )
     INPUT(
       class=`${blockName}__box`,
-      class=`js-${blockName}__box`,
+      class=`js-${blockName}-box`,
       class=isChecked ? `${blockName}__box_checked` : "",
       name=name,
       value=value ? value : name,

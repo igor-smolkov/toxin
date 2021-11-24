@@ -27,7 +27,7 @@ class Slider {
   }
 
   _init() {
-    this._$root = this._$elem.find('.js-slider__root');
+    this._$root = this._$elem.find('.js-slider-root');
     this._subscribers = new Set();
     this._initPlugin();
   }

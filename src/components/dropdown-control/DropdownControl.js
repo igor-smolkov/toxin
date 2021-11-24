@@ -31,10 +31,10 @@ class DropdownControl {
     this._clearSubscribers = [];
     this._applySubscribers = [];
     this._clearButton = new Button(
-      this._$elem.find('.js-dropdown-control__clear'),
+      this._$elem.find('.js-dropdown-control-clear'),
     );
     this._applyButton = new Button(
-      this._$elem.find('.js-dropdown-control__apply'),
+      this._$elem.find('.js-dropdown-control-apply'),
     );
   }
 

@@ -13,11 +13,11 @@ mixin dropdown-control(options = {})
   DIV(class=blockName, class=`js-${blockName}`)
     DIV(
       class=`${blockName}__clear`,
-      class=`js-${blockName}__clear`
+      class=`js-${blockName}-clear`
     )
       +button(clearButtonOptions)
     DIV(
       class=`${blockName}__apply`,
-      class=`js-${blockName}__apply`
+      class=`js-${blockName}-apply`
     )
       +button({ caption: "Применить", isTextOnly: true })

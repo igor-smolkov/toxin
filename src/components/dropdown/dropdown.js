@@ -39,7 +39,7 @@ class Dropdown {
     if (!this._counters.length) return;
     this._field = new TextField(this._$elem);
     this._dropdownControl = new DropdownControl(this._$elem);
-    this._$dropper = this._$elem.find('.js-dropdown__check');
+    this._$dropper = this._$elem.find('.js-dropdown-check');
     this._isDropped = this._$dropper.is(':checked');
     this._updateField();
     this._bindEventListeners();
