@@ -1,5 +1,5 @@
 import $ from 'jquery';
 
-import Carousel from './-carousel';
+import Carousel from './Carousel';
 
 $('.js-carousel').each((_, elem) => new Carousel($(elem)));

@@ -1,5 +1,5 @@
 import $ from 'jquery';
 
-import Preview from './-preview';
+import Preview from './Preview';
 
 $('.js-preview').each((_, elem) => new Preview($(elem)));
