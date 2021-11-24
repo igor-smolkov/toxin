@@ -101,4 +101,4 @@ class Carousel {
   }
 }
 
-$('.js-carousel').each((_, elem) => new Carousel($(elem)));
+export default Carousel;

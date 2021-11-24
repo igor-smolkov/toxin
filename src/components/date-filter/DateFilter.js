@@ -1,5 +1,3 @@
-import $ from 'jquery';
-
 import Calendar from '../calendar/Calendar';
 import DropdownControl from '../dropdown-control/DropdownControl';
 import TextField from '../text-field/TextField';
@@ -122,4 +120,4 @@ class DateFilter {
   }
 }
 
-$('.js-date-filter').each((_, elem) => new DateFilter($(elem)));
+export default DateFilter;

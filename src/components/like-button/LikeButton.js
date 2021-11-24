@@ -1,5 +1,3 @@
-import $ from 'jquery';
-
 class LikeButton {
   constructor($elem) {
     this._$elem = $elem;
@@ -39,4 +37,4 @@ class LikeButton {
   }
 }
 
-$('.js-like-button').each((_, elem) => new LikeButton($(elem)));
+export default LikeButton;

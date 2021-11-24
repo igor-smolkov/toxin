@@ -1,5 +1,3 @@
-import $ from 'jquery';
-
 class RadioGroup {
   constructor($elem) {
     this._$elem = $elem;
@@ -46,4 +44,4 @@ class RadioGroup {
   }
 }
 
-$('.js-radio-group').each((_, elem) => new RadioGroup($(elem)));
+export default RadioGroup;

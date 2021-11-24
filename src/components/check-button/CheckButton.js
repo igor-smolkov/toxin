@@ -1,5 +1,3 @@
-import $ from 'jquery';
-
 class CheckButton {
   constructor($elem) {
     this._$elem = $elem;
@@ -26,4 +24,4 @@ class CheckButton {
   }
 }
 
-$('.js-check-button').each((_, elem) => new CheckButton($(elem)));
+export default CheckButton;

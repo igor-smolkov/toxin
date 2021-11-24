@@ -1,5 +1,3 @@
-import $ from 'jquery';
-
 class ExpandableList {
   constructor($elem) {
     this._$elem = $elem;
@@ -53,6 +51,4 @@ class ExpandableList {
   }
 }
 
-$('.js-expandable-list').each(
-  (_, elem) => new ExpandableList($(elem)),
-);
+export default ExpandableList;

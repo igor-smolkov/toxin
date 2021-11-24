@@ -232,4 +232,4 @@ class Dropdown {
   }
 }
 
-$('.js-dropdown').each((_, elem) => new Dropdown($(elem)));
+export default Dropdown;

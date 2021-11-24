@@ -1,5 +1,3 @@
-import $ from 'jquery';
-
 import Slider from '../slider/Slider';
 
 class FormSet {
@@ -28,4 +26,4 @@ class FormSet {
   }
 }
 
-$('.js-form-set').each((_, elem) => new FormSet($(elem)));
+export default FormSet;

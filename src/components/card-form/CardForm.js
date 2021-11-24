@@ -1,5 +1,3 @@
-import $ from 'jquery';
-
 import Bill from '../bill/Bill';
 import DateSection from '../date-section/DateSection';
 
@@ -31,4 +29,4 @@ class CardForm {
   }
 }
 
-$('.js-card-form').each((_, elem) => new CardForm($(elem)));
+export default CardForm;

@@ -76,4 +76,4 @@ class Preview {
   }
 }
 
-$('.js-preview').each((_, elem) => new Preview($(elem)));
+export default Preview;

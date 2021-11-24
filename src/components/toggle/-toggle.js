@@ -1,5 +1,3 @@
-import $ from 'jquery';
-
 class Toggle {
   constructor($elem) {
     this._$elem = $elem;
@@ -26,4 +24,4 @@ class Toggle {
   }
 }
 
-$('.js-toggle').each((_, elem) => new Toggle($(elem)));
+export default Toggle;

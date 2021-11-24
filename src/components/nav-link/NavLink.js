@@ -1,5 +1,3 @@
-import $ from 'jquery';
-
 class NavLink {
   constructor($elem) {
     this._$elem = $elem;
@@ -51,4 +49,4 @@ class NavLink {
   }
 }
 
-$('.js-nav-link').each((_, elem) => new NavLink($(elem)));
+export default NavLink;
