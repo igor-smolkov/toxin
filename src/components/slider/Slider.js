@@ -1,6 +1,6 @@
 import $ from 'jquery';
 
-import myJQuerySliderFactory from '@plug/jquery.my-jquery-slider';
+import myJQuerySliderFactory from 'my-jquery-slider/dist/jquery.my-jquery-slider/jquery.my-jquery-slider';
 
 class Slider {
   constructor($elem) {

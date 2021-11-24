@@ -153,7 +153,6 @@ module.exports = {
   resolve: {
     alias: {
       '@comp': path.resolve(__dirname, 'src/components'),
-      '@plug': path.resolve(__dirname, 'src/plugins'),
     },
   },
   optimization: optimization(),
