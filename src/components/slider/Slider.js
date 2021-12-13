@@ -1,6 +1,4 @@
-import $ from 'jquery';
-
-import myJQuerySliderFactory from 'my-jquery-slider/dist/jquery.my-jquery-slider/jquery.my-jquery-slider';
+import MyJQuerySlider from '../../libs/my-jquery-slider/MyJQuerySlider';
 
 class Slider {
   constructor($elem) {
@@ -18,10 +16,10 @@ class Slider {
 
   getPriceRange() {
     const min = Slider._makePriceFromNumber(
-      this._$root.data().minInterval,
+      this._plugin.getMinInterval(),
     );
     const max = Slider._makePriceFromNumber(
-      this._$root.data().maxInterval,
+      this._plugin.getMaxInterval(),
     );
     return `${min} - ${max}`;
   }
@@ -29,31 +27,15 @@ class Slider {
   _init() {
     this._$root = this._$elem.find('.js-slider-root');
     this._subscribers = new Set();
-    this._initPlugin();
+    this._plugin = new MyJQuerySlider(this._$root, this._defineLimits());
+    this._plugin.on(this._handleChange.bind(this));
   }
 
-  _initPlugin() {
-    myJQuerySliderFactory($);
-    const limits = this._$root[0].dataset.values
+  _defineLimits() {
+    return this._$root[0].dataset.values
       .substring(1, this._$root[0].dataset.values.length - 1)
       .split(',')
       .map((v) => +v);
-    this._$root.myJQuerySlider({
-      limits: limits ?? [0, 5000, 10000, 16000],
-      withIndent: false,
-    });
-    this._bindPluginListeners();
-  }
-
-  _bindPluginListeners() {
-    this._$root.on(
-      'my-jquery-slider-init',
-      this._handleChange.bind(this),
-    );
-    this._$root.on(
-      'my-jquery-slider-update',
-      this._handleChange.bind(this),
-    );
   }
 
   _handleChange() {
