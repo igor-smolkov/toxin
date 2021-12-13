@@ -23,30 +23,30 @@ $block: 'like-button';
     height: 20px;
     opacity: 0;
     &:checked+.#{$block}__label {
-      color: $color-purple;
+      color: $font-brand;
 
       &::before {
-        border-color: $color-purple;
+        border-color: $brand;
       }
     }
     &:checked~.#{$block}__icon::before {
-      color: $color-purple;
+      color: $font-brand;
       content: 'favorite';
     }
     &:not(:checked)+.#{$block}__label {
-      color: $color-25per;
+      color: $font-light;
 
       &::before {
-        border-color: $color-25per;
+        border-color: $main-light;
       }
     }
     &:not(:checked)~.#{$block}__icon::before {
-      color: $color-25per;
+      color: $font-light;
       content: 'favorite_border';
     }
     &:focus+.#{$block}__label::before {
       outline: none;
-      box-shadow: 0 0 5px $color-25per;
+      box-shadow: 0 0 5px $shadow-highlight;
     }
   }
 
@@ -67,7 +67,7 @@ $block: 'like-button';
       left: 0;
       width: 40px;
       height: 20px;
-      border: 1px solid $color-25per;
+      border: 1px solid $main-light;
       border-radius: 10px;
       content: '';
     }
@@ -89,19 +89,19 @@ $block: 'like-button';
       justify-content: center;
       width: 20px;
       height: 20px;
-      color: $color-25per;
+      color: $font-light;
       font-size: 10px;
       content: 'favorite_border';
     }
   }
 
   &_checked {
-    color: $color-purple;
+    color: $font-brand;
     .#{$block}__label::before {
-      border-color: $color-purple;
+      border-color: $brand;
     }
     .#{$block}__icon::before {
-      color: $color-purple;
+      color: $font-brand;
       content: 'favorite';
     }
   }

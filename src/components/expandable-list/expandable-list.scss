@@ -25,7 +25,7 @@ $block: 'expandable-list';
       transform: none;
     }
     &:focus~.#{$block}__expand-more::before {
-      color: $color-75per;
+      color: $font-dark;
     }
   }
 
@@ -43,7 +43,7 @@ $block: 'expandable-list';
       justify-content: center;
       min-width: 24px;
       min-height: 21px;
-      color: $color-50per;
+      color: $font-medium;
       background-color: transparent;
       content: 'expand_more';
     }
@@ -51,7 +51,7 @@ $block: 'expandable-list';
 
   &__expand-more_hovered::before,
   &__expand-more:hover::before {
-    color: $color-75per;
+    color: $font-dark;
   }
 
   &__list {
@@ -67,9 +67,9 @@ $block: 'expandable-list';
       padding: 0;
       padding: 10px;
       padding-top: 16px;
-      color: $color-50per;
-      background-color: white;
-      box-shadow: 0 10px 20px $color-5per;
+      color: $font-medium;
+      background-color: $bg-main;
+      box-shadow: 0 10px 20px $shadow-light-hard;
     }
   }
 

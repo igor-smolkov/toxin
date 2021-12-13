@@ -62,7 +62,7 @@ $list-size: 900px;
         left: -21px;
         min-width: 1px;
         min-height: 30px;
-        background-color: $color-10per;
+        background-color: $line;
         content: '';
 
         @media only screen and (max-width: $list-size) {
@@ -70,7 +70,7 @@ $list-size: 900px;
           left: 0;
           min-width: 100%;
           min-height: 1px;
-          background-color: $color-10per;
+          background-color: $line;
         }
       }
 
@@ -85,7 +85,7 @@ $list-size: 900px;
     min-width: 170px;
     max-width: fit-content;
     padding: 10px 20px 20px;
-    background-color: white;
-    box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+    background-color: $bg-main;
+    box-shadow: 0 0 25px $shadow;
   }
 }

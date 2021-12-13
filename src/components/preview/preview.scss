@@ -1,3 +1,4 @@
+@import '/assets/colors';
 @import '/assets/types';
 
 $block: 'preview';
@@ -47,7 +48,7 @@ $block: 'preview';
       width: 100%;
       max-width: 42px;
       min-height: 100%;
-      color: white;
+      color: $font-inverse;
       font-size: 22px;
       background: linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 99.99%, rgba(255, 255, 255, 0) 100%);
       content: 'chevron_left';
@@ -84,7 +85,7 @@ $block: 'preview';
     z-index: -1;
     opacity: 0;
     &:checked+.#{$block}__point-label {
-      background-color: white;
+      background-color: $bg-main;
     }
     &:not(:checked)+.#{$block}__point-label {
       background: none;
@@ -103,7 +104,7 @@ $block: 'preview';
     cursor: pointer;
 
     &_checked {
-      background-color: white;
+      background-color: $bg-main;
     }
   }
 }

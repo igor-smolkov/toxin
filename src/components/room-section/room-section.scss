@@ -1,3 +1,4 @@
+@import '/assets/colors';
 @import '/assets/types';
 
 .room-section {
@@ -19,7 +20,7 @@
 
     align-self: flex-end;
     margin-left: 20px;
-    color: $color-50per;
+    color: $font-medium;
     white-space: nowrap;
   }
 

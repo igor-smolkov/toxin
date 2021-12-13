@@ -5,8 +5,8 @@
   align-items: center;
   justify-content: space-between;
   padding: 23px 140px;
-  background-color: #fff;
-  box-shadow: 0 10px 20px $color-5per;
+  background-color: $bg-main;
+  box-shadow: 0 10px 20px $shadow-light-hard;
 
   &__socials {
     margin-left: 20px;

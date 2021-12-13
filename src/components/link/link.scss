@@ -5,12 +5,12 @@
   @include base-type;
   @include text('rare_less');
 
-  color: $color-50per;
+  color: $font-medium;
   text-decoration: none;
 
   &_hovered,
   &:hover {
-    color: $color-75per;
+    color: $font-dark;
     font-weight: bold;
   }
 

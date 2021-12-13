@@ -16,7 +16,7 @@ $block: 'check-button';
     .#{$block} {
       &__label {
         max-width: 266px;
-        color: $color-75per;
+        color: $font-dark;
         font-weight: bold;
       }
 
@@ -27,7 +27,7 @@ $block: 'check-button';
         display: inline-block;
         max-width: 230px;
         margin-top: 4px;
-        color: $color-50per;
+        color: $font-medium;
         font-weight: normal;
       }
     }
@@ -44,15 +44,15 @@ $block: 'check-button';
     &:checked+.#{$block}__label::before {
       background: no-repeat center url("data:image/svg+xml,%3Csvg width='10' height='11' viewBox='0 0 10 11' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.46439 4.40768L5.70703 8.65032L4.29282 10.0645L0.0501771 5.82189L1.46439 4.40768Z' fill='url(%23paint0_linear)'/%3E%3Cpath d='M8.53546 2.99347L9.94967 4.40768L4.29282 10.0645L2.8786 8.65032L8.53546 2.99347Z' fill='url(%23paint1_linear)'/%3E%3Cdefs%3E%3ClinearGradient id='paint0_linear' x1='7.82835' y1='2.28636' x2='2.1715' y2='7.94321' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%23BC9CFF'/%3E%3Cstop offset='1' stop-color='%238BA4F9'/%3E%3C/linearGradient%3E%3ClinearGradient id='paint1_linear' x1='7.82835' y1='2.28636' x2='2.1715' y2='7.94321' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%23BC9CFF'/%3E%3Cstop offset='1' stop-color='%238BA4F9'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E%0A");
       background-position: 4px 3px;
-      border-color: $color-purple;
+      border-color: $brand;
     }
     &:not(:checked)+.#{$block}__label::before {
       background: none;
-      border-color: $color-25per;
+      border-color: $main-light;
     }
     &:focus+.#{$block}__label::before {
       outline: none;
-      box-shadow: 0 0 5px $color-25per;
+      box-shadow: 0 0 5px $shadow-highlight;
     }
   }
 
@@ -61,7 +61,7 @@ $block: 'check-button';
 
     display: inline-block;
     max-width: 200px;
-    color: $color-50per;
+    color: $font-medium;
 
     &::before {
       position: absolute;
@@ -69,7 +69,7 @@ $block: 'check-button';
       left: 0;
       width: 20px;
       height: 20px;
-      border: 1px solid $color-25per;
+      border: 1px solid $main-light;
       border-radius: 4px;
       content: '';
     }
@@ -77,7 +77,7 @@ $block: 'check-button';
     &_checked::before {
       background: no-repeat center url("data:image/svg+xml,%3Csvg width='10' height='11' viewBox='0 0 10 11' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.46439 4.40768L5.70703 8.65032L4.29282 10.0645L0.0501771 5.82189L1.46439 4.40768Z' fill='url(%23paint0_linear)'/%3E%3Cpath d='M8.53546 2.99347L9.94967 4.40768L4.29282 10.0645L2.8786 8.65032L8.53546 2.99347Z' fill='url(%23paint1_linear)'/%3E%3Cdefs%3E%3ClinearGradient id='paint0_linear' x1='7.82835' y1='2.28636' x2='2.1715' y2='7.94321' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%23BC9CFF'/%3E%3Cstop offset='1' stop-color='%238BA4F9'/%3E%3C/linearGradient%3E%3ClinearGradient id='paint1_linear' x1='7.82835' y1='2.28636' x2='2.1715' y2='7.94321' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%23BC9CFF'/%3E%3Cstop offset='1' stop-color='%238BA4F9'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E%0A");
       background-position: 4px 3px;
-      border-color: $color-purple;
+      border-color: $brand;
     }
   }
 }

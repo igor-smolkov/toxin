@@ -8,17 +8,17 @@ $block: 'card';
   max-width: 380px;
   min-height: 257px;
   padding: 29px;
-  background-color: white;
+  background-color: $bg-main;
   border: 1px solid rgba(0, 0, 0, 0.12);
   border-radius: 4px;
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 25px $shadow;
 
   &_medium {
     max-width: 320px;
     padding: 20px;
     padding-bottom: 15px;
-    border: 1px solid $color-25per;
-    box-shadow: 0 10px 20px rgba(31, 32, 65, 0.05);
+    border: 1px solid $main-light;
+    box-shadow: 0 10px 20px $shadow-light-hard;
 
     @media only screen and (max-width: 400px) {
       border: none;
@@ -31,7 +31,7 @@ $block: 'card';
     padding: 0;
     overflow: hidden;
     border: none;
-    box-shadow: 0 10px 20px rgba(31, 32, 65, 0.05);
+    box-shadow: 0 10px 20px $shadow-light-hard;
     .#{$block}__body {
       padding: 20px;
     }

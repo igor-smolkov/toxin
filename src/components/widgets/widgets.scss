@@ -1,8 +1,10 @@
+@import '/assets/colors';
+
 .widgets {
   display: flex;
   gap: 40px;
   padding: 100px 140px;
-  background: #fff;
+  background-color: $bg-main;
 
   &__about {
     min-width: 160px;

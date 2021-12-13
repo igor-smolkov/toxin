@@ -4,7 +4,7 @@
 $block: 'dropdown';
 .#{$block} {
   position: relative;
-  border: 1px solid $color-25per;
+  border: 1px solid $main-light;
   border-radius: 4px;
 
   &__check {
@@ -15,14 +15,14 @@ $block: 'dropdown';
     opacity: 0;
     &:checked~.#{$block}__panel {
       display: block;
-      box-shadow: 0 10px 15px $color-5per;
+      box-shadow: 0 10px 15px $shadow-light-hard;
     }
     &:not(:checked)~.#{$block}__panel {
       display: none;
       box-shadow: none;
     }
     &:focus~.#{$block}__expand-more::before {
-      color: $color-75per;
+      color: $font-dark;
     }
   }
 
@@ -42,7 +42,7 @@ $block: 'dropdown';
       justify-content: center;
       min-width: 42px;
       min-height: 42px;
-      color: $color-50per;
+      color: $font-medium;
       font-size: -0.1px;
       background-color: transparent;
       content: 'expand_more';
@@ -51,7 +51,7 @@ $block: 'dropdown';
 
   &__expand-more_hovered::before,
   &__expand-more:hover::before {
-    color: $color-75per;
+    color: $font-dark;
   }
 
   &__panel {
@@ -60,8 +60,8 @@ $block: 'dropdown';
     z-index: 1;
     display: none;
     min-width: calc(100% + 2px);
-    background-color: white;
-    border: 1px solid $color-25per;
+    background-color: $bg-main;
+    border: 1px solid $main-light;
     border-radius: 4px;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
@@ -74,7 +74,7 @@ $block: 'dropdown';
       @media only screen and (max-width: 400px) {
         position: static;
         min-width: 200px;
-        border-top: 1px solid $color-25per;
+        border-top: 1px solid $main-light;
       }
     }
 
@@ -85,12 +85,12 @@ $block: 'dropdown';
   }
 
   &_expanded {
-    border-color: $color-50per;
+    border-color: $main-medium;
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
     .#{$block}__panel {
       display: block;
-      border-color: $color-50per;
+      border-color: $main-medium;
     }
   }
 
@@ -98,13 +98,13 @@ $block: 'dropdown';
   &:hover,
   &_focused,
   &:focus {
-    border-color: $color-50per;
+    border-color: $main-medium;
   }
 
   &:not(:hover) {
-    border-color: $color-25per;
+    border-color: $main-light;
     .#{$block}__panel {
-      border-color: $color-25per;
+      border-color: $main-light;
     }
   }
 }

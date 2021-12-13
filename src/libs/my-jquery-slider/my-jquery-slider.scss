@@ -5,8 +5,8 @@ body .my-jquery-slider {
     z-index: 0;
     height: 6px;
     min-height: 6px;
-    background-color: white;
-    border: 1px solid $color-25per;
+    background-color: $bg-main;
+    border: 1px solid $main-light;
     border-radius: 3px;
   }
 
@@ -15,7 +15,7 @@ body .my-jquery-slider {
     min-height: 5px;
 
     &_actual {
-      background: linear-gradient(180deg, $color-green 0%, $color-green-end 100%);
+      background: $accent-gradient;
     }
   }
 
@@ -25,12 +25,12 @@ body .my-jquery-slider {
     min-width: 16px;
     height: 16px;
     min-height: 16px;
-    background: linear-gradient(180deg, $color-green 0%, $color-green-end 100%);
-    border-color: white;
+    background: $accent-gradient;
+    border-color: $bg-main;
 
     &:hover,
     &:focus {
-      border-color: white;
+      border-color: $bg-main;
     }
   }
 }

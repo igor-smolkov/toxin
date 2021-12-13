@@ -32,9 +32,9 @@ $block: 'pagination';
     }
 
     &_current {
-      background: linear-gradient(180deg, $color-purple 0%, $color-purple-end 100%);
+      background: $brand-gradient;
       .#{$block}__value {
-        color: white;
+        color: $font-inverse;
         font-weight: bold;
       }
     }
@@ -43,8 +43,8 @@ $block: 'pagination';
       display: flex;
       align-items: center;
       justify-content: center;
-      color: white;
-      background: linear-gradient(180deg, $color-green 0%, $color-green-end 100%);
+      color: $font-inverse;
+      background: $accent-gradient;
       border-radius: 20px;
     }
   }
@@ -54,7 +54,7 @@ $block: 'pagination';
 
     @include h3-type;
 
-    color: $color-50per;
+    color: $font-medium;
     font-weight: normal;
   }
 

@@ -4,7 +4,7 @@
 .title-details {
   @include base-h-type;
 
-  color: $color-50per;
+  color: $font-medium;
 
   &__second {
     padding-left: 4px;
@@ -12,7 +12,7 @@
     @include base-type;
     @include text('small');
 
-    color: $color-50per;
+    color: $font-medium;
     white-space: nowrap;
   }
 }

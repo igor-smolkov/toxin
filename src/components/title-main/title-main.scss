@@ -21,7 +21,7 @@
 
     @include h3-type;
 
-    color: $color-purple;
+    color: $font-brand;
 
     &_shifted {
       position: relative;
@@ -36,7 +36,7 @@
 
     &:hover *,
     &:focus * {
-      color: $color-purple;
+      color: $font-brand;
     }
 
     &:focus {

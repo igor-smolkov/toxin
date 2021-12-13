@@ -8,8 +8,8 @@
   min-width: 100%;
   min-height: 70px;
   padding: 15px 140px;
-  background-color: #fff;
-  box-shadow: 0 10px 20px $color-5per;
+  background-color: $bg-main;
+  box-shadow: 0 10px 20px $shadow-light-hard;
 
   &__logo {
     @media only screen and (max-width: 1150px) {

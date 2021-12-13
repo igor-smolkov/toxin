@@ -4,13 +4,13 @@
 .reviews-counter {
   @include base-h-type;
 
-  color: $color-50per;
+  color: $font-medium;
 
   &__text {
     padding-left: 4px;
 
     @include base-type;
 
-    color: $color-50per;
+    color: $font-medium;
   }
 }

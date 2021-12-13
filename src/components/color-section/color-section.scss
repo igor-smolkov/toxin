@@ -32,32 +32,32 @@
     left: 0;
     width: 70px;
     height: 70px;
-    background-color: $color;
+    background-color: $main;
     border-radius: 6px;
     content: '';
   }
 
   &[data-color-name='Dark Shade 75%']::before {
-    background-color: $color_75per;
+    background-color: $main-dark;
   }
 
   &[data-color-name='Dark Shade 50%']::before {
-    background-color: $color_50per;
+    background-color: $main-medium;
   }
 
   &[data-color-name='Dark Shade 25%']::before {
-    background-color: $color_25per;
+    background-color: $main-light;
   }
 
   &[data-color-name='Dark Shade 5%']::before {
-    background-color: $color_5per;
+    background-color: $main-light-hard;
   }
 
   &[data-color-name='Purple']::before {
-    background-color: $color_purple;
+    background-color: $brand;
   }
 
   &[data-color-name='Green']::before {
-    background-color: $color_green;
+    background-color: $accent;
   }
 }

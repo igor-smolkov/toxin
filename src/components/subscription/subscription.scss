@@ -12,8 +12,8 @@
     min-width: 44px;
     min-height: 44px;
     padding: 0;
-    color: $color-purple;
-    background: linear-gradient(180deg, $color-purple 0%, $color-purple-end 100%);
+    color: $font-brand;
+    background: $brand-gradient;
     -webkit-background-clip: text;
     background-clip: text;
     border: 0;
@@ -24,7 +24,7 @@
   &__button_hover,
   &__button:hover,
   &__button:focus {
-    color: $color-purple-end;
+    color: $font-variation;
     font-weight: bold;
     outline: none;
   }

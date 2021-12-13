@@ -9,12 +9,12 @@
   &__number {
     @include h1-type;
 
-    color: $color-purple;
+    color: $font-brand;
   }
 
   &__text {
     @include h3-type;
 
-    color: $color-purple;
+    color: $font-brand;
   }
 }

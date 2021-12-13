@@ -15,7 +15,7 @@ $block: 'extra-list';
     padding: 21px 0;
     padding-left: 58px;
     list-style: none;
-    border-bottom: 1px solid $color-10per;
+    border-bottom: 1px solid $main-light-medium;
 
     &_first {
       padding-top: 0;
@@ -52,10 +52,10 @@ $block: 'extra-list';
     left: 0;
     min-width: 48px;
     min-height: 48px;
-    color: $color-purple;
+    color: $font-brand;
     font-size: 48px;
     line-height: 1;
-    background: linear-gradient(180deg, $color-purple 0%, $color-purple-end 100%);
+    background: $brand-gradient;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;

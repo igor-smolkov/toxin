@@ -1,10 +1,12 @@
+@import '/assets/colors';
+
 .ui-kit {
   max-width: 1440px;
   min-height: 100%;
   margin: 0 auto;
 
   &_gray {
-    background-color: #f4f4f6;
+    background-color: $bg-variation;
   }
 
   &__header {

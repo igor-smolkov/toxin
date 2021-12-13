@@ -8,16 +8,16 @@
   justify-content: center;
   min-width: 40px;
   min-height: 40px;
-  color: white;
+  color: $font-inverse;
   font-weight: bold;
   border-radius: 22px;
 
-  @if $color == 'green' {
-    background: linear-gradient(180deg, $color-green 0%, $color-green-end 100%);
+  @if $color == 'accent' {
+    background: $accent-gradient;
   }
 
-  @if $color == 'purple' {
-    background: linear-gradient(180deg, $color-purple 0%, $color-purple-end 100%);
+  @if $color == 'brand' {
+    background: $brand-gradient;
   }
 
   @media only screen and (max-width: 400px) {
@@ -54,7 +54,7 @@
         &::before {
           @include icon-type;
 
-          color: $color-purple;
+          color: $font-brand;
           content: 'arrow_back';
         }
       }
@@ -76,7 +76,7 @@
         &::before {
           @include icon-type;
 
-          color: $color-purple;
+          color: $font-brand;
           content: 'arrow_forward';
         }
       }
@@ -108,7 +108,7 @@
       min-width: 40px;
       max-width: 40px;
       min-height: 40px;
-      color: $color-50per;
+      color: $font-medium;
       font-weight: normal;
 
       @media only screen and (max-width: 400px) {
@@ -119,22 +119,22 @@
     }
 
     th {
-      color: $color-purple;
+      color: $font-brand;
       font-weight: bold;
       text-transform: capitalize;
     }
 
     a {
-      color: $color-50per;
+      color: $font-medium;
     }
   }
 
   .ui-datepicker-other-month a {
-    color: $color-25per;
+    color: $font-light;
   }
 
   .ui-datepicker-period {
-    background: linear-gradient(180deg, rgba(188, 156, 255, 0.25) 0%, rgba(139, 164, 249, 0.25) 100%);
+    background: $brand-gradient-pale-hard;
   }
 
   .ui-datepicker-period-from {
@@ -148,19 +148,19 @@
   }
 
   .ui-datepicker-active a {
-    @include day-circle('green');
+    @include day-circle('accent');
   }
 
   .ui-datepicker-period-from a,
   .ui-datepicker-period-to a {
-    @include day-circle('purple');
+    @include day-circle('brand');
   }
 
   .ui-datepicker-calendar a:hover {
-    @include day-circle('green');
+    @include day-circle('accent');
   }
 
   .ui-datepicker-active a:hover {
-    @include day-circle('purple');
+    @include day-circle('brand');
   }
 }
