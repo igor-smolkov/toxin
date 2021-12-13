@@ -1,8 +1,6 @@
 import $ from 'jquery';
 import myJQuerySliderFactory from 'my-jquery-slider/dist/jquery.my-jquery-slider/jquery.my-jquery-slider';
 
-import './my-jquery-slider.scss';
-
 class MyJQuerySlider {
   constructor($root, limits = [0, 5000, 10000, 16000]) {
     this._$root = $root;

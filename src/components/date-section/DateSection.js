@@ -19,8 +19,8 @@ class DateSection {
     const dateToStr = this._departureField.getValue();
     const isWithoutDate = !dateFromStr || !dateToStr;
     if (isWithoutDate) return 0;
-    const dateFrom = Calendar._createDate(dateFromStr);
-    const dateTo = Calendar._createDate(dateToStr);
+    const dateFrom = Calendar.createDate(dateFromStr);
+    const dateTo = Calendar.createDate(dateToStr);
     if (dateTo < dateFrom) return 0;
     const diff = dateTo - dateFrom;
     if (!diff) return 0;
