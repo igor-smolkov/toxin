@@ -22,13 +22,13 @@ $block: 'check-button';
 
       &__details {
         @include text('small');
-        @include text('rare_less');
 
         display: inline-block;
         max-width: 230px;
-        margin-top: 4px;
+        margin-top: 6px;
         color: $font-medium;
         font-weight: normal;
+        line-height: 1.2;
       }
     }
   }

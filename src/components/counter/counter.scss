@@ -13,7 +13,6 @@ $block: 'counter';
     min-height: 30px;
     max-height: 30px;
     padding: 0;
-    padding-bottom: 4px;
     background-color: transparent;
   }
 
@@ -22,7 +21,7 @@ $block: 'counter';
 
     color: $font-medium;
     font-weight: normal;
-    font-size: 1.22rem;
+    font-size: 17px;
     border: 1px solid $main-light;
     border-radius: 22px;
     cursor: pointer;
@@ -47,9 +46,10 @@ $block: 'counter';
   }
 
   &__count {
+    @include h3-type;
+
     min-width: 32px;
     margin: 0;
-
-    @include h3-type;
+    line-height: 4;
   }
 }

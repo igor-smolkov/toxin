@@ -9,7 +9,7 @@
   }
 
   &__item {
-    margin-top: 11px;
+    margin-top: 10px;
     list-style: none;
 
     &_first {
@@ -20,6 +20,6 @@
   &__total {
     @include h2-type;
 
-    margin-top: 31px;
+    margin-top: 30px;
   }
 }

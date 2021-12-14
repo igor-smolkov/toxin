@@ -45,14 +45,12 @@
 
   &__date-time {
     margin: 0;
-
-    @include text('rare_more');
+    line-height: 1.7;
   }
 
   &__message {
     margin: 0;
     margin-top: 10px;
-
-    @include text('rare_more');
+    line-height: 1.7;
   }
 }
