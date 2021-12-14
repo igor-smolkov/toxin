@@ -1,3 +1,15 @@
+@keyframes shift-in {
+  to {
+    left: 0;
+  }
+}
+
+@keyframes shift-out {
+  to {
+    right: 100%;
+  }
+}
+
 .carousel {
   position: absolute;
   top: 0;
@@ -27,23 +39,11 @@
 
     &_animate {
       &_overlay {
-        animation: shift-1 2s;
-
-        @keyframes shift-1 {
-          to {
-            left: 0;
-          }
-        }
+        animation: shift-in 2s;
       }
 
       &_hiding {
-        animation: shift 2s;
-
-        @keyframes shift {
-          to {
-            right: 100%;
-          }
-        }
+        animation: shift-out 2s;
       }
     }
   }
