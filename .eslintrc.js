@@ -16,7 +16,7 @@ module.exports = {
     'import/extensions': [
       'error',
       'never',
-      { js: 'ignorePackages', scss: 'always' },
+      { js: 'ignorePackages', scss: 'always', svg: 'always' },
     ],
     'import/no-unresolved': 0,
   },

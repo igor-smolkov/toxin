@@ -4,8 +4,20 @@ mixin logo(options = {})
 
   if isSimplified
     DIV(class=blockName, class=`${blockName}_simplified`)
-      DIV(class=`${blockName}__pic`)
+      IMG(
+        class=`${blockName}__pic`,
+        src="/assets/images/logo-gray.svg",
+        alt="Toxin"
+      )
   else
     A(class=blockName, href="landing-page.html")
-      DIV(class=`${blockName}__pic`)
-      DIV(class=`${blockName}__text`)
+      IMG(
+        class=`${blockName}__pic`,
+        src="/assets/images/logo-color.svg",
+        alt="Toxin"
+      )
+      IMG(
+        class=`${blockName}__text`,
+        src="/assets/images/logo-text.svg",
+        alt="Toxin"
+      )
