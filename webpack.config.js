@@ -11,9 +11,6 @@ const LiveReloadPlugin = require('webpack-livereload-plugin');
 const isDev = process.env.NODE_ENV === 'development';
 const isProd = !isDev;
 
-const imagesDir = 'assets/images';
-const faviconsDir = 'assets/favicons';
-const fontsDir = 'assets/fonts';
 const pagesDir = 'pages';
 const pages = [
   {
@@ -82,7 +79,7 @@ const plugins = () => {
       collapseWhitespace: isProd,
     },
     chunks: ['main', chunk],
-    favicon: `${faviconsDir}/favicon.ico`,
+    favicon: path.resolve(__dirname, 'assets/favicons/favicon.ico'),
   });
 
   const list = [
@@ -96,12 +93,12 @@ const plugins = () => {
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: path.resolve(__dirname, `src/${imagesDir}/`),
-          to: imagesDir,
+          from: path.resolve(__dirname, 'assets/favicons'),
+          to: 'assets/favicons',
         },
         {
-          from: path.resolve(__dirname, `src/${faviconsDir}/`),
-          to: faviconsDir,
+          from: path.resolve(__dirname, 'assets/images'),
+          to: 'assets/images',
         },
       ],
     }),
@@ -153,12 +150,13 @@ module.exports = {
   resolve: {
     alias: {
       '@comp': path.resolve(__dirname, 'src/components'),
+      '@fonts': path.resolve(__dirname, 'assets/fonts'),
     },
   },
   optimization: optimization(),
   mode: isDev ? 'development' : 'production',
   devServer: {
-    port: 5400,
+    port: 5300,
     hot: true,
     open: true,
   },
@@ -187,14 +185,14 @@ module.exports = {
         exclude: /fonts/,
         loader: 'file-loader',
         options: {
-          name: `${imagesDir}/${filename('[ext]')}`,
+          name: `assets/images/${filename('[ext]')}`,
         },
       },
       {
         test: /\.(ttf|woff|otf|eot|woff2)$/,
         loader: 'file-loader',
         options: {
-          name: `${fontsDir}/${filename('[ext]')}`,
+          name: `assets/fonts/${filename('[ext]')}`,
         },
       },
       {

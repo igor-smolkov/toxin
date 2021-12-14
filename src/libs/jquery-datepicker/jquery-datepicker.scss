@@ -1,5 +1,5 @@
-@import '/assets/colors';
-@import '/assets/types';
+@import '/styles/colors';
+@import '/styles/types';
 
 @mixin day-circle($color) {
   display: flex;
