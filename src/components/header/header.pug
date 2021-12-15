@@ -70,11 +70,12 @@ mixin header(options = {})
     }
 
   DIV(class=blockName)
-    DIV(class=`${blockName}__logo`)
-      +logo
-    DIV(class=`${blockName}__burger`)
-      +burger(name)
-        if (isCustom)
-          block
-        else
-          +menu(menuOptions)
+    DIV(class=`${blockName}__wrapper`)
+      DIV(class=`${blockName}__logo`)
+        +logo
+      DIV(class=`${blockName}__burger`)
+        +burger(name)
+          if (isCustom)
+            block
+          else
+            +menu(menuOptions)

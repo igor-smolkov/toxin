@@ -4,8 +4,15 @@ $block: 'footer';
 .#{$block} {
   width: 100%;
 
-  &__copyright-bar {
+  &__wrapper {
     border-top: 1px solid $main-light-medium;
+  }
+
+  &__widgets,
+  &__copyright-bar {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
   }
 
   &_creative {

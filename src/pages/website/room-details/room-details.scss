@@ -2,9 +2,12 @@
   &__content {
     display: flex;
     flex-wrap: wrap;
-    gap: 40px 70px;
+    gap: 40px 68px;
     justify-content: center;
-    padding: 70px 140px;
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 70px 140px 66px;
 
     @media only screen and (max-width: 600px) {
       padding: 40px;
