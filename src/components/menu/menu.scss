@@ -54,12 +54,15 @@ $list-size: 900px;
 
     &_only {
       position: relative;
-      margin-left: 21px;
+      display: flex;
+      align-items: center;
+      margin-left: 18.5px;
+      text-align: right;
 
       &::before {
         position: absolute;
         top: -4px;
-        left: -21px;
+        left: -17px;
         min-width: 1px;
         min-height: 30px;
         background-color: $line;
@@ -76,6 +79,7 @@ $list-size: 900px;
 
       @media only screen and (max-width: $list-size) {
         margin-left: 0;
+        text-align: left;
       }
     }
   }
