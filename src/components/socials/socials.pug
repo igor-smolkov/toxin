@@ -1,6 +1,9 @@
 mixin socials
   - const blockName = "socials";
-  UL(class=blockName)
+  UL(
+    class=blockName,
+    class=`js-${blockName}`
+  )
     each name, index in ["twitter", "facebook", "instagram"]
       - const isFist = index === 0;
       LI(
@@ -10,6 +13,7 @@ mixin socials
         A(
           class=`${blockName}__link`,
           class=`${blockName}__link_${name}`,
+          class=`js-${blockName}-link`,
           href="/mock-address/change-me",
           target="_blank",
           title=`Наша страница в ${name}`
