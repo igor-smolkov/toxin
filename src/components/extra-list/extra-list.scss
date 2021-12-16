@@ -5,13 +5,13 @@ $block: 'extra-list';
 .#{$block} {
   width: 100%;
   min-width: 280px;
+  max-width: 280px;
   min-height: fit-content;
   margin: 0;
   padding: 0;
 
   &__item {
     position: relative;
-    width: fit-content;
     padding: 20px 0;
     padding-left: 58px;
     list-style: none;

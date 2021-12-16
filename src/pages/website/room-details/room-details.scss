@@ -14,12 +14,16 @@
     }
 
     @media only screen and (max-width: 400px) {
-      padding: 30px 2px;
+      padding: 0;
     }
   }
 
   &__info {
     max-width: 712px;
+
+    @media only screen and (max-width: 400px) {
+      padding: 30px 15px 0;
+    }
   }
 
   &__card {
@@ -27,6 +31,10 @@
 
     @media only screen and (max-width: 800px) {
       flex-basis: auto;
+    }
+
+    @media only screen and (max-width: 400px) {
+      padding: 0 0 30px;
     }
   }
 }
