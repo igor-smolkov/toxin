@@ -1,5 +1,7 @@
 import $ from 'jquery';
 
+import previewClassNames from './utils/previewClassNames';
+
 class Preview {
   constructor($elem) {
     this._$elem = $elem;
@@ -12,6 +14,15 @@ class Preview {
     $(
       `input[name="views-${this._number}"][value=${this._selected}]`,
     ).prop('checked', true);
+    this._animate();
+  }
+
+  _animate() {
+    this._$img.addClass(previewClassNames.imgAnimate);
+  }
+
+  _resetAnimation() {
+    this._$img.removeClass(previewClassNames.imgAnimate);
   }
 
   prev() {
@@ -73,6 +84,7 @@ class Preview {
       'change',
       this._handlePointsControlChange.bind(this),
     );
+    this._$img.on('animationend', this._resetAnimation.bind(this));
   }
 }
 

@@ -1,6 +1,12 @@
 @import '/styles/colors';
 @import '/styles/types';
 
+@keyframes blur-in {
+  from {
+    filter: blur(20px);
+  }
+}
+
 $block: 'preview';
 
 .#{$block} {
@@ -10,6 +16,10 @@ $block: 'preview';
   &__img {
     display: block;
     width: 100%;
+
+    &_animate {
+      animation: blur-in 0.25s;
+    }
   }
 
   &__arrows {
