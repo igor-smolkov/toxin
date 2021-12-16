@@ -10,6 +10,10 @@
   &__unit {
     width: 100%;
     max-width: 380px;
+
+    &_small {
+      max-width: 270px;
+    }
   }
 
   @media only screen and (max-width: 1430px) {
