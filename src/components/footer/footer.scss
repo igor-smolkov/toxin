@@ -1,8 +1,38 @@
 @import '/styles/colors';
 
 $block: 'footer';
+
+@mixin creative {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 10px;
+  background-color: $bg-main;
+  box-shadow: 0 10px 20px $shadow-light-hard;
+
+  .#{$block}__widgets,
+  .#{$block}__wrapper {
+    display: none;
+  }
+
+  .#{$block}__logo,
+  .#{$block}__copyright,
+  .#{$block}__socials {
+    display: block;
+  }
+
+  .#{$block}__copyright {
+    margin-top: 20px;
+  }
+
+  .#{$block}__socials {
+    margin-top: 25px;
+  }
+}
+
 .#{$block} {
-  width: 100%;
+  min-width: 100%;
 
   &__wrapper {
     border-top: 1px solid $main-light-medium;
@@ -15,20 +45,17 @@ $block: 'footer';
     margin: 0 auto;
   }
 
+  &__logo,
+  &__copyright,
+  &__socials {
+    display: none;
+  }
+
   &_creative {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    max-width: 768px;
-    padding: 120px 10px;
-    background-color: $bg-main;
-    box-shadow: 0 10px 20px $shadow-light-hard;
-    .#{$block}__copyright {
-      margin-top: 20px;
-    }
-    .#{$block}__socials {
-      margin-top: 25px;
-    }
+    @include creative;
+  }
+
+  @media only screen and (max-width: 1030px) {
+    @include creative;
   }
 }

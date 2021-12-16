@@ -11,17 +11,15 @@ mixin footer(options = {})
   DIV(
     class=blockName,
     class=asCard ? `${blockName}_creative` : ""
-  ) 
-    if !asCard
-      SECTION(class=`${blockName}__widgets`)
-        +widgets
-      DIV(class=`${blockName}__wrapper`)
-        SECTION(class=`${blockName}__copyright-bar`)
-          +copyright-bar
-    else
-      DIV(class=`${blockName}__logo`)
-        +logo
-      DIV(class=`${blockName}__copyright`)
-        +copyright
-      DIV(class=`${blockName}__socials`)
-        +socials
+  )
+    SECTION(class=`${blockName}__widgets`)
+      +widgets
+    DIV(class=`${blockName}__wrapper`)
+      SECTION(class=`${blockName}__copyright-bar`)
+        +copyright-bar
+    DIV(class=`${blockName}__logo`)
+      +logo
+    DIV(class=`${blockName}__copyright`)
+      +copyright
+    DIV(class=`${blockName}__socials`)
+      +socials

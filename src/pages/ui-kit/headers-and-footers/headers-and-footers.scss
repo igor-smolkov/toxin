@@ -15,6 +15,9 @@
 
     &_last {
       align-self: center;
+      width: 100%;
+      min-width: min-content;
+      max-width: 768px;
     }
   }
 }
