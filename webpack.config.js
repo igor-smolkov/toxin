@@ -185,7 +185,7 @@ module.exports = {
         exclude: /fonts/,
         loader: 'file-loader',
         options: {
-          name: `assets/images/${filename('[ext]')}`,
+          name: 'assets/images/[name].[ext]',
         },
       },
       {
