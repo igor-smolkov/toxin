@@ -3,23 +3,24 @@ mixin room-photos(options = {})
   - const { images } = options;
 
   DIV(class=blockName)
-    DIV(class=`${blockName}__main`)
-      DIV(class=`${blockName}__photo-container`)
-        IMG(
-          class=`${blockName}__photo`,
-          src=images[0],
-          alt="Вид номера - 1"
-        )
-    DIV(class=`${blockName}__aside`)
-      DIV(class=`${blockName}__photo-container`)
-        IMG(
-          class=`${blockName}__photo`,
-          src=images[1],
-          alt="Вид номера - 2"
-        )
-      DIV(class=`${blockName}__photo-container`)
-        IMG(
-          class=`${blockName}__photo`,
-          src=images[2],
-          alt="Вид номера - 3"
-        )
+    DIV(class=`${blockName}__wrapper`)
+      DIV(class=`${blockName}__main`)
+        DIV(class=`${blockName}__photo-container`)
+          IMG(
+            class=`${blockName}__photo`,
+            src=images[0],
+            alt="Вид номера - 1"
+          )
+      DIV(class=`${blockName}__aside`)
+        DIV(class=`${blockName}__photo-container`)
+          IMG(
+            class=`${blockName}__photo`,
+            src=images[1],
+            alt="Вид номера - 2"
+          )
+        DIV(class=`${blockName}__photo-container`)
+          IMG(
+            class=`${blockName}__photo`,
+            src=images[2],
+            alt="Вид номера - 3"
+          )
