@@ -42,7 +42,7 @@ $block: 'check-button';
     height: 20px;
     opacity: 0;
     &:checked+.#{$block}__label::before {
-      background: no-repeat center url('check.svg');
+      background: no-repeat center url('images/check.svg');
       background-position: 4px 3px;
       border-color: $brand;
     }
@@ -75,7 +75,7 @@ $block: 'check-button';
     }
 
     &_checked::before {
-      background: no-repeat center url('check.svg');
+      background: no-repeat center url('images/check.svg');
       background-position: 4px 3px;
       border-color: $brand;
     }
