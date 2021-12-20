@@ -2,8 +2,6 @@
 
 $block: 'room-photos';
 .#{$block} {
-  background-color: $bg-variation;
-
   &__wrapper {
     display: flex;
     max-width: 1440px;
