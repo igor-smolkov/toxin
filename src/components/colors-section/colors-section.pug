@@ -1,7 +1,9 @@
-include ../../../../../components/color-section/color-section.pug
+include ../color-section/color-section.pug
 
-mixin colors
-  .colors
+mixin colors-section
+  - const blockName = "colors-section";
+
+  DIV(class=blockName)
     +color-section({ name: "Dark Shade 100%", code: "#1F2041" })
     +color-section({ name: "Dark Shade 75%", code: "#1F2041" })
     +color-section({ name: "Dark Shade 50%", code: "#1F2041" })

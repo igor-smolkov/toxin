@@ -1,7 +1,7 @@
 extends ../../../layouts/ui-kit/ui-kit
 
-include sections/colors/colors
-include sections/types/types
+include ../../../components/colors-section/colors-section
+include ../../../components/types-section/types-section
 
 block variables
   -
@@ -14,6 +14,6 @@ block variables
 block content
   .colors-and-type
     ARTICLE.colors-and-type__colors
-      +colors
+      +colors-section
     ARTICLE.colors-and-type__types
-      +types
+      +types-section

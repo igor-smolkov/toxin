@@ -1,11 +1,12 @@
-include ../../../../../components/form-set/form-set.pug
-include ../../../../../components/text-field/text-field.pug
-include ../../../../../components/dropdown/dropdown.pug
-include ../../../../../components/date-section/date-section.pug
-include ../../../../../components/date-filter/date-filter.pug
-include ../../../../../components/subscription/subscription.pug
+include ../form-set/form-set.pug
+include ../text-field/text-field.pug
+include ../dropdown/dropdown.pug
+include ../date-section/date-section.pug
+include ../date-filter/date-filter.pug
+include ../subscription/subscription.pug
 
 mixin field-elements
+  - const blockName = "field-elements";
   -
     const hoveredTextFieldOptions = {
       placeholder: "This is pretty awesome",
@@ -42,25 +43,39 @@ mixin field-elements
       type: "email",
     }
 
-  .field-elements
-    SECTION.field-elements__section.field-elements__section_first
+  DIV(class=blockName)
+    SECTION(
+      class=`${blockName}__section`,
+      class=`${blockName}__section_first`
+    )
       +form-set({ title: "Text Field", details: "Default" })
         +text-field({ placeholder: "Email", type: "email" })
-    SECTION.field-elements__section
+    SECTION(class=`${blockName}__section`)
       +form-set({ title: "Text Field", details: "Hover / Focus" })
         +text-field(hoveredTextFieldOptions)
-    SECTION.field-elements__section
+    SECTION(class=`${blockName}__section`)
       +form-set({ title: "Dropdown" })
         +dropdown(dropdownOptions)
-    SECTION.field-elements__section
+    SECTION(class=`${blockName}__section`)
       +form-set({ title: "Masked Text Field" })
         +text-field(maskedTextFieldOptions)
-    SECTION.field-elements__section.field-elements__section_rarefied
+    SECTION(
+      class=`${blockName}__section`,
+      class=`${blockName}__section_rarefied`
+    )
       +date-section(dateSectionOptions)
-    SECTION.field-elements__section.field-elements__section_rarefied.field-elements__section_short
+    SECTION(
+      class=`${blockName}__section`,
+      class=`${blockName}__section_rarefied`,
+      class=`${blockName}__section_short`
+    )
       +form-set({ title: "Filter Date Dropdown" })
         +date-filter(dateFilterOptions)
-    SECTION.field-elements__section.field-elements__section_rarefied.field-elements__section_short
+    SECTION(
+      class=`${blockName}__section`,
+      class=`${blockName}__section_rarefied`,
+      class=`${blockName}__section_short`
+    )
       +form-set({ title: "Subscription Text Field" })
         +subscription
           +text-field(subscriptionTextFieldOptions)

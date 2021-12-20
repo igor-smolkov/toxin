@@ -1,10 +1,11 @@
-include ../../../../../components/room-section/room-section
-include ../../../../../components/extra-list/extra-list
-include ../../../../../components/comment/comment
-include ../../../../../components/bullet-list/bullet-list
-include ../../../../../components/chart/chart
+include ../room-section/room-section
+include ../extra-list/extra-list
+include ../comment/comment
+include ../bullet-list/bullet-list
+include ../chart/chart
 
 mixin room-info
+  - const blockName = "room-info";
   -
     const extraListOptions = {
       items: [
@@ -59,24 +60,38 @@ mixin room-info
       ],
     }
 
-  .room-info
-    SECTION.room-info__section.room-info__section_first.room-info__section_grouped
-      SECTION.room-info__subsection.room-info__subsection_first
+  DIV(class=blockName)
+    SECTION(
+      class=`${blockName}__section`,
+      class=`${blockName}__section_first`,
+      class=`${blockName}__section_grouped`
+    )
+      SECTION(
+        class=`${blockName}__subsection`,
+        class=`${blockName}__subsection_first`
+      )
         +room-section({ title: "Сведения о номере" })
           +extra-list(extraListOptions)
-      SECTION.room-info__subsection
+      SECTION(class=`${blockName}__subsection`)
         +room-section({ title: "Впечатления от номера" })
           +chart(chartOptions)
-    SECTION.room-info__section
+    SECTION(class=`${blockName}__section`)
       +room-section(reviewRoomSectionOptions)
         .room-section__item.room-section__item_first
           +comment(likedCommentOptions)
         .room-section__item
           +comment(commentOptions)
-    SECTION.room-info__section.room-info__section_last.room-info__section_grouped
-      SECTION.room-info__subsection.room-info__subsection_first
+    SECTION(
+      class=`${blockName}__section`,
+      class=`${blockName}__section_last`,
+      class=`${blockName}__section_grouped`
+    )
+      SECTION(
+        class=`${blockName}__subsection`,
+        class=`${blockName}__subsection_first`
+      )
         +room-section({ title: "Правила", isShifted: true })
           +bullet-list(bulletListOptions)
-      SECTION.room-info__subsection
+      SECTION(class=`${blockName}__subsection`)
         +room-section({ title: "Отмена" })
           P= "Бесплатная отмена в течение 48 ч. После этого при отмене не позднее чем за 5 дн. до прибытия вы получите полный возврат за вычетом сбора за услуги."

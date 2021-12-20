@@ -1,7 +1,8 @@
-include ../../../../../components/form-set/form-set.pug
-include ../../../../../components/dropdown/dropdown.pug
+include ../form-set/form-set.pug
+include ../dropdown/dropdown.pug
 
 mixin dropdowns(param)
+  - const blockName = "dropdowns";
   if (param === "full-set")
     -
       const dropdownOptions = {
@@ -14,8 +15,12 @@ mixin dropdowns(param)
           { name: "младенцы", category: "младенец" },
         ],
       }
-    .dropdowns
-      SECTION.dropdowns__section.dropdowns__section_first.dropdowns__section_greedy_2
+    DIV(class=blockName)
+      SECTION(
+        class=`${blockName}__section`,
+        class=`${blockName}__section_first`,
+        class=`${blockName}__section_greedy_2`
+      )
         +form-set({ title: "Dropdown" })
           +dropdown(dropdownOptions)
   else if (param === "full-set-example")
@@ -30,8 +35,12 @@ mixin dropdowns(param)
           { name: "младенцы", category: "младенец" },
         ],
       }
-    .dropdowns
-      SECTION.dropdowns__section.dropdowns__section_first.dropdowns__section_greedy_2
+    DIV(class=blockName)
+      SECTION(
+        class=`${blockName}__section`,
+        class=`${blockName}__section_first`,
+        class=`${blockName}__section_greedy_2`
+      )
         +form-set({ title: "Dropdown" })
           +dropdown(dropdownOptions)
   else
@@ -53,10 +62,18 @@ mixin dropdowns(param)
           { name: "Ванные комнаты", category: "ванная" },
         ],
       }
-    .dropdowns
-      SECTION.dropdowns__section.dropdowns__section_first.dropdowns__section_short
+    DIV(class=blockName)
+      SECTION(
+        class=`${blockName}__section`,
+        class=`${blockName}__section_first`,
+        class=`${blockName}__section_short`
+      )
         +form-set({ title: "Dropdown", details: "Default" })
           +dropdown(defaultDropdownOptions)
-      SECTION.dropdowns__section.dropdowns__section_greedy_1.dropdowns__section_short
+      SECTION(
+        class=`${blockName}__section`,
+        class=`${blockName}__section_greedy_1`,
+        class=`${blockName}__section_short`
+      )
         +form-set({ title: "Dropdown", details: "Expanded" })
           +dropdown(expandedDropdownOptions)

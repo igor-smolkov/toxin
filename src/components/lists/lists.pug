@@ -1,9 +1,10 @@
-include ../../../../../components/form-set/form-set.pug
-include ../../../../../components/expandable-list/expandable-list.pug
-include ../../../../../components/bullet-list/bullet-list.pug
-include ../../../../../components/extra-list/extra-list.pug
+include ../form-set/form-set.pug
+include ../expandable-list/expandable-list.pug
+include ../bullet-list/bullet-list.pug
+include ../extra-list/extra-list.pug
 
 mixin lists(param)
+  - const blockName = "lists";
   if (param === "expandable-checks")
     -
       const defaultFormSetOptions = {
@@ -39,11 +40,18 @@ mixin lists(param)
           { label: "Шампунь" },
         ],
       }
-    .lists
-      SECTION.lists__section.lists__section_first.lists__section_short
+    DIV(class=blockName)
+      SECTION(
+        class=`${blockName}__section`,
+        class=`${blockName}__section_first`,
+        class=`${blockName}__section_short`
+      )
         +form-set(defaultFormSetOptions)
           +expandable-list(defaultExpandableListOptions)
-      SECTION.lists__section.lists__section_short
+      SECTION(
+        class=`${blockName}__section`,
+        class=`${blockName}__section_short`
+      )
         +form-set(expandedFormSetOptions)
           +expandable-list(expandedExpandableListOptions)
   else if (param === "bullet")

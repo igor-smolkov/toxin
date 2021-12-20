@@ -1,11 +1,12 @@
-include ../../../../../components/form-set/form-set.pug
-include ../../../../../components/check-button/check-button.pug
-include ../../../../../components/radio-group/radio-group.pug
-include ../../../../../components/toggle/toggle.pug
-include ../../../../../components/like-button/like-button.pug
-include ../../../../../components/rate-button/rate-button.pug
+include ../form-set/form-set.pug
+include ../check-button/check-button.pug
+include ../radio-group/radio-group.pug
+include ../toggle/toggle.pug
+include ../like-button/like-button.pug
+include ../rate-button/rate-button.pug
 
 mixin check-elements
+  - const blockName = "check-elements";
   -
     const petsCheckButtonOptions = {
       label: "Можно с питомцами",
@@ -37,8 +38,11 @@ mixin check-elements
       isInlined: true,
     }
 
-  .check-elements
-    SECTION.check-elements__section.check-elements__section_first
+  DIV(class=blockName)
+    SECTION(
+      class=`${blockName}__section`,
+      class=`${blockName}__section_first`
+    )
       +form-set({ title: "Checkbox Buttons", isGrouped: true })
         .form-set__element.form-set__element_indent-in_check-buttons
           +check-button({ label: "Можно курить" })
@@ -46,22 +50,22 @@ mixin check-elements
           +check-button(petsCheckButtonOptions)
         .form-set__element.form-set__element_indent-in_check-buttons
           +check-button(guestsCheckButtonOptions)
-    SECTION.check-elements__section
+    SECTION(class=`${blockName}__section`)
       +form-set({ title: "Radio Buttons", isIndented: true })
         +radio-group(radioGroupOptions)
-    SECTION.check-elements__section
+    SECTION(class=`${blockName}__section`)
       +form-set({ title: "Toggle", isGrouped: true })
         .form-set__element
           +toggle(toggleOptions)
         .form-set__element.form-set__element_indent-in_toggles
           +toggle({ label: "Получать спецпредложения" })
-    SECTION.check-elements__section
+    SECTION(class=`${blockName}__section`)
       +form-set(likeFormSetOptions)
         .form-set__element
           +like-button({ value: 2 })
         .form-set__element.form-set__element_indent-in_like-buttons
           +like-button({ value: 12, isChecked: true })
-    SECTION.check-elements__section
+    SECTION(class=`${blockName}__section`)
       +form-set(rateFormSetOptions)
         .form-set__element
           +rate-button({ name: "rate-1", value: 4 })

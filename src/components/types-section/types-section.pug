@@ -1,6 +1,7 @@
-include ../../../../../components/type-section/type-section.pug
+include ../type-section/type-section.pug
 
-mixin types
+mixin types-section
+  - const blockName = "types-section";
   -
     const typeSectionOptionsList = [
       {
@@ -20,6 +21,7 @@ mixin types
         example: "This is the body text which is used for most of the design, like paragraphs, lists, etc.",
       },
     ]
-  .types
+
+  DIV(class=blockName)
     each typeSectionOptions in typeSectionOptionsList
       +type-section(typeSectionOptions)
