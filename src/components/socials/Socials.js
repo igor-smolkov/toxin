@@ -4,14 +4,16 @@ class Socials {
     this._init();
   }
 
-  static _handleClick(e) {
+  static _blur(e) {
     e.target.blur();
   }
 
   _init() {
     this._links = this._$elem.find('.js-socials-link');
     this._links.each((_, link) => {
-      link.addEventListener('click', Socials._handleClick);
+      link.addEventListener('click', Socials._blur);
+      link.addEventListener('pointerup', Socials._blur);
+      link.addEventListener('pointerleave', Socials._blur);
     });
   }
 }
