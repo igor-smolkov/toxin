@@ -1,5 +1,27 @@
 @import '/styles/colors';
 
+$burger: linear-gradient(
+  to bottom,
+  $brand 3px,
+  transparent 3px,
+  transparent 14px,
+  $brand 14px,
+  $brand 17px,
+  transparent 17px,
+  transparent 27px,
+  $brand 27px
+);
+$burger-focus: linear-gradient(
+  to bottom,
+  $brand-variation 3px,
+  transparent 3px,
+  transparent 13px,
+  $brand-variation 13px,
+  $brand-variation 17px,
+  transparent 17px,
+  transparent 27px,
+  $brand-variation 27px
+);
 $block: 'burger';
 .#{$block} {
   display: flex;
@@ -13,16 +35,19 @@ $block: 'burger';
     height: 1px;
     opacity: 0;
     &:focus~.#{$block}__button {
+      background: $burger-focus;
+      transform: scale(1.2);
+      transition: all 0.3s;
+
       &::before,
-      &::after,
-      span {
+      &::after {
         background-color: $bg-brand-variation;
-        transform: scale(1.2);
-        transition: all 0.3s;
       }
     }
     &:checked~.#{$block} {
       &__button {
+        background: none;
+
         &::before,
         &::after {
           background-color: $bg-brand-variation;
@@ -37,10 +62,6 @@ $block: 'burger';
         &::after {
           bottom: 13.5px;
           transform: rotate(-45deg);
-        }
-
-        span {
-          display: none;
         }
       }
 
@@ -66,7 +87,7 @@ $block: 'burger';
     justify-content: center;
     min-width: 30px;
     min-height: 30px;
-    background-color: transparent;
+    background: $burger;
     cursor: pointer;
 
     @media only screen and (max-width: 1030px) {
@@ -74,21 +95,16 @@ $block: 'burger';
     }
 
     &::before,
-    &::after,
-    span {
-      display: block;
+    &::after {
+      position: absolute;
+      left: 0;
       width: 30px;
       height: 3px;
       background-color: $bg-brand;
       border-radius: 1px;
-    }
-
-    &::before,
-    &::after {
-      position: absolute;
-      left: 0;
       content: '';
     }
+
     &::before { top: 0; }
     &::after { bottom: 0; }
   }
