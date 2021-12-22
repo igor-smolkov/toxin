@@ -34,6 +34,54 @@ class Dropdown {
     return number.toString().substring(number.toString().length - 2);
   }
 
+  static _accumulateWordFormsStr(acc, category, count, index) {
+    if (count === 0) return acc;
+    let currentStr = index !== 0 ? `${acc}, ` : acc;
+    currentStr += Dropdown._defineWordFormBy(count, category);
+    return currentStr;
+  }
+
+  static _defineWordFormBy(count, category) {
+    switch (category) {
+      case 'гость':
+        return Dropdown._makeWordFormStr(count, [
+          'гость',
+          'гостя',
+          'гостей',
+        ]);
+      case 'младенец':
+        return Dropdown._makeWordFormStr(count, [
+          'младенец',
+          'младенца',
+          'младенцев',
+        ]);
+      case 'спальня':
+        return Dropdown._makeWordFormStr(count, [
+          'спальня',
+          'спальни',
+          'спален',
+        ]);
+      case 'кровать':
+        return Dropdown._makeWordFormStr(count, [
+          'кровать',
+          'кровати',
+          'кроватей',
+        ]);
+      case 'ванная':
+        return Dropdown._makeWordFormStr(count, [
+          'ванная',
+          'ванные',
+          'ванных',
+        ]);
+      default:
+        return Dropdown._makeWordFormStr(count, [
+          'штука',
+          'штуки',
+          'штук',
+        ]);
+    }
+  }
+
   _init() {
     this._counters = this._initCounters();
     if (!this._counters.length) return;
@@ -73,56 +121,12 @@ class Dropdown {
   }
 
   _makeFiledStr() {
-    let str = '';
-    let i = 0;
-    this._calcCountersSums().forEach((count, category) => {
-      if (count === 0) return;
-      str += i !== 0 ? ', ' : '';
-      i += 1;
-      switch (category) {
-        case 'гость':
-          str += Dropdown._makeWordFormStr(count, [
-            'гость',
-            'гостя',
-            'гостей',
-          ]);
-          break;
-        case 'младенец':
-          str += Dropdown._makeWordFormStr(count, [
-            'младенец',
-            'младенца',
-            'младенцев',
-          ]);
-          break;
-        case 'спальня':
-          str += Dropdown._makeWordFormStr(count, [
-            'спальня',
-            'спальни',
-            'спален',
-          ]);
-          break;
-        case 'кровать':
-          str += Dropdown._makeWordFormStr(count, [
-            'кровать',
-            'кровати',
-            'кроватей',
-          ]);
-          break;
-        case 'ванная':
-          str += Dropdown._makeWordFormStr(count, [
-            'ванная',
-            'ванные',
-            'ванных',
-          ]);
-          break;
-        default:
-          str += Dropdown._makeWordFormStr(count, [
-            'штука',
-            'штуки',
-            'штук',
-          ]);
-      }
-    });
+    let str = Array.from(this._calcCountersSums().entries()).reduce(
+      (acc, [category, count], index) => (
+        Dropdown._accumulateWordFormsStr(acc, category, count, index)
+      ),
+      '',
+    );
     const isGuests = this._counters.find(
       (counter) => counter.category === 'гость',
     );
