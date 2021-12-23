@@ -16,10 +16,10 @@ mixin chart(items = [])
   - perValues[0] = perValues[1];
   - perValues[1] = firstSecondSwap;
 
-  DIV(class=blockName)
-    DIV(class=`${blockName}__total`)
-      +total-rate(sum)
-    DIV(class=`${blockName}__circle`)
+  SECTION(class=blockName)
+    FIGURE(class=`${blockName}__circle`)
       +rate-circle(perValues)
-    DIV(class=`${blockName}__caption-list`)
+      FIGCAPTION(class=`${blockName}__total`)
+        +total-rate(sum)
+    SECTION(class=`${blockName}__caption-list`)
       +caption-list(items)

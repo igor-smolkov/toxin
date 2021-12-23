@@ -1,9 +1,30 @@
-.card-title {
+@import '/styles/types';
+
+$block: 'card-title';
+.#{$block} {
+  @include h1-type;
+
   display: flex;
   align-items: baseline;
+  margin: 0;
+
+  &_small {
+    @include h2-type;
+  }
+
+  &__main,
+  &__details {
+    margin: 0;
+  }
 
   &__main {
+    @include h1-type;
+
     flex-grow: 1;
+
+    &_small {
+      @include h2-type;
+    }
   }
 
   &__details {

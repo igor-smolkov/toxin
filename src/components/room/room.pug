@@ -10,16 +10,19 @@ mixin room(options = {})
       reviews } = options
   -
     const cardTitleOptions = {
-      main: {
-        prefix: "№",
-        content: number,
-        postfix: isLux ? "Люкс" : "",
-        link: "room-details.html",
+      title: {
+        main: {
+          prefix: "№",
+          content: number,
+          postfix: isLux ? "Люкс" : "",
+          link: "room-details.html",
+        },
+        details: {
+          first: `${price.toLocaleString("ru")}₽`,
+          second: "в сутки",
+        }
       },
-      details: {
-        first: `${price.toLocaleString("ru")}₽`,
-        second: "в сутки",
-      },
+      isSmall: true,
     }
     const cardFormOptions = {
       type: "room-rate",
@@ -31,6 +34,6 @@ mixin room(options = {})
       HEADER.card__header
         +preview({ images, isHovered, number })
       SECTION.card__body
-        H2.card__title.card__title_margin_none
+        HEADER.card__title.card__title_margin_none
           +card-title(cardTitleOptions)
         +card-form(cardFormOptions)

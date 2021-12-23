@@ -4,7 +4,7 @@ mixin countable-item(options = {})
   - const blockName = "countable-item";
   - const { name, count, category } = options;
 
-  DIV(class=blockName)
+  SECTION(class=blockName)
     P(class=`${blockName}__name`)= name
-    DIV(class=`${blockName}__counter`)
+    SECTION(class=`${blockName}__counter`)
       +counter(count, category)

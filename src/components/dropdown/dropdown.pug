@@ -33,7 +33,7 @@ mixin dropdown(options = {})
       class=`${blockName}__expand-more`,
       for=`${blockName}-${name}-check`
     )
-    DIV(
+    SECTION(
       class=`${blockName}__panel`,
       class=!list ? `${blockName}__panel_independent` : "",
       class=alignPanelRight ? `${blockName}__panel_align_right` : ""

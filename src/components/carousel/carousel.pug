@@ -1,17 +1,17 @@
 mixin carousel(options = {})
   - const blockName = "carousel";
   - const { delaySec, slides } = options;
-  DIV(
+  SECTION(
     class=blockName,
     class=`js-${blockName}`,
     data-delay=delaySec
   )
-    DIV(
+    FIGURE(
       class=`${blockName}__slide`,
       class=`${blockName}__slide_current`,
       class=`js-${blockName}-slide-current`
     )
-    DIV(
+    FIGURE(
       class=`${blockName}__slide`,
       class=`${blockName}__slide_next`,
       class=`js-${blockName}-slide-next`

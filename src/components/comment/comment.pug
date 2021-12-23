@@ -11,17 +11,17 @@ mixin comment(options = {})
       isChecked: isLiked,
     }
 
-  DIV(class=blockName)
-    DIV(class=`${blockName}__images`)
-      DIV(class=`${blockName}__avatar`)
+  SECTION(class=blockName)
+    ASIDE(class=`${blockName}__images`)
+      FIGURE(class=`${blockName}__avatar`)
         IMG(
           class=`${blockName}__img`,
           src=avatar,
           alt=username
         )
-      DIV(class=`${blockName}__like`)
+      P(class=`${blockName}__like`)
         +like-button(likeButtonOptions)
-    DIV(class=`${blockName}__texts`)
+    SECTION(class=`${blockName}__texts`)
       P(class=`${blockName}__username`)= username
       P(class=`${blockName}__date-time`)= datetime
       P(class=`${blockName}__message`)= message

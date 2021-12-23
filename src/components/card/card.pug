@@ -4,16 +4,16 @@ mixin card(options = {})
   - const blockName = "card";
   - const { title, isMedium, isSmall, isEmpty } = options;
 
-  DIV(
+  ARTICLE(
     class=blockName,
     class=isMedium ? `${blockName}_medium` : "",
     class=isSmall ? `${blockName}_small` : ""
   )
     if title
-      H1(class=`${blockName}__title`)
-        +card-title(title)
+      HEADER(class=`${blockName}__title`)
+        +card-title({ title, isSmall })
     if !isEmpty
-      DIV(class=`${blockName}__form`)
+      SECTION(class=`${blockName}__form`)
         block
     else
       block

@@ -4,7 +4,7 @@ mixin bill(options = {})
   - const blockName = "bill";
   - const { list = [], total } = options;
 
-  DIV(class=blockName, class=`js-${blockName}`)
+  SECTION(class=blockName, class=`js-${blockName}`)
     UL(class=`${blockName}__list`)
       each item, index in list
         - const isFirst = index === 0;

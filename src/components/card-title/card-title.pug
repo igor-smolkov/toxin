@@ -3,14 +3,26 @@ include ../title-details/title-details.pug
 
 mixin card-title(options = {})
   - const blockName = "card-title";
+  - const { title, isSmall } = options;
+  - const titleOnly = (typeof title) === "string";
 
-  if (typeof options) === "string"
-    SPAN(class=blockName)= options
+  if titleOnly
+    H1(class=blockName)= title
   else
-    - const { main, details } = options;
-    SPAN(class=blockName)
-      SPAN(class=`${blockName}__main`)
-        +title-main(main)
+    - const { main, details } = title
+    SECTION(
+      class=blockName
+      class=`${blockName}_small`,
+    )
+      if (!isSmall)
+        H1(class=`${blockName}__main`)
+          +title-main(main)
+      else
+        H2(
+          class=`${blockName}__main`,
+          class=`${blockName}__main_small`,
+        )
+          +title-main(main)
       if (details)
-        SPAN(class=`${blockName}__details`)
+        P(class=`${blockName}__details`)
           +title-details(details)

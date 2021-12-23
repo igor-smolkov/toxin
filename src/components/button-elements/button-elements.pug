@@ -26,7 +26,7 @@ mixin button-elements
       description: "1 – 12 из 100+ вариантов аренды",
     }
 
-  DIV(class=blockName)
+  ARTICLE(class=blockName)
     SECTION(
       class=`${blockName}__section`,
       class=`${blockName}__section_first`
@@ -35,23 +35,23 @@ mixin button-elements
         +slider({ values: [0, 5000, 10000, 16000] })
     SECTION(class=`${blockName}__section`)
       +form-set({ title: "Buttons", isEmpty: true })
-        .form-set__elements-container
-          .form-set__group.form-set__group_inlined
-            .form-set__element.form-set__element_widen
+        SECTION.form-set__elements-container
+          SECTION.form-set__group.form-set__group_inlined
+            P.form-set__element.form-set__element_widen
               +button({ caption: "click me" })
-            .form-set__element.form-set__element_inlined.form-set__element_indent-in_buttons-left.form-set__element_widen
+            P.form-set__element.form-set__element_inlined.form-set__element_indent-in_buttons-left.form-set__element_widen
               +button({ caption: "click me", isHovered: true })
-          .form-set__group.form-set__group_inlined.form-set__group_indent-in_buttons
-            .form-set__element.form-set__element_widen
+          SECTION.form-set__group.form-set__group_inlined.form-set__group_indent-in_buttons
+            P.form-set__element.form-set__element_widen
               +button({ caption: "click me", isBorderOnly: true })
-            .form-set__element.form-set__element_inlined.form-set__element_indent-in_buttons-left.form-set__element_widen
+            P.form-set__element.form-set__element_inlined.form-set__element_indent-in_buttons-left.form-set__element_widen
               +button(borderButtonOptions)
-          .form-set__group.form-set__group_inlined.form-set__group_indent-in_buttons
-            .form-set__element
+          SECTION.form-set__group.form-set__group_inlined.form-set__group_indent-in_buttons
+            P.form-set__element
               +button({ caption: "click me", isTextOnly: true })
-            .form-set__element.form-set__element_inlined.form-set__element_indent-in_buttons-left
+            P.form-set__element.form-set__element_inlined.form-set__element_indent-in_buttons-left
               +button(textButtonOptions)
-          .form-set__element.form-set__element_indent-in_buttons-top
+          P.form-set__element.form-set__element_indent-in_buttons-top
             +button({ caption: "перейти к оплате", withArrow: true })
     SECTION(class=`${blockName}__section`)
       +form-set({ title: "Pagination", isIndented: true })

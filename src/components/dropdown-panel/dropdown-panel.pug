@@ -11,11 +11,11 @@ mixin dropdown-panel(options = {})
         if item.count !== 0
           - isClear = false;
 
-  DIV(class=blockName)
+  SECTION(class=blockName)
     UL(class=`${blockName}__list`)
       each item, index in list
         LI(class=`${blockName}__countable-item`)
           +countable-item(item)
     if withControl
-      DIV(class=`${blockName}__control`)
+      SECTION(class=`${blockName}__control`)
         +dropdown-control({ isClear })

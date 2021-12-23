@@ -14,16 +14,17 @@
   &__name {
     @include h2-type;
 
-    display: inline-flex;
-    flex-direction: column;
     min-width: 171px;
     margin: 0;
     line-height: 1.474;
   }
 
   &__details {
-    display: inline-block;
+    @include h2-type;
+
+    margin: 0;
     font-weight: normal;
+    line-height: 1.474;
   }
 
   &::before {

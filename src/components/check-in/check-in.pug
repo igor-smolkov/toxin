@@ -56,11 +56,11 @@ mixin check-in
       class=`${blockName}__section_first`
     )
       +form-set({ isGrouped: true, isMarginNone: true })
-        .form-set__element.form-set__element_margin_none
+        P.form-set__element.form-set__element_margin_none
           +text-field({ name: "name", placeholder: "Имя" })
-        .form-set__element.form-set__element_indent-mid
+        P.form-set__element.form-set__element_indent-mid
           +text-field({ name: "surname", placeholder: "Фамилия" })
-        .form-set__element.form-set__element_indent-mid
+        SECTION.form-set__element.form-set__element_indent-mid
           +radio-group(radioGroupOptions)
     SECTION(
       class=`${blockName}__section`,
@@ -70,11 +70,11 @@ mixin check-in
         +text-field(dobTextFieldOptions)
     SECTION(class=`${blockName}__section`)
       +form-set(logInFormSetOptions)
-        .form-set__element
+        P.form-set__element
           +text-field(emailTextFieldOptions)
-        .form-set__element.form-set__element_indent-mid
+        P.form-set__element.form-set__element_indent-mid
           +text-field(passwordTextFieldOptions)
-        .form-set__element.form-set__element_indent-mid
+        P.form-set__element.form-set__element_indent-mid
           +toggle({ name: "sub", label: "Получать спецпредложения" })
     SECTION(
       class=`${blockName}__section`,
@@ -86,7 +86,7 @@ mixin check-in
       class=`${blockName}__section_last`
     )
       +form-set(signInFormSetOptions)
-        .form-set__element.form-set__element_align-mid.form-set__element_increased
-          DIV(class=`${blockName}__question`)= "Уже есть аккаунт на Toxin"
-        .form-set__element.form-set__element_indent_left
+        SECTION.form-set__element.form-set__element_align-mid.form-set__element_increased
+          P(class=`${blockName}__question`)= "Уже есть аккаунт на Toxin"
+        P.form-set__element.form-set__element_indent_left
           +button(signInButtonOptions)

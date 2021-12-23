@@ -39,8 +39,8 @@ mixin date-section(options = {})
         : "",
     }
 
-  DIV(class=blockName, class=`js-${blockName}`)
-    DIV(
+  SECTION(class=blockName, class=`js-${blockName}`)
+    SECTION(
       class=`${blockName}__set`,
       class=`js-${blockName}-set`,
       class=`${blockName}__set_first`
@@ -49,7 +49,7 @@ mixin date-section(options = {})
         +dropdown(arrivalDropdownOptions)
           +card({ isMedium: true, isEmpty: true })
             +calendar(arrivalCalendarOptions)
-    DIV(class=`${blockName}__set`, class=`js-${blockName}-set`)
+    SECTION(class=`${blockName}__set`, class=`js-${blockName}-set`)
       +form-set({ title: dateToTitle ? dateToTitle : "Выезд" })
         +dropdown(departureDropdownOptions)
           +card({ isMedium: true, isEmpty: true })
