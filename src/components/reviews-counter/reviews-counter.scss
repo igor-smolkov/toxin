@@ -4,6 +4,7 @@
 .reviews-counter {
   @include base-h-type;
 
+  margin: 0;
   color: $font-medium;
 
   &__text {

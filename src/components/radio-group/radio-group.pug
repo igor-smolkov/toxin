@@ -2,7 +2,7 @@ mixin radio-group(options = {})
   - const blockName = "radio-group";
   - const { set = [], name } = options;
 
-  DIV(class=blockName, class=`js-${blockName}`, tabindex="0")
+  SECTION(class=blockName, class=`js-${blockName}`, tabindex="0")
     each option, index in set
       - const isFirst = index === 0;
       LABEL(

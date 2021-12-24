@@ -1,5 +1,3 @@
-@import '/styles/types';
-
 .bill {
   padding-left: 1px;
 
@@ -18,8 +16,6 @@
   }
 
   &__total {
-    @include h2-type;
-
     margin-top: 30px;
   }
 }

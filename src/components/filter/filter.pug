@@ -83,7 +83,7 @@ mixin filter(options = {})
     SECTION(class=`${blockName}__section`)
       +form-set({ title: "Правила дома", isGrouped: true })
         each item, index in ruleChecks
-          .form-set__element.form-set__element_indent-in_check-buttons
+          P.form-set__element.form-set__element_indent-in_check-buttons
             -
               const checkButtonOptions = {
                 label: item.label,
@@ -93,7 +93,7 @@ mixin filter(options = {})
     SECTION(class=`${blockName}__section`)
       +form-set({ title: "Доступность", isGrouped: true })
         each item, index in accessibleChecks
-          .form-set__element.form-set__element_indent-in_check-buttons
+          P.form-set__element.form-set__element_indent-in_check-buttons
             -
               const checkButtonOptions = {
                 label: item.label, 

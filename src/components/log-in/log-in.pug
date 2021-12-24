@@ -32,9 +32,9 @@ mixin log-in
       class=`${blockName}__section_first`
     )
       +form-set({ isGrouped: true, isMarginNone: true })
-        .form-set__element.form-set__element_margin_none
+        P.form-set__element.form-set__element_margin_none
           +text-field(emailTextFieldOptions)
-        .form-set__element.form-set__element_indent-mid
+        P.form-set__element.form-set__element_indent-mid
           +text-field(passwordTextFieldOptions)
     SECTION(class=`${blockName}__section`)
       +button({ caption: "Войти", type: "submit", withArrow: true })
@@ -43,7 +43,7 @@ mixin log-in
       class=`${blockName}__section_last`
     )
       +form-set(regFormSetOptions)
-        .form-set__element.form-set__element_align-mid.form-set__element_increased
-          DIV(class=`${blockName}__question`)= "Нет аккаунта на Toxin?"
-        .form-set__element.form-set__element_indent_left
+        SECTION.form-set__element.form-set__element_align-mid.form-set__element_increased
+          P(class=`${blockName}__question`)= "Нет аккаунта на Toxin?"
+        P.form-set__element.form-set__element_indent_left
           +button(regButtonOptions)

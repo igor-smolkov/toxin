@@ -3,7 +3,7 @@ mixin logo(options = {})
   - const { isSimplified } = options;
 
   if isSimplified
-    DIV(class=blockName, class=`${blockName}_simplified`)
+    FIGURE(class=blockName, class=`${blockName}_simplified`)
       IMG(
         class=`${blockName}__pic`,
         src="../assets/images/logo-gray.svg",

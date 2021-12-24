@@ -6,7 +6,7 @@ mixin widget(options = {})
   - const blockName = "widget";
   - const { title, links, text, withSubscribe } = options;
 
-  DIV(class=blockName)
+  SECTION(class=blockName)
     H3(class=`${blockName}__title`)= title
     SECTION(class=`${blockName}__content`)
       if links

@@ -1,16 +1,20 @@
 @import '/styles/colors';
 @import '/styles/types';
 
-.invoice-line {
+$block: 'invoice-line';
+
+.#{$block} {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
+  margin: 0;
 
   &__name {
     display: flex;
     flex-grow: 1;
     justify-content: space-between;
     max-width: 239px;
+    margin: 0;
 
     @include text('rare_less');
 
@@ -51,5 +55,9 @@
       border-color: $main-medium;
       outline: none;
     }
+  }
+
+  &_title {
+    @include h2-type;
   }
 }

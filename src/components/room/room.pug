@@ -29,7 +29,7 @@ mixin room(options = {})
       custom: { number, rate, reviews },
     }
 
-  DIV(class=blockName)
+  ARTICLE(class=blockName)
     +card({ isSmall: true, isEmpty: true })
       HEADER.card__header
         +preview({ images, isHovered, number })

@@ -69,11 +69,11 @@ mixin header(options = {})
         : null,
     }
 
-  DIV(class=blockName)
+  SECTION(class=blockName)
     DIV(class=`${blockName}__wrapper`)
-      DIV(class=`${blockName}__logo`)
+      P(class=`${blockName}__logo`)
         +logo
-      DIV(class=`${blockName}__burger`)
+      SECTION(class=`${blockName}__burger`)
         +burger(name)
           if (isCustom)
             block

@@ -60,7 +60,7 @@ mixin room-info
       ],
     }
 
-  DIV(class=blockName)
+  SECTION(class=blockName)
     SECTION(
       class=`${blockName}__section`,
       class=`${blockName}__section_first`,
@@ -77,9 +77,9 @@ mixin room-info
           +chart(chartOptions)
     SECTION(class=`${blockName}__section`)
       +room-section(reviewRoomSectionOptions)
-        .room-section__item.room-section__item_first
+        SECTION.room-section__item.room-section__item_first
           +comment(likedCommentOptions)
-        .room-section__item
+        SECTION.room-section__item
           +comment(commentOptions)
     SECTION(
       class=`${blockName}__section`,

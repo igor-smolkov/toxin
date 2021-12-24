@@ -11,6 +11,8 @@
 
   &__name,
   &__example {
+    margin: 0;
+
     &_h1 {
       @include h1-type;
     }

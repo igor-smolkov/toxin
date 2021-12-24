@@ -3,6 +3,6 @@ include ../text-field/text-field.pug
 mixin subscription
   - const blockName = "subscription";
 
-  DIV(class=blockName)
+  SECTION(class=blockName)
     block
     BUTTON(class=`${blockName}__button`, type="submit")= "arrow_forward"

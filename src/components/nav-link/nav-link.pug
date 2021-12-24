@@ -5,7 +5,10 @@ mixin nav-link(options = {})
   - const blockName = "nav-link";
   - const { isDropdown, list, name } = options;
 
-  DIV(class=blockName, class=`js-${blockName}`)
-    +link(options)
-    if isDropdown
+  if isDropdown
+    SECTION(class=blockName, class=`js-${blockName}`)
+      +link(options)
       +expandable-list({ list, name })
+  else
+    P(class=blockName, class=`js-${blockName}`)
+      +link(options)

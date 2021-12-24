@@ -22,6 +22,10 @@ $block: 'footer';
     display: block;
   }
 
+  .#{$block}__logo {
+    margin: 0;
+  }
+
   .#{$block}__copyright {
     margin-top: 20px;
   }

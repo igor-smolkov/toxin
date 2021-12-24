@@ -53,23 +53,23 @@ block variables
     }
 
 block content
-  .cards
-    ARTICLE.cards__unit
+  ARTICLE.cards
+    SECTION.cards__unit
       +card({ title: "Найдём номера под ваши пожелания" })
         +card-form({ type: "wishes" })
-    ARTICLE.cards__unit
+    SECTION.cards__unit
       +card({ title: "Регистрация аккаунта" })
         +card-form({ type: "check-in" })
-    ARTICLE.cards__unit
+    SECTION.cards__unit
       +card(roomCardOptions)
         +card-form({ type: "room" })
-    ARTICLE.cards__unit
+    SECTION.cards__unit
       +card({ title: "Войти" })
         +card-form({ type: "log-in" })
-    ARTICLE.cards__unit.js-calendar-unit
+    SECTION.cards__unit.js-calendar-unit
       +card({ isMedium: true, isEmpty: true })
         +calendar(calendarOptions)
-    ARTICLE.cards__unit.cards__unit_small
+    SECTION.cards__unit.cards__unit_small
       +room(hoveredRoomOptions)
-    ARTICLE.cards__unit.cards__unit_small
+    SECTION.cards__unit.cards__unit_small
       +room(defaultRoomOptions)

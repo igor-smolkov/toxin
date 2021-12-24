@@ -2,7 +2,7 @@ mixin preview(options = {})
   - const blockName = "preview";
   - const { images = [], selected = 0, isHovered, number } = options;
 
-  DIV(
+  SECTION(
     class=blockName,
     class=`js-${blockName}`,
     class=isHovered ? `${blockName}_hovered` : "",

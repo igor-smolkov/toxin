@@ -18,21 +18,21 @@ mixin menu(options = {})
       link: "registration.html",
     }
 
-  DIV(class=blockName)
-    DIV(class=`${blockName}__nav-links`)
+  NAV(class=blockName)
+    SECTION(class=`${blockName}__nav-links`)
       +nav-links({ navLinks, isHead: true, })
-    DIV(class=`${blockName}__user-panel`)
+    SECTION(class=`${blockName}__user-panel`)
       if (user)
-        DIV(
+        P(
           class=`${blockName}__user-panel-item`,
           class=`${blockName}__user-panel-item_only`
         )
           +link(user)
       else
-        DIV(
+        P(
           class=`${blockName}__user-panel-item`,
           class=`${blockName}__user-panel-item_first`
         )
           +button(signInButtonOptions)
-        DIV(class=`${blockName}__user-panel-item`)
+        P(class=`${blockName}__user-panel-item`)
           +button(regButtonOptions)

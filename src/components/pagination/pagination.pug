@@ -2,8 +2,8 @@ mixin pagination(options = {})
   - const blockName = "pagination";
   - const { lastPage, description } = options;
 
-  DIV(class=blockName)
-    DIV(class=`${blockName}__items`)
+  SECTION(class=blockName)
+    NAV(class=`${blockName}__items`)
       each value, index in ["1", "2", "3", "...", lastPage]
         - const isFirst = index === 0;
         BUTTON(

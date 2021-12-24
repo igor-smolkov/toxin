@@ -8,7 +8,7 @@ mixin footer(options = {})
   - const blockName = "footer";
   - const { asCard } = options;
 
-  DIV(
+  SECTION(
     class=blockName,
     class=asCard ? `${blockName}_creative` : ""
   )
@@ -17,9 +17,9 @@ mixin footer(options = {})
     DIV(class=`${blockName}__wrapper`)
       SECTION(class=`${blockName}__copyright-bar`)
         +copyright-bar
-    DIV(class=`${blockName}__logo`)
+    P(class=`${blockName}__logo`)
       +logo
-    DIV(class=`${blockName}__copyright`)
+    SECTION(class=`${blockName}__copyright`)
       +copyright
-    DIV(class=`${blockName}__socials`)
+    SECTION(class=`${blockName}__socials`)
       +socials

@@ -10,11 +10,11 @@ mixin rooms(options = {})
       description: `1 – ${numbers.length} из 100+ вариантов аренды`,
     }
 
-  DIV(class=blockName)
+  ARTICLE(class=blockName)
     H1(class=`${blockName}__title`)= title
     UL(class=`${blockName}__list`)
       each number, index in numbers
         LI(class=`${blockName}__number`)
           +room(number)
-    DIV(class=`${blockName}__pagination`)
+    SECTION(class=`${blockName}__pagination`)
       +pagination(paginationOptions)

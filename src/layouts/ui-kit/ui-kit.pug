@@ -58,8 +58,8 @@ HTML(lang="ru")
     TITLE= `${title}`
   BODY.page(class=page)
     .ui-kit(class=isGray ? "ui-kit_gray" : "")
-      .ui-kit__header
+      HEADER.ui-kit__header
         if withLogo
           +logo({ isSimplified: true })
-      .ui-kit__content
+      MAIN.ui-kit__content
         block content

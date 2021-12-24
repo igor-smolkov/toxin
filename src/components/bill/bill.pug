@@ -13,5 +13,5 @@ mixin bill(options = {})
           class=isFirst ? `${blockName}__item_first` : ""
         )
           +invoice-line(item)
-    H2(class=`${blockName}__total`)
-      +invoice-line({ name: "Итого", price: total, withLine: true })
+    FOOTER(class=`${blockName}__total`)
+      +invoice-line({ name: "Итого", price: total, isTitle: true })

@@ -26,6 +26,9 @@ $block: 'logo';
 
   &_simplified {
     @include circle-d(48px);
+
+    margin: 0;
+
     .#{$block}__pic {
       @include circle-d(48px);
     }

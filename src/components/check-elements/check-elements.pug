@@ -67,7 +67,7 @@ mixin check-elements
           +like-button({ value: 12, isChecked: true })
     SECTION(class=`${blockName}__section`)
       +form-set(rateFormSetOptions)
-        P.form-set__element
+        SECTION.form-set__element
           +rate-button({ name: "rate-1", value: 4 })
-        P.form-set__element.form-set__element_indent-in_rate-buttons
+        SECTION.form-set__element.form-set__element_indent-in_rate-buttons
           +rate-button({ name: "rate-2", value: 5 })

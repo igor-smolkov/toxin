@@ -59,11 +59,11 @@ HTML(lang="ru")
     TITLE= `${title}`
   BODY.page(class=page)
     .website
-      .website__header
+      HEADER.website__header
         +header
-      .website__content(
+      MAIN.website__content(
         class=withBorder ? "website__content_with-border" : ""
       )
         block content
-      .website__footer
+      FOOTER.website__footer
         +footer

@@ -1,16 +1,31 @@
 mixin invoice-line(options = {})
   - const blockName = "invoice-line";
-  - const { withLine, name, withInfo, price } = options;
+  - const { name, withInfo, price, isTitle } = options;
 
-  SPAN(class=blockName, class=`js-${blockName}`)
-    SPAN(
-      class=`${blockName}__name`,
-      class=`js-${blockName}-name`,
-      class=withLine ? `${blockName}__name_with-line` : ""
-    )= name
-      if withInfo
-        BUTTON(class=`${blockName}__info`)= "i"
-    SPAN(
-      class=`${blockName}__price`,
-      class=`js-${blockName}-price`
-    )= price
+  if !isTitle
+    P(class=blockName, class=`js-${blockName}`)
+      SPAN(
+        class=`${blockName}__name`,
+        class=`js-${blockName}-name`
+      )= name
+        if withInfo
+          BUTTON(class=`${blockName}__info`)= "i"
+      SPAN(
+        class=`${blockName}__price`,
+        class=`js-${blockName}-price`
+      )= price
+  else
+    H2(
+      class=blockName, 
+      class=`js-${blockName}`,
+      class=`${blockName}_title`
+    )
+      SPAN(
+        class=`${blockName}__name`,
+        class=`js-${blockName}-name`,
+        class=`${blockName}__name_with-line`
+      )= name
+      SPAN(
+        class=`${blockName}__price`,
+        class=`js-${blockName}-price`
+      )= price

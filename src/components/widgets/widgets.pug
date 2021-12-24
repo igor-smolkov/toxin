@@ -38,10 +38,10 @@ mixin widgets
       },
     ]
 
-  DIV(class=blockName)
-    DIV(class=`${blockName}__about`)
+  SECTION(class=blockName)
+    SECTION(class=`${blockName}__about`)
       +logo
-      DIV(class=`${blockName}__message`)= "Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»"
+      P(class=`${blockName}__message`)= "Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»"
     UL(class=`${blockName}__widgets-list`)
       each item in list
         LI(class=`${blockName}__widget`)

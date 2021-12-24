@@ -14,9 +14,9 @@ mixin others(param)
         details: "На 1 этаже вас встретит специалист и проводит до номера.",
       }
     +form-set({ title: "Rich Checkbox Buttons", isGrouped: true })
-      .form-set__element.form-set__element_indent-in_check-buttons
+      P.form-set__element.form-set__element_indent-in_check-buttons
         +check-button(corridorCheckButtonOptions)
-      .form-set__element.form-set__element_indent-in_check-buttons
+      P.form-set__element.form-set__element_indent-in_check-buttons
         +check-button(assistantCheckButtonOptions)
   else if (param === "comment")
     -

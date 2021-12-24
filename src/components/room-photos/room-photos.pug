@@ -2,16 +2,16 @@ mixin room-photos(options = {})
   - const blockName = "room-photos";
   - const { images } = options;
 
-  DIV(class=blockName)
+  SECTION(class=blockName)
     DIV(class=`${blockName}__wrapper`)
-      DIV(class=`${blockName}__main`)
+      SECTION(class=`${blockName}__main`)
         DIV(class=`${blockName}__photo-container`)
           IMG(
             class=`${blockName}__photo`,
             src=images[0],
             alt="Вид номера - 1"
           )
-      DIV(class=`${blockName}__aside`)
+      ASIDE(class=`${blockName}__aside`)
         DIV(class=`${blockName}__photo-container`)
           IMG(
             class=`${blockName}__photo`,

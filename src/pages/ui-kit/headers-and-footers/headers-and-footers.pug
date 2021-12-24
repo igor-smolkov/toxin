@@ -133,14 +133,14 @@ block variables
     }
 
 block content
-  .headers-and-footers
-    ARTICLE.headers-and-footers__unit.headers-and-footers__unit_first
+  ARTICLE.headers-and-footers
+    SECTION.headers-and-footers__unit.headers-and-footers__unit_first
       +header({ isCustom: true, name: "demo-1" })
         +menu(defaultMenuOptions)
-    ARTICLE.headers-and-footers__unit
+    SECTION.headers-and-footers__unit
       +header({ isCustom: true, name: "demo-2" })
         +menu(userMenuOptions)
-    ARTICLE.headers-and-footers__unit
+    SECTION.headers-and-footers__unit
       +footer
-    ARTICLE.headers-and-footers__unit.headers-and-footers__unit_last
+    SECTION.headers-and-footers__unit.headers-and-footers__unit_last
       +footer({ asCard: true })

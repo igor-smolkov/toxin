@@ -6,7 +6,7 @@ mixin expandable-list(options = {})
   - const blockName = "expandable-list";
   - const { list = [], withChecks, isExpanded, name } = options;
 
-  DIV(
+  SECTION(
     class=blockName,
     class=`js-${blockName}`,
     class=withChecks ? `${blockName}_with-checks` : ""
@@ -23,7 +23,7 @@ mixin expandable-list(options = {})
       for=`${blockName}-${name}-check`
     )
     if withChecks
-      DIV(class=`${blockName}__list`)
+      SECTION(class=`${blockName}__list`)
         +form-set({ isGrouped: true, isMarginNone: true })
           each item, index in list
             - const isFirst = index === 0;
