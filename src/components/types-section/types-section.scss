@@ -1,6 +1,14 @@
 .types-section {
   min-width: 444px;
 
+  &__type-section {
+    margin-top: 50px;
+
+    &_first {
+      margin-top: 0;
+    }
+  }
+
   @media only screen and (max-width: 800px) {
     min-width: 320px;
   }

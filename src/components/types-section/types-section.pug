@@ -23,5 +23,10 @@ mixin types-section
     ]
 
   ARTICLE(class=blockName)
-    each typeSectionOptions in typeSectionOptionsList
-      +type-section(typeSectionOptions)
+    each typeSectionOptions, index in typeSectionOptionsList
+      - const isFirst = index === 0;
+      SECTION(
+        class=`${blockName}__type-section`,
+        class=isFirst ? `${blockName}__type-section_first` : ''
+      )
+        +type-section(typeSectionOptions)

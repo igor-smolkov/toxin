@@ -1,3 +1,11 @@
 .colors-section {
   min-width: 281px;
+
+  &__color-section {
+    margin-top: 20px;
+
+    &_first {
+      margin-top: 0;
+    }
+  }
 }

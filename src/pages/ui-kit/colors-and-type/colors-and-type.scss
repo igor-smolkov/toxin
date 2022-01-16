@@ -1,13 +1,14 @@
 .colors-and-type {
   display: flex;
   justify-content: space-between;
+  width: 100%;
   padding: 37px 150px;
 
   &__types {
     margin-left: 25px;
 
     @media only screen and (max-width: 800px) {
-      margin-top: 25px;
+      margin-top: 45px;
       margin-left: 0;
     }
   }

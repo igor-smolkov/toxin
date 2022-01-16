@@ -3,16 +3,19 @@
 .website {
   display: flex;
   flex-direction: column;
+  width: 100%;
   max-width: 1920px;
+  height: max-content;
   min-height: 100%;
-  margin: 0 auto;
 
   &__header {
     z-index: 1;
   }
 
   &__content {
+    display: flex;
     flex: 1 0 100%;
+    justify-content: center;
     height: 1px;
     min-height: 100%;
 

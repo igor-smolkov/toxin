@@ -1,9 +1,10 @@
 @import '/styles/colors';
 
 .ui-kit {
+  width: 100%;
   max-width: 1440px;
+  height: max-content;
   min-height: 100%;
-  margin: 0 auto;
 
   &_gray {
     background-color: $bg-variation;
@@ -11,5 +12,10 @@
 
   &__header {
     padding: 30px;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: center;
   }
 }
