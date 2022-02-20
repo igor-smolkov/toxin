@@ -8,10 +8,14 @@
   color: $font-medium;
   text-decoration: none;
 
+  &_selected {
+    color: $font-dark;
+    font-weight: bold;
+  }
+
   &_hovered,
   &:hover {
     color: $font-dark;
-    font-weight: bold;
   }
 
   &:focus {

@@ -1,10 +1,11 @@
 mixin link(options = {})
   - const blockName = "link";
-  - const { isHovered, link, text } = options;
+  - const { isSelected, isHovered, link, text } = options;
 
   A(
     class=blockName,
-    class=isHovered ? `${blockName}_hovered` : "",
+    class=isSelected && `${blockName}_selected`,
+    class=isHovered && `${blockName}_hovered`,
     href=link
     title=text
   )= text
