@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 class NavLink {
   constructor($elem) {
     this._$elem = $elem;
@@ -9,6 +11,7 @@ class NavLink {
       '.js-expandable-list-check',
     );
     this._isDropped = this._$expandableCheck.is(':checked');
+    this._$document = $(document);
     this._bindEventListeners();
   }
 
@@ -19,7 +22,7 @@ class NavLink {
     if (!this._isTouch) this._$expandableCheck.prop('checked', true);
   }
 
-  _handleDocPointerOver(e) {
+  _handleDocumentPointerOver(e) {
     if (!this._isDropped) return;
     const isOutOfNavLink = !this._$elem.is(e.target)
       && this._$elem.has(e.target).length === 0;
@@ -29,7 +32,7 @@ class NavLink {
     this._$expandableCheck.prop('checked', false);
   }
 
-  _handleDocTouchStart() {
+  _handleDocumentTouchStart() {
     this._isTouch = true;
   }
 
@@ -38,13 +41,13 @@ class NavLink {
       'pointerenter',
       this._handlePointerEnter.bind(this),
     );
-    document.addEventListener(
+    this._$document.on(
       'pointerover',
-      this._handleDocPointerOver.bind(this),
+      this._handleDocumentPointerOver.bind(this),
     );
-    document.addEventListener(
+    this._$document.on(
       'touchstart',
-      this._handleDocTouchStart.bind(this),
+      this._handleDocumentTouchStart.bind(this),
     );
   }
 }

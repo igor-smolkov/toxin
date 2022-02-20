@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 class RadioGroup {
   constructor($elem) {
     this._$elem = $elem;
@@ -11,10 +13,10 @@ class RadioGroup {
 
   _bindEventListeners() {
     this._$elem.on('focus', this._handleGroupFocus.bind(this));
-    this._$radios.each((_, radio) => radio.addEventListener(
-      'keydown',
-      this._handleRadioKeyDown.bind(this),
-    ));
+    this._$radios.each((_, radio) => {
+      const $radio = $(radio);
+      $radio.on('keydown', this._handleRadioKeyDown.bind(this));
+    });
   }
 
   _handleGroupFocus() {

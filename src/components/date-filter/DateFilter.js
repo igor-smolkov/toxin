@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 import Calendar from '../calendar/Calendar';
 import DropdownControl from '../dropdown-control/DropdownControl';
 import TextField from '../text-field/TextField';
@@ -41,6 +43,7 @@ class DateFilter {
         ? Calendar.convertDateToYMDHyphen(this.dateTo)
         : null,
     );
+    this._$document = $(document);
     this._updateField();
 
     this._bindEventListeners();
@@ -82,14 +85,8 @@ class DateFilter {
     this._calendar.listen(this._handleCalendarChange.bind(this));
     this._dropdownControl.onApply(this._closeCalendar.bind(this));
     this._$dropper.on('keydown', this._handleDropperKey.bind(this));
-    document.addEventListener(
-      'click',
-      this._handleDocClick.bind(this),
-    );
-    document.addEventListener(
-      'keydown',
-      this._handleDocKeyDown.bind(this),
-    );
+    this._$document.on('click', this._handleDocumentClick.bind(this));
+    this._$document.on('keydown', this._handleDocumentKeyDown.bind(this));
   }
 
   _closeCalendar() {
@@ -107,7 +104,7 @@ class DateFilter {
     if (isNeedToClose) this._closeCalendar();
   }
 
-  _handleDocClick(e) {
+  _handleDocumentClick(e) {
     const isOutOfDateFilter = !this._$elem.is(e.target)
       && this._$elem.has(e.target).length === 0
       && e.target.innerText !== '<Пред'
@@ -115,7 +112,7 @@ class DateFilter {
     if (isOutOfDateFilter) this._closeCalendar();
   }
 
-  _handleDocKeyDown(e) {
+  _handleDocumentKeyDown(e) {
     if (e.key === 'Escape') this._closeCalendar();
   }
 }

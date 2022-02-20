@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 class Socials {
   constructor($elem) {
     this._$elem = $elem;
@@ -10,10 +12,15 @@ class Socials {
 
   _init() {
     this._links = this._$elem.find('.js-socials-link');
+    this._bindEventListeners();
+  }
+
+  _bindEventListeners() {
     this._links.each((_, link) => {
-      link.addEventListener('click', Socials._blur);
-      link.addEventListener('pointerup', Socials._blur);
-      link.addEventListener('pointerleave', Socials._blur);
+      const $link = $(link);
+      $link.on('click', Socials._blur);
+      $link.on('pointerup', Socials._blur);
+      $link.on('pointerleave', Socials._blur);
     });
   }
 }

@@ -89,6 +89,7 @@ class Dropdown {
     this._dropdownControl = new DropdownControl(this._$elem);
     this._$dropper = this._$elem.find('.js-dropdown-check');
     this._isDropped = this._$dropper.is(':checked');
+    this._$document = $(document);
     this._updateField();
     this._bindEventListeners();
   }
@@ -194,14 +195,14 @@ class Dropdown {
     if (this._counters.length) this._updateField();
   }
 
-  _handleDocClick(e) {
+  _handleDocumentClick(e) {
     const isOutOfDropdown = !this._$elem.is(e.target)
       && this._$elem.has(e.target).length === 0;
     const isNeedToClose = isOutOfDropdown && this._isDropped;
     if (isNeedToClose) this._hide();
   }
 
-  _handleDocKeyDown(e) {
+  _handleDocumentKeyDown(e) {
     const isNeedToClose = e.key === 'Escape' && this._isDropped;
     if (isNeedToClose) this._hide();
   }
@@ -225,14 +226,8 @@ class Dropdown {
     this._$dropper.on('change', this._handleDrop.bind(this));
     this._$dropper.on('keydown', this._handleDropperKey.bind(this));
     this._$elem.on('click', this._handleCheckClear.bind(this));
-    document.addEventListener(
-      'click',
-      this._handleDocClick.bind(this),
-    );
-    document.addEventListener(
-      'keydown',
-      this._handleDocKeyDown.bind(this),
-    );
+    this._$document.on('click', this._handleDocumentClick.bind(this));
+    this._$document.on('keydown', this._handleDocumentKeyDown.bind(this));
   }
 }
 
