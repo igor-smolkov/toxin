@@ -13,29 +13,31 @@ $block: 'card';
   border-radius: 4px;
   box-shadow: 0 0 25px $shadow;
 
-  &_medium {
-    max-width: 320px;
-    padding: 20px;
-    padding-bottom: 15px;
-    border: 1px solid $main-light;
-    box-shadow: 0 10px 20px $shadow-light-hard;
-
-    @media only screen and (max-width: 400px) {
-      border: none;
-      box-shadow: none;
-    }
-  }
-
-  &_small {
-    width: 100%;
-    min-width: 270px;
-    max-width: 440px;
-    padding: 0;
-    overflow: hidden;
-    border: none;
-    box-shadow: 0 10px 20px $shadow-light-hard;
-    .#{$block}__body {
+  &_size {
+    &_medium {
+      max-width: 320px;
       padding: 20px;
+      padding-bottom: 15px;
+      border: 1px solid $main-light;
+      box-shadow: 0 10px 20px $shadow-light-hard;
+
+      @media only screen and (max-width: 400px) {
+        border: none;
+        box-shadow: none;
+      }
+    }
+
+    &_small {
+      width: 100%;
+      min-width: 270px;
+      max-width: 440px;
+      padding: 0;
+      overflow: hidden;
+      border: none;
+      box-shadow: 0 10px 20px $shadow-light-hard;
+      .#{$block}__body {
+        padding: 20px;
+      }
     }
   }
 

@@ -2,22 +2,22 @@ include ../color-section/color-section.pug
 
 mixin colors-section
   - const blockName = "colors-section";
+  -
+    const colorSections = [
+      { name: "Dark Shade 100%", code: "#1F2041", color: "main" },
+      { name: "Dark Shade 75%", code: "#1F2041", color: "main-dark" },
+      { name: "Dark Shade 50%", code: "#1F2041", color: "main-medium" },
+      { name: "Dark Shade 25%", code: "#1F2041", color: "main-light" },
+      { name: "Dark Shade 5%", code: "#1F2041", color: "main-light-hard" },
+      { name: "Purple", code: "#BC9CFF", color: "brand" },
+      { name: "Green", code: "#6FCF97", color: "accent" },
+    ];
 
   ARTICLE(class=blockName)
-    SECTION(
-      class=`${blockName}__color-section`,
-      class=`${blockName}__color-section_first`
-    )
-      +color-section({ name: "Dark Shade 100%", code: "#1F2041" })
-    SECTION(class=`${blockName}__color-section`)
-      +color-section({ name: "Dark Shade 75%", code: "#1F2041" })
-    SECTION(class=`${blockName}__color-section`)
-      +color-section({ name: "Dark Shade 50%", code: "#1F2041" })
-    SECTION(class=`${blockName}__color-section`)
-      +color-section({ name: "Dark Shade 25%", code: "#1F2041" })
-    SECTION(class=`${blockName}__color-section`)
-      +color-section({ name: "Dark Shade 5%", code: "#1F2041" })
-    SECTION(class=`${blockName}__color-section`)
-      +color-section({ name: "Purple", code: "#BC9CFF" })
-    SECTION(class=`${blockName}__color-section`)
-      +color-section({ name: "Green", code: "#6FCF97" })
+    each colorSection, index in colorSections
+      - const isFirst = index === 0;
+      SECTION(
+        class=`${blockName}__color-section`,
+        class=isFirst && `${blockName}__color-section_first`
+      )
+        +color-section(colorSection)

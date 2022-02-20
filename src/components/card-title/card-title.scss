@@ -8,8 +8,10 @@ $block: 'card-title';
   align-items: baseline;
   margin: 0;
 
-  &_small {
-    @include h2-type;
+  &_size {
+    &_small {
+      @include h2-type;
+    }
   }
 
   &__main,
@@ -22,8 +24,10 @@ $block: 'card-title';
 
     flex-grow: 1;
 
-    &_small {
-      @include h2-type;
+    &_size {
+      &_small {
+        @include h2-type;
+      }
     }
   }
 

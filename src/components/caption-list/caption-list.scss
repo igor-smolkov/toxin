@@ -19,20 +19,22 @@
       content: '';
     }
 
-    &_yellow::before {
-      background: $additional-1-gradient;
-    }
+    &_point-color {
+      &_yellow::before {
+        background: $additional-1-gradient;
+      }
 
-    &_green::before {
-      background: $accent-gradient;
-    }
+      &_green::before {
+        background: $accent-gradient;
+      }
 
-    &_purple::before {
-      background: $brand-gradient;
-    }
+      &_purple::before {
+        background: $brand-gradient;
+      }
 
-    &_gray::before {
-      background: $additional-2-gradient;
+      &_gray::before {
+        background: $additional-2-gradient;
+      }
     }
   }
 }

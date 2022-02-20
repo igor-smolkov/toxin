@@ -21,16 +21,18 @@
     font-size: 0;
     background: no-repeat center;
 
-    &_twitter {
-      background-image: url('images/twitter.svg');
-    }
+    &_name {
+      &_twitter {
+        background-image: url('images/twitter.svg');
+      }
 
-    &_facebook {
-      background-image: url('images/facebook.svg');
-    }
+      &_facebook {
+        background-image: url('images/facebook.svg');
+      }
 
-    &_instagram {
-      background-image: url('images/instagram.svg');
+      &_instagram {
+        background-image: url('images/instagram.svg');
+      }
     }
 
     &:hover,

@@ -6,8 +6,10 @@
   height: max-content;
   min-height: 100%;
 
-  &_gray {
-    background-color: $bg-variation;
+  &_color {
+    &_gray {
+      background-color: $bg-variation;
+    }
   }
 
   &__header {

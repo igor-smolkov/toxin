@@ -1,7 +1,7 @@
 mixin color-section(options = {})
   - const blockName = "color-section";
-  - const { name, code } = options;
+  - const { name, code, color } = options;
 
-  SECTION(class=blockName, data-color-name=name)
+  SECTION(class=blockName, class=`${blockName}_color_${color}`)
     H2(class=`${blockName}__name`)= name
     P(class=`${blockName}__details`)= code

@@ -6,8 +6,8 @@ mixin card(options = {})
 
   ARTICLE(
     class=blockName,
-    class=isMedium ? `${blockName}_medium` : "",
-    class=isSmall ? `${blockName}_small` : ""
+    class=isMedium ? `${blockName}_size_medium` : "",
+    class=isSmall ? `${blockName}_size_small` : ""
   )
     if title
       HEADER(class=`${blockName}__title`)

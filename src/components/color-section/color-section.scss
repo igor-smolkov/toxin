@@ -37,27 +37,33 @@
     content: '';
   }
 
-  &[data-color-name='Dark Shade 75%']::before {
-    background-color: $main-dark;
-  }
+  &_color {
+    &_main::before {
+      background-color: $main;
+    }
 
-  &[data-color-name='Dark Shade 50%']::before {
-    background-color: $main-medium;
-  }
+    &_main-dark::before {
+      background-color: $main-dark;
+    }
 
-  &[data-color-name='Dark Shade 25%']::before {
-    background-color: $main-light;
-  }
+    &_main-medium::before {
+      background-color: $main-medium;
+    }
 
-  &[data-color-name='Dark Shade 5%']::before {
-    background-color: $main-light-hard;
-  }
+    &_main-light::before {
+      background-color: $main-light;
+    }
 
-  &[data-color-name='Purple']::before {
-    background-color: $brand;
-  }
+    &_main-light-hard::before {
+      background-color: $main-light-hard;
+    }
 
-  &[data-color-name='Green']::before {
-    background-color: $accent;
+    &_brand::before {
+      background-color: $brand;
+    }
+
+    &_accent::before {
+      background-color: $accent;
+    }
   }
 }
