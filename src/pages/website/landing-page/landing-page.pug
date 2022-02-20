@@ -32,10 +32,8 @@ block variables
     }
 
 block content
-  ARTICLE.landing
-    .landing__background
-      +carousel(carouselOptions)
-    SECTION.landing__content
+  +carousel(carouselOptions)
+    ARTICLE.landing
       SECTION.landing__card
         +card({ title: "Найдём номера под ваши пожелания" })
           +card-form(cardFormOptions)

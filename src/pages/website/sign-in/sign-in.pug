@@ -21,9 +21,7 @@ block variables
     }
 
 block content
-  ARTICLE.sign-in
-    .sign-in__background
-      +carousel(carouselOptions)
-    SECTION.sign-in__card
+  +carousel(carouselOptions)
+    ARTICLE.sign-in
       +card({ title: "Войти" })
         +card-form({ type: "log-in" })

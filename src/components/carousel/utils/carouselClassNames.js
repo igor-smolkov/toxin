@@ -1,6 +1,5 @@
 const carouselClassNames = {
-  slideAnimateOverlay: 'carousel__slide_animate_overlay',
-  slideAnimateHiding: 'carousel__slide_animate_hiding',
+  contentAnimateBlur: 'carousel__content_animate_blur',
 };
 
 export default carouselClassNames;

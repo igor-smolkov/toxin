@@ -21,9 +21,7 @@ block variables
     }
 
 block content
-  ARTICLE.registration
-    .registration__background
-      +carousel(carouselOptions)
-    SECTION.registration__card
+  +carousel(carouselOptions)
+    ARTICLE.registration
       +card({ title: "Регистрация аккаунта" })
         +card-form({ type: "check-in" })

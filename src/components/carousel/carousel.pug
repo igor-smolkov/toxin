@@ -6,16 +6,11 @@ mixin carousel(options = {})
     class=`js-${blockName}`,
     data-delay=delaySec
   )
-    FIGURE(
-      class=`${blockName}__slide`,
-      class=`${blockName}__slide_current`,
-      class=`js-${blockName}-slide-current`
+    SECTION(
+      class=`${blockName}__content`, 
+      class=`js-${blockName}-content`
     )
-    FIGURE(
-      class=`${blockName}__slide`,
-      class=`${blockName}__slide_next`,
-      class=`js-${blockName}-slide-next`
-    )
+      block
     DATALIST(class=`${blockName}__links`)
       each slide, index in slides
         OPTION(

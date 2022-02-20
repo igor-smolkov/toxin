@@ -9,17 +9,15 @@ class Carousel {
   }
 
   startFrom(from) {
-    this._setCurrentImage(from);
-    this._setNextImage(from);
+    this._setImage(from);
     this._currentIndex = from;
     this._isAnimationEnd = true;
     this.timer = setTimeout(this._looping.bind(this), this._delay);
   }
 
   _init() {
-    this._$currentSlide = this._findCurrentSlide();
-    this._$nextSlide = this._findNextSlide();
-    this._slideLinks = this._makeArrOfSlidesLinks();
+    this._$content = this._findContent();
+    this._imageLinks = this._makeArrOfImageLinks();
     this._delay = this._initDelay();
     this._currentIndex = 0;
     this.startFrom(this._currentIndex);
@@ -35,62 +33,50 @@ class Carousel {
 
   _stepStart(index) {
     this._currentIndex = index;
-    if (this._currentIndex >= this._slideLinks.length) {
+    if (this._currentIndex >= this._imageLinks.length) {
       this._currentIndex = 0;
     }
-    this._setNextImage(this._currentIndex);
     this._animateBegin();
     this._isAnimationEnd = false;
-    this._$nextSlide.on('animationend', this._stepEnd.bind(this));
+    this._$content.on('animationend', this._stepEnd.bind(this));
+    this._updateImageTimer = setTimeout(
+      this._updateImage.bind(this),
+      1000,
+    );
   }
 
   _stepEnd() {
     this._isAnimationEnd = true;
-    this._setCurrentImage(this._currentIndex);
     this._animateEnd();
   }
 
-  _setCurrentImage(index) {
-    this._$currentSlide.css(
-      'backgroundImage',
-      `url('${this._slideLinks[index]}'`,
-    );
+  _updateImage() {
+    clearTimeout(this._updateImageTimer);
+    this._setImage(this._currentIndex);
   }
 
-  _setNextImage(index) {
-    this._$nextSlide.css(
+  _setImage(index) {
+    this._$elem.css(
       'backgroundImage',
-      `url('${this._slideLinks[index]}'`,
+      `url('${this._imageLinks[index]}'`,
     );
   }
 
   _animateBegin() {
-    this._$nextSlide.addClass(carouselClassNames.slideAnimateOverlay);
-    this._$currentSlide.addClass(
-      carouselClassNames.slideAnimateHiding,
+    this._$content.addClass(
+      carouselClassNames.contentAnimateBlur,
     );
+    this._$content.animate();
   }
 
   _animateEnd() {
-    this._$nextSlide.removeClass(
-      carouselClassNames.slideAnimateOverlay,
+    this._$content.removeClass(
+      carouselClassNames.contentAnimateBlur,
     );
-    this._$currentSlide.removeClass(
-      carouselClassNames.slideAnimateHiding,
-    );
-    this._$nextSlide.finish();
-    this._$currentSlide.finish();
+    this._$content.finish();
   }
 
-  _findCurrentSlide() {
-    return $(this._$elem.find('.js-carousel-slide-current'));
-  }
-
-  _findNextSlide() {
-    return $(this._$elem.find('.js-carousel-slide-next'));
-  }
-
-  _makeArrOfSlidesLinks() {
+  _makeArrOfImageLinks() {
     return Array.from(this._$elem.find('.js-carousel-link')).map(
       (elem) => elem.value,
     );
@@ -98,6 +84,10 @@ class Carousel {
 
   _initDelay() {
     return this._$elem.data().delay * 1000;
+  }
+
+  _findContent() {
+    return $(this._$elem.find('.js-carousel-content'));
   }
 }
 

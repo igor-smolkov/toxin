@@ -1,50 +1,30 @@
-@keyframes shift-in {
-  to {
-    left: 0;
+@keyframes blur {
+  from {
+    backdrop-filter: blur(0) opacity(1);
   }
-}
 
-@keyframes shift-out {
+  50% {
+    backdrop-filter: blur(15px) opacity(0.5);
+  }
+
   to {
-    right: 100%;
+    backdrop-filter: blur(0) opacity(1);
   }
 }
 
 .carousel {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
+  width: 100%;
   min-width: 100%;
-  height: 1px;
+  height: 100%;
   min-height: 100%;
-  overflow: hidden;
+  margin: 0;
+  background: no-repeat center;
+  background-size: cover;
 
-  &__slide {
-    position: absolute;
-    min-width: 100%;
-    min-height: 100%;
-    margin: 0;
-    background: no-repeat center;
-    background-size: cover;
-
-    &_current {
-      right: 0;
-      z-index: 1;
-    }
-
-    &_next {
-      left: 100%;
-      z-index: 2;
-    }
-
+  &__content {
     &_animate {
-      &_overlay {
-        animation: shift-in 2s;
-      }
-
-      &_hiding {
-        animation: shift-out 2s;
+      &_blur {
+        animation: blur 2s;
       }
     }
   }
