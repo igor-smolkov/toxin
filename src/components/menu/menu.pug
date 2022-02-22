@@ -1,3 +1,4 @@
+include ../link-container/link-container.pug
 include ../button/button.pug
 include ../link/link.pug
 include ../nav-links/nav-links.pug
@@ -10,12 +11,18 @@ mixin menu(options = {})
       caption: "Войти",
       isBorderOnly: true,
       isCompact: true,
-      link: "sign-in.html",
     }
     const regButtonOptions = {
       caption: "Зарегистрироваться",
       isCompact: true,
-      link: "registration.html",
+    }
+    const signInLinkContainerOptions = {
+      href: "sign-in.html",
+      title: signInButtonOptions.caption,
+    }
+    const regLinkContainerOptions = {
+      href: "registration.html",
+      title: regButtonOptions.caption,
     }
 
   NAV(class=blockName)
@@ -33,6 +40,8 @@ mixin menu(options = {})
           class=`${blockName}__user-panel-item`,
           class=`${blockName}__user-panel-item_first`
         )
-          +button(signInButtonOptions)
+          +link-container(signInLinkContainerOptions)
+            +button(signInButtonOptions)
         P(class=`${blockName}__user-panel-item`)
-          +button(regButtonOptions)
+          +link-container(regLinkContainerOptions)
+            +button(regButtonOptions)

@@ -101,12 +101,4 @@ $block: 'button';
   &_none {
     display: none;
   }
-
-  &_linked {
-    &,
-    &:hover,
-    &:visited {
-      text-decoration: none;
-    }
-  }
 }

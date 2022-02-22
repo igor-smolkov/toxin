@@ -1,3 +1,4 @@
+include ../link-container/link-container.pug
 include ../button/button.pug
 include ../form-set/form-set.pug
 include ../text-field/text-field.pug
@@ -23,7 +24,10 @@ mixin log-in
     const regButtonOptions = {
       caption: "Создать",
       isBorderOnly: true,
-      link: "registration.html",
+    }
+    const regLinkContainerOptions = {
+      href: "registration.html",
+      title: regButtonOptions.caption,
     }
 
   ARTICLE(class=blockName)
@@ -46,4 +50,5 @@ mixin log-in
         SECTION.form-set__element.form-set__element_align-mid.form-set__element_increased
           P(class=`${blockName}__question`)= "Нет аккаунта на Toxin?"
         P.form-set__element.form-set__element_indent_left
-          +button(regButtonOptions)
+          +link-container(regLinkContainerOptions)
+            +button(regButtonOptions)

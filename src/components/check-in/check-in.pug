@@ -1,3 +1,4 @@
+include ../link-container/link-container.pug
 include ../button/button.pug
 include ../form-set/form-set.pug
 include ..//radio-group/radio-group.pug
@@ -47,7 +48,10 @@ mixin check-in
     const signInButtonOptions = {
       caption: "Войти",
       isBorderOnly: true,
-      link: "sign-in.html",
+    }
+    const signInLinkContainerOptions = {
+      href: "sign-in.html",
+      title: signInButtonOptions.caption,
     }
 
   ARTICLE(class=blockName)
@@ -89,4 +93,5 @@ mixin check-in
         SECTION.form-set__element.form-set__element_align-mid.form-set__element_increased
           P(class=`${blockName}__question`)= "Уже есть аккаунт на Toxin"
         P.form-set__element.form-set__element_indent_left
-          +button(signInButtonOptions)
+          +link-container(signInLinkContainerOptions)
+            +button(signInButtonOptions)

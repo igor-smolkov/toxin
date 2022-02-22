@@ -1,0 +1,6 @@
+mixin link-container(options = {})
+  - const blockName = "link-container";
+  - const { href, title } = options;
+
+  A(class=blockName, href=href, title=title)
+    block

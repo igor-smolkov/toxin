@@ -1,0 +1,9 @@
+.link-container {
+  display: inline-block;
+
+  &,
+  &:hover,
+  &:visited {
+    text-decoration: none;
+  }
+}
