@@ -17,21 +17,26 @@
   }
 
   &__widgets-list {
-    display: flex;
+    display: grid;
     flex-grow: 1;
-    flex-wrap: wrap;
-    gap: 40px;
-    justify-content: space-between;
+    grid-template: 1fr / repeat(3, 1fr) 1.62fr;
+    row-gap: 40px;
     margin: 0;
     padding: 0;
 
     @media only screen and (max-width: 1110px) {
-      justify-content: flex-start;
+      grid-template: 1fr 0.7fr / repeat(3, 1fr);
     }
   }
 
   &__widget {
     list-style: none;
+
+    &_last {
+      @media only screen and (max-width: 1110px) {
+        grid-area: 2 / 1 / span 1 / span 3;
+      }
+    }
   }
 
   @media only screen and (max-width: 1180px) {
@@ -42,7 +47,7 @@
     padding: 40px 20px;
   }
 
-  @media only screen and (max-width: 900px) {
+  @media only screen and (max-width: 850px) {
     flex-direction: column;
   }
 

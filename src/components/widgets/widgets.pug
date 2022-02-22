@@ -43,6 +43,10 @@ mixin widgets
       +logo
       P(class=`${blockName}__message`)= "Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»"
     UL(class=`${blockName}__widgets-list`)
-      each item in list
-        LI(class=`${blockName}__widget`)
+      each item, index in list
+        - const isLast = index === list.length - 1
+        LI(
+          class=`${blockName}__widget`, 
+          class=isLast && `${blockName}__widget_last`
+        )
           +widget(item)
