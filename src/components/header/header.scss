@@ -32,13 +32,13 @@
   &__logo {
     margin: 0;
 
-    @media only screen and (max-width: 1030px) {
+    @media only screen and (max-width: 980px) {
       align-self: center;
     }
   }
 
   &__burger {
     position: relative;
-    margin-left: 53px;
+    margin-left: 20px;
   }
 }

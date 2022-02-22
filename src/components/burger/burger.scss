@@ -72,7 +72,7 @@ $block: 'burger';
         z-index: 1;
         display: block;
 
-        @media only screen and (min-width: 1031px) {
+        @media only screen and (min-width: 981px) {
           position: static;
           display: block;
         }
@@ -90,7 +90,7 @@ $block: 'burger';
     background: $burger;
     cursor: pointer;
 
-    @media only screen and (max-width: 1030px) {
+    @media only screen and (max-width: 980px) {
       display: inline-flex;
     }
 
@@ -110,7 +110,7 @@ $block: 'burger';
   }
 
   &__menu {
-    @media only screen and (max-width: 1030px) {
+    @media only screen and (max-width: 980px) {
       display: none;
     }
   }
