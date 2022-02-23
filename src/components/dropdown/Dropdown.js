@@ -36,7 +36,8 @@ class Dropdown {
 
   static _accumulateWordFormsStr(acc, category, count, index) {
     if (count === 0) return acc;
-    let currentStr = index !== 0 ? `${acc}, ` : acc;
+    const isFirstWord = index === 0 || acc === '';
+    let currentStr = !isFirstWord ? `${acc}, ` : acc;
     currentStr += Dropdown._defineWordFormBy(count, category);
     return currentStr;
   }
