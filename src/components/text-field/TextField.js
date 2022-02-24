@@ -30,11 +30,11 @@ class TextField {
   }
 
   _bindEventListeners() {
-    this._$elem.on('input', this._handleInput.bind(this));
+    this._$elem.on('input', this._handleInput);
     this._$elem.on('click', TextField._handleClick);
   }
 
-  _handleInput() {
+  _handleInput = () => {
     if (!this._inputSubscribers.length) return;
     this._inputSubscribers.forEach((callback) => callback());
   }

@@ -15,14 +15,20 @@ class NavLink {
     this._bindEventListeners();
   }
 
-  _handlePointerEnter() {
+  _bindEventListeners() {
+    this._$elem.on('pointerenter', this._handlePointerEnter);
+    this._$document.on('pointerover', this._handleDocumentPointerOver);
+    this._$document.on('touchstart', this._handleDocumentTouchStart);
+  }
+
+  _handlePointerEnter = () => {
     if (this._isPointerOver) return;
     this._isPointerOver = true;
     this._isDropped = true;
     if (!this._isTouch) this._$expandableCheck.prop('checked', true);
   }
 
-  _handleDocumentPointerOver(e) {
+  _handleDocumentPointerOver = (e) => {
     if (!this._isDropped) return;
     const isOutOfNavLink = !this._$elem.is(e.target)
       && this._$elem.has(e.target).length === 0;
@@ -32,23 +38,8 @@ class NavLink {
     this._$expandableCheck.prop('checked', false);
   }
 
-  _handleDocumentTouchStart() {
+  _handleDocumentTouchStart = () => {
     this._isTouch = true;
-  }
-
-  _bindEventListeners() {
-    this._$elem.on(
-      'pointerenter',
-      this._handlePointerEnter.bind(this),
-    );
-    this._$document.on(
-      'pointerover',
-      this._handleDocumentPointerOver.bind(this),
-    );
-    this._$document.on(
-      'touchstart',
-      this._handleDocumentTouchStart.bind(this),
-    );
   }
 }
 

@@ -14,15 +14,15 @@ class FormSet {
 
   _initSlider() {
     this._slider = new Slider(this._$slider);
-    this._slider.on(this._handleSliderChange.bind(this));
-  }
-
-  _handleSliderChange() {
-    this._setDetails(this._slider.getPriceRange());
+    this._slider.on(this._handleSliderChange);
   }
 
   _setDetails(details) {
     this._$details.text(details);
+  }
+
+  _handleSliderChange = () => {
+    this._setDetails(this._slider.getPriceRange());
   }
 }
 

@@ -11,19 +11,25 @@ class RadioGroup {
     this._bindEventListeners();
   }
 
+  _nextRadio(index) {
+    return index < this._$radios.length - 1
+      ? this._$radios[index + 1]
+      : null;
+  }
+
   _bindEventListeners() {
-    this._$elem.on('focus', this._handleGroupFocus.bind(this));
+    this._$elem.on('focus', this._handleFocus);
     this._$radios.each((_, radio) => {
       const $radio = $(radio);
-      $radio.on('keydown', this._handleRadioKeyDown.bind(this));
+      $radio.on('keydown', this._handleRadioKeyDown);
     });
   }
 
-  _handleGroupFocus() {
+  _handleFocus = () => {
     this._$radios[0].focus();
   }
 
-  _handleRadioKeyDown(e) {
+  _handleRadioKeyDown = (e) => {
     if (e.key === 'Tab') {
       const index = Array.from(this._$radios).findIndex(
         (radio) => radio === e.target,
@@ -37,12 +43,6 @@ class RadioGroup {
       e.target.checked = true;
       e.preventDefault();
     }
-  }
-
-  _nextRadio(index) {
-    return index < this._$radios.length - 1
-      ? this._$radios[index + 1]
-      : null;
   }
 }
 

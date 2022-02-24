@@ -65,24 +65,8 @@ class Calendar {
     this._plugin = new JQueryDatepicker(
       this._$pluginElem, this._dateFrom, this._dateTo, this._dateActive,
     );
-    this._plugin.onSelect(this._handleSelect.bind(this));
     this._initControlButtons();
-  }
-
-  _handleSelect(date) {
-    const isBothDates = this._dateFrom && this._dateTo;
-    if (isBothDates) this._clear();
-    if (!this._dateFrom) this._dateFrom = date;
-    else this._dateTo = date;
-    const isReverse = this._dateFrom && this._dateTo
-      && +this._dateTo < +this._dateFrom;
-    if (isReverse) {
-      [this._dateFrom, this._dateTo] = [this._dateTo, this._dateFrom];
-    }
-    this._dateActive = date;
-    this._plugin.setDates(this._dateFrom, this._dateTo, this._dateActive);
-    this._plugin.selectDate(this._dateActive);
-    this._notify();
+    this._bindEventListeners();
   }
 
   _clear() {
@@ -104,7 +88,6 @@ class Calendar {
     this._dropdownControl = new DropdownControl(this._$elem);
     const isOneOfDates = this._dateFrom || this._dateTo;
     if (isOneOfDates) this._dropdownControl.showClearButton();
-    this._bindEventListeners();
   }
 
   _updateClearButton() {
@@ -114,7 +97,28 @@ class Calendar {
   }
 
   _bindEventListeners() {
-    this._dropdownControl.onClear(this._clear.bind(this));
+    this._plugin.onSelect(this._handlePluginSelect);
+    this._dropdownControl.onClear(this._handleDropdownControlClear);
+  }
+
+  _handlePluginSelect = (date) => {
+    const isBothDates = this._dateFrom && this._dateTo;
+    if (isBothDates) this._clear();
+    if (!this._dateFrom) this._dateFrom = date;
+    else this._dateTo = date;
+    const isReverse = this._dateFrom && this._dateTo
+      && +this._dateTo < +this._dateFrom;
+    if (isReverse) {
+      [this._dateFrom, this._dateTo] = [this._dateTo, this._dateFrom];
+    }
+    this._dateActive = date;
+    this._plugin.setDates(this._dateFrom, this._dateTo, this._dateActive);
+    this._plugin.selectDate(this._dateActive);
+    this._notify();
+  }
+
+  _handleDropdownControlClear = () => {
+    this._clear();
   }
 }
 

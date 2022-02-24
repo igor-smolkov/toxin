@@ -103,19 +103,10 @@ class Dropdown {
     return counters;
   }
 
-  _handleClearButtonClick() {
-    this._resetCounters();
-    this._updateField();
-  }
-
   _resetCounters() {
     this._counters.forEach((counter) => {
       counter.reset();
     });
-  }
-
-  _handleApplyButtonClick() {
-    this._hide();
   }
 
   _updateField() {
@@ -184,31 +175,38 @@ class Dropdown {
     this._$elem.removeClass(dropdownClassNames.dropdownExpanded);
   }
 
-  _handleDrop(e) {
-    if (e.target.checked) this._show();
-    else this._hide();
+  _bindEventListeners() {
+    this._$elem.on('click', this._handleClick);
+    this._dropdownControl.onClear(this._handleDropdownControlClear);
+    this._dropdownControl.onApply(this._handleDropdownControlApply);
+    this._$dropper.on('change', this._handleDropperChange);
+    this._$dropper.on('keydown', this._handleDropperKeyDown);
+    this._$document.on('click', this._handleDocumentClick);
+    this._$document.on('keydown', this._handleDocumentKeyDown);
   }
 
-  _handleCheckClear() {
+  _handleClick = () => {
     if (this._calcCountersSum() > 0) {
       this._dropdownControl.showClearButton();
     } else this._dropdownControl.hideClearButton();
     if (this._counters.length) this._updateField();
   }
 
-  _handleDocumentClick(e) {
-    const isOutOfDropdown = !this._$elem.is(e.target)
-      && this._$elem.has(e.target).length === 0;
-    const isNeedToClose = isOutOfDropdown && this._isDropped;
-    if (isNeedToClose) this._hide();
+  _handleDropdownControlClear = () => {
+    this._resetCounters();
+    this._updateField();
   }
 
-  _handleDocumentKeyDown(e) {
-    const isNeedToClose = e.key === 'Escape' && this._isDropped;
-    if (isNeedToClose) this._hide();
+  _handleDropdownControlApply = () => {
+    this._hide();
   }
 
-  _handleDropperKey(e) {
+  _handleDropperChange = (e) => {
+    if (e.target.checked) this._show();
+    else this._hide();
+  }
+
+  _handleDropperKeyDown = (e) => {
     const isCustomControls = e.key !== 'Tab' && e.key !== ' ';
     if (isCustomControls) e.preventDefault();
     const isNeedToShow = e.key === 'Enter' && !this._isDropped;
@@ -217,18 +215,16 @@ class Dropdown {
     if (isNeedToClose) this._hide();
   }
 
-  _bindEventListeners() {
-    this._dropdownControl.onClear(
-      this._handleClearButtonClick.bind(this),
-    );
-    this._dropdownControl.onApply(
-      this._handleApplyButtonClick.bind(this),
-    );
-    this._$dropper.on('change', this._handleDrop.bind(this));
-    this._$dropper.on('keydown', this._handleDropperKey.bind(this));
-    this._$elem.on('click', this._handleCheckClear.bind(this));
-    this._$document.on('click', this._handleDocumentClick.bind(this));
-    this._$document.on('keydown', this._handleDocumentKeyDown.bind(this));
+  _handleDocumentClick = (e) => {
+    const isOutOfDropdown = !this._$elem.is(e.target)
+      && this._$elem.has(e.target).length === 0;
+    const isNeedToClose = isOutOfDropdown && this._isDropped;
+    if (isNeedToClose) this._hide();
+  }
+
+  _handleDocumentKeyDown = (e) => {
+    const isNeedToClose = e.key === 'Escape' && this._isDropped;
+    if (isNeedToClose) this._hide();
   }
 }
 

@@ -56,65 +56,13 @@ class DateSection {
     this._$departureDropper = $(
       this._$elem.find('.js-date-section-set')[1],
     ).find('.js-dropdown-check');
+    this._$document = $(document);
     this._subscribers = new Set();
     this._updateCalendars();
-    this._listen();
+    this._bindEventListeners();
   }
 
-  _listen() {
-    this._arrivalField.onInput(this._handleInput.bind(this));
-    this._departureField.onInput(this._handleInput.bind(this));
-    this._arrivalDropdownControl.onApply(
-      this._closeCalendars.bind(this),
-    );
-    this._departureDropdownControl.onApply(
-      this._closeCalendars.bind(this),
-    );
-    this._arrivalCalendar.listen(
-      this._handleCalendarChange.bind(this),
-    );
-    this._departureCalendar.listen(
-      this._handleCalendarChange.bind(this),
-    );
-    this._$arrivalDropper.on(
-      'keydown',
-      this._handleArrivalDropperKey.bind(this),
-    );
-    this._$departureDropper.on(
-      'keydown',
-      this._handleDepartureDropperKey.bind(this),
-    );
-    document.addEventListener(
-      'click',
-      this._handleDocClick.bind(this),
-    );
-    document.addEventListener(
-      'keydown',
-      this._handleDocKeyDown.bind(this),
-    );
-  }
-
-  _handleInput() {
-    this._updateCalendars();
-  }
-
-  _handleCalendarChange(dateFrom, dateTo) {
-    const isClear = !dateFrom && !dateTo;
-    if (isClear) this._handleClear();
-    if (dateFrom) {
-      this._arrivalField.setValue(
-        Calendar.convertDateToYMDHyphen(dateFrom),
-      );
-    }
-    if (dateTo) {
-      this._departureField.setValue(
-        Calendar.convertDateToYMDHyphen(dateTo),
-      );
-    }
-    this._updateCalendars();
-  }
-
-  _handleClear() {
+  _clear() {
     this._arrivalField.setValue(null);
     this._departureField.setValue(null);
     this._updateCalendars();
@@ -137,7 +85,49 @@ class DateSection {
     this._$departureDropper.prop('checked', false);
   }
 
-  _handleArrivalDropperKey(e) {
+  _notify() {
+    if (this._subscribers.size === 0) return;
+    this._subscribers.forEach((s) => s());
+  }
+
+  _bindEventListeners() {
+    this._arrivalField.onInput(this._handleFieldInput);
+    this._departureField.onInput(this._handleFieldInput);
+    this._arrivalDropdownControl.onApply(this._handleDropdownControlApply);
+    this._departureDropdownControl.onApply(this._handleDropdownControlApply);
+    this._arrivalCalendar.listen(this._handleCalendarChange);
+    this._departureCalendar.listen(this._handleCalendarChange);
+    this._$arrivalDropper.on('keydown', this._handleArrivalDropperKeyDown);
+    this._$departureDropper.on('keydown', this._handleDepartureDropperKeyDown);
+    this._$document.on('click', this._handleDocumentClick);
+    this._$document.on('keydown', this._handleDocumentKeyDown);
+  }
+
+  _handleFieldInput = () => {
+    this._updateCalendars();
+  }
+
+  _handleDropdownControlApply = () => {
+    this._closeCalendars();
+  }
+
+  _handleCalendarChange = (dateFrom, dateTo) => {
+    const isClear = !dateFrom && !dateTo;
+    if (isClear) this._clear();
+    if (dateFrom) {
+      this._arrivalField.setValue(
+        Calendar.convertDateToYMDHyphen(dateFrom),
+      );
+    }
+    if (dateTo) {
+      this._departureField.setValue(
+        Calendar.convertDateToYMDHyphen(dateTo),
+      );
+    }
+    this._updateCalendars();
+  }
+
+  _handleArrivalDropperKeyDown = (e) => {
     const isCustomControls = e.key !== 'Tab' && e.key !== ' ';
     if (isCustomControls) e.preventDefault();
     const isNeedToShow = e.key === 'Enter'
@@ -148,7 +138,7 @@ class DateSection {
     if (isNeedToClose) this._closeCalendars();
   }
 
-  _handleDepartureDropperKey(e) {
+  _handleDepartureDropperKeyDown = (e) => {
     const isCustomControls = e.key !== 'Tab' && e.key !== ' ';
     if (isCustomControls) e.preventDefault();
     const isNeedToShow = e.key === 'Enter'
@@ -159,7 +149,7 @@ class DateSection {
     if (isNeedToClose) this._closeCalendars();
   }
 
-  _handleDocClick(e) {
+  _handleDocumentClick = (e) => {
     const isOutOfDateSection = !this._$elem.is(e.target)
       && this._$elem.has(e.target).length === 0
       && e.target.innerText !== '<Пред'
@@ -167,13 +157,8 @@ class DateSection {
     if (isOutOfDateSection) this._closeCalendars();
   }
 
-  _handleDocKeyDown(e) {
+  _handleDocumentKeyDown = (e) => {
     if (e.key === 'Escape') this._closeCalendars();
-  }
-
-  _notify() {
-    if (this._subscribers.size === 0) return;
-    this._subscribers.forEach((s) => s());
   }
 }
 

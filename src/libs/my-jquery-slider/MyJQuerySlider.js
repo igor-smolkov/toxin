@@ -27,19 +27,17 @@ class MyJQuerySlider {
       limits: this._limits,
       withIndent: false,
     });
-    this._$root.on(
-      'my-jquery-slider-init',
-      this._notify.bind(this),
-    );
-    this._$root.on(
-      'my-jquery-slider-update',
-      this._notify.bind(this),
-    );
+    this._$root.on('my-jquery-slider-init', this._handleChange);
+    this._$root.on('my-jquery-slider-update', this._handleChange);
   }
 
   _notify() {
     if (this._subscribers.size === 0) return;
     this._subscribers.forEach((s) => s());
+  }
+
+  _handleChange = () => {
+    this._notify();
   }
 }
 

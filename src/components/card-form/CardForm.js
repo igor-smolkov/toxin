@@ -21,10 +21,10 @@ class CardForm {
   }
 
   _bindRoomBookingListeners() {
-    this.dateSection.on(this._handleDateSectionChange.bind(this));
+    this.dateSection.on(this._handleDateSectionChange);
   }
 
-  _handleDateSectionChange() {
+  _handleDateSectionChange = () => {
     this.bill.calc(this.dateSection.getDaysLength());
   }
 }

@@ -75,25 +75,29 @@ class DateFilter {
     this._field.setValue(formattedDates);
   }
 
-  _handleCalendarChange(dateFrom, dateTo) {
+  _closeCalendar() {
+    this._$dropper.prop('checked', false);
+  }
+
+  _bindEventListeners() {
+    this._calendar.listen(this._handleCalendarChange);
+    this._dropdownControl.onApply(this._handleDropdownControlApply);
+    this._$dropper.on('keydown', this._handleDropperKeyDown);
+    this._$document.on('click', this._handleDocumentClick);
+    this._$document.on('keydown', this._handleDocumentKeyDown);
+  }
+
+  _handleCalendarChange = (dateFrom, dateTo) => {
     this.dateFrom = dateFrom;
     this.dateTo = dateTo;
     this._updateField();
   }
 
-  _bindEventListeners() {
-    this._calendar.listen(this._handleCalendarChange.bind(this));
-    this._dropdownControl.onApply(this._closeCalendar.bind(this));
-    this._$dropper.on('keydown', this._handleDropperKey.bind(this));
-    this._$document.on('click', this._handleDocumentClick.bind(this));
-    this._$document.on('keydown', this._handleDocumentKeyDown.bind(this));
+  _handleDropdownControlApply = () => {
+    this._closeCalendar();
   }
 
-  _closeCalendar() {
-    this._$dropper.prop('checked', false);
-  }
-
-  _handleDropperKey(e) {
+  _handleDropperKeyDown = (e) => {
     const isCustomControls = e.key !== 'Tab' && e.key !== ' ';
     if (isCustomControls) e.preventDefault();
     const isNeedToShow = e.key === 'Enter'
@@ -104,7 +108,7 @@ class DateFilter {
     if (isNeedToClose) this._closeCalendar();
   }
 
-  _handleDocumentClick(e) {
+  _handleDocumentClick = (e) => {
     const isOutOfDateFilter = !this._$elem.is(e.target)
       && this._$elem.has(e.target).length === 0
       && e.target.innerText !== '<Пред'
@@ -112,7 +116,7 @@ class DateFilter {
     if (isOutOfDateFilter) this._closeCalendar();
   }
 
-  _handleDocumentKeyDown(e) {
+  _handleDocumentKeyDown = (e) => {
     if (e.key === 'Escape') this._closeCalendar();
   }
 }

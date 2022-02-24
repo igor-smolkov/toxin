@@ -38,11 +38,6 @@ class DropdownControl {
     );
   }
 
-  _bindEventListeners() {
-    this._clearButton.onClick(this._notifyAboutClear.bind(this));
-    this._applyButton.onClick(this._notifyAboutApply.bind(this));
-  }
-
   _notifyAboutClear() {
     if (!this._clearSubscribers.length) return;
     this._clearSubscribers.forEach((callback) => callback());
@@ -51,6 +46,19 @@ class DropdownControl {
   _notifyAboutApply() {
     if (!this._applySubscribers.length) return;
     this._applySubscribers.forEach((callback) => callback());
+  }
+
+  _bindEventListeners() {
+    this._clearButton.onClick(this._handleClearButtonClick);
+    this._applyButton.onClick(this._handleApplyButtonClick);
+  }
+
+  _handleClearButtonClick = () => {
+    this._notifyAboutClear();
+  }
+
+  _handleApplyButtonClick = () => {
+    this._notifyAboutApply();
   }
 }
 

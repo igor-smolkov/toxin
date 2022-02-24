@@ -54,37 +54,32 @@ class Preview {
     this._$pointsControl = this._$elem.find('.js-preview-points');
   }
 
-  _handlePrevButtonClick(e) {
+  _bindEventListeners() {
+    this._$prevButton.on('click', this._handlePrevButtonClick);
+    this._$nextButton.on('click', this._handleNextButtonClick);
+    this._$pointsControl.on('change', this._handlePointsControlChange);
+    this._$img.on('animationend', this._handleImgAnimationEnd);
+  }
+
+  _handlePrevButtonClick = (e) => {
     e.preventDefault();
     this.prev();
   }
 
-  _handleNextButtonClick(e) {
+  _handleNextButtonClick = (e) => {
     e.preventDefault();
     this.next();
   }
 
-  _handlePointsControlChange(e) {
+  _handlePointsControlChange = (e) => {
     e.preventDefault();
     this.setSelected(
       +$(`input[name="views-${this._number}"]:checked`).val(),
     );
   }
 
-  _bindEventListeners() {
-    this._$prevButton.on(
-      'click',
-      this._handlePrevButtonClick.bind(this),
-    );
-    this._$nextButton.on(
-      'click',
-      this._handleNextButtonClick.bind(this),
-    );
-    this._$pointsControl.on(
-      'change',
-      this._handlePointsControlChange.bind(this),
-    );
-    this._$img.on('animationend', this._resetAnimation.bind(this));
+  _handleImgAnimationEnd = () => {
+    this._resetAnimation();
   }
 }
 

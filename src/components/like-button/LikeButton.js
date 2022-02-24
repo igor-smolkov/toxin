@@ -26,14 +26,18 @@ class LikeButton {
   }
 
   _bindEventListeners() {
-    this._$check.on('keydown', this._handleKeyDown.bind(this));
-    this._$check.on('change', this._changeLabel.bind(this));
+    this._$check.on('keydown', this._handleCheckKeyDown);
+    this._$check.on('change', this._handleCheckChange);
   }
 
-  _handleKeyDown(e) {
+  _handleCheckKeyDown = (e) => {
     const isCustomControls = e.key !== 'Tab' && e.key !== ' ';
     if (isCustomControls) e.preventDefault();
     if (e.key === 'Enter') this._toggle();
+  }
+
+  _handleCheckChange = () => {
+    this._changeLabel();
   }
 }
 

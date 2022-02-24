@@ -24,8 +24,10 @@
   "homepage": "https://github.com/igor-smolkov/toxin#readme",
   "devDependencies": {
     "@babel/core": "^7.12.3",
+    "@babel/plugin-proposal-class-properties": "^7.16.7",
     "@babel/preset-env": "^7.12.1",
     "@prettier/plugin-pug": "^1.17.3",
+    "babel-eslint": "^10.1.0",
     "babel-loader": "^8.1.0",
     "clean-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^6.2.1",

@@ -1,4 +1,5 @@
 module.exports = {
+  parser: 'babel-eslint',
   plugins: ['import', 'fsd'],
   env: {
     browser: true,

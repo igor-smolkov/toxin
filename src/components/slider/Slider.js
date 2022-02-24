@@ -28,7 +28,7 @@ class Slider {
     this._$root = this._$elem.find('.js-slider-root');
     this._subscribers = new Set();
     this._plugin = new MyJQuerySlider(this._$root, this._defineLimits());
-    this._plugin.on(this._handleChange.bind(this));
+    this._plugin.on(this._handlePluginChange);
   }
 
   _defineLimits() {
@@ -38,13 +38,13 @@ class Slider {
       .map((v) => +v);
   }
 
-  _handleChange() {
-    this._notify();
-  }
-
   _notify() {
     if (this._subscribers.size === 0) return;
     this._subscribers.forEach((s) => s());
+  }
+
+  _handlePluginChange = () => {
+    this._notify();
   }
 }
 

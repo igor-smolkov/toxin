@@ -12,7 +12,7 @@ class Carousel {
     this._setImage(from);
     this._currentIndex = from;
     this._isAnimationEnd = true;
-    this.timer = setTimeout(this._looping.bind(this), this._delay);
+    this.timer = setTimeout(this._looping, this._delay);
   }
 
   _init() {
@@ -21,14 +21,7 @@ class Carousel {
     this._delay = this._initDelay();
     this._currentIndex = 0;
     this.startFrom(this._currentIndex);
-  }
-
-  _looping() {
-    if (!this._isAnimationEnd) {
-      this._stepEnd();
-    }
-    this._stepStart(this._currentIndex + 1);
-    this.timer = setTimeout(this._looping.bind(this), this._delay);
+    this._bindEventListeners()
   }
 
   _stepStart(index) {
@@ -38,21 +31,12 @@ class Carousel {
     }
     this._animateBegin();
     this._isAnimationEnd = false;
-    this._$content.on('animationend', this._stepEnd.bind(this));
-    this._updateImageTimer = setTimeout(
-      this._updateImage.bind(this),
-      1000,
-    );
+    this._updateImageTimer = setTimeout(this._updateImage, 1000);
   }
 
   _stepEnd() {
     this._isAnimationEnd = true;
     this._animateEnd();
-  }
-
-  _updateImage() {
-    clearTimeout(this._updateImageTimer);
-    this._setImage(this._currentIndex);
   }
 
   _setImage(index) {
@@ -88,6 +72,27 @@ class Carousel {
 
   _findContent() {
     return $(this._$elem.find('.js-carousel-content'));
+  }
+
+  _bindEventListeners() {
+    this._$content.on('animationend', this._handleContentAnimationEnd);
+  }
+
+  _handleContentAnimationEnd = () => {
+    this._stepEnd();
+  }
+
+  _looping = () => {
+    if (!this._isAnimationEnd) {
+      this._stepEnd();
+    }
+    this._stepStart(this._currentIndex + 1);
+    this.timer = setTimeout(this._looping, this._delay);
+  }
+
+  _updateImage = () => {
+    clearTimeout(this._updateImageTimer);
+    this._setImage(this._currentIndex);
   }
 }
 

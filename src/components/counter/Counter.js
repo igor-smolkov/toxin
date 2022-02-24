@@ -6,7 +6,7 @@ class Counter {
   constructor($elem) {
     this._$elem = $elem;
     this._init();
-    this._listenControls();
+    this._bindEventListeners();
   }
 
   setCount(value) {
@@ -66,29 +66,23 @@ class Counter {
     return $(this._$elem.find('.js-counter-count'));
   }
 
-  _listenControls() {
-    this._$minusButton.on(
-      'click',
-      this._handleMinusButtonClick.bind(this),
-    );
-    this._$plusButton.on(
-      'click',
-      this._handlePlusButtonClick.bind(this),
-    );
+  _updateCountField() {
+    this._$countField.text(this._count.toString());
   }
 
-  _handleMinusButtonClick(e) {
+  _bindEventListeners() {
+    this._$minusButton.on('click', this._handleMinusButtonClick);
+    this._$plusButton.on('click', this._handlePlusButtonClick);
+  }
+
+  _handleMinusButtonClick = (e) => {
     e.preventDefault();
     this.decrementCount();
   }
 
-  _handlePlusButtonClick(e) {
+  _handlePlusButtonClick = (e) => {
     e.preventDefault();
     this.incrementCount();
-  }
-
-  _updateCountField() {
-    this._$countField.text(this._count.toString());
   }
 }
 

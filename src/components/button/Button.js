@@ -28,10 +28,10 @@ class Button {
   }
 
   _bindEventListeners() {
-    this._$elem.on('click', this._handleClick.bind(this));
+    this._$elem.on('click', this._handleClick);
   }
 
-  _handleClick(e) {
+  _handleClick = (e) => {
     e.preventDefault();
     if (!this._clickSubscribers.length) return;
     this._clickSubscribers.forEach((callback) => callback());
