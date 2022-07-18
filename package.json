@@ -62,7 +62,7 @@
     "@babel/polyfill": "^7.12.1",
     "jquery": "^3.5.1",
     "jquery-datepicker": "^1.12.3",
-    "jquery-ui": "^1.13.0",
+    "jquery-ui": "^1.13.2",
     "normalize.css": "^8.0.1",
     "my-jquery-slider": "git+https://github.com/igor-smolkov/my-jquery-slider.git#v0.2"
   }
